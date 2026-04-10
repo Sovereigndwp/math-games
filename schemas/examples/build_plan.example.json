@@ -22,7 +22,7 @@
     "cost_labels": [],
     "time_critical_popup_warning": null,
     "timer_escalation": null,
-    "answer_formats_accepted": ["click_select"],
+    "answer_formats_accepted": ["choice"],
     "answer_format_persistence": null,
     "escape_semantics": []
   },
