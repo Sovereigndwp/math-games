@@ -1,0 +1,154 @@
+{
+  "schema_version": "0.2.0",
+  "certificate_id": "rc_20260410_a1b2c3",
+  "supersedes_certificate_id": null,
+  "certificate_status": "final",
+  "created_at": "2026-04-10T17:00:00Z",
+  "finalized_at": "2026-04-10T17:15:00Z",
+  "slug": "example-game",
+  "version": "0.1.0",
+  "build_ref": {
+    "path": "reviews/example-game/current/",
+    "sha": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  "concept_packet_ref": {
+    "path": "concepts/example-game/",
+    "hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "build_plan_ref": {
+    "plan_id": "bp_20260410_a1b2c3",
+    "path": "reviews/example-game/plans/bp_20260410_a1b2c3.json",
+    "hash": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  },
+  "evidence": {
+    "build_standards": {
+      "status": "pass",
+      "audit_refs": [
+        {
+          "path": "reviews/example-game/audits/qa_20260410_a1b2c3.json",
+          "hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "kind": "qa_audit"
+        }
+      ],
+      "build_plan_gate_readiness": "GREEN"
+    },
+    "content_completeness": {
+      "status": "pass",
+      "coverage_rule_results": [
+        {
+          "rule_id": "CR-1",
+          "result": "pass",
+          "measured_value": 5,
+          "threshold": 5
+        }
+      ],
+      "authored_item_count": 5,
+      "min_authored_items": 5
+    },
+    "player_clarity": {
+      "status": "pass",
+      "audit_refs": [
+        {
+          "path": "reviews/example-game/audits/qa_20260410_a1b2c3.json",
+          "hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "kind": "qa_audit"
+        }
+      ],
+      "ap_statuses": {
+        "AP_1_penalties_before_objectives": "NA",
+        "AP_2_silent_wrong_answer": "NA",
+        "AP_3_silent_mechanics_during_popup": "NA",
+        "AP_4_timer_expiry_without_escalation": "NA",
+        "AP_5_cost_without_fiction": "NA",
+        "AP_6_format_reminder_absent": "NA"
+      },
+      "estimated_cold_start_success_rate": 0.95
+    },
+    "math_qa": {
+      "status": "pass",
+      "audit_refs": [
+        {
+          "path": "reviews/example-game/audits/qa_20260410_a1b2c3.json",
+          "hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "kind": "qa_audit"
+        }
+      ],
+      "open_critical_count": 0,
+      "open_major_count": 0
+    },
+    "pass_records": {
+      "status": "pass",
+      "pass_ids": ["P1"],
+      "required_passes_for_version": ["P1"],
+      "missing_passes": [],
+      "pass_record_refs": []
+    }
+  },
+  "implementation_drift_check": {
+    "expected_paths": ["reviews/example-game/current/index.html"],
+    "actual_changed_paths": ["reviews/example-game/current/index.html"],
+    "unexpected_changes": [],
+    "missing_changes": [],
+    "drift_verdict": "no_drift",
+    "drift_approval_ref": null,
+    "drift_explanation": null
+  },
+  "release_verdict": "GREEN",
+  "verdict_reasons": [
+    {
+      "domain": "build_standards",
+      "status": "pass",
+      "reason": "All CO and MG gate items RESOLVED or NA."
+    },
+    {
+      "domain": "math_qa",
+      "status": "pass",
+      "reason": "Zero open critical or major findings; the single major finding was resolved by a verified repair."
+    },
+    {
+      "domain": "repair_coverage",
+      "status": "pass",
+      "reason": "The single major finding (f_t1_example_off_by_one) has a verified_fix repair_record (rr_20260410_a1b2c3) with release_evidence_eligible=true."
+    },
+    {
+      "domain": "implementation_drift",
+      "status": "pass",
+      "reason": "Actual changed paths match expected_paths exactly."
+    }
+  ],
+  "unresolved_blockers": [],
+  "repair_history": [
+    {
+      "path": "reviews/example-game/repairs/rr_20260410_a1b2c3.json",
+      "hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "kind": "repair_record"
+    }
+  ],
+  "dispatch_payload_preview": {
+    "event_type": "promote_build",
+    "client_payload": {
+      "slug": "example-game",
+      "version": "0.1.0",
+      "gate_status": "GREEN",
+      "gate_url": null,
+      "summary": "Example fixture release certificate; cross-schema demonstration."
+    }
+  },
+  "provenance": {
+    "generated_by": "example-release-gate-agent",
+    "policy_refs": [
+      {
+        "policy_repo": "Sovereigndwp/math-game-studio-os",
+        "path": "docs/pipeline_policy.md",
+        "commit_hash": "abc1234567890abcdef1234567890abcdef12345"
+      }
+    ],
+    "generated_from_schema_versions": {
+      "release_certificate_schema": "0.2.0",
+      "build_plan_schema": "0.1.0",
+      "qa_audit_schema": "0.2.0",
+      "concept_brief_schema": null,
+      "repair_record_schema": "0.1.0"
+    }
+  }
+}

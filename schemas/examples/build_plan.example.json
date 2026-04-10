@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.1.0",
+  "plan_id": "bp_20260410_a1b2c3",
+  "created_at": "2026-04-10T15:00:00Z",
+  "slug": "example-game",
+  "version": "0.1.0",
+  "pass_label": "P1",
+  "concept_ref": {
+    "packet_path": "concepts/example-game/",
+    "packet_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "brief_id": "cb_20260410_a1b2c3"
+  },
+  "build_goal": "Deliver a P1 prototype that demonstrates tap-to-add toward a visible target within 10, with a running-total HUD and no timer.",
+  "player_experience": {
+    "first_interaction_experience": {
+      "objective_stated_before_first_penalty": true,
+      "worked_example_shown": true,
+      "expected_input_format_shown": true,
+      "wrong_answer_consequence_stated": true,
+      "no_intro_justification": null
+    },
+    "cost_labels": [],
+    "time_critical_popup_warning": null,
+    "timer_escalation": null,
+    "answer_formats_accepted": ["click_select"],
+    "answer_format_persistence": null,
+    "escape_semantics": []
+  },
+  "mechanic_spec": {
+    "core_loop": "Player reads the target, taps counter tiles to add their values to the running total, and commits when the running total equals the target.",
+    "input_model": {
+      "type": "click_select",
+      "notes": null
+    },
+    "feedback_states": [
+      {
+        "state_name": "match",
+        "trigger": "running_total equals target on commit",
+        "visual": "target flashes green",
+        "audio": null,
+        "text": null
+      },
+      {
+        "state_name": "overshoot",
+        "trigger": "running_total greater than target",
+        "visual": "amber reset cue on the running total HUD",
+        "audio": null,
+        "text": null
+      }
+    ],
+    "hidden_invariants": [
+      "running_total is always visible"
+    ]
+  },
+  "level_structure": null,
+  "implementation_targets": [
+    {
+      "path": "reviews/example-game/current/index.html",
+      "change_kind": "create",
+      "why": "Initial P1 build of the example game."
+    }
+  ],
+  "content_requirements": {
+    "min_authored_items": 5,
+    "coverage_rules": [
+      {
+        "rule_id": "CR-1",
+        "description": "At least 5 distinct targets in the 1-10 range.",
+        "threshold": 5
+      }
+    ]
+  },
+  "generator_rules": null,
+  "ui_requirements": {
+    "scenes": [
+      {
+        "id": "scene_main",
+        "purpose": "Single scene with counter tiles, running total HUD, target display, and commit button.",
+        "required_elements": ["counter_tiles", "running_total_hud", "target_display", "commit_button"]
+      }
+    ],
+    "hud_elements": [
+      {
+        "label": "Total: 0",
+        "shows": "running total of tapped counter values, updated live"
+      },
+      {
+        "label": "Target: 5",
+        "shows": "current target number for this round"
+      }
+    ],
+    "accessibility": [
+      "touch target 48x48 minimum"
+    ]
+  },
+  "asset_requirements": [],
+  "telemetry": {
+    "fields": [
+      {
+        "name": "target_matched",
+        "type": "boolean",
+        "definition": "True if the player committed with running_total equal to target.",
+        "used_by_gate": null
+      }
+    ],
+    "derived_metrics": []
+  },
+  "blockers": [],
+  "automated_checks": [
+    {
+      "id": "AC-1",
+      "description": "Schema validation of the build plan artifact against build_plan.schema.json.",
+      "runner": "schema_validation",
+      "target_ref": null,
+      "passing_criteria": "Build plan validates cleanly against schema v0.1.0."
+    }
+  ],
+  "human_checks": [],
+  "out_of_scope": [
+    "score and star ratings (reserved for P2A)",
+    "timer pressure (not part of this example)"
+  ],
+  "gate_readiness": {
+    "build_standards_gate": {
+      "CO_1_first_interaction": "RESOLVED",
+      "CO_2_cost_labeling": "NA",
+      "CO_3_time_critical_popup": "NA",
+      "CO_4_timer_escalation": "NA",
+      "CO_5_answer_format_persistence": "NA",
+      "CO_6_escape_semantics": "NA",
+      "MG_1_float_precision": "NA",
+      "MG_2_degenerate_guards": "NA",
+      "MG_3_null_return_contract": "NA",
+      "MG_4_hint_correctness": "NA",
+      "MG_5_collision_budget": "NA",
+      "MG_6_answer_bias": "NA",
+      "overall": "GREEN"
+    },
+    "ready_for_stage_5": true
+  },
+  "provenance": {
+    "generated_by": "example-engineer",
+    "policy_refs": [
+      {
+        "policy_repo": "Sovereigndwp/math-game-studio-os",
+        "path": "docs/build_standards_gate.md",
+        "commit_hash": "abc1234567890abcdef1234567890abcdef12345"
+      }
+    ],
+    "generated_from_schema_versions": {
+      "concept_brief_schema": "0.1.0",
+      "build_plan_schema": "0.1.0",
+      "interaction_types_taxonomy": "0.1.0"
+    },
+    "taskade_source_refs": []
+  },
+  "unresolved_items": []
+}

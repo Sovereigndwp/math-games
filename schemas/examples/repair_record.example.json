@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "repair_id": "rr_20260410_a1b2c3",
+  "created_at": "2026-04-10T16:30:00Z",
+  "slug": "example-game",
+  "version": "0.1.0",
+  "source_audit_ref": {
+    "audit_id": "qa_20260410_a1b2c3",
+    "audit_path": "reviews/example-game/audits/qa_20260410_a1b2c3.json",
+    "audit_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "target_finding_ids": ["f_t1_example_off_by_one"],
+  "target_fix_ids": ["fx_t1_strict_equality"],
+  "repair_basis": "audit_driven",
+  "repair_strategy": {
+    "kind": "diff_apply",
+    "description": "Replace the loose inequality in the T1 target-match comparison with a strict equality check and add a strict-equality unit test.",
+    "proposed_diff": null,
+    "proposed_diff_kind": null
+  },
+  "repair_targets": [
+    {
+      "kind": "source_file",
+      "path": "reviews/example-game/current/index.html",
+      "pre_repair_sha": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "codebase": "repo_native",
+      "parallel_codebase_identifier": null,
+      "applies_to_repo_build": true
+    }
+  ],
+  "attempts": [
+    {
+      "attempt_number": 1,
+      "started_at": "2026-04-10T16:30:00Z",
+      "ended_at": "2026-04-10T16:31:00Z",
+      "executor": {
+        "kind": "automated_runner",
+        "identifier": "example-repair-runner-v0.1.0"
+      },
+      "strategy_kind_used": null,
+      "status": "verified",
+      "failure_reason": null,
+      "artifacts_changed": ["reviews/example-game/current/index.html"],
+      "notes": null
+    }
+  ],
+  "verification": {
+    "method": "assertion",
+    "result": "pass",
+    "assertion": "T1.targetMatches(5, 6) === false",
+    "re_audit_ref": null,
+    "result_evidence": "Strict-equality assertion passed on first run after repair.",
+    "verified_at": "2026-04-10T16:31:30Z"
+  },
+  "outcome": {
+    "status": "verified_fix",
+    "post_repair_shas": [
+      {
+        "path": "reviews/example-game/current/index.html",
+        "sha": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      }
+    ],
+    "commit_refs": ["abc1234567890abcdef1234567890abcdef12345"],
+    "escalation_details": null,
+    "rejection_reason": null,
+    "resolution_summary": "Strict-equality check replaced the loose comparison; verification assertion passed."
+  },
+  "release_evidence_eligible": true,
+  "provenance": {
+    "generated_by": "example-repair-runner-v0.1.0",
+    "policy_refs": [
+      {
+        "policy_repo": "Sovereigndwp/math-game-studio-os",
+        "path": "docs/build_standards_gate.md",
+        "commit_hash": "abc1234567890abcdef1234567890abcdef12345"
+      }
+    ],
+    "generated_from_schema_versions": {
+      "repair_record_schema": "0.1.0",
+      "qa_audit_schema": "0.2.0",
+      "build_plan_schema": "0.1.0"
+    }
+  },
+  "unresolved_items": []
+}

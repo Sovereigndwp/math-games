@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.2.0",
+  "audit_id": "qa_20260410_a1b2c3",
+  "created_at": "2026-04-10T16:00:00Z",
+  "audit_kind": "math_question_qa",
+  "audit_basis": "release_readiness",
+  "build_target": {
+    "slug": "example-game",
+    "codebase": "repo_native",
+    "parallel_codebase_identifier": null,
+    "file_path": "reviews/example-game/current/index.html",
+    "target_sha": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "applies_to_repo_build": true
+  },
+  "scope_statement": {
+    "applies_to": "The repo-native P1 build of example-game at reviews/example-game/current/index.html, SHA-pinned at audit creation time.",
+    "does_not_apply_to": "Any other build of example-game and any other game.",
+    "reusable_findings": false
+  },
+  "audit_applies_to_release_evidence": true,
+  "auditor": {
+    "kind": "automated_runner",
+    "identifier": "example-qa-runner-v0.1.0",
+    "taskade_agent_id": null
+  },
+  "policy_refs": [
+    {
+      "policy_repo": "Sovereigndwp/math-game-studio-os",
+      "path": "docs/build_standards_gate.md",
+      "commit_hash": "abc1234567890abcdef1234567890abcdef12345"
+    }
+  ],
+  "concept_ref": {
+    "packet_path": "concepts/example-game/",
+    "packet_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "brief_id": "cb_20260410_a1b2c3"
+  },
+  "build_plan_ref": {
+    "plan_id": "bp_20260410_a1b2c3",
+    "plan_path": "reviews/example-game/plans/bp_20260410_a1b2c3.json",
+    "plan_hash": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  },
+  "template_findings": [
+    {
+      "finding_id": "f_t1_example_off_by_one",
+      "kind": "template_bug",
+      "description": "T1 target-match comparison used a loose inequality that allowed a commit when the running total was one above the target to be counted as a match on the first attempt.",
+      "severity": "major",
+      "affected_items": ["T1"],
+      "evidence": "Repro: target=5, taps=3+3. First commit at running_total=6 was accepted as a match under the original comparison.",
+      "fix_refs": ["fx_t1_strict_equality"],
+      "status": "verified",
+      "first_seen_in_audit_id": null,
+      "resolved_by_repair_ids": ["rr_20260410_a1b2c3"]
+    }
+  ],
+  "mission_findings": [],
+  "cross_cutting_findings": [],
+  "clarity_findings": [],
+  "anxiety_findings": [],
+  "misconception_coverage": [
+    {
+      "misconception_id": "M1",
+      "covered": true,
+      "evidence": "T1 includes a running-total check that forces the player to attend to the total before committing, addressing the ignore-the-running-total misconception.",
+      "coverage_rate": 1.0
+    }
+  ],
+  "recommended_fixes": [
+    {
+      "fix_id": "fx_t1_strict_equality",
+      "target_finding_ids": ["f_t1_example_off_by_one"],
+      "strategy": "Replace the loose inequality in the T1 target-match comparison with a strict equality check and add a strict-equality unit test.",
+      "proposed_diff": null,
+      "proposed_diff_kind": null,
+      "apply_method": "auto",
+      "proposed_verification_assertion": "T1.targetMatches(5, 6) === false",
+      "priority_hint": "urgent",
+      "resolved_by_repair_id": "rr_20260410_a1b2c3"
+    }
+  ],
+  "summary_counts": {
+    "pass": 0,
+    "fail": 0,
+    "warn": 0,
+    "fixed": 1,
+    "open_critical": 0,
+    "open_major": 0
+  },
+  "overall_verdict": "pass",
+  "provenance": {
+    "generated_by": "example-qa-runner-v0.1.0",
+    "generated_from_schema_versions": {
+      "qa_audit_schema": "0.2.0",
+      "concept_brief_schema": null,
+      "build_plan_schema": "0.1.0"
+    },
+    "taskade_source_refs": []
+  },
+  "unresolved_items": []
+}
