@@ -1,0 +1,261 @@
+# math-games — Repo-Native Interaction Type Taxonomy
+#
+# scope: operational
+#
+# This file is the OPERATIONAL taxonomy for math-games. The FORMAL POLICY
+# definition of interaction types lives in math-game-studio-os at:
+#
+#   orchestrator_v3/policies/interaction_types.yaml
+#
+# When the two conflict, the policy repo wins until explicitly synced via a
+# cross-repo reconciliation commit. This operational file may add structural
+# fields the policy repo does not carry (player_action_pattern, include_when,
+# exclude_when, examples, notes, status) but must not contradict the policy
+# repo's IDs, definitions, or canonical type list.
+#
+# This operational taxonomy owns:
+#   - IDs that match the policy repo 1:1
+#   - Operational classification guidance for the math-games intake and build
+#     stages (how to pick a type for a new concept)
+#   - Examples keyed to concrete games in math-games or math-game-studio-os
+#   - A per-type operational STATUS (proven | inherited_unproven | under_review)
+#     that records how grounded each type is in actual repo evidence
+#
+# The policy repo owns:
+#   - The canonical type list (adding/removing types must start in policy)
+#   - math_concepts and reflection_prompts_focus per type
+#   - The gate rules that consume interaction type assignments
+#
+# Adding a new type requires a cross-repo reconciliation:
+#   1. Concrete concept that does not fit any existing type
+#   2. Definition in the policy repo first
+#   3. Operational fields added here second
+#   4. At least one example game (repo-native or in the Taskade concept inbox)
+#
+# Do not add types speculatively. Empty example lists are allowed only for
+# types inherited from the policy repo that math-games has not yet proven
+# with a concrete game — those must carry status: inherited_unproven.
+
+schema_version: "0.1.0"
+scope: operational
+source_policy_ref:
+  repo: Sovereigndwp/math-game-studio-os
+  path: orchestrator_v3/policies/interaction_types.yaml
+  note: >
+    This taxonomy mirrors the seven IDs from the policy repo as of 2026-04-10.
+    IDs are authoritative; they must match the policy repo one-for-one. This
+    file extends each type with operational fields but must not change the ID
+    or contradict the policy definition.
+
+# Status values
+#   proven             : at least one repo-native proof case exists with either a
+#                        formal concept packet or an active review build that
+#                        clearly uses this interaction type.
+#   inherited_unproven : type exists in the policy repo but math-games has no
+#                        repo-native proof case yet. Kept for type-list alignment
+#                        with policy. Cannot be assigned to a new concept without
+#                        elevated review until proven.
+#   under_review       : type has a candidate proof case in the repo but the
+#                        proof case has provenance gaps (e.g., no formal packet,
+#                        pseudo-family holding area in the policy registry) that
+#                        must be resolved before the type can be marked proven.
+
+interaction_types:
+
+  - id: route_and_dispatch
+    display_name: Route and Dispatch
+    status: proven
+    definition: >
+      Player selects items from a fixed pool to satisfy a categorized demand.
+      Items are single-use per round. Exact match required. Extra items are
+      penalized or wasted. The core cognitive act is subset selection under a
+      constraint.
+    player_action_pattern: >
+      See a demand. Inspect the available pool. Pick the subset that matches.
+      Commit. Observe whether the match was exact. No running-total display
+      during selection — if a running total is shown, this is combine_and_build,
+      not route_and_dispatch.
+    include_when:
+      - the player picks from a fixed, finite pool whose contents are visible at selection time
+      - items are categorized or typed, and the match is by category/capacity
+      - the demand is stated before selection, not discovered during selection
+      - one round is one complete match attempt
+    exclude_when:
+      - the player accumulates toward a target (that is combine_and_build)
+      - the player distributes between two or more sinks (that is allocate_and_balance)
+      - the demand changes while the player is selecting (that is a different pattern)
+    examples:
+      - name: Fire Dispatch
+        repo_status: active_review_build
+        note: Primary proof case. Subset-selection from truck pool matches engine capacity demand.
+    notes: >
+      Distinct from combine_and_build by the absence of a visible running total
+      and by the single-use-per-round item constraint.
+
+  - id: combine_and_build
+    display_name: Combine and Build
+    status: proven
+    definition: >
+      Player accumulates values toward a stated target. Running total is always
+      visible or inferable. The core cognitive act is additive decomposition
+      under a target constraint.
+    player_action_pattern: >
+      See a target. Add items. Watch the running total move toward the target.
+      Stop when the total equals the target. Over- or under-shooting is
+      penalized or rejected.
+    include_when:
+      - the target is stated or visible before the player starts adding
+      - the running total is trackable (shown, or directly inferable from items placed)
+      - items are combinative (quantities that sum)
+      - one round is one complete accumulation attempt
+    exclude_when:
+      - items are categorical rather than numeric (route_and_dispatch)
+      - the player orders values by magnitude (sequence_and_order)
+      - the player distributes across multiple sinks (allocate_and_balance)
+    examples:
+      - name: Bakery Rush
+        repo_status: active_review_build
+        note: Repo-side proof case. Fill orders by accumulating quantities toward a target sum.
+    notes: >
+      Every P1 build in this type must honor the visible-running-total invariant
+      or it defaults to being misclassified as route_and_dispatch.
+
+  - id: allocate_and_balance
+    display_name: Allocate and Balance
+    status: inherited_unproven
+    definition: >
+      Player distributes resources across two or more sinks so that every sink
+      satisfies its own constraint. The core cognitive act is equality,
+      equivalence, or constraint satisfaction across multiple simultaneous
+      targets.
+    player_action_pattern: >
+      See multiple targets, each with its own constraint. Split resources.
+      Verify every constraint is satisfied before committing. A solution that
+      satisfies only a subset is a failure.
+    include_when:
+      - there are two or more sinks, each with an independent constraint
+      - a single resource or pool must be split across them
+      - partial solutions (some sinks satisfied, some not) are explicitly wrong
+    exclude_when:
+      - there is only one target (combine_and_build)
+      - the player ranks or orders rather than splits (sequence_and_order)
+    examples: []
+    notes: >
+      Inherited from the policy repo. math-games has no repo-native proof case.
+      Do not assign this type to a new concept without elevated review.
+
+  - id: transform_and_manipulate
+    display_name: Transform and Manipulate
+    status: inherited_unproven
+    definition: >
+      Player applies an operation to an object and observes the resulting
+      change in the world. The core cognitive act is understanding the effect
+      of an operation — function application, transformation, or state change.
+    player_action_pattern: >
+      See an object in state A. Choose an operation. Apply it. Observe the
+      object in state B. Judge whether state B matches the goal.
+    include_when:
+      - the player's primary action is to invoke an operation, not select or accumulate
+      - the game's world model changes visibly in response to the operation
+      - the challenge is predicting or understanding the transformation, not reaching a specific value
+    exclude_when:
+      - the challenge is getting to a specific sum (combine_and_build)
+      - the challenge is spatial positioning (navigate_and_position)
+    examples: []
+    notes: >
+      Inherited from the policy repo. math-games has no repo-native proof case.
+      Do not assign this type to a new concept without elevated review.
+
+  - id: navigate_and_position
+    display_name: Navigate and Position
+    status: under_review
+    definition: >
+      Player places or moves an object to an exact spatial position. Precision
+      is the core cognitive challenge. The math is in the coordinate, angle,
+      or spatial relationship, not in a numeric total.
+    player_action_pattern: >
+      See a spatial target. Place or move an object. Observe whether the
+      position was correct by spatial standards (distance, angle, coordinate
+      match).
+    include_when:
+      - the player commits a position, coordinate, or angle
+      - correctness is judged spatially, not by a numeric accumulation
+      - the game's representation is visual-spatial, not tabular
+    exclude_when:
+      - the player orders multiple items by magnitude (sequence_and_order)
+      - the player picks from a categorical pool (route_and_dispatch)
+    examples:
+      - name: Unit Circle Pizza Lab
+        repo_status: active_review_build
+        note: >
+          Candidate proof case. A repo-side review build exists. Listed in
+          math-game-studio-os/memory/registries/family_registry.json under
+          Pending Formal Family Placement with interaction_type
+          navigate_and_position. No formal concept packet. The interaction
+          type assignment is from the pseudo-family provenance note, not a
+          formal alignment.
+    notes: >
+      Status is under_review — not inherited_unproven — because a candidate
+      exists in the repo. To promote this type to proven, Unit Circle Pizza Lab
+      (or another game) needs either a formal concept packet or explicit
+      policy repo confirmation that the pseudo-family assignment is sufficient
+      evidence.
+
+  - id: sequence_and_predict
+    display_name: Sequence and Predict
+    status: inherited_unproven
+    definition: >
+      Player identifies a rule from observed data and applies it to predict
+      the next state. The core cognitive act is pattern recognition and rule
+      application.
+    player_action_pattern: >
+      See a sequence of states. Infer the rule. Apply the rule to produce the
+      next state. Judge correctness against the rule, not against a single
+      correct answer.
+    include_when:
+      - the game shows a sequence and asks for the next element
+      - correctness depends on having internalized a rule, not a memorized answer
+      - multiple sequences share a rule class (additive, multiplicative, geometric, etc.)
+    exclude_when:
+      - the player orders known values by magnitude (sequence_and_order — see note below)
+      - the player predicts a single numeric answer from a formula (that's combine_and_build or a calculation)
+    examples: []
+    notes: >
+      Inherited from the policy repo. math-games has no repo-native proof case.
+      Explicitly distinct from sequence_and_order. Confusion between these two
+      types is a known intake hazard — see the sequence_and_order entry for
+      the exact distinction.
+
+  - id: sequence_and_order
+    display_name: Sequence and Order
+    status: proven
+    definition: >
+      Player computes values, compares their magnitudes, and places items in a
+      ranked order (ascending or descending). The core cognitive act is
+      rank-ordering of known-but-uncomputed values, not pattern prediction.
+    player_action_pattern: >
+      See multiple items, each carrying an expression or computable value.
+      Compute each value mentally (or with scaffolding). Compare the values.
+      Place the items in the ranked order demanded by the rule. Commit.
+    include_when:
+      - the player ranks multiple items, not predicts a next state
+      - every item has a computable value the player must work out
+      - the ranking rule is explicit (largest-first, smallest-first, etc.)
+    exclude_when:
+      - the player is predicting the next element of a sequence (sequence_and_predict)
+      - there is only one value to compute (combine_and_build or a calculation game)
+      - the player positions items spatially without ranking them by value (navigate_and_position)
+    examples:
+      - name: Snack Line Shuffle
+        repo_status: approved_concept
+        note: >
+          First proof case for this type. Formal repo concept packet at
+          concepts/snack-line-shuffle/ with primary_standard 1.OA.C.6 and
+          grade band K-2. No review build yet — packet-only formal alignment
+          is sufficient for proven status.
+    notes: >
+      This type was added to the policy taxonomy specifically because Snack
+      Line Shuffle did not cleanly fit sequence_and_predict. The structural
+      distinction is: predict asks "what comes next?" and order asks "what
+      order are these in?". Both touch sequences but the cognitive act is
+      different.

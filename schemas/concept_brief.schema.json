@@ -1,0 +1,423 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/concept_brief.schema.json",
+  "title": "Concept Brief",
+  "description": "Stage 1 intake artifact. The minimum structured record produced when a raw game idea enters the pipeline. A concept brief is NOT a concept packet — it is the pre-packet record used to decide whether an idea is worth packetizing. Claims in this file are candidate claims, not formal alignments. Formal alignment happens only at packetization time in a separate concept packet artifact.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "brief_id",
+    "created_at",
+    "title",
+    "proposed_slug",
+    "source",
+    "concept_summary",
+    "core_mechanic",
+    "target_learners",
+    "math_domain",
+    "target_skill",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0",
+      "description": "Version of this schema. Bump on breaking changes."
+    },
+    "brief_id": {
+      "type": "string",
+      "pattern": "^cb_[0-9]{8}_[a-z0-9]{6}$",
+      "description": "Stable identifier for this brief. Format: cb_YYYYMMDD_<6-char-random>. Never reused."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the brief was created."
+    },
+    "last_updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the brief was last modified. May equal created_at."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "Working title of the concept. Not a final product name. May change before packetization."
+    },
+    "proposed_slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 2,
+      "maxLength": 64,
+      "description": "Proposed kebab-case slug. Must match the slug regex enforced by the release contract (math-game-studio-os/.github/workflows/promote-build.yml). The slug is NOT locked until packetization; this field records the proposal only."
+    },
+    "source": {
+      "type": "object",
+      "required": ["origin", "captured_by"],
+      "additionalProperties": false,
+      "description": "Provenance of the idea itself. Where it came from and who or what captured it.",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "enum": [
+            "human_direct",
+            "brainstorming_agent",
+            "subject_expansion_scout",
+            "taskade_import",
+            "external_reference",
+            "playtest_insight",
+            "learning_loop",
+            "unresolved"
+          ]
+        },
+        "captured_by": {
+          "type": "string",
+          "description": "Identifier of the human or agent that captured the brief. Format is free-form string; no controlled vocabulary yet."
+        },
+        "taskade_project_id": {
+          "type": ["string", "null"],
+          "description": "If origin is taskade_import, the source Taskade project ID from taskade_exports/concept-journey-dashboard/projects/<id>.json. Null otherwise."
+        },
+        "external_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "If origin is external_reference, the source URL. Null otherwise."
+        },
+        "notes": {
+          "type": ["string", "null"],
+          "maxLength": 500,
+          "description": "Short free-text note about the capture context. Optional."
+        }
+      }
+    },
+    "concept_summary": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 1000,
+      "description": "One-paragraph description of the concept in plain language. What the player does, in what world, toward what goal. Not a sales pitch — a structural summary."
+    },
+    "core_mechanic": {
+      "type": "object",
+      "required": ["player_action", "feedback_loop"],
+      "additionalProperties": false,
+      "description": "The smallest complete description of the core gameplay loop.",
+      "properties": {
+        "player_action": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500,
+          "description": "What the player physically does every turn (drag, tap, type, select, place, etc.) and what that action represents."
+        },
+        "feedback_loop": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500,
+          "description": "What the game shows in response, how correctness is signaled, and how the player learns from a wrong attempt."
+        },
+        "math_as_lockpick_statement": {
+          "type": ["string", "null"],
+          "maxLength": 300,
+          "description": "Optional one-sentence statement of why the math is the core action, not a costume. Null if not yet articulated."
+        }
+      }
+    },
+    "target_learners": {
+      "type": "object",
+      "required": ["grade_band_candidate"],
+      "additionalProperties": false,
+      "description": "Who the concept is aimed at. Grade-band is a CANDIDATE, not a lock. Lock happens at packetization.",
+      "properties": {
+        "grade_band_candidate": {
+          "type": "string",
+          "enum": [
+            "pre_k",
+            "k_2",
+            "3_5",
+            "6_8",
+            "9_12",
+            "cross_band",
+            "unresolved"
+          ]
+        },
+        "age_range_candidate": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9]+-[0-9]+$",
+          "description": "Optional age range, format MIN-MAX (e.g., '5-7'). Null if not yet decided."
+        },
+        "prerequisites_candidate": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Candidate list of prerequisite skills (e.g., 'counting to 10', 'addition within 5'). Free-form strings until a prerequisites taxonomy exists."
+        }
+      }
+    },
+    "math_domain": {
+      "type": "string",
+      "enum": [
+        "number_and_operations",
+        "operations_and_algebraic_thinking",
+        "number_and_operations_in_base_ten",
+        "number_and_operations_fractions",
+        "ratios_and_proportional_relationships",
+        "expressions_and_equations",
+        "functions",
+        "geometry",
+        "measurement_and_data",
+        "statistics_and_probability",
+        "trigonometry",
+        "cross_domain",
+        "unresolved"
+      ],
+      "description": "Broad CCSS math domain the concept claims to target. Candidate claim only. The enum matches CCSS strand vocabulary so it can map cleanly to formal alignment at packetization time."
+    },
+    "target_skill": {
+      "type": "object",
+      "required": ["description"],
+      "additionalProperties": false,
+      "description": "The specific skill or cognitive act the game is trying to develop. This is the promise of the game at intake.",
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500
+        },
+        "ccss_candidate": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "description": "Candidate CCSS labels as plain strings. This schema does NOT enforce CCSS syntax — labels are candidate claims only, meant to be human-readable (e.g., '1.OA.C.6', 'HSG-SRT.C.6', or an informal 'Addition within 20'). Strict CCSS format validation, age-appropriateness verification, and taxonomy resolution all happen at Stage 2 (validation), not in this schema. Do NOT add labels here that cannot be justified from the concept summary — leave empty and log the gap in unresolved_items instead. Empty array is explicitly allowed."
+        }
+      }
+    },
+    "interaction_type_candidate": {
+      "type": "string",
+      "description": "The interaction type the concept is most likely to fit. Value MUST match an 'id' from taxonomy/interaction_types.yaml OR be the literal string 'unresolved'. JSON Schema cannot enforce cross-file YAML membership; this is a runner-validation responsibility at Stage 2, not a schema-only guarantee."
+    },
+    "family_candidate": {
+      "type": ["string", "null"],
+      "description": "Proposed family/group name for this concept (e.g., 'Compare and Order', 'Exact-Sum Composition'). Free-form string because math-games does not yet own a families registry. Null if the concept doesn't fit a known family yet."
+    },
+    "misconception_targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^M[0-9]+$",
+            "description": "Local misconception ID within this brief (e.g., 'M1', 'M2')."
+          },
+          "description": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 400
+          },
+          "existing_library_match": {
+            "type": ["string", "null"],
+            "description": "If this misconception already has a canonical entry in the Misconception Library, the canonical ID. Null if not matched yet. Matching is a packetization-time concern; this field is informational."
+          }
+        }
+      },
+      "description": "Candidate misconceptions the game is designed to expose and teach. Each with a local ID and a short description. Empty array is allowed while status is 'draft' or 'in_review'. The conditional rule at the bottom of this schema requires at least one entry once status advances to 'ready_for_validation' or 'approved_for_packetization'."
+    },
+    "success_condition": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500,
+      "description": "What does a successful play session look like? One sentence. Not a metric — a human-legible outcome."
+    },
+    "constraints": {
+      "type": "array",
+      "items": {"type": "string", "maxLength": 300},
+      "description": "Hard design constraints the concept must honor (e.g., 'no computed totals shown to player', 'single scene only in P1'). Each is a short string. Becomes formal build plan constraints at Stage 4."
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "ref"],
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "taxonomy_row",
+              "misconception_library_entry",
+              "reusable_pattern",
+              "another_concept",
+              "external_reference",
+              "raw_export_artifact"
+            ]
+          },
+          "ref": {
+            "type": "string",
+            "description": "Reference to the dependency. Format depends on kind. For raw_export_artifact: relative path under taskade_exports/. For another_concept: brief_id or slug. For misconception_library_entry: canonical ID. For external_reference: URL."
+          },
+          "why": {
+            "type": "string",
+            "maxLength": 300,
+            "description": "One-sentence explanation of why this dependency matters for this concept."
+          }
+        }
+      },
+      "description": "Structured dependencies. Machine-readable so future automation can detect broken dependency chains."
+    },
+    "closest_existing_game": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "description": "The nearest existing game in the portfolio (either repo-native or Taskade-referenced). Used to detect overlap risk early. Null if no close neighbor exists.",
+      "properties": {
+        "name": {"type": "string"},
+        "slug": {"type": ["string", "null"]},
+        "overlap_risk": {
+          "type": "string",
+          "enum": ["none", "low", "medium", "high"]
+        },
+        "differentiation": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "How this concept differs from the closest existing game. Required if overlap_risk is medium or high."
+        }
+      }
+    },
+    "portfolio_fit": {
+      "type": ["object", "null"],
+      "required": ["why_now", "overlap_risk"],
+      "additionalProperties": false,
+      "description": "Portfolio-level rationale for the concept. Used at intake to prevent duplicate game ideas and to justify the concept's slot in the current pipeline. Null is allowed only while status is 'draft'.",
+      "properties": {
+        "why_now": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500,
+          "description": "Why is this concept worth considering at this point in the pipeline? What gap does it fill that existing games do not?"
+        },
+        "overlap_risk": {
+          "type": "string",
+          "enum": ["none", "low", "medium", "high", "unresolved"],
+          "description": "Portfolio-level overlap risk. Distinct from closest_existing_game.overlap_risk: this field is about the broader portfolio, not just one neighbor."
+        },
+        "replacement_or_extension_of": {
+          "type": ["string", "null"],
+          "description": "If this concept is explicitly intended to replace or extend an existing game, reference that game by slug. Null if standalone."
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "in_review",
+        "ready_for_validation",
+        "needs_revision",
+        "approved_for_packetization",
+        "rejected",
+        "archived"
+      ],
+      "description": "Current lifecycle status of the brief. Only status 'approved_for_packetization' is allowed to hand off to Stage 3."
+    },
+    "next_action": {
+      "type": ["object", "null"],
+      "required": ["type", "owner", "reason"],
+      "additionalProperties": false,
+      "description": "Explicit routing for what happens to this brief next. Removes the need for downstream automation or humans to infer the next step. Null is only valid if status is a terminal state ('rejected' or 'archived').",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "request_revision",
+            "validate",
+            "packetize",
+            "reject",
+            "archive",
+            "escalate_to_human",
+            "hold_pending_decision"
+          ],
+          "description": "The next action to take on this brief. Values map to Stage 1/2/3 transitions and to terminal actions."
+        },
+        "owner": {
+          "type": "string",
+          "description": "Identifier of the agent or human that owns this next action. Free-form string until an owners registry exists."
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 400,
+          "description": "Why this next action is the correct one. Must be specific enough that the owner can act without additional context."
+        }
+      }
+    },
+    "unresolved_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "JSON pointer or dot-path to the unresolved field (e.g., 'target_skill.ccss_candidate', 'target_learners.grade_band_candidate')."
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 400,
+            "description": "Why the field is unresolved. Must not be vague ('don't know') — must name the missing evidence or decision."
+          },
+          "blocking": {
+            "type": "boolean",
+            "description": "True if this unresolved item blocks handoff to Stage 2 (validation). False if it's tolerable at intake but must be resolved before packetization."
+          },
+          "raised_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "description": "Structured record of every claim the brief could not make with certainty. This is the schema's replacement for vague prose like 'TBD' or 'not sure'. Every unresolved item gets a reason and a blocking flag. A brief with blocking unresolved_items cannot pass validation."
+    },
+    "review_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["timestamp", "reviewer", "note"],
+        "additionalProperties": false,
+        "properties": {
+          "timestamp": {"type": "string", "format": "date-time"},
+          "reviewer": {"type": "string"},
+          "note": {"type": "string", "maxLength": 1000},
+          "decision": {
+            "type": ["string", "null"],
+            "enum": ["approve", "request_revision", "reject", null]
+          }
+        }
+      },
+      "description": "Append-only log of review actions on this brief. Used by Stage 2 (validation) and the human checkpoint at Stage 3 entry."
+    }
+  },
+  "allOf": [
+    {
+      "description": "Once status advances to ready_for_validation or approved_for_packetization, misconception_targets must have at least one entry.",
+      "if": {
+        "required": ["status"],
+        "properties": {
+          "status": {
+            "enum": ["ready_for_validation", "approved_for_packetization"]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "misconception_targets": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

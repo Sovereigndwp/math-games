@@ -1,0 +1,620 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/build_plan.schema.json",
+  "title": "Build Plan",
+  "description": "Stage 4 artifact. Produced by the Prototype Engineer after a concept packet is approved. This is the implementation handoff contract. It must be structured enough that (a) Stage 5 implementation can proceed without further human narrative, (b) Stage 4 Build Standards Gate can verify CO-1 through CO-6 and MG-1 through MG-6 mechanically, (c) Stage 6 QA audits have a precise target to compare against, and (d) Stage 8 release gate can check implementation-vs-plan drift by comparing actual file-system changes against implementation_targets.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "plan_id",
+    "created_at",
+    "slug",
+    "version",
+    "concept_ref",
+    "build_goal",
+    "player_experience",
+    "mechanic_spec",
+    "implementation_targets",
+    "content_requirements",
+    "telemetry",
+    "automated_checks",
+    "human_checks",
+    "gate_readiness",
+    "provenance"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "plan_id": {
+      "type": "string",
+      "pattern": "^bp_[0-9]{8}_[a-z0-9]{6}$",
+      "description": "Stable identifier for this build plan. Format: bp_YYYYMMDD_<6-char-random>. Never reused."
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "last_updated_at": {"type": "string", "format": "date-time"},
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Locked slug. Must match the release contract regex. Copied from the approved concept packet, not re-proposed."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Target SemVer for the build this plan produces. Must match the release contract regex."
+    },
+    "pass_label": {
+      "type": "string",
+      "enum": ["P0", "P1", "P2A", "P2B", "P3", "P4", "P5"],
+      "description": "Which pass this build plan targets. Must match docs/pass_rules.md pass definitions in math-game-studio-os."
+    },
+    "concept_ref": {
+      "type": "object",
+      "required": ["packet_path", "packet_hash"],
+      "additionalProperties": false,
+      "description": "Immutable reference to the approved concept packet this plan was derived from.",
+      "properties": {
+        "packet_path": {
+          "type": "string",
+          "description": "Repo-relative path to the concept packet folder (e.g., 'concepts/packetized/snack-line-shuffle/')."
+        },
+        "packet_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "SHA-256 hash of the packet folder contents at plan creation time. Lets Stage 6 detect plan-vs-packet drift."
+        },
+        "brief_id": {
+          "type": ["string", "null"],
+          "description": "Optional reference to the original concept_brief.brief_id that led to the packet."
+        }
+      }
+    },
+    "build_goal": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 500,
+      "description": "One-paragraph statement of what this build delivers and what it does NOT deliver. Used as the top-line acceptance target."
+    },
+    "player_experience": {
+      "type": "object",
+      "required": [
+        "first_interaction_experience",
+        "answer_formats_accepted",
+        "cost_labels",
+        "escape_semantics"
+      ],
+      "additionalProperties": false,
+      "description": "Structural fields that CO-1 through CO-6 (Clarity Obligations from docs/build_standards_gate.md in math-game-studio-os) can be verified against mechanically.",
+      "properties": {
+        "first_interaction_experience": {
+          "type": "object",
+          "required": ["objective_stated_before_first_penalty", "worked_example_shown"],
+          "additionalProperties": false,
+          "description": "CO-1 compliance evidence.",
+          "properties": {
+            "objective_stated_before_first_penalty": {"type": "boolean"},
+            "worked_example_shown": {"type": "boolean"},
+            "expected_input_format_shown": {"type": "boolean"},
+            "wrong_answer_consequence_stated": {"type": "boolean"},
+            "no_intro_justification": {
+              "type": ["string", "null"],
+              "description": "If any of the above are false, the explicit justification. Null if all true."
+            }
+          }
+        },
+        "cost_labels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["action", "resource", "direction", "quantity", "display_location"],
+            "additionalProperties": false,
+            "properties": {
+              "action": {"type": "string"},
+              "resource": {"type": "string"},
+              "direction": {"type": "string", "enum": ["+", "-"]},
+              "quantity": {"type": "number"},
+              "display_location": {"type": "string"}
+            }
+          },
+          "description": "CO-2 compliance evidence. Every cost or penalty the game applies must be listed here with its exact label format. Empty array is only valid if the game has no costs."
+        },
+        "time_critical_popup_warning": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "description": "CO-3 compliance. Null if nothing continues during popups.",
+          "properties": {
+            "applicable": {"type": "boolean"},
+            "warning_text": {"type": ["string", "null"]}
+          }
+        },
+        "timer_escalation": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "description": "CO-4 compliance. Null if no timer exists.",
+          "properties": {
+            "has_timer": {"type": "boolean"},
+            "threshold_30s_signal": {"type": ["string", "null"]},
+            "threshold_15s_signal": {"type": ["string", "null"]},
+            "threshold_5s_signal": {"type": ["string", "null"]}
+          }
+        },
+        "answer_formats_accepted": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["integer", "decimal", "fraction", "percent", "negative", "expression", "choice", "drag_placement", "text"]
+          },
+          "description": "CO-5 compliance. Which formats are accepted. Relevant for any typed-input game."
+        },
+        "answer_format_persistence": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "first_popup_shows_formats": {"type": "boolean"},
+            "persistent_reference_location": {"type": ["string", "null"]}
+          }
+        },
+        "escape_semantics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["action_name", "exact_label", "quantified_cost"],
+            "additionalProperties": false,
+            "properties": {
+              "action_name": {"type": "string"},
+              "exact_label": {"type": "string"},
+              "quantified_cost": {"type": ["string", "null"]},
+              "fiction_reason": {"type": ["string", "null"]}
+            }
+          },
+          "description": "CO-6 compliance. Every skip/cancel/escape action must be listed with its exact label and cost."
+        }
+      }
+    },
+    "mechanic_spec": {
+      "type": "object",
+      "required": ["core_loop", "input_model", "feedback_states"],
+      "additionalProperties": false,
+      "properties": {
+        "core_loop": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 1000
+        },
+        "input_model": {
+          "type": "object",
+          "required": ["type"],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["drag_drop", "click_select", "typed_answer", "drag_direction", "drag_place", "drag_order", "gesture", "hybrid"]
+            },
+            "notes": {"type": ["string", "null"], "maxLength": 500}
+          }
+        },
+        "feedback_states": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["state_name", "trigger", "visual"],
+            "additionalProperties": false,
+            "properties": {
+              "state_name": {"type": "string"},
+              "trigger": {"type": "string"},
+              "visual": {"type": "string"},
+              "audio": {"type": ["string", "null"]},
+              "text": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "hidden_invariants": {
+          "type": "array",
+          "items": {"type": "string", "maxLength": 300},
+          "description": "Permanent design rules that must never be broken (e.g., 'computed totals never shown to player'). These become assertion tests in Stage 5."
+        }
+      }
+    },
+    "level_structure": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "description": "Authored level/round data when the game has discrete levels. Null for pure procedural games.",
+      "properties": {
+        "level_count": {"type": "integer", "minimum": 1},
+        "progression_rule": {"type": "string"},
+        "levels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "index", "content"],
+            "additionalProperties": false,
+            "properties": {
+              "id": {"type": "string"},
+              "index": {"type": "integer", "minimum": 0},
+              "content": {"type": "object"},
+              "misconception_targets_hit": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "designer_notes": {"type": ["string", "null"], "maxLength": 500}
+            }
+          }
+        }
+      }
+    },
+    "implementation_targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "change_kind"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Repo-relative path expected to be created or modified by this build plan."
+          },
+          "change_kind": {
+            "type": "string",
+            "enum": ["create", "modify", "delete", "rename"]
+          },
+          "why": {
+            "type": ["string", "null"],
+            "maxLength": 300,
+            "description": "One-sentence rationale for why this path is part of the plan."
+          }
+        }
+      },
+      "description": "Expected file-system impact of executing this plan. Stage 5 (implementation) writes the actual changes. Stage 8 (release gate) compares the actual changed-file set against this list and flags drift. A plan whose implementation diverges from this list without an amendment is rejected."
+    },
+    "content_requirements": {
+      "type": "object",
+      "required": ["min_authored_items", "coverage_rules"],
+      "additionalProperties": false,
+      "properties": {
+        "min_authored_items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "coverage_rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["rule_id", "description"],
+            "additionalProperties": false,
+            "properties": {
+              "rule_id": {"type": "string"},
+              "description": {"type": "string", "maxLength": 400},
+              "threshold": {"type": ["number", "string", "null"]}
+            }
+          },
+          "description": "E.g., 'M1 trap must appear in at least 30% of rounds', 'no ties in P1'."
+        }
+      }
+    },
+    "generator_rules": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "description": "For procedural templates only. Null if the game has no procedural generators. Supports MG-1 through MG-6 mechanical verification.",
+      "properties": {
+        "templates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "description", "constraint_tests"],
+            "additionalProperties": false,
+            "properties": {
+              "id": {"type": "string"},
+              "description": {"type": "string"},
+              "float_precision_uses_roundTo": {"type": "boolean", "description": "MG-1 compliance."},
+              "degenerate_guards": {
+                "type": "object",
+                "additionalProperties": false,
+                "description": "MG-2 compliance.",
+                "properties": {
+                  "tie_guard": {"type": "boolean"},
+                  "trivial_answer_guard": {"type": ["boolean", "null"]},
+                  "zero_one_guard": {"type": ["boolean", "null"]}
+                }
+              },
+              "null_return_retry_loop": {"type": "boolean", "description": "MG-3 compliance."},
+              "hint_does_not_reveal_answer": {"type": "boolean", "description": "MG-4 compliance."},
+              "collision_budget_estimate": {"type": ["integer", "null"], "description": "MG-5: estimated distinct outputs."},
+              "answer_bias_checked": {"type": "boolean", "description": "MG-6 compliance."},
+              "constraint_tests": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["name", "assertion", "severity"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {"type": "string"},
+                    "assertion": {
+                      "type": "string",
+                      "description": "Machine-runnable assertion (e.g., 'roundTo(6.65, 1) === 6.7')."
+                    },
+                    "severity": {
+                      "type": "string",
+                      "enum": ["critical", "major", "minor"],
+                      "description": "critical = blocks release and blocks Stage 4 GREEN; major = blocks promotion to next pass but allows current pass to ship with a remediation plan; minor = warning only, recorded in the audit trail but non-blocking."
+                    },
+                    "source_audit_ref": {"type": ["string", "null"]}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ui_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scenes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "purpose"],
+            "additionalProperties": false,
+            "properties": {
+              "id": {"type": "string"},
+              "purpose": {"type": "string"},
+              "required_elements": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "hud_elements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "shows"],
+            "additionalProperties": false,
+            "properties": {
+              "label": {"type": "string"},
+              "shows": {"type": "string"}
+            }
+          }
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "asset_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": ["sprite", "background", "audio_sfx", "audio_voice", "animation", "icon", "font", "ui_component"]
+          },
+          "description": {"type": "string", "maxLength": 500},
+          "constraints": {"type": "array", "items": {"type": "string"}},
+          "count_required": {"type": ["integer", "null"]}
+        }
+      }
+    },
+    "telemetry": {
+      "type": "object",
+      "required": ["fields"],
+      "additionalProperties": false,
+      "properties": {
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "type", "definition"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {"type": "string"},
+              "type": {"type": "string", "enum": ["string", "integer", "number", "boolean", "timestamp"]},
+              "definition": {"type": "string", "maxLength": 500},
+              "used_by_gate": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "derived_metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "formula"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {"type": "string"},
+              "formula": {"type": "string"},
+              "threshold": {"type": ["number", "string", "null"]}
+            }
+          }
+        }
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "owner", "blocking_stage"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "pattern": "^BL[A-Z]$"},
+          "description": {"type": "string", "maxLength": 500},
+          "owner": {"type": "string"},
+          "blocking_stage": {
+            "type": "string",
+            "enum": [
+              "stage_4_build_plan",
+              "stage_5_implement",
+              "stage_6_qa",
+              "stage_7_repair",
+              "stage_8_release"
+            ],
+            "description": "Which stage this blocker prevents from starting. Determines repair routing when the blocker is resolved."
+          },
+          "resolved": {"type": "boolean"},
+          "resolution_ref": {"type": ["string", "null"]}
+        }
+      },
+      "description": "Pre-build blockers. Any unresolved blocker prevents the plan from entering its blocking_stage."
+    },
+    "automated_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "runner", "passing_criteria"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "description": {"type": "string", "maxLength": 400},
+          "runner": {
+            "type": "string",
+            "enum": [
+              "schema_validation",
+              "generator_contract_test",
+              "structural_diff",
+              "telemetry_threshold",
+              "unit_test",
+              "integration_test",
+              "release_contract_check"
+            ]
+          },
+          "target_ref": {"type": ["string", "null"]},
+          "passing_criteria": {"type": "string"}
+        }
+      },
+      "description": "Checks that can be executed without human judgment. Routed to deterministic runners. These are the checks Stage 6 and Stage 8 execute mechanically; failures are specific enough for Stage 7 repair loops to act on."
+    },
+    "human_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "reviewer_kind", "passing_criteria"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "description": {"type": "string", "maxLength": 400},
+          "reviewer_kind": {
+            "type": "string",
+            "enum": ["educator", "design_critic", "operator", "owner"]
+          },
+          "passing_criteria": {"type": "string"},
+          "required_for_release": {"type": "boolean"}
+        }
+      },
+      "description": "Checks that explicitly require human judgment. Kept separate from automated_checks so that Stage 6 and Stage 8 can cleanly distinguish 'waiting on a runner' from 'waiting on a person'. Should be minimized — see math-game-studio-os/docs/build_standards_gate.md and the autonomy model's three-checkpoint rule. Empty array is valid and preferred when the plan has no human touch. A human_checks array that keeps growing across plans is a signal that the system is slipping back toward human-dependent design."
+    },
+    "out_of_scope": {
+      "type": "array",
+      "items": {"type": "string", "maxLength": 300},
+      "description": "Features explicitly not in this build. Stops scope creep and gives Stage 6 clear NO grounds for flagging missing features."
+    },
+    "gate_readiness": {
+      "type": "object",
+      "required": ["build_standards_gate", "ready_for_stage_5"],
+      "additionalProperties": false,
+      "properties": {
+        "build_standards_gate": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "CO_1_first_interaction": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "CO_2_cost_labeling": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "CO_3_time_critical_popup": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "CO_4_timer_escalation": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "CO_5_answer_format_persistence": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "CO_6_escape_semantics": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "MG_1_float_precision": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "MG_2_degenerate_guards": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "MG_3_null_return_contract": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "MG_4_hint_correctness": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "MG_5_collision_budget": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "MG_6_answer_bias": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+            "overall": {"type": "string", "enum": ["GREEN", "AMBER", "RED"]}
+          }
+        },
+        "ready_for_stage_5": {
+          "type": "boolean",
+          "description": "True only if overall is GREEN and every blocker is resolved."
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["generated_by", "policy_refs", "generated_from_schema_versions"],
+      "additionalProperties": false,
+      "properties": {
+        "generated_by": {
+          "type": "string",
+          "description": "Agent or human that produced the plan."
+        },
+        "policy_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["policy_repo", "path", "commit_hash"],
+            "additionalProperties": false,
+            "properties": {
+              "policy_repo": {"type": "string"},
+              "path": {"type": "string"},
+              "commit_hash": {"type": "string"}
+            }
+          },
+          "description": "Exact policy files and commit hashes this plan was authored against. Lets Stage 8 detect policy drift between plan creation and release."
+        },
+        "generated_from_schema_versions": {
+          "type": "object",
+          "required": ["concept_brief_schema", "build_plan_schema"],
+          "additionalProperties": false,
+          "description": "Schema versions in effect when this plan was generated. Lets future runners detect plan-vs-schema drift and flag plans authored against obsolete schemas.",
+          "properties": {
+            "concept_brief_schema": {
+              "type": "string",
+              "description": "Semantic version of schemas/concept_brief.schema.json used when this plan was generated (e.g., '0.1.0')."
+            },
+            "build_plan_schema": {
+              "type": "string",
+              "description": "Semantic version of schemas/build_plan.schema.json at plan creation time."
+            },
+            "interaction_types_taxonomy": {
+              "type": ["string", "null"],
+              "description": "Semantic version of taxonomy/interaction_types.yaml referenced. Null if no taxonomy lookup was performed during plan generation."
+            }
+          }
+        },
+        "taskade_source_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["export_path"],
+            "additionalProperties": false,
+            "properties": {
+              "export_path": {
+                "type": "string",
+                "description": "Relative path under taskade_exports/concept-journey-dashboard/ of any raw export artifact consulted during plan generation."
+              }
+            }
+          }
+        }
+      }
+    },
+    "unresolved_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "field": {"type": "string"},
+          "reason": {"type": "string", "maxLength": 400},
+          "blocking": {"type": "boolean"},
+          "raised_at": {"type": "string", "format": "date-time"}
+        }
+      },
+      "description": "Same pattern as concept_brief.unresolved_items. A plan with blocking unresolved items cannot achieve gate_readiness.ready_for_stage_5 = true."
+    }
+  }
+}
