@@ -106,6 +106,62 @@ These may still be stored for provenance, but not promoted blindly:
 - UI chrome or scrape noise from exports
 - code trapped in export blobs without extraction and normalization
 
+## Current backbone — what you can run today
+
+While the long-term structure above is still being built out, the repo
+already has a small, working **contract backbone** that operators can
+exercise end-to-end. It has three layers.
+
+### The three layers
+
+1. **Contracts.** JSON Schema 2020-12 definitions under `schemas/`
+   plus shared vocabularies under `taxonomy/`. These define the shape
+   of every durable artifact in the pipeline: `concept_brief`,
+   `build_plan`, `qa_audit`, `repair_record`, `release_certificate`.
+2. **Examples.** Happy-path fixtures under `schemas/examples/`, one
+   per schema, cross-referenced so the full chain from intake to
+   release resolves cleanly against a single example game.
+3. **Tooling.** Small stdlib-and-`jsonschema` scripts under `scripts/`
+   that verify the first two layers:
+   - `validate_schemas.py` — checks every schema is a valid
+     Draft 2020-12 schema and every example fixture validates against
+     its schema.
+   - `check_crossrefs.py` — checks 12 cross-reference invariants
+     across the five fixtures (audit ↔ repair, release ↔ audit,
+     release ↔ repair). Stdlib only, no dependencies.
+
+Raw Taskade exports under `taskade_exports/` are preserved as
+provenance and are **not** part of this backbone.
+
+### Running the checks
+
+Create a local venv (ignored by git) and install the single dependency:
+
+```bash
+python3 -m venv .venv
+./.venv/bin/pip install -r requirements.txt
+```
+
+Then run either or both checks:
+
+```bash
+./.venv/bin/python scripts/validate_schemas.py
+./.venv/bin/python scripts/check_crossrefs.py
+```
+
+### What the exit codes mean
+
+Both scripts use the same convention and are safe to wire into CI:
+
+| Exit | Meaning |
+|---|---|
+| `0` | all checks passed |
+| `1` | one or more checks failed — a real validation or cross-reference problem in the repo |
+| `2` | setup error — missing dependency, missing file, or unparseable JSON; the script cannot make a pass/fail judgment |
+
+Treat exit `2` as *"fix the environment, then rerun"*. It is never a
+contract failure.
+
 ## Planned repo structure
 
 This is the target structure for the repo as Taskade is phased out:
