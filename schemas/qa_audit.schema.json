@@ -22,7 +22,7 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": {"type": "string", "const": "0.1.0"},
+    "schema_version": {"type": "string", "const": "0.2.0"},
     "audit_id": {
       "type": "string",
       "pattern": "^qa_[0-9]{8}_[a-z0-9]{6}$",
@@ -322,6 +322,14 @@
         },
         "first_seen_in_audit_id": {
           "type": ["string", "null"]
+        },
+        "resolved_by_repair_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^rr_[0-9]{8}_[a-z0-9]{6}$"
+          },
+          "description": "Repair record IDs that address this finding. Optional. Empty array (or absent) means no repair_record has been created for this finding yet. A single finding may be addressed by multiple repair_records over time (e.g., if a verified fix later regresses and must be re-repaired). Cross-reference validity is a runtime check; JSON Schema cannot verify that the repair_ids exist in the repo."
         }
       }
     },
@@ -366,6 +374,11 @@
         "priority_hint": {
           "type": "string",
           "enum": ["urgent", "normal", "deferred"]
+        },
+        "resolved_by_repair_id": {
+          "type": ["string", "null"],
+          "pattern": "^rr_[0-9]{8}_[a-z0-9]{6}$",
+          "description": "If this recommended fix was actually executed and a repair_record exists, the repair_id. Null if the fix is still a proposal only. Single value (not an array) because one fix proposal is expected to be executed at most once; if a fix regresses and must be re-executed, create a new fix entry in a newer audit rather than reusing this field. Cross-reference validity is a runtime check."
         }
       }
     }

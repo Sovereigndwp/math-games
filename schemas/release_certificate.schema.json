@@ -20,12 +20,13 @@
     "release_verdict",
     "verdict_reasons",
     "unresolved_blockers",
+    "repair_history",
     "dispatch_payload_preview",
     "provenance"
   ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": {"type": "string", "const": "0.1.0"},
+    "schema_version": {"type": "string", "const": "0.2.0"},
     "certificate_id": {
       "type": "string",
       "pattern": "^rc_[0-9]{8}_[a-z0-9]{6}$",
@@ -244,6 +245,7 @@
               "blockers",
               "certificate_status",
               "supersession_chain",
+              "repair_coverage",
               "other"
             ]
           },
@@ -268,6 +270,11 @@
           "owner": {"type": "string"}
         }
       }
+    },
+    "repair_history": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/artifactRef"},
+      "description": "References to repair_record artifacts that address findings from the qa_audits cited in this certificate's evidence domains. Empty array is valid when the referenced audits have no open critical or major findings that needed repairs. Every repair_record referenced here MUST have release_evidence_eligible = true at certificate generation time; the Release Gate Agent enforces this at generation time because JSON Schema cannot cross-read referenced artifacts. The Release Gate Agent additionally uses this list plus the referenced audits' summary_counts to decide whether repair coverage is sufficient for a GREEN verdict — that cross-check is a runtime rule, not a schema constraint. The existing GREEN rules (math_qa.open_critical_count = 0 and open_major_count = 0) already prevent a GREEN verdict with unresolved critical or major findings."
     },
     "dispatch_payload_preview": {
       "type": "object",
@@ -321,7 +328,11 @@
             "release_certificate_schema": {"type": "string"},
             "build_plan_schema": {"type": "string"},
             "qa_audit_schema": {"type": "string"},
-            "concept_brief_schema": {"type": ["string", "null"]}
+            "concept_brief_schema": {"type": ["string", "null"]},
+            "repair_record_schema": {
+              "type": ["string", "null"],
+              "description": "Semantic version of schemas/repair_record.schema.json referenced by this certificate. Null only if repair_history is empty and no repair_record was consulted during certificate generation."
+            }
           }
         }
       }
