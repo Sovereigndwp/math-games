@@ -1,0 +1,343 @@
+{
+  "version": "2",
+  "flowTitle": "Game Design Pipeline Review",
+  "trigger": {
+    "valid": true,
+    "displayName": "New Game Concept Submitted",
+    "type": "MANUAL",
+    "settings": {
+      "inputUiInfo": {},
+      "paramsSchema": {
+        "type": "object",
+        "properties": {
+          "target_age": {
+            "type": "string",
+            "description": "Input for target_age"
+          },
+          "target_skill": {
+            "type": "string",
+            "description": "Input for target_skill"
+          },
+          "concept_title": {
+            "type": "string",
+            "description": "Input for concept_title"
+          },
+          "concept_description": {
+            "type": "string",
+            "description": "Input for concept_description"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "aa000001-0000-0000-0000-000000000001",
+      "valid": true,
+      "displayName": "Stage 1 — Game Experience Spec",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.generate",
+        "input": {
+          "input": "Concept Title: {{ trigger[\"concept_title\"] }}\nDescription: {{ trigger[\"concept_description\"] }}\nTarget Skill: {{ trigger[\"target_skill\"] }}\nTarget Age: {{ trigger[\"target_age\"] }}",
+          "prompt": "You are an expert educational game designer. Your job is to write a complete Game Experience Spec for the following concept.\n\nA Game Experience Spec must cover ALL of these dimensions with honest, specific answers:\n\n1. CORE FANTASY — What does the player imagine they are doing? What role or power do they inhabit?\n2. CORE ACTION — What is the single repeatable mechanical action the player performs each turn or moment?\n3. WHY IT IS NOT A WORKSHEET IN COSTUME — Explain what makes this a genuine game and not just a quiz with a theme painted on. What would be lost if you removed the theme?\n4. DEPTH POTENTIAL — How does the game get harder or more nuanced as the player improves? What is the skill ceiling?\n5. BREADTH POTENTIAL — What variations, modes, or expansions could extend the game without breaking the core?\n6. NATURAL CEILING — At what point does a skilled player have nothing left to learn from this game? Is that ceiling acceptable?\n7. SKILL DISTINCTNESS — What exact cognitive or mathematical operation is being exercised? How is this different from adjacent skills?\n\nBe specific and honest. Flag any dimension that is weak or unresolved."
+        }
+      }
+    },
+    {
+      "name": "aa000002-0000-0000-0000-000000000002",
+      "valid": true,
+      "displayName": "Stage 2 — Pre-Build Excellence Check",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Concept Title: {{ trigger[\"concept_title\"] }}\nDescription: {{ trigger[\"concept_description\"] }}\nTarget Skill: {{ trigger[\"target_skill\"] }}\n\nGame Experience Spec:\n{{ aa000001-0000-0000-0000-000000000001[\"result\"] }}",
+          "prompt": "You are a senior game design critic running a Pre-Build Excellence Check. Based on the concept and the Game Experience Spec provided, answer each of these six questions with a clear, direct answer followed by one sentence of reasoning:\n\n1. WHY WOULD THE PLAYER CARE? — What intrinsic motivation hooks the player beyond wanting to be correct?\n2. WHAT 3 MOMENTS COULD BE MEMORABLE? — Name three specific in-game moments that could be genuinely surprising, satisfying, or tense.\n3. WHAT IS THE FIRST MASTERY LAYER BEYOND CORRECTNESS? — After the player stops making mistakes, what is the next thing they learn to do better?\n4. ARE THE DECISIONS REAL OR FAKE? — Do the choices the player makes actually matter, or is there always one obviously correct path?\n5. WHAT ACCIDENTAL FRICTION COULD MAKE THIS FEEL BAD? — What interface, pacing, or design choices could accidentally frustrate players even if the core is strong?\n6. WHAT WOULD PROVE THE CONCEPT IS WEAK ENOUGH TO STOP EARLY? — Name the single clearest failure signal you would watch for in playtesting.\n\nEnd with a one-paragraph overall assessment."
+        }
+      }
+    },
+    {
+      "name": "aa000003-0000-0000-0000-000000000003",
+      "valid": true,
+      "displayName": "Stage 3 — Delight Gate",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.categorize",
+        "input": {
+          "input": "Concept Title: {{ trigger[\"concept_title\"] }}\nDescription: {{ trigger[\"concept_description\"] }}\n\nGame Experience Spec:\n{{ aa000001-0000-0000-0000-000000000001[\"result\"] }}\n\nPre-Build Excellence Check:\n{{ aa000002-0000-0000-0000-000000000002[\"result\"] }}",
+          "output": {
+            "type": "custom",
+            "schema": {
+              "type": "object",
+              "required": [
+                "has_delight",
+                "has_tension",
+                "theme_carries_math",
+                "reason_to_replay",
+                "gate_verdict",
+                "gate_reasoning"
+              ],
+              "properties": {
+                "has_delight": {
+                  "type": "boolean",
+                  "description": "Is there a moment of genuine delight in this game concept — something unexpected, satisfying, or joyful?"
+                },
+                "has_tension": {
+                  "type": "boolean",
+                  "description": "Is there meaningful tension — stakes, risk, or uncertainty — in the player's decisions?"
+                },
+                "gate_verdict": {
+                  "enum": [
+                    "PASS",
+                    "FAIL"
+                  ],
+                  "type": "string",
+                  "description": "Overall Delight Gate verdict. PASS only if at least 3 of the 4 criteria are true."
+                },
+                "gate_reasoning": {
+                  "type": "string",
+                  "description": "One paragraph explaining the gate verdict and what would need to change if it fails."
+                },
+                "reason_to_replay": {
+                  "type": "boolean",
+                  "description": "Is there a clear, intrinsic reason a player would want to play again after finishing one session?"
+                },
+                "theme_carries_math": {
+                  "type": "boolean",
+                  "description": "Does the theme genuinely reinforce or amplify the mathematical skill, or is it purely cosmetic?"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "aa000004-0000-0000-0000-000000000004",
+      "valid": true,
+      "displayName": "Stage 4 — Design Checks (All Four)",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Concept Title: {{ trigger[\"concept_title\"] }}\nDescription: {{ trigger[\"concept_description\"] }}\nTarget Skill: {{ trigger[\"target_skill\"] }}\n\nGame Experience Spec:\n{{ aa000001-0000-0000-0000-000000000001[\"result\"] }}\n\nDelight Gate Reasoning:\n{{ aa000003-0000-0000-0000-000000000003[\"gate_reasoning\"] }}",
+          "prompt": "You are a game design quality auditor. Run all four Design Checks against this concept. For each check, give a score of STRONG / WEAK / NEEDS WORK and a 2-3 sentence explanation.\n\n--- FANTASY INTEGRITY CHECK ---\nDoes the player's felt experience (what they imagine they are doing) match the actual mechanical experience (what they are literally doing)? Where does the fantasy break down or feel hollow?\n\n--- SATISFACTION LOOP CHECK ---\nIs there a clear, rewarding feedback loop? Does the player get satisfying feedback when they succeed, fail, or improve? What is the loop: action → feedback → adjustment → repeat?\n\n--- CONSEQUENCE QUALITY CHECK ---\nDo mistakes and successes have meaningful consequences? Does failure feel fair and instructive? Does success feel earned rather than lucky?\n\n--- REPLAY VARIATION CHECK ---\nWould a second playthrough feel meaningfully different from the first? What changes — difficulty, approach, randomness, player choice — to keep sessions fresh?\n\nEnd with an overall Design Health Rating: STRONG / MIXED / WEAK."
+        }
+      }
+    },
+    {
+      "name": "aa000005-0000-0000-0000-000000000005",
+      "valid": true,
+      "displayName": "Stage 5 — Skill & Overlap Review",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.categorize",
+        "input": {
+          "input": "Concept Title: {{ trigger[\"concept_title\"] }}\nDescription: {{ trigger[\"concept_description\"] }}\nTarget Skill: {{ trigger[\"target_skill\"] }}\n\nGame Experience Spec:\n{{ aa000001-0000-0000-0000-000000000001[\"result\"] }}",
+          "output": {
+            "type": "custom",
+            "schema": {
+              "type": "object",
+              "required": [
+                "exact_math_skill",
+                "closest_existing_game",
+                "cognitive_similarity_risk",
+                "borrowed_vs_new",
+                "overlap_resolution",
+                "overlap_reasoning"
+              ],
+              "properties": {
+                "borrowed_vs_new": {
+                  "type": "string",
+                  "description": "What design elements are borrowed from existing games vs genuinely new? Is the newness meaningful or cosmetic?"
+                },
+                "exact_math_skill": {
+                  "type": "string",
+                  "description": "State the precise mathematical or cognitive operation being practiced. Be specific — not just 'multiplication' but 'multi-digit multiplication with regrouping under time pressure'."
+                },
+                "overlap_reasoning": {
+                  "type": "string",
+                  "description": "Explain the overlap resolution recommendation in 2-3 sentences."
+                },
+                "overlap_resolution": {
+                  "enum": [
+                    "KEEP_BOTH",
+                    "KEEP_THIS",
+                    "KEEP_OTHER",
+                    "NEEDS_DIFFERENTIATION"
+                  ],
+                  "type": "string",
+                  "description": "If this concept were compared to its closest competitor: should both be developed, or is one clearly stronger?"
+                },
+                "closest_existing_game": {
+                  "type": "string",
+                  "description": "Name the closest existing educational or commercial game and explain the key similarities."
+                },
+                "cognitive_similarity_risk": {
+                  "enum": [
+                    "HIGH",
+                    "MEDIUM",
+                    "LOW"
+                  ],
+                  "type": "string",
+                  "description": "How similar is the core cognitive loop to the closest existing game? HIGH = nearly identical feel, LOW = genuinely distinct."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "aa000006-0000-0000-0000-000000000006",
+      "valid": true,
+      "displayName": "Stage 6 — GO / NO-GO Decision",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.categorize",
+        "input": {
+          "input": "Concept Title: {{ trigger[\"concept_title\"] }}\n\nGame Experience Spec:\n{{ aa000001-0000-0000-0000-000000000001[\"result\"] }}\n\nPre-Build Check:\n{{ aa000002-0000-0000-0000-000000000002[\"result\"] }}\n\nDelight Gate Verdict: {{ aa000003-0000-0000-0000-000000000003[\"gate_verdict\"] }}\nDelight Gate Reasoning: {{ aa000003-0000-0000-0000-000000000003[\"gate_reasoning\"] }}\n\nDesign Checks:\n{{ aa000004-0000-0000-0000-000000000004[\"result\"] }}\n\nSkill Overlap Review:\nExact Skill: {{ aa000005-0000-0000-0000-000000000005[\"exact_math_skill\"] }}\nCognitive Similarity Risk: {{ aa000005-0000-0000-0000-000000000005[\"cognitive_similarity_risk\"] }}\nOverlap Resolution: {{ aa000005-0000-0000-0000-000000000005[\"overlap_resolution\"] }}",
+          "output": {
+            "type": "custom",
+            "schema": {
+              "type": "object",
+              "required": [
+                "decision",
+                "confidence",
+                "primary_strengths",
+                "primary_risks",
+                "executive_summary"
+              ],
+              "properties": {
+                "decision": {
+                  "enum": [
+                    "GO",
+                    "REVISE",
+                    "PAUSE",
+                    "STOP"
+                  ],
+                  "type": "string",
+                  "description": "GO = build a prototype now. REVISE = strong core but specific issues must be resolved first. PAUSE = concept needs more thinking time. STOP = concept is fundamentally weak."
+                },
+                "confidence": {
+                  "enum": [
+                    "HIGH",
+                    "MEDIUM",
+                    "LOW"
+                  ],
+                  "type": "string",
+                  "description": "Confidence level in the decision."
+                },
+                "primary_risks": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Top 3 risks or weaknesses that could sink this concept."
+                },
+                "executive_summary": {
+                  "type": "string",
+                  "description": "A 3-5 sentence plain-English summary of the full pipeline assessment that a non-designer could understand."
+                },
+                "primary_strengths": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Top 3 reasons this concept is worth building."
+                },
+                "prototype_entry_point": {
+                  "type": "string",
+                  "description": "If GO or REVISE: what is the single most important thing to prove in P1?"
+                },
+                "if_revise_what_exactly": {
+                  "type": "string",
+                  "description": "If decision is REVISE: what specific changes must happen before prototyping begins?"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "aa000007-0000-0000-0000-000000000007",
+      "valid": true,
+      "displayName": "Stage 7 — Prototype Readiness Guide (P1–P5)",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.generate",
+        "input": {
+          "input": "Concept Title: {{ trigger[\"concept_title\"] }}\nDescription: {{ trigger[\"concept_description\"] }}\nTarget Skill: {{ trigger[\"target_skill\"] }}\nTarget Age: {{ trigger[\"target_age\"] }}\n\nGO/NO-GO Decision: {{ aa000006-0000-0000-0000-000000000006[\"decision\"] }}\nPrototype Entry Point: {{ aa000006-0000-0000-0000-000000000006[\"prototype_entry_point\"] }}\nPrimary Risks: {{ aa000006-0000-0000-0000-000000000006[\"primary_risks\"] }}\n\nGame Experience Spec:\n{{ aa000001-0000-0000-0000-000000000001[\"result\"] }}",
+          "prompt": "You are a senior game designer writing the Prototype Readiness Guide for a concept that has passed the GO/NO-GO decision. Write a concrete, actionable guide for each prototype phase. Each phase should be 3-5 bullet points with specific, testable success criteria — not general principles.\n\nP1 — CORE VIABILITY: What must be proven about core loop clarity, world legibility before pressure, reachable win condition, and understandable failure?\n\nP2A — SESSION PAYOFF: What must be proven about run payoff, grading/scoring, actionable takeaway for the player, and clean session close?\n\nP2B — CHALLENGE FAIRNESS: What must be proven about challenge fairness, absence of shortcut skills, meaningful near vs far differences, and introducing exactly one new complexity layer?\n\nP3 — PERSONALITY & WORLD: What must be proven about game personality, world reaction to player actions, and at least one genuinely memorable moment?\n\nP4 — MASTERY & BREADTH: What must be proven about the reason to return for another session, content breadth, and mastery beyond correctness?\n\nP5 — RELEASE READINESS: What are the final polish and release readiness criteria specific to this concept?\n\nFor each phase, also state: STOP CONDITION — what single observation would tell you to stop or pivot at this phase."
+        }
+      }
+    },
+    {
+      "name": "aa000008-0000-0000-0000-000000000008",
+      "valid": false,
+      "displayName": "Save Concept to Project",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-taskade",
+        "pieceVersion": "1.0.0",
+        "actionName": "task.create",
+        "input": {
+          "fields": {
+            "@gcf04": {
+              "data": {
+                "value": "stage-gono"
+              },
+              "rank": "0",
+              "fieldId": "@gcf04"
+            },
+            "@gcf05": {
+              "data": {
+                "value": "gono-pending"
+              },
+              "rank": "1",
+              "fieldId": "@gcf05"
+            },
+            "@gcf06": {
+              "data": {
+                "value": "dg-pending"
+              },
+              "rank": "2",
+              "fieldId": "@gcf06"
+            }
+          },
+          "content": "{{ trigger[\"concept_title\"] }}",
+          "position": "beforeend",
+          "projectId": {
+            "type": "flow-template-variable-input-type",
+            "id": "LnpYq2qGt5DrXpda"
+          }
+        }
+      }
+    }
+  ],
+  "variables": {
+    "LnpYq2qGt5DrXpda": {
+      "id": "LnpYq2qGt5DrXpda",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-project-id"
+    }
+  }
+}

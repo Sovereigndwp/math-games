@@ -1,0 +1,2302 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "e1000000-0000-0000-0000-000000000001",
+        "text": {
+          "ops": [
+            {
+              "insert": "Snack Line Shuffle — Question Audit Results"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": null,
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "e1000001-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "📋 Audit Meta",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "e1000001-0000-0000-0000-000000000002",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Audited: 2026-04-09 · Game: Snack Line Shuffle P1 · Rounds: R0–R13 (14 total) · Standard: CCSS.1.OA.C.6 · Grade: K–1 · Mechanic: drag-to-order, addition ≤5, largest-first",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000001-0000-0000-0000-000000000003",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Critical bug fixed: R10 amber VO line violated Visual Neutrality Constraint. Amber trigger logic upgraded from 'any amber present' to 'transition-only'. All 14 round data verified correct.",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "e1000002-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🔢 Round Data Audit (R0–R13)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000002",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R0 · Warmup · Clean · 2+1=3 → 1+1=2",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R0",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "correctOrder=['a','b']: 2+1=3>1+1=2 ✓. First addend order matches total order — no M1 trap by design. AmberLine: 'Hmm, are we in the right order?' — direction-free, no totals, no >/< ✓. All totals distinct (3,2) ✓. Within-5 ✓.",
+                  "@qa09": "PASS — no action needed."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000003",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R1 · Warmup · Clean · 3+1=4 → 1+2=3",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R1",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "correctOrder=['a','b']: 3+1=4>1+2=3 ✓. First addend (3 vs 1) agrees with total order — no trap. AmberLine: 'I'm not sure I'm in the right spot.' — compliant ✓. Slightly larger numbers than R0 — good ramp ✓.",
+                  "@qa09": "PASS — no action needed."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000004",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R2 · 3-kid · Clean · 3+2=5 → 2+1=3 → 1+1=2",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R2",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "correctOrder=['c','b','a']: 3+2=5, 2+1=3, 1+1=2. First addends (1,2,3) agree with total order. Clean first 3-kid round. Widely spaced (2,3,5). AmberLine: 'Do you think I belong here?' ✓. No ties ✓.",
+                  "@qa09": "PASS — no action needed."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000005",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R3 · 3-kid · M1 trap · 4+1=5 → 2+2=4 → 3+0=3",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R3",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-pass"
+                  },
+                  "@qa08": "correctOrder=['c','b','a']: 4+1=5, 2+2=4, 3+0=3. M1 trap ✓: 3+0 has bigger first addend (3) than 2+2 (2) but 3+0=3 < 2+2=4. Player sorting by first addend puts 3+0 ahead of 2+2 — wrong. AmberLine: 'Um… I think someone might be out of place.' — compliant ✓.",
+                  "@qa09": "PASS — M1 trap mathematically valid."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000006",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R4 · 3-kid · M1 trap · 3+2=5 → 4+0=4 → 2+1=3",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R4",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-pass"
+                  },
+                  "@qa08": "correctOrder=['b','a','c']: 3+2=5, 4+0=4, 2+1=3. M1 trap ✓: 4+0 has biggest first addend (4) yet total (4) < 3+2=5. Strong top-position M1 trap. AmberLine: 'Are you sure about this spot?' ✓.",
+                  "@qa09": "PASS — M1 trap mathematically valid."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000007",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R5 · 3-kid · Clean · 1+3=4 → 2+0=2 → 1+0=1",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R5",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "correctOrder=['c','b','a']: 1+3=4, 2+0=2, 1+0=1. Clean. Teaches second-addend-dominant expressions (1+3, first addend 1 but total 4). Widely spaced (1,2,4). AmberLine: 'Hmm, I'm not sure this is right.' ✓.",
+                  "@qa09": "PASS — pedagogically valuable clean round."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000008",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R6 · 3-kid · M1 trap · 3+2=5 → 4+0=4 → 1+1=2",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R6",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-pass"
+                  },
+                  "@qa08": "correctOrder=['b','a','c']: 3+2=5, 4+0=4, 1+1=2. M1 trap ✓: 4+0 has biggest first addend (4) but total 4 < 3+2=5. Same trap structure as R4 with different third kid (1+1=2 vs 2+1=3). Totals (2,4,5) well-spaced. AmberLine: 'Wait — should I be here?' ✓.",
+                  "@qa09": "PASS — valid M1 trap, distinct from R4."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000009",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R7 · 3-kid · Clean · 1+3=4 → 0+3=3 → 0+2=2",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R7",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "correctOrder=['b','c','a']: 1+3=4, 0+3=3, 0+2=2. Clean. Two kids with zero first addend (0+3, 0+2) — first addend heuristic fails completely for them. Forces computation of both second addends. Totals (2,3,4) consecutive. AmberLine: 'Something feels off about this order.' ✓.",
+                  "@qa09": "PASS — pedagogically important: exposes limit of first-addend heuristic when first addends are 0."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000010",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R8 · 3-kid · M1 trap · 2+3=5 → 3+0=3 → 1+0=1",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R8",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-pass"
+                  },
+                  "@qa08": "correctOrder=['b','a','c']: 2+3=5, 3+0=3, 1+0=1. M1 trap ✓: 3+0 has bigger first addend (3) than 2+3 (2) but 3+0=3 < 2+3=5. Widely spaced totals (1,3,5). AmberLine: 'I don't think this neighbour and I are in the right order.' ✓.",
+                  "@qa09": "PASS — valid M1 trap, widely spaced totals make correct answer unambiguous once computed."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000011",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R9 · 4-kid · Clean · 2+3=5 → 1+3=4 → 2+1=3 → 1+1=2",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R9",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "correctOrder=['d','c','b','a']: 2+3=5, 1+3=4, 2+1=3, 1+1=2. First 4-kid round. Clean — all totals consecutive (2,3,4,5). No M1 trap by design: establishes 4-kid ordering before adding traps. AmberLine: 'Hmm, are we lined up the right way?' ✓.",
+                  "@qa09": "PASS — correct clean intro to 4-kid block."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000012",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R10 · 4-kid · M1 trap (double) · 2+3=5 → 4+0=4 → 3+0=3 → 1+0=1",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R10",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-fail"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-fail"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-pass"
+                  },
+                  "@qa08": "correctOrder=['c','a','b','d']: 2+3=5, 4+0=4, 3+0=3, 1+0=1. M1 double trap ✓: both 4+0 and 3+0 have bigger first addends than 2+3 but smaller totals. Strongest trap in set. DATA CORRECT. AMBER LINE VIOLATION FIXED: Old line 'I think someone nearby has more snacks than me' implied a directional comparison (who has more) — banned by Visual Neutrality Constraint and permanent amber feedback rule ('no >/< relation, no explicit who-goes-first'). Fixed to: 'Hmm, I'm not sure we've all been counted up properly.' — direction-free, prompts recomputation ✓.",
+                  "@qa09": "FAIL → FIXED: Amber line replaced. Also upgraded amber trigger to transition-only logic (spec requirement). No other action needed."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000013",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R11 · 4-kid · M1 trap · 3+2=5 → 4+0=4 → 2+0=2 → 1+0=1",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R11",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-pass"
+                  },
+                  "@qa08": "correctOrder=['a','b','c','d']: displayOrder=['b','a','c','d'] — starts slightly shuffled. 3+2=5, 4+0=4, 2+0=2, 1+0=1. M1 trap ✓: 4+0 bigger first addend (4) than 3+2 (3), but 4+0=4 < 3+2=5. Three trailing X+0 kids trivial to compute; challenge at top pair only. AmberLine: 'Wait — check our snack counts again!' — prompts recomputation, no direction ✓.",
+                  "@qa09": "PASS — valid M1 trap. Good pattern: three +0 kids make the trap obviously at the leader pair."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000014",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R12 · 4-kid · Clean · 0+4=4 → 0+3=3 → 0+2=2 → 0+1=1",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R12",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "correctOrder=['c','d','b','a']: 0+4=4, 0+3=3, 0+2=2, 0+1=1. All four kids have zero first addend — first addend heuristic completely useless. Player must read and compute all second addends. displayOrder ['a','b','c','d'] = [0+1, 0+2, 0+4, 0+3] — scrambled (not ascending). AmberLine: 'Are we in the right spots?' ✓.",
+                  "@qa09": "PASS — powerful pedagogical round: demonstrates that the second addend alone determines the total when first=0."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000002-0000-0000-0000-000000000015",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-R13 · 4-kid · M1 trap · 3+2=5 → 4+0=4 → 2+1=3 → 1+0=1",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-R13",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-pass"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-pass"
+                  },
+                  "@qa08": "correctOrder=['a','b','c','d']: displayOrder=['b','a','c','d'] — top pair swapped as starting position. 3+2=5, 4+0=4, 2+1=3, 1+0=1. M1 trap ✓: 4+0 bigger first addend (4) than 3+2 (3), but 4+0=4 < 3+2=5. Session-closing round. Totals (1,3,4,5) — gap between 1st and 2nd position larger (1 vs 3). AmberLine: 'Something's off — I'm not sure this is right.' ✓.",
+                  "@qa09": "PASS — valid final-round M1 trap. Good close: top-pair reversal in displayOrder ensures M1 trap is the first thing the player must resolve."
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "e1000003-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "⚙️ Mechanic & Cross-Cutting Audit",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "e1000003-0000-0000-0000-000000000002",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-M1 · Serve button — cosmetic only, never reveals total",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-M1",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-na"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "Spec: Serve tap is cosmetic confirmation only. Cannot be activated on partial/incorrect line. No total or ordering information revealed by Serve. Code: ServeButton disabled unless allGreen===true (line fully correct). handleServe only calls setPhase('served') on correct — no feedback on wrong. Celebration state shows expressions (not totals) ✓. PASS.",
+                  "@qa09": "PASS — cannot be used as a probe. Spec compliance verified."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000003-0000-0000-0000-000000000003",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-M2 · Visual neutrality — totals never displayed in gameplay",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-M2",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-na"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "DraggableKidCard renders only kid.expression — never kid.total. Celebration state shows expressions + checkmark, no totals. Idle, HUD, connector, legend, amber toast — all total-free. Level browser has a toggle 'Reveal totals (internal)' for design reference — gated by showTotals state, does not appear in game. PASS — permanent design rule upheld.",
+                  "@qa09": "PASS — full string audit confirms zero total display in any gameplay state."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000003-0000-0000-0000-000000000004",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-M3 · Amber VO trigger — transition-only (fixed)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-M3",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-fail"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-fail"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "Spec: 'Do not play VO if the pair was already amber — transition only.' Old code: `if (hasAmber && amberMsg === null)` — fires whenever amber is present and no toast is showing (not true transition logic: a dismissed toast could re-fire on the same amber pair). Fixed: prevAmberPairsRef tracks which pair-keys were amber on the previous drag. Toast only fires if currentAmberPairs contains at least one key not in prevAmberPairsRef — true transition-only behavior. prevAmberPairsRef reset in startRound for clean round starts.",
+                  "@qa09": "FAIL → FIXED: Transition-only amber logic implemented. prevAmberPairsRef pattern is reusable in future ordering games."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000003-0000-0000-0000-000000000005",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-M4 · Amber VO copy — all 14 lines audited for fairness / comparison language",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-M4",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-fail"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-fail"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "Full audit of all 14 amber lines. R0–R9, R11–R13 all compliant: direction-free, no totals, no >/< comparison, no who-goes-first language, no fairness implication. R10 VIOLATION: 'I think someone nearby has more snacks than me' — banned by permanent design rule (implies directional comparison, hints at who-has-more). Fixed to: 'Hmm, I'm not sure we've all been counted up properly.' — pure recomputation prompt with no directional hint. Zero fairness language detected in any UI copy, rule reminder, idle screen, or HUD text.",
+                  "@qa09": "FAIL → FIXED: R10 amber line replaced. 13/14 lines were compliant. Cross-cutting language audit passes for fairness and ordering-direction hints."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000003-0000-0000-0000-000000000006",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-M5 · M1 trap coverage — 7/14 rounds (50%) target M1",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-M5",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-na"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-pass"
+                  },
+                  "@qa08": "Spec requires ≥30% M1 trap rounds. M1 trap rounds: R3, R4, R6, R8, R10, R11, R13 = 7/14 = 50% ✓. All 7 traps verified: each has at least one pair where the bigger first addend corresponds to a smaller total. R10 is a 'double trap' (both 4+0 and 3+0 trap). No false positives — all 7 clean rounds (R0,R1,R2,R5,R7,R9,R12) correctly have no M1 trap.",
+                  "@qa09": "PASS — 50% trap rate exceeds minimum. Double trap in R10 is the strongest in the set."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000003-0000-0000-0000-000000000007",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-M6 · No-ties constraint — all rounds have strictly distinct totals",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-M6",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-na"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "Spec: all P1 rounds must have strictly distinct totals per round. No tie episodes (reserved for P2A). Verified: R0(3,2) R1(4,3) R2(2,3,5) R3(3,4,5) R4(3,4,5) R5(1,2,4) R6(2,4,5) R7(2,3,4) R8(1,3,5) R9(2,3,4,5) R10(1,3,4,5) R11(1,2,4,5) R12(1,2,3,4) R13(1,3,4,5). All distinct ✓. No ties in any round.",
+                  "@qa09": "PASS — no ties in any round. Tie mechanic correctly reserved for P2A."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000003-0000-0000-0000-000000000008",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-M7 · Within-5 constraint — all expressions have total ≤5, addition only",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-M7",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-pass"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-na"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "Spec: addition within 5 only. No subtraction. No totals above 5. All 14 rounds audited: maximum total in any expression is 5 (3+2, 4+1, 2+3, 1+3, 0+4). No expression uses subtraction. Format is consistently A+B. Addition-only constraint upheld P1-wide.",
+                  "@qa09": "PASS — all expressions conform to addition-within-5 constraint."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e1000003-0000-0000-0000-000000000009",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "SLS-M8 · Ordering rule display — no ranking/direction giveaway in UI text",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@qa01": "SLS-M8",
+                  "@qa02": {
+                    "type": "Select",
+                    "optionId": "qs-warn"
+                  },
+                  "@qa03": {
+                    "type": "Select",
+                    "optionId": "cr-pass"
+                  },
+                  "@qa04": {
+                    "type": "Select",
+                    "optionId": "sa-pass"
+                  },
+                  "@qa05": {
+                    "type": "Select",
+                    "optionId": "vo-na"
+                  },
+                  "@qa06": {
+                    "type": "Select",
+                    "optionId": "vn-pass"
+                  },
+                  "@qa07": {
+                    "type": "Select",
+                    "optionId": "mt-na"
+                  },
+                  "@qa08": "Rule reminder: 'Line up from most snacks → least snacks (front → back)'. This is the ordering direction — required by spec (Gate 12: ordering-direction indicator must communicate the rule). No individual ranking numbers shown. No slot labels revealing position rank. Idle screen: 'the one with the most snacks goes first' — rule statement, not a ranking giveaway. WARN: the rule reminder is text-only. Spec (Section 3, Gate 12) requires an icon + VO cue readable by non-readers. The current text-only implementation is a P1 gap — the spec says 'cannot rely on text alone'. However: this is a code demo, not a final playtest build — icon + audio are P2 polish items.",
+                  "@qa09": "WARN (P2 item): ordering-direction indicator is text-only. Spec Gate 12 requires icon + VO readable by non-readers. Deferred to P2 art/audio pass."
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "fields": {
+      "@qa01": {
+        "displayName": "Row ID",
+        "type": "string"
+      },
+      "@qa02": {
+        "displayName": "Status",
+        "type": "Select",
+        "options": {
+          "qs-pass": {
+            "id": "qs-pass",
+            "name": "PASS",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "qs-warn": {
+            "id": "qs-warn",
+            "name": "WARN",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "qs-fail": {
+            "id": "qs-fail",
+            "name": "FAIL → FIXED",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "qs-na": {
+            "id": "qs-na",
+            "name": "N/A",
+            "rank": "3",
+            "color": "#94a3b8"
+          }
+        }
+      },
+      "@qa03": {
+        "displayName": "Correctness",
+        "type": "Select",
+        "options": {
+          "cr-pass": {
+            "id": "cr-pass",
+            "name": "✓ Correct",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "cr-warn": {
+            "id": "cr-warn",
+            "name": "⚠ Warn",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "cr-fail": {
+            "id": "cr-fail",
+            "name": "✗ Bug Fixed",
+            "rank": "2",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@qa04": {
+        "displayName": "Skill Alignment",
+        "type": "Select",
+        "options": {
+          "sa-pass": {
+            "id": "sa-pass",
+            "name": "✓ Aligned",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "sa-warn": {
+            "id": "sa-warn",
+            "name": "⚠ Partial",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "sa-fail": {
+            "id": "sa-fail",
+            "name": "✗ Misaligned",
+            "rank": "2",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@qa05": {
+        "displayName": "Amber VO Copy",
+        "type": "Select",
+        "options": {
+          "vo-pass": {
+            "id": "vo-pass",
+            "name": "✓ Compliant",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "vo-warn": {
+            "id": "vo-warn",
+            "name": "⚠ Borderline",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "vo-fail": {
+            "id": "vo-fail",
+            "name": "✗ Violation → Fixed",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "vo-na": {
+            "id": "vo-na",
+            "name": "N/A",
+            "rank": "3",
+            "color": "#94a3b8"
+          }
+        }
+      },
+      "@qa06": {
+        "displayName": "Visual Neutrality",
+        "type": "Select",
+        "options": {
+          "vn-pass": {
+            "id": "vn-pass",
+            "name": "✓ Neutral",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "vn-warn": {
+            "id": "vn-warn",
+            "name": "⚠ Risk",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "vn-fail": {
+            "id": "vn-fail",
+            "name": "✗ Violation",
+            "rank": "2",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@qa07": {
+        "displayName": "M1 Trap Valid",
+        "type": "Select",
+        "options": {
+          "mt-pass": {
+            "id": "mt-pass",
+            "name": "✓ Valid",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "mt-na": {
+            "id": "mt-na",
+            "name": "N/A (clean round)",
+            "rank": "1",
+            "color": "#94a3b8"
+          },
+          "mt-fail": {
+            "id": "mt-fail",
+            "name": "✗ Trap Invalid",
+            "rank": "2",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@qa08": {
+        "displayName": "Audit Notes",
+        "type": "string"
+      },
+      "@qa09": {
+        "displayName": "Action / P2 Item",
+        "type": "string"
+      }
+    },
+    "views": {
+      "list": {
+        "id": "list",
+        "type": "list",
+        "rank": "A",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "board": {
+        "id": "board",
+        "type": "board",
+        "rank": "B",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "mindmap": {
+        "id": "mindmap",
+        "type": "mindmap",
+        "rank": "D",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "orgchart": {
+        "id": "orgchart",
+        "type": "orgchart",
+        "rank": "E",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "gantt": {
+        "id": "gantt",
+        "type": "gantt",
+        "rank": "F",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz",
+            "hidden": false
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV",
+            "hidden": false
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk",
+            "hidden": false
+          }
+        }
+      },
+      "table": {
+        "id": "table",
+        "type": "table",
+        "rank": "V",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz",
+            "hidden": false
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV",
+            "hidden": false
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk",
+            "hidden": false
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "defaultView": "table",
+    "avatar": {
+      "type": "emoji",
+      "value": "🔗"
+    }
+  }
+}

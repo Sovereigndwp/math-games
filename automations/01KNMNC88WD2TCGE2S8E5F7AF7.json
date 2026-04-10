@@ -1,0 +1,147 @@
+{
+  "version": "2",
+  "flowTitle": "Brainstorm → Pipeline Review",
+  "trigger": {
+    "valid": false,
+    "displayName": "New Game Concept Added",
+    "type": "PIECE_TRIGGER",
+    "settings": {
+      "pieceName": "@taskade/automade-internalpiece-taskade",
+      "pieceVersion": "1.0.0",
+      "triggerName": "task.added",
+      "input": {}
+    }
+  },
+  "actions": [
+    {
+      "name": "a1a1a1a1-aaaa-aaaa-aaaa-a1a1a1a1a1a1",
+      "valid": false,
+      "displayName": "Run Full Pipeline Review (Game Design Critic)",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "agent.ask",
+        "input": {
+          "input": "Run the full game design pipeline review for this concept:\n\nCONCEPT: {{ trigger[\"nodeText\"] }}\n\nProvide:\n1. Game Experience Spec (core fantasy, core action, natural ceiling)\n2. Pre-Build Excellence Check\n3. Delight Gate verdict: PASS or FAIL with reason\n4. GO / NO-GO Decision with rationale\n5. If GO: Prototype entry point (P1 success criteria)\n6. AI Critique Summary (2-3 sentences)\n7. Closest Existing Game\n8. Depth Potential score 1-10",
+          "agentId": {
+            "type": "flow-template-variable-input-type",
+            "id": "01KNM0ECMQFA8EYBP45WTV587M"
+          }
+        }
+      }
+    },
+    {
+      "name": "b2b2b2b2-bbbb-bbbb-bbbb-b2b2b2b2b2b2",
+      "valid": true,
+      "displayName": "Extract GO/NO-GO Decision",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "{{ a1a1a1a1-aaaa-aaaa-aaaa-a1a1a1a1a1a1[\"result\"] }}",
+          "prompt": "Extract the GO/NO-GO decision from this pipeline review. Respond with ONLY one of these exact values: GO, NO-GO, Revise, Pause, Pending"
+        }
+      }
+    },
+    {
+      "name": "c3c3c3c3-cccc-cccc-cccc-c3c3c3c3c3c3",
+      "valid": true,
+      "displayName": "Extract Delight Gate Status",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "{{ a1a1a1a1-aaaa-aaaa-aaaa-a1a1a1a1a1a1[\"result\"] }}",
+          "prompt": "Extract the Delight Gate verdict from this pipeline review. Respond with ONLY one of these exact values: Pass, Fail, Pending"
+        }
+      }
+    },
+    {
+      "name": "d4d4d4d4-dddd-dddd-dddd-d4d4d4d4d4d4",
+      "valid": false,
+      "displayName": "Update Pipeline Stage to GO/NO-GO Decision",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-taskade",
+        "pieceVersion": "1.0.0",
+        "actionName": "updateCustomFields",
+        "input": {
+          "fields": {
+            "@gcf04": {
+              "data": {
+                "value": "stage-gono"
+              },
+              "rank": "0",
+              "fieldId": "@gcf04"
+            },
+            "@gcf07": {
+              "data": {
+                "value": "{{ a1a1a1a1-aaaa-aaaa-aaaa-a1a1a1a1a1a1[\"result\"] }}"
+              },
+              "rank": "1",
+              "fieldId": "@gcf07"
+            }
+          },
+          "nodeId": "{{ trigger[\"nodeId\"] }}",
+          "projectId": {
+            "type": "flow-template-variable-input-type",
+            "id": "LnpYq2qGt5DrXpda"
+          }
+        }
+      }
+    },
+    {
+      "name": "e5e5e5e5-aaaa-bbbb-cccc-e5e5e5e5e5e5",
+      "valid": false,
+      "displayName": "Write GO/NO-GO + Delight Gate back to Pipeline",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-taskade",
+        "pieceVersion": "1.0.0",
+        "actionName": "updateCustomFields",
+        "input": {
+          "fields": {
+            "@gcf05": {
+              "data": {
+                "value": "{{ b2b2b2b2-bbbb-bbbb-bbbb-b2b2b2b2b2b2[\"result\"] }}"
+              },
+              "rank": "0",
+              "fieldId": "@gcf05"
+            },
+            "@gcf06": {
+              "data": {
+                "value": "{{ c3c3c3c3-cccc-cccc-cccc-c3c3c3c3c3c3[\"result\"] }}"
+              },
+              "rank": "1",
+              "fieldId": "@gcf06"
+            }
+          },
+          "nodeId": "{{ trigger[\"nodeId\"] }}",
+          "projectId": {
+            "type": "flow-template-variable-input-type",
+            "id": "LnpYq2qGt5DrXpda"
+          }
+        }
+      }
+    }
+  ],
+  "variables": {
+    "01KNM0ECMQFA8EYBP45WTV587M": {
+      "id": "01KNM0ECMQFA8EYBP45WTV587M",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "LnpYq2qGt5DrXpda": {
+      "id": "LnpYq2qGt5DrXpda",
+      "rank": "k",
+      "type": "string",
+      "format": "taskade-project-id"
+    }
+  }
+}

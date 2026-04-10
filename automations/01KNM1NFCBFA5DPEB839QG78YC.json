@@ -1,0 +1,13 @@
+{
+  "version": "2",
+  "flowTitle": "Agent Tool: Researcher",
+  "trigger": {
+    "valid": true,
+    "displayName": "Agent Tool",
+    "type": "MANUAL",
+    "settings": {
+      "inputUiInfo": {}
+    }
+  },
+  "actions": []
+}

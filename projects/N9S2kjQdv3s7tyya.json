@@ -1,0 +1,3221 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "9b752e9b-e994-4d52-b423-f9f99e71b9cf",
+        "text": {
+          "ops": [
+            {
+              "insert": "Game Family Registry"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": null,
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "97bb8076-58cc-43c4-a23a-51376868b029",
+            "text": {
+              "ops": [
+                {
+                  "insert": "📐 About This Registry",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "cf431bd6-e96a-47ae-9538-87ee8e9b6765",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Each family is an interaction archetype — the felt experience of the player's core action",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ade7af6d-7e5a-4e81-bbb7-dbbf0b52a7a7",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Two games in the same family must have high differentiation keys or one should be cut",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "18814e44-f86f-4c90-9a81-a38bacdc4cf5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Family Architect (Stage 4 of pipeline) assigns every concept to a family before advancement",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "99059b38-9863-48da-bfa6-662cbb98c604",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Exact-Sum Composition",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@gf01": {
+                "type": "Select",
+                "optionId": "it-comp"
+              },
+              "@gf02": "Player assembles or matches components that must total an exact target value",
+              "@gf03": "Addition, subtraction, number bonds, part-whole relationships",
+              "@gf04": "Bakery Rush (primary), Firefly Ranger (secondary — revision needed)",
+              "@gf05": "Build / Craft family when composition is spatial",
+              "@gf06": "Bakery Rush: timed + order fulfillment pressure. Firefly Ranger: routing + visual trail. Must not both use same drag-to-fill mechanic.",
+              "@gf07": {
+                "type": "Select",
+                "optionId": "cov-strong"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "ea713145-fd10-4a88-a879-e5935ac4102a",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Dispatch / Subset Selection",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@gf01": {
+                "type": "Select",
+                "optionId": "it-disp"
+              },
+              "@gf02": "Player selects a subset of resources and assigns them to targets under constraints",
+              "@gf03": "Multiplication, division, additive composition, later efficiency optimization",
+              "@gf04": "Fire Dispatch (primary, mature), ATC Math Tower (gold-standard reference)",
+              "@gf05": "Allocation / Network Balancing when assignment is continuous not discrete",
+              "@gf06": "Fire Dispatch: discrete truck units, binary fire suppression. ATC: continuous timing + sequencing. Differentiation is strong.",
+              "@gf07": {
+                "type": "Select",
+                "optionId": "cov-strong"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "5ccda4df-f715-4f23-aaea-899ad8c2b41d",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Precision Placement",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@gf01": {
+                "type": "Select",
+                "optionId": "it-prec"
+              },
+              "@gf02": "Player places an object or value at a precise location on a continuous scale or coordinate system",
+              "@gf03": "Fractions, decimals, angles, coordinates, trig values",
+              "@gf04": "Unit Circle Pizza Lab (primary)",
+              "@gf05": "Number line games; coordinate geometry games",
+              "@gf06": "Unit Circle: circular domain + dual-output (sin, cos) is unique. Most number line games are linear only.",
+              "@gf07": {
+                "type": "Select",
+                "optionId": "cov-partial"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "9af0afbd-68c0-48d2-9890-2a46428ee963",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Allocation / Network Balancing",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@gf01": {
+                "type": "Select",
+                "optionId": "it-alloc"
+              },
+              "@gf02": "Player distributes a continuous resource across nodes in a network to satisfy balance constraints",
+              "@gf03": "Algebra, linear equations, missing value, later systems of equations and optimization",
+              "@gf04": "Power Grid Operator (primary, active flagship)",
+              "@gf05": "Dispatch family when resources are discrete; Build family when constraints are spatial",
+              "@gf06": "Power Grid: algebraic missing value in a flowing network — fundamentally different feel from discrete dispatch",
+              "@gf07": {
+                "type": "Select",
+                "optionId": "cov-partial"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "62af7c85-72c1-4149-9b7f-83465a4db340",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Capacity Packing",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@gf01": {
+                "type": "Select",
+                "optionId": "it-cap"
+              },
+              "@gf02": "Player fills containers to their exact or maximum capacity using division reasoning",
+              "@gf03": "Division, ceiling division, ratios, efficiency, remainders",
+              "@gf04": "School Trip Fleet (primary), Grocery Dash (gold-standard reference for context + optimization)",
+              "@gf05": "Exact-Sum Composition when target is exact rather than bounded",
+              "@gf06": "School Trip Fleet: ceiling division focus, student-safety framing. Grocery Dash: budget constraint + optimization layer. Distinct cognitive targets.",
+              "@gf07": {
+                "type": "Select",
+                "optionId": "cov-partial"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "1276d4ae-1bb0-4ff9-a55d-e85a2c507e2a",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Routing / Pathfinding",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@gf01": {
+                "type": "Select",
+                "optionId": "it-rout"
+              },
+              "@gf02": "Player sequences directional steps or selects route segments through a spatial network, building a path that satisfies positional, time, or distance constraints",
+              "@gf03": "K–2: Directional reasoning and spatial sequencing (K.G.A.1 positional language: up/down/left/right). Grades 5–7: Distance–Rate–Time relationships, unit rates, proportional reasoning, simple inequalities (6–8)",
+              "@gf04": "Puddle Patrol (K–2 anchor, Prototype P1). Metro Minute: Express Line (Gr 5–7, PAUSED — 3 conditions unresolved).",
+              "@gf05": "Dispatch family when routing is implicit; Allocation family when flow is continuous not discrete; Sequence/Ordering when path is ranked not traversed",
+              "@gf06": "Puddle Patrol: pre-programming arrow steps on a tile grid (K.G.A.1), no numeric calculation — path correctness IS directional spatial logic. Metro Minute: cumulative D-R-T time budget + stop-order arithmetic across segments (Gr 5–7). Key differentiator within family: Puddle Patrol = spatial step-sequencing; Metro Minute = rate-constrained route optimization. No cognitive overlap.",
+              "@gf07": {
+                "type": "Select",
+                "optionId": "cov-partial"
+              }
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "1ccb2e45-0861-40b2-af7a-4db049fe0521",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Member Games",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "h2",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "bd8fb220-1793-4d2d-93cf-80fe07042b8b",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Puddle Patrol",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": " — K–2 anchor · Prototype P1 Active",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "checkbox",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "8c029023-3e8a-4fb3-b0d3-37e6737cc86b",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade band: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "K–1 core (4×4 → 6×6 grids, unlimited arrows, 1 flower target). Grade 2 extension: arrow budget constraint (≤6), dual ordered flower targets, moving puddles.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "5d6b27d4-40dc-49dc-ae0b-bbdb9b3bff18",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Anchor standard: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "CCSS.MATH.CONTENT.K.G.A.1 — Describe the relative positions of objects using terms such as above, below, beside, in front of, behind, and next to. Arrow placement operationalises positional language as a physical act.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "26b5223a-6bfc-4e4a-95a9-60852050f9dc",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Core action: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Tap or drag directional arrow icons (↑ ↓ ← →) onto empty grid tiles to build a frog's path. Live ghost-trace updates tile-by-tile. Press GO — frog hops. Correct path → flower blooms + cheer. Wrong path (puddle hit) → frog splashes back to start.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "901f53f7-d539-448f-b8ca-598da04f3ab3",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Math-as-lockpick: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "The sequence of directional steps IS the path. Without correct spatial-directional reasoning the frog cannot reach the flower. Random arrow placement fails on any grid with ≥2 puddles.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "557c4fe5-5096-4485-8554-6997dc2e5d93",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Natural ceiling: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Axis 1: Grid size (4×4 → 6×6 → 8×8). Axis 2: Arrow budget (unlimited → 6 → 4 → 3). Axis 3: Path complexity (1 target → 2 ordered targets → waypoint constraint). Ceiling: 8×8 grid, 3-arrow budget, 2 ordered flower targets with mixed static/moving obstacles.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "14d3c2dc-73e3-4ee4-b544-f99e6b85ceab",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Misconception register: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "M1 (direction icon confusion — frog-body orientation required), M2 (step-count underestimation — live trace mitigates), M3 (obstacle optimism — hover splash on puddle tiles), M4 (reversal blindness — live trace is the primary mitigation; non-negotiable in P1 build).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "61460557-5ff7-4ee7-990b-4da2eb93b05a",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Critical P2A condition: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Arrow budget constraint (≤6 arrows) must be introduced by P2A. Trial-and-error bypass is viable with unlimited arrows. Budget is the single most important depth lever in this game.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "94cde320-6926-4cb1-98c8-d83481ab6f6f",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Differentiation from Metro Minute: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Puddle Patrol — spatial step-sequencing on a tile grid, K.G.A.1, no numeric calculation. Metro Minute — rate-constrained route optimisation (t = d÷r) across a metro network, Gr 5–7. Different grade band, different math domain, different interaction feel. Zero overlap.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "da0a2d92-01db-441c-bdc0-2cc33cb725e4",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Differentiation from LightBot Jr (commercial): ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Puddle Patrol uses drag-to-place per tile (not a command queue), anchors explicitly to K.G.A.1 positional vocabulary, and introduces obstacle-avoidance tension through puddle tiles with hover-splash signals. LightBot frames as programming; Puddle Patrol frames as spatial navigation.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "6d103c0d-dcf9-4151-8c20-0fa39e925dad",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Pipeline status: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "GO — Prototype P1 Active (promoted 2026-04-09). Depth Potential: 8/10.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "id": "dfee65d0-fc97-4725-a7bf-2184054b9c4f",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Metro Minute: Express Line",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": " — Gr 5–7 · PAUSED (3 conditions unresolved)",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "checkbox",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "4fceb3c0-ca26-4f56-9f9b-8e2be3060b6e",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade band: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Grades 5–7 core (D-R-T, unit rates, simple inequalities)",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "0c26254b-efd6-42e8-9ec6-7b6c9a4da17d",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Pipeline status: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "PAUSED — 3 design conditions unresolved. Re-evaluate 2026-07-07 (90 days). See Game Concepts Pipeline for full pause conditions and Definition of Done to unpause.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "3ca98b8f-4405-4001-8f37-98a88ec0aedb",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Sequence / Ordering",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@gf01": {
+                "type": "Select",
+                "optionId": "it-seq"
+              },
+              "@gf02": "Player computes or evaluates discrete expressions and drag-sequences the resulting items into a ranked order — from least to most, most to least, or by a stated rule — before committing the full sequence",
+              "@gf03": "K–2: Addition and subtraction within 20; comparing and ordering sums and differences (1.OA.C.6). Grades 3–5: Ordering fractions, decimals, unit rates, and ratio notation across multiple representations (5.NF.B.3, 6.RP.A.1, 6.RP.A.3). Grades 5–6: Ordering probabilistic events by likelihood; converting between fraction/decimal/percent representations (7.SP.C.5, 5.NF).",
+              "@gf04": "Snack Line Shuffle (K–2 anchor, Prototype P1). Ratio Run (Gr 3–5, Prototype P1 Active). Probability Pipeline (Grades 5–6, REVISE — Delight Gate FAIL, mechanic not yet locked).",
+              "@gf05": "Precision Placement when ordering becomes continuous coordinate placement rather than discrete ranking",
+              "@gf06": "Snack Line Shuffle: ordering by computed arithmetic total within 20; discrete drag-to-slot; cafeteria fantasy; targets K-2 misconceptions. Ratio Run: ordering fractions/decimals/unit-rates across representations on a number-line rail; diner fantasy; targets cross-representation equivalence via sparkle tie-lock. Probability Pipeline: discrete slot ranking of probability modules; uncertain event contexts. KEY DIFFERENTIATION WITHIN FAMILY: Snack Line Shuffle and Ratio Run share the drag-to-rank verb but target completely different CCSS clusters, grade bands, and representation types — document explicitly when both are active. Ratio Run and Probability Pipeline share the drag-to-rank verb and Gr 4–6 approximate overlap — differentiated by math domain (ratio/fraction vs probability) and CCSS cluster.",
+              "@gf07": {
+                "type": "Select",
+                "optionId": "cov-strong"
+              }
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223344",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Member Games",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "h2",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223345",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Snack Line Shuffle",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": " — K–2 anchor · Prototype P1",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "checkbox",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223346",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade band: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "K–2 (K–1 core within 10, addition-dominant, 3–4 kids; Grade 2+ for mixed +/–, within 20, 5–6 kids, positional constraints)",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223347",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Anchor standard: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "CCSS.MATH.CONTENT.1.OA.C.6 — Add and subtract within 20; use strategies to develop fluency. Used here as repeated practice and consolidation context for comparing and ordering expression totals. Does not claim standalone fluency delivery.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223348",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Standard removed: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "1.NBT.B.3 (overreach — place-value comparison with >, =, < notation; not targeted by this game). Listed only as a downstream beneficiary in internal notes. Do not include in any public-facing alignment materials.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223349",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Core action: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Compute small addition/subtraction expressions on kid trays; drag kids into a line ordered from most snacks to least (or by stated rule); per-placement adjacency glow signals local correctness; Serve tap is cosmetic confirmation only — totals never revealed by system.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223350",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Misconception register: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "M1 (bigger addend = bigger total), M2 (equal totals must rank differently), M3 (subtraction always loses), M4 (leftmost digit dominance), M5 (operation sign blindness), M6 (zero-subtraction overgeneralisation), M7 (bigger number first = bigger result). M4 and M7 co-occurrence flagged. All seven written to Misconception Library (project: cyt3zvpjf32D1Ddt).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223351",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Differentiation from Probability Pipeline: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Snack Line Shuffle — arithmetic expression totals within 20, K–2, cafeteria ordering fantasy. Probability Pipeline — ranking uncertain events by likelihood, Grades 5–6, probability module fantasy. Same family verb (drag-to-rank) but entirely different math domain, representation type, and grade band. No cognitive overlap risk.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223352",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Pipeline status: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "GO — Prototype P1 (advanced 2026-04-08). Conditions cleared: fantasy alignment fixed, Serve mechanic locked (Option B), CCSS corrected, M4–M7 registered. P1 DoD: 14 checkboxes including teacher sign-off, three playtest thresholds, educator visual review, grade-band gate, and Registry update.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223353",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Natural ceiling: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Expression complexity (within 5 → within 10 → mixed +/– → within 20) × line length (2–4 → 5–6 kids) × ordering rule variants (largest-first, smallest-first, partial constraints, ties). Ceiling: 6-kid mixed +/– lines within 20 under positional constraints. Beyond this, multi-step or unknown-addend expressions require a different UI model.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223354",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Probability Pipeline",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": " — Grades 5–6 · REVISE required before P1",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "checkbox",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223355",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade band: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Grades 5–6 core (4–7 range)",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223356",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Anchor standard: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "CCSS 7.SP.C.5 — Probability of a chance event is a number between 0 and 1; CCSS 5.NF — Comparing fractions/decimals/percents across representations",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b1c2e3f4-aa01-4bb1-8cc1-dd0011223357",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Pipeline status: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "REVISE — Delight Gate FAIL. P1 mechanic not yet locked. Assigned to Brainstorming Specialist (mechanic lock) → Game Design Critic (Delight Gate re-run). See Game Concepts Pipeline for REVISE Definition of Done.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "id": "fa6e6bfb-f9b2-4d42-8e24-a12185dd0de5",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Ratio Run",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": " — Gr 3–5 anchor · Prototype P1 Active",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "checkbox",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "b2c3f834-3889-4faf-af67-df5d5b6db2b9",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade band: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Grades 3–5 core (Gr 3 extension: unit fractions 1/2, 1/3, 1/4; Gr 4–5 anchor: mixed-denominator fractions and decimals; Gr 6 ceiling: full ratio notation and unit rates).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "32fba86b-4a83-47e1-9f2e-538851f9e192",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Anchor standards: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Primary: 5.NF.B.3 (interpret fractions, reason about ordering). Extension: 6.RP.A.1, 6.RP.A.3 (ratios and proportional relationships). Gr 3 entry: 3.NF.A.3 (fraction equivalence).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "0bf6af75-483c-4ab6-8ccc-ed8a421e1f75",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Core action: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "3–5 recipe cards appear, each showing a ratio/fraction/unit-rate (potentially in different representations). Player drags cards onto a horizontal number-line rail, left (smallest) to right (largest). Tap GO — kitchen animation fires. Correct: dishes slide to customers with cheer. Wrong: misordered card highlights amber with side-by-side fraction bar comparison.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "f6ed075c-563f-4d63-9888-97cb5a187b3f",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Signature mechanic — Equivalence tie-lock: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "When two cards have the same value (e.g., 1/2 and 0.5), both sparkle-lock side-by-side on the rail with a positive animation. This is the primary mechanism for teaching cross-representation equivalence as a discovery, not a correction. Must be active from P1.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "6e81ba32-35de-4bd3-904e-7a246bb2f2dd",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Natural ceiling: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Axis 1: Representation mix (same-denominator → mixed denominators → decimals → unit rates → ratio notation → percentages). Axis 2: Card count (3 → 4 → 5). Axis 3: Equivalence trap density (0% → 15% → 30% rounds contain equivalent cards). Axis 4: Time pressure (untimed → customer-patience meter → rush-hour timer). Ceiling: 5 cards × 5 representations + 30% equivalence traps + timer.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "148fa985-7c70-4941-9f59-b7e1e5045cbb",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Misconception register: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "M1 (numerator-only ordering — amber + fraction bar comparison), M2 (ratio direction confusion — icon-to-icon depiction required), M3 (decimal-fraction disconnect — sparkle tie-lock is the primary mitigation), M4 (unit rate misread — graphical plates-per-cups depiction required).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "bec6f35d-8e40-453c-9819-6fc7687261e7",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Critical P1 condition: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "P1 content must include at least one cross-representation pair (e.g., 2/4 vs 0.5) even at the simplest tier. Pure same-denominator P1 enables permutation guessing and buries the game's M3 misconception work. Equivalence tie-lock must be active from day one.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "0897e8f0-7c34-4228-9242-200cd3861f9f",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Educator hard stop: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Fraction bar visual must accurately represent all fractions shown. No visual where 3/4 appears smaller than 1/2. This is a blocking gate equivalent to Fraction Forge's visual accuracy requirement.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "52e60ec8-3a1e-413a-aaa0-2eddd48bc527",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Differentiation from Snack Line Shuffle: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Ratio Run — ordering ratio/fraction/unit-rate values across representations, Gr 3–5, diner fantasy, number-line rail. Snack Line Shuffle — ordering arithmetic expression totals within 20, K–2, cafeteria fantasy, slot-drag. Same family verb (drag-to-rank) but different CCSS cluster, grade band, representation type, and fantasy. Zero cognitive overlap.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "c789df8e-bfaf-43ba-b8b2-dccb8fded5f1",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Differentiation from Probability Pipeline: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Ratio Run — ordering ratio/fraction values (number/ratio domain, 5.NF/6.RP). Probability Pipeline — ordering probability modules by likelihood (probability domain, 7.SP). Grade band overlap: both touch Gr 5–6. Differentiation: CCSS cluster (number vs probability), visual representation type (number-line rail vs probability slot), and fantasy (diner vs probability plant/pipeline). MEDIUM overlap risk — ensure both are registered distinctly when Probability Pipeline re-enters pipeline.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "1b759111-6479-4c58-93aa-d7806a89cda0",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Pipeline status: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "GO — Prototype P1 Active (promoted 2026-04-09). Depth Potential: 8/10.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "b57982c9-e03a-44f3-866e-df6f2d7f0d15",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Build / Craft",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@gf01": {
+                "type": "Select",
+                "optionId": "it-build"
+              },
+              "@gf02": "Player calculates precise values to determine where or how to place/shape components within a construction scene, building a functional system whose success depends entirely on the correctness of the calculated placements",
+              "@gf03": "Grades 4–6: Equivalent fractions, fraction addition/subtraction, simplification (4.NF). Grades 6–8: Evaluating linear equations (y = mx + b), coordinate plotting, solving systems of two linear equations (6.EE.B, 6.EE.C, 8.EE.C.8). Arc spans Gr 4–8 continuously.",
+              "@gf04": "Fraction Forge (Gr 4–6, Prototype P1 active). Signal Tower (Gr 6–8, Prototype P1 active). [Archived: City of Optimal Shapes — NO-GO, preserved for potential rewrite; do not reopen while Signal Tower is active.]",
+              "@gf05": "Exact-Sum Composition when construction is numeric not spatial; Allocation/Network Balancing when constraints are flows not placements; Stealth-Gated Precision Solve when correct value is typed under action pressure rather than placed in a construction scene",
+              "@gf06": "Key differentiator from all other families: the math output PHYSICALLY DETERMINES a placement in a constructed scene — a coordinate, a bar length, a cut point — and the scene fails visibly if the placement is wrong. Fraction Forge: cut and merge ore bars to exact fractional lengths to fill forge orders. Signal Tower: solve equation(s) for (x,y) and place relay tower exactly there — city stays dark if wrong. Both pass the math-as-lockpick test at the construction level, not just the gate level. Differentiation from Stealth-Gated Precision Solve (Echo Heist): Echo Heist places typed answers under dual-load stealth/action pressure; Build/Craft places calculated values in a static construction scene with no action pressure.",
+              "@gf07": {
+                "type": "Select",
+                "optionId": "cov-strong"
+              }
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "ccb055c0-bf2d-46bf-9d13-1a7fa844a222",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Family Arc: Gr 4–8 Build / Craft Continuum",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "h2",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "1624d385-7f34-4925-b0ba-fa9fb0c3e6fb",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Arc structure: ",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": "Fraction Forge (Gr 4–6) → Signal Tower (Gr 6–8). Both use the same family verb (calculate → place in construction scene) but at different CCSS clusters. A student who masters Fraction Forge at Gr 6 transitions naturally into Signal Tower at Gr 6–7 with the same construction-as-validation fantasy.",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "9694d888-52af-49e8-b138-acd29d7f4d50",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Overlap zone Gr 6: ",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": "Both games claim Gr 6. Fraction Forge: Gr 6 ceiling (fraction operations under 4.NF → 6.NS bridge). Signal Tower: Gr 6 anchor (6.EE.B.6, 6.EE.C.9 — evaluate equations). Teachers should use Fraction Forge to consolidate fraction fluency first, then Signal Tower for algebraic extension. Not competitive — sequential.",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "2eec6b2f-8d5e-485a-ad34-339c9ed051a4",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "City of Optimal Shapes (ARCHIVED): ",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": "NO-GO as currently framed. Failed: no visceral consequence, no math-as-lockpick core. Signal Tower satisfies both archive conditions. Do NOT reopen City of Optimal Shapes while Signal Tower is active. Rewrite eligibility conditions documented in Game Concepts Pipeline.",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "92490549-add2-4539-a56e-40575ed9cf6f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Member Games",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "h2",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "313ad05a-49a4-477b-8f57-a6c2025a2edc",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Fraction Forge",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": " — Gr 4–6 · Prototype P1 Active — Arc Tier 1",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "checkbox",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "8a49e0a9-6efe-4924-9395-fa21d8275fa9",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade band: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Grades 4–6 core. Gr 4 anchor: equivalent fractions and fraction operations (4.NF). Gr 6 ceiling: fraction division, connecting to ratio reasoning (6.NS).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "1dc8cfec-74a6-4a58-956e-a3028a8ea6db",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Anchor standard: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "CCSS 4.NF — Equivalent fractions, fraction addition/subtraction, simplification.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "53ada5f2-4520-4639-bfd6-521b988740f5",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Core action: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Smelt raw ore bars by cutting (subdividing into equal parts) and merging (combining equal-sized pieces) to produce exact fractional lengths that fill forge orders. Correct order → forge animation + stamp. Wrong → mismatch overlay showing target vs produced.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "339a7309-08d4-4310-b25e-58b0bb971bd7",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Natural ceiling: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Ore bar count (1–2 → 3–4), order complexity (simple equivalents → multi-step with addition/subtraction), fraction range (halves → sixths → twelfths). Ceiling: multi-step orders requiring both cutting and merging across different denominators.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "74bbd162-40ee-457c-a7be-f507be684318",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Arc handoff to Signal Tower: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "After mastering fraction operations (Gr 6), learner is ready for Signal Tower's algebraic coordinate placement (also Gr 6 anchor). The construction-as-validation pattern is identical: calculate a value → place it in the scene → system confirms.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "a20bd0ad-8430-496e-bd4f-ccfc2499cba5",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Pipeline status: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "GO — Prototype P1 Active (promoted 2026-04-08). P1 DoD in Prototype Specifications project (9bfNR2acXuAHiWyC).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "id": "e9446a88-6cd9-4e30-9d4b-5a207c866d04",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Signal Tower",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": " — Gr 6–8 · Prototype P1 Active — Arc Tier 2",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "checkbox",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "dd55ee0f-0146-4bef-ab4a-3c7bb4199104",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade band: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Grades 6–8. Gr 6 anchor: evaluate y = mx + b for given x (6.EE.B.6, 6.EE.C.9). Gr 7 extension: find x given y (inverse operations). Gr 8 ceiling: solve 2×2 systems of linear equations (8.EE.C.8a/b). First and only studio game targeting CCSS 8.EE.C.8.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "bed26d58-7bca-469b-92c4-d89813bfd866",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Core action: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Side panel shows terrain equation(s). Player enters x-value AND expected y-value (commitment mechanic — both required before ghost tower appears). System places ghost tower at (x, y). Player confirms placement. Press TRANSMIT — system checks all towers against all constraints. Correct → cities light up. Wrong → signal-gap animation + amber on offending tower with equation shown.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "ac9a0eff-8416-4f39-920b-26cb9a06ef4b",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Most critical design constraint: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Player MUST provide both x AND expected y before ghost tower appears. System must NOT auto-evaluate y from entered x. If this constraint is violated the game becomes an iterative coordinate-guesser, not a math game. Non-negotiable from P1.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "087fbb3c-b6dc-474a-a055-ee18c333ca3d",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Natural ceiling: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Axis 1: Equation complexity (y = mx → y = mx + b → 2-equation system). Axis 2: Tower count (2 → 3 → 4 → 5). Axis 3: Constraint type (evaluate for x → find x given y → solve system). Axis 4: Inequality hazard zones. Ceiling: 5-tower network requiring three 2×2 systems plus inequality constraints.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "91096825-fa78-4cd8-b750-d89c63b15df5",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Misconception register: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "M1 (y=mx adds instead of multiplies — explicit × symbol + step-by-step hint tile), M2 (axis reversal — live (x,y) readout + prominent axis labels), M3 (visual intersection guessing at systems levels — constraint lines hidden until after TRANSMIT), M4 (single-equation mindset at systems levels — amber partial-signal for one-constraint satisfaction).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "2b966e55-0247-4a6e-98aa-f8b2d8db6e14",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "City of Optimal Shapes archive note: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Signal Tower satisfies both conditions that caused City of Optimal Shapes to be archived: (1) immediate visceral consequence (dead signal, dark city), (2) math-as-lockpick (coordinate cannot be guessed reliably). Do not reopen City of Optimal Shapes while Signal Tower is active.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "250dd430-0982-41af-83e9-c6f5918f551d",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Depth Potential: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "9/10 — highest of all three new GAP concepts. Richest mastery arc in the studio.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "f7e1d2c1-4d0e-46ba-bd76-b4483162b658",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Pipeline status: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "GO — Prototype P1 Active (promoted 2026-04-09). CCSS 8.EE.C.8 coverage: first game in studio portfolio to address systems of linear equations.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "96798867-b10e-4291-8c7a-a851836c241f",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Stealth-Gated Precision Solve",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@gf02": "Navigate an action/stealth environment, encounter a locked system (door, camera, vault, gate), and produce a single precise numeric answer to a typed math prompt to unlock progression — under time or danger pressure",
+              "@gf03": "Middle school fluency tasks that produce single numeric results: basic algebra (solving for x), ratio/percent/fraction computations, integer operations and rounding, simple geometric measures (angles), introductory expected value",
+              "@gf04": "Echo Heist (primary, Pass 5 complete)",
+              "@gf05": "Routing / Pathfinding (routing is the stealth layer, math gates are orthogonal); Dispatch / Subset Selection (no selection from a set — player produces a fresh value); Exact-Sum Composition (problems vary widely in structure)",
+              "@gf06": "Key differentiators from all existing families: (1) TYPED ANSWER PRODUCTION — player produces a value, not selects or composes. (2) EQUIVALENCE CHECKING — 1/2 = 0.5 = .5 = 50%. (3) CONTEXTUAL EMBEDDING — math is a lock in a narrative action scenario, not a standalone puzzle. (4) IMMEDIATE IN-WORLD CONSEQUENCE — correct answer opens the door, disables the camera; consequence is visible and narrative-consistent. (5) DUAL COGNITIVE LOAD — player simultaneously manages spatial stealth reasoning AND math recall. Design rule: this family = 'math as lock-picking in an action environment', not just 'typing answers'",
+              "@gf07": {
+                "type": "Select",
+                "optionId": "cov-partial"
+              }
+            },
+            "children": []
+          }
+        ]
+      }
+    ],
+    "fields": {
+      "@gf01": {
+        "displayName": "Interaction Type",
+        "type": "Select",
+        "options": {
+          "it-comp": {
+            "id": "it-comp",
+            "name": "Exact-Sum Composition",
+            "rank": "0",
+            "color": "#f97316"
+          },
+          "it-disp": {
+            "id": "it-disp",
+            "name": "Dispatch / Subset Selection",
+            "rank": "1",
+            "color": "#ef4444"
+          },
+          "it-prec": {
+            "id": "it-prec",
+            "name": "Precision Placement",
+            "rank": "2",
+            "color": "#6366f1"
+          },
+          "it-alloc": {
+            "id": "it-alloc",
+            "name": "Allocation / Network Balancing",
+            "rank": "3",
+            "color": "#3b82f6"
+          },
+          "it-cap": {
+            "id": "it-cap",
+            "name": "Capacity Packing",
+            "rank": "4",
+            "color": "#22c55e"
+          },
+          "it-rout": {
+            "id": "it-rout",
+            "name": "Routing / Pathfinding",
+            "rank": "5",
+            "color": "#8b5cf6"
+          },
+          "it-seq": {
+            "id": "it-seq",
+            "name": "Sequence / Ordering",
+            "rank": "6",
+            "color": "#ec4899"
+          },
+          "it-build": {
+            "id": "it-build",
+            "name": "Build / Craft",
+            "rank": "7",
+            "color": "#eab308"
+          }
+        }
+      },
+      "@gf02": {
+        "displayName": "Core Action",
+        "type": "string"
+      },
+      "@gf03": {
+        "displayName": "Natural Math Domain",
+        "type": "string"
+      },
+      "@gf04": {
+        "displayName": "Member Games",
+        "type": "string"
+      },
+      "@gf05": {
+        "displayName": "Overlap Risk With",
+        "type": "string"
+      },
+      "@gf06": {
+        "displayName": "Differentiation Keys",
+        "type": "string"
+      },
+      "@gf07": {
+        "displayName": "Coverage",
+        "type": "Select",
+        "options": {
+          "cov-strong": {
+            "id": "cov-strong",
+            "name": "Well Covered",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "cov-partial": {
+            "id": "cov-partial",
+            "name": "Partially Covered",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "cov-gap": {
+            "id": "cov-gap",
+            "name": "Gap — Needs Game",
+            "rank": "2",
+            "color": "#ef4444"
+          }
+        }
+      }
+    },
+    "views": {
+      "list": {
+        "id": "list",
+        "type": "list",
+        "rank": "A",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@gf01": {
+            "id": "/attributes/@gf01",
+            "fieldPath": "/attributes/@gf01",
+            "rank": "z"
+          },
+          "/attributes/@gf02": {
+            "id": "/attributes/@gf02",
+            "fieldPath": "/attributes/@gf02",
+            "rank": "zV"
+          },
+          "/attributes/@gf03": {
+            "id": "/attributes/@gf03",
+            "fieldPath": "/attributes/@gf03",
+            "rank": "zk"
+          },
+          "/attributes/@gf04": {
+            "id": "/attributes/@gf04",
+            "fieldPath": "/attributes/@gf04",
+            "rank": "zs"
+          },
+          "/attributes/@gf05": {
+            "id": "/attributes/@gf05",
+            "fieldPath": "/attributes/@gf05",
+            "rank": "zw"
+          },
+          "/attributes/@gf06": {
+            "id": "/attributes/@gf06",
+            "fieldPath": "/attributes/@gf06",
+            "rank": "zy"
+          },
+          "/attributes/@gf07": {
+            "id": "/attributes/@gf07",
+            "fieldPath": "/attributes/@gf07",
+            "rank": "zz"
+          }
+        }
+      },
+      "board": {
+        "id": "board",
+        "type": "board",
+        "rank": "B",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@gf01": {
+            "id": "/attributes/@gf01",
+            "fieldPath": "/attributes/@gf01",
+            "rank": "z"
+          },
+          "/attributes/@gf02": {
+            "id": "/attributes/@gf02",
+            "fieldPath": "/attributes/@gf02",
+            "rank": "zV"
+          },
+          "/attributes/@gf03": {
+            "id": "/attributes/@gf03",
+            "fieldPath": "/attributes/@gf03",
+            "rank": "zk"
+          },
+          "/attributes/@gf04": {
+            "id": "/attributes/@gf04",
+            "fieldPath": "/attributes/@gf04",
+            "rank": "zs"
+          },
+          "/attributes/@gf05": {
+            "id": "/attributes/@gf05",
+            "fieldPath": "/attributes/@gf05",
+            "rank": "zw"
+          },
+          "/attributes/@gf06": {
+            "id": "/attributes/@gf06",
+            "fieldPath": "/attributes/@gf06",
+            "rank": "zy"
+          },
+          "/attributes/@gf07": {
+            "id": "/attributes/@gf07",
+            "fieldPath": "/attributes/@gf07",
+            "rank": "zz"
+          }
+        }
+      },
+      "mindmap": {
+        "id": "mindmap",
+        "type": "mindmap",
+        "rank": "D",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@gf01": {
+            "id": "/attributes/@gf01",
+            "fieldPath": "/attributes/@gf01",
+            "rank": "z"
+          },
+          "/attributes/@gf02": {
+            "id": "/attributes/@gf02",
+            "fieldPath": "/attributes/@gf02",
+            "rank": "zV"
+          },
+          "/attributes/@gf03": {
+            "id": "/attributes/@gf03",
+            "fieldPath": "/attributes/@gf03",
+            "rank": "zk"
+          },
+          "/attributes/@gf04": {
+            "id": "/attributes/@gf04",
+            "fieldPath": "/attributes/@gf04",
+            "rank": "zs"
+          },
+          "/attributes/@gf05": {
+            "id": "/attributes/@gf05",
+            "fieldPath": "/attributes/@gf05",
+            "rank": "zw"
+          },
+          "/attributes/@gf06": {
+            "id": "/attributes/@gf06",
+            "fieldPath": "/attributes/@gf06",
+            "rank": "zy"
+          },
+          "/attributes/@gf07": {
+            "id": "/attributes/@gf07",
+            "fieldPath": "/attributes/@gf07",
+            "rank": "zz"
+          }
+        }
+      },
+      "orgchart": {
+        "id": "orgchart",
+        "type": "orgchart",
+        "rank": "E",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@gf01": {
+            "id": "/attributes/@gf01",
+            "fieldPath": "/attributes/@gf01",
+            "rank": "z"
+          },
+          "/attributes/@gf02": {
+            "id": "/attributes/@gf02",
+            "fieldPath": "/attributes/@gf02",
+            "rank": "zV"
+          },
+          "/attributes/@gf03": {
+            "id": "/attributes/@gf03",
+            "fieldPath": "/attributes/@gf03",
+            "rank": "zk"
+          },
+          "/attributes/@gf04": {
+            "id": "/attributes/@gf04",
+            "fieldPath": "/attributes/@gf04",
+            "rank": "zs"
+          },
+          "/attributes/@gf05": {
+            "id": "/attributes/@gf05",
+            "fieldPath": "/attributes/@gf05",
+            "rank": "zw"
+          },
+          "/attributes/@gf06": {
+            "id": "/attributes/@gf06",
+            "fieldPath": "/attributes/@gf06",
+            "rank": "zy"
+          },
+          "/attributes/@gf07": {
+            "id": "/attributes/@gf07",
+            "fieldPath": "/attributes/@gf07",
+            "rank": "zz"
+          }
+        }
+      },
+      "gantt": {
+        "id": "gantt",
+        "type": "gantt",
+        "rank": "F",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@gf01": {
+            "id": "/attributes/@gf01",
+            "fieldPath": "/attributes/@gf01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@gf02": {
+            "id": "/attributes/@gf02",
+            "fieldPath": "/attributes/@gf02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@gf03": {
+            "id": "/attributes/@gf03",
+            "fieldPath": "/attributes/@gf03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@gf04": {
+            "id": "/attributes/@gf04",
+            "fieldPath": "/attributes/@gf04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@gf05": {
+            "id": "/attributes/@gf05",
+            "fieldPath": "/attributes/@gf05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@gf06": {
+            "id": "/attributes/@gf06",
+            "fieldPath": "/attributes/@gf06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@gf07": {
+            "id": "/attributes/@gf07",
+            "fieldPath": "/attributes/@gf07",
+            "rank": "zz",
+            "hidden": false
+          }
+        }
+      },
+      "table": {
+        "id": "table",
+        "type": "table",
+        "rank": "V",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@gf01": {
+            "id": "/attributes/@gf01",
+            "fieldPath": "/attributes/@gf01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@gf02": {
+            "id": "/attributes/@gf02",
+            "fieldPath": "/attributes/@gf02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@gf03": {
+            "id": "/attributes/@gf03",
+            "fieldPath": "/attributes/@gf03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@gf04": {
+            "id": "/attributes/@gf04",
+            "fieldPath": "/attributes/@gf04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@gf05": {
+            "id": "/attributes/@gf05",
+            "fieldPath": "/attributes/@gf05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@gf06": {
+            "id": "/attributes/@gf06",
+            "fieldPath": "/attributes/@gf06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@gf07": {
+            "id": "/attributes/@gf07",
+            "fieldPath": "/attributes/@gf07",
+            "rank": "zz",
+            "hidden": false
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "defaultView": "table",
+    "avatar": {
+      "type": "emoji",
+      "value": "✏️"
+    }
+  }
+}

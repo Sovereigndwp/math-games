@@ -1,0 +1,1957 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "7e87ffb6-7351-43f8-b8e3-3b65eae90d56",
+        "text": {
+          "ops": [
+            {
+              "insert": "Snack Line Shuffle — Question Audit Results"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": null,
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "92f707ee-4873-4d60-b6fe-1b9aec6af5a0",
+            "text": {
+              "ops": [
+                {
+                  "insert": "📋 Audit Header — 2026-04-09",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "1f77ae5c-4ee1-468f-973c-cad6f8937f31",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Game: Snack Line Shuffle · P1 · K–2 · CCSS.1.OA.C.6 · Addition within 5 · Largest-first ordering · 14 rounds R0–R13 · 7/14 M1 traps (50%)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "fa3b0b08-be16-49f5-a101-e323e9c18838",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Auditor: EVE · Audit date: 2026-04-09 · Code version: SnackLineShuffle.tsx (post-fix)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "0c793940-5aac-408f-9958-750232064aac",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🔢 Round Data Correctness — R0–R13",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "d1544629-b067-4805-9835-11a4910ea3b9",
+            "text": {
+              "ops": [
+                {
+                  "insert": "R0–R1 Warm-up Block: 2-kid rounds",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl02": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@sl03": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@sl04": {
+                "type": "Select",
+                "optionId": "vn-pass"
+              },
+              "@sl05": {
+                "type": "Select",
+                "optionId": "av-pass"
+              },
+              "@sl06": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@sl07": "R0: 2+1=3, 1+1=2 → correctOrder [a,b] ✅. R1: 3+1=4, 1+2=3 → correctOrder [a,b] ✅. Both 2-kid warm-ups with no M1 trap. First addends agree with total ordering in both rounds (clean intro). Spec: R0=NO trap, R1=NO trap ✅. All totals within 5 ✅. Strictly distinct totals ✅. Addition only ✅.",
+              "@sl08": "PASS — no action required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "97b7ca64-e9c3-40d7-b3af-21d897958f85",
+            "text": {
+              "ops": [
+                {
+                  "insert": "R2–R8 Core Block A: 3-kid rounds",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl02": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@sl03": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@sl04": {
+                "type": "Select",
+                "optionId": "vn-pass"
+              },
+              "@sl05": {
+                "type": "Select",
+                "optionId": "av-pass"
+              },
+              "@sl06": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@sl07": "R2(NO trap): 1+1=2, 2+1=3, 3+2=5 → order c,b,a ✅. R3(M1 trap): 3+0=3, 2+2=4, 4+1=5 → order c,b,a ✅ (3+0 has bigger first addend than 2+2 but smaller total). R4(M1 trap): 4+0=4, 3+2=5, 2+1=3 → order b,a,c ✅ (4+0 has biggest first addend but not biggest total). R5(NO): 1+0=1, 2+0=2, 1+3=4 → order c,b,a ✅. R6(M1): 4+0=4, 3+2=5, 1+1=2 → order b,a,c ✅. R7(NO): 0+2=2, 1+3=4, 0+3=3 → order b,c,a ✅. R8(M1): 3+0=3, 2+3=5, 1+0=1 → order b,a,c ✅. All 7 rounds verified. All totals within 5 ✅. No ties ✅.",
+              "@sl08": "PASS — all 7 three-kid rounds mathematically correct."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "63d87ad4-b413-4af1-af2c-960825d84767",
+            "text": {
+              "ops": [
+                {
+                  "insert": "R9–R13 Core Block B: 4-kid rounds",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl02": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@sl03": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@sl04": {
+                "type": "Select",
+                "optionId": "vn-pass"
+              },
+              "@sl05": {
+                "type": "Select",
+                "optionId": "av-pass"
+              },
+              "@sl06": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@sl07": "R9(NO): 1+1=2, 2+1=3, 1+3=4, 2+3=5 → order d,c,b,a ✅ (consecutive 2,3,4,5). R10(M1 double): 4+0=4, 3+0=3, 2+3=5, 1+0=1 → order c,a,b,d ✅ (both 4+0 and 3+0 have bigger first addends than 2+3 but smaller totals). R11(M1): 3+2=5, 4+0=4, 2+0=2, 1+0=1 → order a,b,c,d ✅ (4+0 has bigger first addend than 3+2 but smaller total). R12(NO): 0+1=1, 0+2=2, 0+4=4, 0+3=3 → order c,d,b,a ✅ (all zero first addend — second addend determines all). R13(M1): 3+2=5, 4+0=4, 2+1=3, 1+0=1 → order a,b,c,d ✅ (4+0 bigger first addend than 3+2 but smaller total). All 5 rounds verified ✅.",
+              "@sl08": "PASS — all 5 four-kid rounds mathematically correct."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "3e35b0df-162b-40d6-a577-16f13e4fc43c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🎯 M1 Trap Coverage",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "f115a340-0353-4639-be51-852fa9f7fe45",
+            "text": {
+              "ops": [
+                {
+                  "insert": "M1 trap count and distribution",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl03": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@sl06": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@sl07": "M1 trap rounds: R3, R4, R6, R8, R10, R11, R13 = 7/14 = 50%. Spec requires ≥30% ✅. Trap distribution: 3-kid block: R3, R4, R6, R8 (4 traps). 4-kid block: R10, R11, R13 (3 traps). Warm-up block: 0 traps (correct — warm-up should be clean). No consecutive clean rounds exist that would allow a player to habituate a first-addend shortcut for more than 1 round. M1 trap verification: R3 (3+0 vs 2+2: first addend 3>2, total 3<4 ✅). R4 (4+0 vs 3+2: first addend 4>3, total 4<5 ✅). R6 same structure as R4 ✅. R8 (3+0 vs 2+3: first addend 3>2, total 3<5 ✅). R10 double trap: both 4+0 and 3+0 vs 2+3 ✅. R11 and R13 both 4+0 vs 3+2 ✅.",
+              "@sl08": "PASS — M1 trap coverage correct, distribution pedagogically sound."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "ba4cfa0b-1ce4-4fb3-8546-d7c12ff6fa8c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🔴 Visual Neutrality Constraint Audit",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "d7588be7-be69-494d-8bb7-adfd4fbfbd5e",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Totals never displayed to player",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl04": {
+                "type": "Select",
+                "optionId": "vn-pass"
+              },
+              "@sl07": "DraggableKidCard renders only kid.expression (e.g., '2+1'), never kid.total ✅. The 'served' success state shows kid.expression in the celebration row, not kid.total ✅. Level browser has a 'Reveal totals (internal)' toggle — this is designer-only tool, not player-facing ✅. No UI state at any game phase renders a computed total ✅. Spec permanent rule: 'The system must never display a computed total.' — COMPLIANT.",
+              "@sl08": "PASS — totals are never surfaced to the player at any game state."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "c18c20fd-43ce-427c-8422-64069ecf1050",
+            "text": {
+              "ops": [
+                {
+                  "insert": "No >/< relation or explicit who-goes-first",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl04": {
+                "type": "Select",
+                "optionId": "vn-pass"
+              },
+              "@sl07": "All UI text audited. No '>' or '<' symbols in any player-facing string. Rule reminder reads 'most snacks → least snacks' (ordering rule, not a comparison of individuals) ✅. Idle screen: 'Put the kids in line from most snacks to least snacks so the server can dish out the right amounts' — OK (describes ordering rule, not individual comparison) ✅. Glow legend: 'correct pair / swap these two' — OK (pair-level, not individual comparison) ✅. No 'who goes first' language anywhere in player-facing strings ✅.",
+              "@sl08": "PASS — no >/< relation or who-goes-first language in any player-facing string."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "5912c284-7a0e-4752-9f9f-f72560b8b27b",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🟡 Amber VO Compliance Audit — All 14 Lines",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "2b8b9dc7-47ea-44db-a563-6c2790060f6a",
+            "text": {
+              "ops": [
+                {
+                  "insert": "R0–R9, R11–R13 amber lines (13 rounds)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl05": {
+                "type": "Select",
+                "optionId": "av-pass"
+              },
+              "@sl07": "13 lines audited against spec criteria: (1) no totals, (2) no >/< relation, (3) no explicit who-goes-first, (4) no shaming, (5) age-appropriate 5–8 year old peer voice. RESULTS: R0 'Hmm, are we in the right order?' ✅. R1 'I'm not sure I'm in the right spot.' ✅. R2 'Do you think I belong here?' ✅. R3 'Um… I think someone might be out of place.' ✅. R4 'Are you sure about this spot?' ✅. R5 'Hmm, I'm not sure this is right.' ✅. R6 'Wait — should I be here?' ✅. R7 'Something feels off about this order.' ✅. R8 'I don't think this neighbour and I are in the right order.' ✅ (references 'order' not totals). R9 'Hmm, are we lined up the right way?' ✅. R11 'Wait — check our snack counts again!' ✅ (prompts recomputation, no direction). R12 'Are we in the right spots?' ✅. R13 'Something's off — I'm not sure this is right.' ✅. All 13 COMPLIANT.",
+              "@sl08": "PASS — 13 amber lines compliant."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "5856e0f6-cf22-4a33-9054-bc7b226f7afc",
+            "text": {
+              "ops": [
+                {
+                  "insert": "R10 amber line — FIXED (critical violation)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl05": {
+                "type": "Select",
+                "optionId": "av-pass"
+              },
+              "@sl07": "CRITICAL VIOLATION FOUND AND FIXED 2026-04-09. Original R10 amber line: 'I think someone nearby has more snacks than me.' VIOLATION: (1) implies a directional comparison — states one kid has 'more' than another, which directly tells the player the relative ordering; (2) violates Permanent Design Rule: 'no >/< relation... no explicit who-goes-first' as part of error feedback. This is equivalent to saying 'the kid next to me should go before me' — exactly what the rule prohibits. Fixed to: 'Hmm, I'm not sure we've all been counted up properly.' — prompts recomputation without revealing direction ✅. Fix applied in code.",
+              "@sl08": "FIXED — original line violated Visual Neutrality Constraint. New line is compliant. Add to teacher review checklist for Gate 3 re-sign-off on the new line."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "62fbee68-9d52-430c-9fa2-a530d2b65708",
+            "text": {
+              "ops": [
+                {
+                  "insert": "⚙️ Mechanic Compliance Audit",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "5c23922b-c4d4-4467-bc72-a5f5902b8fa6",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Serve button — cannot be used as probe",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl04": {
+                "type": "Select",
+                "optionId": "vn-pass"
+              },
+              "@sl07": "ServeButton disabled unless allGreen = true. allGreen requires lineOrder.join(',') === round.correctOrder.join(',') — only activates when completely correct. If wrong, handleServe finds correct===false and does nothing beyond setServeCount increment. The button is visually dimmed when allGreen=false (bg-white/6 vs gradient). Spec: 'Serve tap is cosmetic confirmation only... Serve cannot be used as a diagnostic probe.' — COMPLIANT ✅. The player cannot use Serve to discover partial correctness.",
+              "@sl08": "PASS — Serve mechanic correctly locked. Cannot be used as probe."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "b032925c-7fa9-4bb2-b3d6-364d6e7848c0",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Amber trigger — transition-only (fixed)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl05": {
+                "type": "Select",
+                "optionId": "av-pass"
+              },
+              "@sl07": "FIXED 2026-04-09. Original code: amber toast fired on any drag where amber pairs exist AND no current toast is showing (amberMsg === null). This means after dismissing a toast, the player got a new toast on any subsequent move that still had amber pairs — not strictly transition-only. Fixed: prevAmberPairsRef tracks the set of amber pair keys from the previous drag. Toast only fires when a NEW pair key appears that wasn't in the previous set. This correctly implements 'transition to amber' semantics. prevAmberPairsRef resets on each new round.",
+              "@sl08": "FIXED — amber trigger now correctly implements transition-only semantics per spec."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "bc22b21b-77eb-4fb0-95d6-196a60281a17",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Adjacency glow correctness",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl04": {
+                "type": "Select",
+                "optionId": "vn-pass"
+              },
+              "@sl07": "adjacencyGlow(leftId, rightId, correctOrder): returns GREEN if correctOrder.indexOf(leftId) < correctOrder.indexOf(rightId) — i.e., left comes before right in the correct answer ✅. Returns AMBER if reversed ✅. Returns NEUTRAL if either not found ✅. This correctly implements the spec: 'GREEN — pair in correct order (left before right per total ranking); AMBER — pair in wrong order.' The last kid in line always gets NEUTRAL (no right neighbour) ✅. Spec: 'Glow updates on every move, not just on Serve' — COMPLIANT (handleReorder fires on every drag) ✅.",
+              "@sl08": "PASS — adjacency glow logic is correct per spec."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "c8d2d439-fc10-4087-96f9-4357e727df0c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "📐 Content Constraints Audit",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "9336345e-0168-431f-919b-97431f06dcf7",
+            "text": {
+              "ops": [
+                {
+                  "insert": "P1 content constraints — all 14 rounds",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl03": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@sl06": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@sl07": "Constraints verified across all 14 rounds: (1) Addition within 5 only — highest total in any round is 5 ✅. (2) No subtraction ✅. (3) No total above 5 ✅. (4) 2-4 kids per round — R0-R1: 2 kids; R2-R8: 3 kids; R9-R13: 4 kids ✅. (5) Strictly distinct totals per round — verified: no two kids share a total in any round ✅. (6) No tie episodes (reserved for P2A) ✅. (7) Largest-first ordering rule consistently applied ✅. (8) Addition only, no three-addend expressions ✅. All within K-1 difficulty ✅. Grade 2+ content (subtraction, within-20, 5+ kids) absent ✅.",
+              "@sl08": "PASS — all P1 content constraints met across all 14 rounds."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "b1354989-a156-4d3e-81d2-96f0cf78df16",
+            "text": {
+              "ops": [
+                {
+                  "insert": "displayOrder vs correctOrder — M1 trap prominence",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@sl03": {
+                "type": "Select",
+                "optionId": "sa-warn"
+              },
+              "@sl07": "Spec note: 'For M1 trap rounds, ensure the trap kid (bigger first addend, smaller total) appears in a visually prominent position in displayOrder to make the trap salient — do not hide it in position 3 or 4 every time.' Current code: displayOrder is static per round (always ['a','b','c'] or ['a','b','c','d']). The trap kid's slot position is fixed. Spec also says: 'Randomise displayOrder per session so the same player does not always see the same starting layout.' Current code: displayOrder is NOT randomised — it's the same every session. WARN: no per-session randomization of displayOrder. Static displayOrder means a returning player sees the same starting layout every session, potentially allowing memorization rather than computation.",
+              "@sl08": "WARN (P2 item): Add per-session displayOrder shuffle. For M1 trap rounds, also ensure the trap kid is not always hidden in the same position. Static layout acceptable for P1 demo/observation but should be addressed before longitudinal play."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "02beef64-5575-4038-8703-cd5db38c75c6",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🌐 Cross-Cutting Issues",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "0b8a5546-7645-4b9c-9f8b-98f9c10c89e0",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Fairness language — full string audit",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@sl04": {
+                "type": "Select",
+                "optionId": "vn-pass"
+              },
+              "@sl07": "Full string audit: searched all player-facing text in SnackLineShuffle.tsx for: 'fair', 'deserve', 'who goes first', 'nicest', 'winner', 'better', 'worse'. RESULTS: Zero occurrences in any player-facing string ✅. Idle screen: 'the server can dish out the right amounts' — functional framing ✅. Rule reminder: 'most snacks → least snacks' — ordering rule ✅. Glow legend: 'correct pair / swap these two' — mechanical feedback ✅. Amber lines: all use neutral/questioning language ✅. Note: R10 original line 'more snacks than me' was caught and fixed — it was not fairness language but a comparative total hint (different violation).",
+              "@sl08": "PASS — zero fairness language in any player-facing string."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "f4d1d3cb-3445-4fc6-bb89-c2542f9d3951",
+            "text": {
+              "ops": [
+                {
+                  "insert": "HUD round number consistency",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@sl07": "Play HUD shows 'Round {roundIdx + 1} / {total}' (1-indexed: Round 1 through Round 14). Level browser header shows 'R{round.roundIndex}' (0-indexed: R0 through R13). These use different numbering schemes which could confuse when cross-referencing. Not player-facing during gameplay (browser is internal tool) but creates a potential source of confusion for designers reviewing both views simultaneously.",
+              "@sl08": "WARN (cosmetic): Consider adding '(R{roundIndex})' alongside the 1-indexed display in the play HUD, or aligning browser to 1-indexed. Low priority — internal inconsistency only."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "3ffaaae9-0b74-42ba-bcd3-1b32a54b4e75",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Missing amber line variety check",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@sl01": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@sl05": {
+                "type": "Select",
+                "optionId": "av-warn"
+              },
+              "@sl07": "Spec: 'minimum 3 distinct lines to avoid repetition fatigue.' Code has 14 lines, each round has its own line — technically 14 distinct lines (though some are similar in structure). HOWEVER: the code only shows the single amberLine for that round. If the player creates multiple distinct amber pairs in the same round, they will see the same line repeatedly. The spec's 'minimum 3 distinct lines' implies a pool of lines to cycle through, not one fixed line per round. Additionally, several rounds share similar phrasing patterns: R0 and R9 both use 'are we in the right order/way?' — borderline similar. R5 and R13 both use 'Hmm, I'm not sure this is right.' — identical phrasing. This could cause repetition fatigue in Block A where rounds are played consecutively.",
+              "@sl08": "WARN: Implement an amber VO line pool (3+ distinct lines per round or a shared pool of compliant lines), especially for rounds with identical phrasing. R5 and R13 share the same line verbatim — should be differentiated."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "d8bec119-8eb2-4dcc-9c15-dcef7a7323c7",
+            "text": {
+              "ops": [
+                {
+                  "insert": "📊 Audit Summary",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "75429e9f-012c-4c57-ac63-7e14d491614a",
+            "text": {
+              "ops": [
+                {
+                  "insert": "PASS (5): R0–R9,R11–R13 amber lines · Totals never displayed · No >/< language · Serve-as-probe prevention · Adjacency glow logic · Content constraints · Fairness language · M1 trap coverage",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "05c24510-36d8-4fdc-9a0f-28ec9d34608e",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FIXED (2): R10 amber line violation (critical) · Amber trigger transition-only semantics",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "f4b2ac1f-aa4e-412e-baa8-c4461ed8c881",
+            "text": {
+              "ops": [
+                {
+                  "insert": "WARN (4): displayOrder not randomized per session · HUD round number inconsistency · Amber line repetition (R5=R13 verbatim) · Serve-spam telemetry not wired",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a8a54992-8312-434d-a864-48e4c7997e59",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FAIL (0): No outstanding failures after fixes applied.",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          }
+        ]
+      }
+    ],
+    "fields": {
+      "@sl01": {
+        "displayName": "Audit Status",
+        "type": "Select",
+        "options": {
+          "qs-pass": {
+            "id": "qs-pass",
+            "name": "PASS",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "qs-warn": {
+            "id": "qs-warn",
+            "name": "WARN",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "qs-fail": {
+            "id": "qs-fail",
+            "name": "FAIL",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "qs-na": {
+            "id": "qs-na",
+            "name": "N/A",
+            "rank": "3",
+            "color": "#6b7280"
+          }
+        }
+      },
+      "@sl02": {
+        "displayName": "Correctness",
+        "type": "Select",
+        "options": {
+          "cr-pass": {
+            "id": "cr-pass",
+            "name": "Correct",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "cr-fail": {
+            "id": "cr-fail",
+            "name": "Wrong",
+            "rank": "1",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@sl03": {
+        "displayName": "Skill Alignment",
+        "type": "Select",
+        "options": {
+          "sa-pass": {
+            "id": "sa-pass",
+            "name": "Aligned",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "sa-warn": {
+            "id": "sa-warn",
+            "name": "Partial",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "sa-fail": {
+            "id": "sa-fail",
+            "name": "Misaligned",
+            "rank": "2",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@sl04": {
+        "displayName": "Visual Neutrality",
+        "type": "Select",
+        "options": {
+          "vn-pass": {
+            "id": "vn-pass",
+            "name": "Compliant",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "vn-warn": {
+            "id": "vn-warn",
+            "name": "Borderline",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "vn-fail": {
+            "id": "vn-fail",
+            "name": "Violation",
+            "rank": "2",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@sl05": {
+        "displayName": "Amber VO Quality",
+        "type": "Select",
+        "options": {
+          "av-pass": {
+            "id": "av-pass",
+            "name": "Compliant",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "av-warn": {
+            "id": "av-warn",
+            "name": "Borderline",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "av-fail": {
+            "id": "av-fail",
+            "name": "Violation",
+            "rank": "2",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@sl06": {
+        "displayName": "Age Band",
+        "type": "Select",
+        "options": {
+          "ab-pass": {
+            "id": "ab-pass",
+            "name": "K–2 Appropriate",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "ab-warn": {
+            "id": "ab-warn",
+            "name": "Borderline",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "ab-fail": {
+            "id": "ab-fail",
+            "name": "Too Hard/Easy",
+            "rank": "2",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@sl07": {
+        "displayName": "Audit Notes",
+        "type": "string"
+      },
+      "@sl08": {
+        "displayName": "Action Required",
+        "type": "string"
+      }
+    },
+    "views": {
+      "list": {
+        "id": "list",
+        "type": "list",
+        "rank": "A",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@sl01": {
+            "id": "/attributes/@sl01",
+            "fieldPath": "/attributes/@sl01",
+            "rank": "z"
+          },
+          "/attributes/@sl02": {
+            "id": "/attributes/@sl02",
+            "fieldPath": "/attributes/@sl02",
+            "rank": "zV"
+          },
+          "/attributes/@sl03": {
+            "id": "/attributes/@sl03",
+            "fieldPath": "/attributes/@sl03",
+            "rank": "zk"
+          },
+          "/attributes/@sl04": {
+            "id": "/attributes/@sl04",
+            "fieldPath": "/attributes/@sl04",
+            "rank": "zs"
+          },
+          "/attributes/@sl05": {
+            "id": "/attributes/@sl05",
+            "fieldPath": "/attributes/@sl05",
+            "rank": "zw"
+          },
+          "/attributes/@sl06": {
+            "id": "/attributes/@sl06",
+            "fieldPath": "/attributes/@sl06",
+            "rank": "zy"
+          },
+          "/attributes/@sl07": {
+            "id": "/attributes/@sl07",
+            "fieldPath": "/attributes/@sl07",
+            "rank": "zz"
+          },
+          "/attributes/@sl08": {
+            "id": "/attributes/@sl08",
+            "fieldPath": "/attributes/@sl08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "board": {
+        "id": "board",
+        "type": "board",
+        "rank": "B",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@sl01": {
+            "id": "/attributes/@sl01",
+            "fieldPath": "/attributes/@sl01",
+            "rank": "z"
+          },
+          "/attributes/@sl02": {
+            "id": "/attributes/@sl02",
+            "fieldPath": "/attributes/@sl02",
+            "rank": "zV"
+          },
+          "/attributes/@sl03": {
+            "id": "/attributes/@sl03",
+            "fieldPath": "/attributes/@sl03",
+            "rank": "zk"
+          },
+          "/attributes/@sl04": {
+            "id": "/attributes/@sl04",
+            "fieldPath": "/attributes/@sl04",
+            "rank": "zs"
+          },
+          "/attributes/@sl05": {
+            "id": "/attributes/@sl05",
+            "fieldPath": "/attributes/@sl05",
+            "rank": "zw"
+          },
+          "/attributes/@sl06": {
+            "id": "/attributes/@sl06",
+            "fieldPath": "/attributes/@sl06",
+            "rank": "zy"
+          },
+          "/attributes/@sl07": {
+            "id": "/attributes/@sl07",
+            "fieldPath": "/attributes/@sl07",
+            "rank": "zz"
+          },
+          "/attributes/@sl08": {
+            "id": "/attributes/@sl08",
+            "fieldPath": "/attributes/@sl08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "mindmap": {
+        "id": "mindmap",
+        "type": "mindmap",
+        "rank": "D",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@sl01": {
+            "id": "/attributes/@sl01",
+            "fieldPath": "/attributes/@sl01",
+            "rank": "z"
+          },
+          "/attributes/@sl02": {
+            "id": "/attributes/@sl02",
+            "fieldPath": "/attributes/@sl02",
+            "rank": "zV"
+          },
+          "/attributes/@sl03": {
+            "id": "/attributes/@sl03",
+            "fieldPath": "/attributes/@sl03",
+            "rank": "zk"
+          },
+          "/attributes/@sl04": {
+            "id": "/attributes/@sl04",
+            "fieldPath": "/attributes/@sl04",
+            "rank": "zs"
+          },
+          "/attributes/@sl05": {
+            "id": "/attributes/@sl05",
+            "fieldPath": "/attributes/@sl05",
+            "rank": "zw"
+          },
+          "/attributes/@sl06": {
+            "id": "/attributes/@sl06",
+            "fieldPath": "/attributes/@sl06",
+            "rank": "zy"
+          },
+          "/attributes/@sl07": {
+            "id": "/attributes/@sl07",
+            "fieldPath": "/attributes/@sl07",
+            "rank": "zz"
+          },
+          "/attributes/@sl08": {
+            "id": "/attributes/@sl08",
+            "fieldPath": "/attributes/@sl08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "orgchart": {
+        "id": "orgchart",
+        "type": "orgchart",
+        "rank": "E",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@sl01": {
+            "id": "/attributes/@sl01",
+            "fieldPath": "/attributes/@sl01",
+            "rank": "z"
+          },
+          "/attributes/@sl02": {
+            "id": "/attributes/@sl02",
+            "fieldPath": "/attributes/@sl02",
+            "rank": "zV"
+          },
+          "/attributes/@sl03": {
+            "id": "/attributes/@sl03",
+            "fieldPath": "/attributes/@sl03",
+            "rank": "zk"
+          },
+          "/attributes/@sl04": {
+            "id": "/attributes/@sl04",
+            "fieldPath": "/attributes/@sl04",
+            "rank": "zs"
+          },
+          "/attributes/@sl05": {
+            "id": "/attributes/@sl05",
+            "fieldPath": "/attributes/@sl05",
+            "rank": "zw"
+          },
+          "/attributes/@sl06": {
+            "id": "/attributes/@sl06",
+            "fieldPath": "/attributes/@sl06",
+            "rank": "zy"
+          },
+          "/attributes/@sl07": {
+            "id": "/attributes/@sl07",
+            "fieldPath": "/attributes/@sl07",
+            "rank": "zz"
+          },
+          "/attributes/@sl08": {
+            "id": "/attributes/@sl08",
+            "fieldPath": "/attributes/@sl08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "gantt": {
+        "id": "gantt",
+        "type": "gantt",
+        "rank": "F",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@sl01": {
+            "id": "/attributes/@sl01",
+            "fieldPath": "/attributes/@sl01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@sl02": {
+            "id": "/attributes/@sl02",
+            "fieldPath": "/attributes/@sl02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@sl03": {
+            "id": "/attributes/@sl03",
+            "fieldPath": "/attributes/@sl03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@sl04": {
+            "id": "/attributes/@sl04",
+            "fieldPath": "/attributes/@sl04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@sl05": {
+            "id": "/attributes/@sl05",
+            "fieldPath": "/attributes/@sl05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@sl06": {
+            "id": "/attributes/@sl06",
+            "fieldPath": "/attributes/@sl06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@sl07": {
+            "id": "/attributes/@sl07",
+            "fieldPath": "/attributes/@sl07",
+            "rank": "zz",
+            "hidden": false
+          },
+          "/attributes/@sl08": {
+            "id": "/attributes/@sl08",
+            "fieldPath": "/attributes/@sl08",
+            "rank": "zzV",
+            "hidden": false
+          }
+        }
+      },
+      "table": {
+        "id": "table",
+        "type": "table",
+        "rank": "V",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@sl01": {
+            "id": "/attributes/@sl01",
+            "fieldPath": "/attributes/@sl01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@sl02": {
+            "id": "/attributes/@sl02",
+            "fieldPath": "/attributes/@sl02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@sl03": {
+            "id": "/attributes/@sl03",
+            "fieldPath": "/attributes/@sl03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@sl04": {
+            "id": "/attributes/@sl04",
+            "fieldPath": "/attributes/@sl04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@sl05": {
+            "id": "/attributes/@sl05",
+            "fieldPath": "/attributes/@sl05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@sl06": {
+            "id": "/attributes/@sl06",
+            "fieldPath": "/attributes/@sl06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@sl07": {
+            "id": "/attributes/@sl07",
+            "fieldPath": "/attributes/@sl07",
+            "rank": "zz",
+            "hidden": false
+          },
+          "/attributes/@sl08": {
+            "id": "/attributes/@sl08",
+            "fieldPath": "/attributes/@sl08",
+            "rank": "zzV",
+            "hidden": false
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "defaultView": "table",
+    "avatar": {
+      "type": "emoji",
+      "value": "📓"
+    }
+  }
+}

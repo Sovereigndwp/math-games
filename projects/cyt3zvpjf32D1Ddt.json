@@ -1,0 +1,2163 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "ebbdfc68-25a6-4039-8f51-8f794224e0e0",
+        "text": {
+          "ops": [
+            {
+              "insert": "Misconception Library"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": null,
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "f284fec8-aaf7-4196-9b96-cf36836db052",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🧠 How to Use This Library",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "b34aac2b-8ba6-4bcb-a377-ddf91cdb5060",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Seeded entries are deterministic — no API cost, stable across runs",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "5e45e221-77d0-4dbc-a8cc-5c033fb82e27",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Revised entries are rewritten by AI when the brief changes the confusion risk",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d8ed35ab-867f-45cf-a402-590ed038ffa1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Pending write-back entries must be reviewed before applying — never automatic",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "86cffab7-bfd1-4af8-b941-f5ec1ce3d776",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Applies To Future Games When: use this field to make entries portable across concepts",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "c974a1fe-9b10-4c5c-aacb-5e0d42ec5675",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🎂 Bakery Rush",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "7e57f3b8-c6c7-4bd3-afe2-5c1823d52e0a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Counting up instead of recalling addition facts",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-bakery"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-proc"
+                  },
+                  "@ml03": "Player counts individual units one-by-one rather than retrieving the sum from memory",
+                  "@ml04": "Slow order completion time; player appears to be moving lips or tapping",
+                  "@ml05": "Remove counting affordances; require fast recall by imposing tight time pressure proportional to difficulty",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any exact-sum composition game at K–2 level"
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "94b7b065-81d0-4512-b93f-a1f7f2205528",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Ignoring the carry / regrouping in two-digit sums",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-bakery"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-concept"
+                  },
+                  "@ml03": "Player adds digits in each column independently, forgets to regroup the tens",
+                  "@ml04": "Orders of 13, 15, 17 consistently under-filled by 10 (player answers 3, 5, 7)",
+                  "@ml05": "Design distinct visual feedback when the sum crosses a decade boundary; animate the carry visually",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game involving two-digit addition before fluency is established"
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0be286ba-9b57-4dab-a45b-bacff92b639a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Matching by visual shape rather than quantity",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-bakery"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-rep"
+                  },
+                  "@ml03": "Player matches order cards by visual similarity of icons rather than reading the number",
+                  "@ml04": "High accuracy on simple icon orders, sudden drop when icons change style or color",
+                  "@ml05": "Vary icon appearances across rounds; ensure the number is the only invariant cue",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game using icon-based representation of quantity"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "2dbe6b3b-0a79-48ad-92d2-9ea859bd5c46",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🚒 Fire Dispatch",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "f1f669e8-e0de-4614-8c4d-2c1f0559231d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Repeated addition instead of multiplicative thinking",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-fire"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-proc"
+                  },
+                  "@ml03": "Player computes 4×6 by adding 6+6+6+6 rather than recalling the product",
+                  "@ml04": "Long response latency on larger table entries; no error, just slow",
+                  "@ml05": "Make repeated-addition path non-viable by raising time pressure at difficulty 3+",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any dispatch/allocation game using multiplicative facts"
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1fc278ef-ae77-4676-a532-a411719ad6dc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Treating division as repeated subtraction, not inverse multiplication",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-fire"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-concept"
+                  },
+                  "@ml03": "Player computes 24÷6 by subtracting 6 repeatedly rather than recalling 6×4=24",
+                  "@ml04": "Correct answers on division facts but latency grows with quotient size",
+                  "@ml05": "Frame division problems as 'how many trucks per zone' — emphasize multiplicative language in UI copy",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game teaching division as partitioning or grouping"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "96a8a817-b586-488e-bf80-1e21d88b6092",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🍕 Unit Circle Pizza Lab",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "5e1d6fe8-d844-4342-9efc-c2d00b2f85bc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Confusing radians and degrees",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-unit"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-rep"
+                  },
+                  "@ml03": "Player places marker at degree value numerically equal to radian value (e.g., places π/3 at 60° position as if it were 3.14/3 degrees)",
+                  "@ml04": "Systematic placement error at non-quadrant angles; correct at 0, π/2, π, 3π/2",
+                  "@ml05": "Show dual-label ring (degrees and radians) that animate together; reward transitions between both forms",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game requiring angle representation at high school level"
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f429519f-a4d8-45c2-a4d9-2351959fd47a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Flipping sin and cos axes",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-unit"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-rep"
+                  },
+                  "@ml03": "Player consistently assigns sin value to x-coordinate and cos value to y-coordinate",
+                  "@ml04": "Mirror-image pattern of errors — all answers are correct but transposed",
+                  "@ml05": "Animate a point dropping to the x-axis for cos, and to the y-axis for sin, on every placement",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any representational translation game with two-coordinate output"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "66328bef-632d-49a8-88d3-55634d791337",
+            "text": {
+              "ops": [
+                {
+                  "insert": "⚡ Power Grid Operator",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "28479c84-9ddb-4f8b-acef-9d510fb40af3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Treating the equals sign as a 'do something' command rather than a balance relationship",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-power"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-concept"
+                  },
+                  "@ml03": "Player expects the answer on the right side only; confused when variable is on the left or in the middle of the equation",
+                  "@ml04": "Errors spike on expressions like '? + 3 = 9' vs '9 = ? + 3' despite being identical",
+                  "@ml05": "Present all equation forms interchangeably from the start; use visual balance scale metaphor to reinforce symmetry",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any algebra or missing-value game for grades 4–8"
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "44048a1f-3f2a-41ed-bb9a-9c5c66263903",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Inverse operation confusion — adding instead of subtracting to isolate",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-power"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-proc"
+                  },
+                  "@ml03": "To solve x+5=12, player adds 5 to both sides instead of subtracting, making x+10=12",
+                  "@ml04": "Consistent off-by-double-the-constant errors when solving linear equations",
+                  "@ml05": "Show the operation as removing/adding a load physically from the grid node; make inverse operations a tactile visual action",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any equation-solving game where inverse operations are the core mechanic"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "c2c0de09-48ad-406b-af3c-1708597f24f3",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🚌 School Trip Fleet",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "88c886c3-1546-4c63-bdec-b7fcbb035c82",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Integer division — ignoring the remainder (truncation instead of ceiling)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-fleet"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-concept"
+                  },
+                  "@ml03": "Player reports 4 buses for 25 students with 6-seat buses (25÷6=4.16), forgetting the remaining student who also needs a seat",
+                  "@ml04": "Player sends fleet with one student left behind; confusion when the game flags incomplete dispatch",
+                  "@ml05": "Show stragglers visually waiting at the curb after bus animation; the consequence (student left behind) must be visceral and immediate",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any capacity or packing game where the ceiling function applies"
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "93c0b6d1-6d21-46e2-a488-bade826e5fd9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Confusing per-vehicle capacity with total capacity",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-fleet"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-concept"
+                  },
+                  "@ml03": "Player sees 3 buses × 6 seats = 18 total, then allocates all 25 students to 3 buses without noticing overload",
+                  "@ml04": "Overcrowded buses dispatched confidently; player expresses surprise at the overload warning",
+                  "@ml05": "Animate seat counters per bus in real time as students are allocated; bus tilts or shows strain at capacity",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any allocation game where individual unit capacity and aggregate capacity must be distinguished"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "0b4c1405-19ad-4a7b-a166-b56c04e2d939",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🥷 Echo Heist",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "0d06cf28-3940-494e-a45b-3f49f681aa87",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Confusing percent with an absolute number (treating 30% as 30, not 0.3)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-concept"
+                  },
+                  "@ml03": "Player treats a percent value as a whole number — e.g., enters 300 for a 30% problem, or subtracts 20 from a price instead of multiplying by 0.8 for a 20% discount",
+                  "@ml04": "Consistent off-by-factor-of-100 errors on T3/T4 prompts; correct on integer-only T9 prompts",
+                  "@ml05": "Auto-hint shows explicit conversion: '30% = 0.30 = 30/100'. Scaffold panel shows percent-decimal strip. For repeated errors, force prompt to specify 'type your answer as a decimal'",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game involving percents in applied contexts — discounts, growth, probability, tax",
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-echo"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "6b06708b-0e72-4ce2-8beb-d9df02d06601",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Inverse operation error — only changing one side of an equation",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-proc"
+                  },
+                  "@ml03": "For x − 27 = 14, player computes 27 − 14 = 13 (rearranges numbers on one side only). Or adds instead of subtracts when isolating the variable",
+                  "@ml04": "Wrong answers match 'only-one-side' results; quick submission without scaffold or hint use suggests rote but incorrect procedure",
+                  "@ml05": "Auto-hint: 'Whatever you do to one side, you must do to the other side.' Scaffold panel shows balance-scale metaphor with step-by-step worked example",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any algebraic solving mechanic — missing value, balance equations, inverse operations",
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-echo"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "01a776e5-0757-4128-a558-502cc685fe72",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Adding fraction numerators and denominators independently (1/4 + 1/2 = 2/6)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-rep"
+                  },
+                  "@ml03": "Player treats numerator and denominator as separate whole numbers without finding common denominators. Also: misreads '1/3 of 24' as 1 divided by (3 × 24) or similar",
+                  "@ml04": "Wrong answers exactly equal to numerator-and-denominator-wise operations (2/6, 3/4, etc.) across multiple similar T6 prompts",
+                  "@ml05": "Scaffold shows fraction bars with denominator alignment. Auto-hint: 'To add fractions, make the bottoms (denominators) match first.' For fraction-of-quantity: emphasize '1/3 of 24 = 24 ÷ 3'",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game using fraction operations or proportional reasoning",
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-echo"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9cf06f26-6fbc-4988-8e74-89442be0ff00",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Inverting rate — using t = d × r instead of t = d ÷ r",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-over"
+                  },
+                  "@ml03": "For 60 miles in 2 hours, player answers 120 mph (multiplies instead of divides). In rate comparison, consistently picks larger total over better per-unit rate",
+                  "@ml04": "Systematic inversion errors on T7/T8 prompts; may pass T9 (integer ops) cleanly, suggesting the formula is the confusion not arithmetic",
+                  "@ml05": "Scaffold shows rate triangle d=r×t with colour-coded compartments and worked example. Auto-hint: 'Ask: how far in 1 hour? Then multiply if you need more hours'",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game involving unit rates, speed, or proportional comparison (cooking, travel, resource games)",
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-echo"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0647acf9-0d49-4235-85b9-863bc2f280f4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Sign errors in integer operations — 'minus minus is always negative'",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-proc"
+                  },
+                  "@ml03": "Player treats −3 + 5 as −8 (adds absolute values then assigns negative), or rounds 0.5 up regardless of context on T10 prompts",
+                  "@ml04": "Integer sum errors where answer ignores sign (−8 instead of +2). Rounding errors where player rounds to wrong place value",
+                  "@ml05": "Number line −15 to +15 in scaffold. Auto-hint references sign rule or 'look one digit to the right' for rounding. Worked examples using motion left/right metaphor",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game with integer operations or rounding under time pressure",
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-echo"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "87d9a17d-2f49-4905-b308-80f4354d9000",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Swapping complementary and supplementary angle definitions",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-concept"
+                  },
+                  "@ml03": "Player treats complementary as 'adds to 180°' and supplementary as 'adds to 90°' — exact swap of the two definitions",
+                  "@ml04": "Consistent wrong answers that are exactly the opposite type (player solves a supplementary problem as complementary and vice versa)",
+                  "@ml05": "Scaffold shows labelled right-angle (90°) and straight-angle (180°) arc diagrams. Auto-hint: 'Complementary → 90° (corner of a square). Supplementary → 180° (straight line)'",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game using angle relationships or geometric diagrams with complementary/supplementary pairs",
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-echo"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "46d2a381-7cb8-4d60-9fa4-8073a5a45723",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Expected value confusion — averaging outcomes without weighting by probability",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-load"
+                  },
+                  "@ml03": "Player computes expected value as simple average of outcomes (ignoring unequal probabilities) or sums probabilities themselves rather than probability × value",
+                  "@ml04": "High error rate on T12 while performing well on T9 (integer ops); answers match simple-average computation",
+                  "@ml05": "Scaffold shows EV table: Outcome | Probability | Product | Total. Auto-hint: 'Expected value = sum of (value × probability). Example: dice showing 6 with p=1/6 contributes 6 × 1/6 = 1'",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-seed"
+                  },
+                  "@ml07": "Any game with probability and EV — loot drops, risk decisions, choices with uncertain outcomes",
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-echo"
+                  }
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "a1b2c3d4-1111-4111-8111-111111111110",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🍽️ Snack Line Shuffle",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "a1b2c3d4-1111-4111-8111-111111111111",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "M4 — Leftmost digit dominance",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-snack"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-short"
+                  },
+                  "@ml03": "Player compares only the first (leftmost) digit of each expression rather than computing the full total. Example: ranks 9−1 above 4+7 because 9 > 4, ignoring that 9−1=8 and 4+7=11. Works whenever the largest starting number also produces the largest result; fails silently when subtraction or different addends invert the relationship.",
+                  "@ml04": "High accuracy on expressions where the largest first digit corresponds to the largest total (e.g., 8+1 vs 3+2 — both heuristic and correct answer align). Accuracy drops sharply on contrast-set pairs where a lower first digit wins (e.g., 4+8 vs 9−3): player consistently mis-ranks these. Error pattern disappears when all-addition expressions are used and addends are near-equal, reappears when subtraction or large addend differences are introduced.",
+                  "@ml05": "CONTRAST-SET RULE: Every difficulty tier must include at least one pair where the smaller first digit produces the larger total (e.g., 4+9 vs 9−2; 3+8 vs 8−4). These pairs must appear in the first 3 rounds at each new difficulty level to surface the heuristic before it is reinforced. FEEDBACK RULE: On mis-ordering a contrast pair, amber glow highlights the pair; the kid-voice line says 'The first number is big, but what about what's left after taking away?' — no total revealed. LEVEL-DESIGN RULE: Do not allow 4+ consecutive rounds where leftmost-biggest heuristic is correct; this will cement the bypass. MITIGATION: Include at least one round per session where a near-miss contrast set appears (e.g., 5+4 vs 9−1; difference = 0 — a tie) to force comparison rather than estimation.",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-new"
+                  },
+                  "@ml07": "Any ordering game using arithmetic expressions where the leading digit of the expression is not a reliable proxy for the result's magnitude — especially when mixed +/− or subtraction with large minuends is used."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a1b2c3d4-1111-4111-8111-111111111112",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "M5 — Operation sign blindness",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-snack"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-rep"
+                  },
+                  "@ml03": "Player treats the operation sign (+/−) as irrelevant or decorative — orders expressions using only the number pair, ignoring whether the sign is addition or subtraction. Example: ranks 6+2 and 6−2 identically (as 'the 6-and-2 kid'), or consistently orders by largest number in the expression regardless of sign. Related manifestation: player applies a consistent single rule ('always add') even when half the expressions use subtraction.",
+                  "@ml04": "Accurate ordering on same-sign rounds (all-addition or all-subtraction). Accuracy collapses on mixed-sign rounds — especially when pairs share the same digit set but differ only in sign (e.g., 7+2 vs 7−2). Error pattern: wrong-order answers match what the correct order would be if all expressions were additions. Player may show no hesitation or re-check behaviour on mixed-sign rounds, suggesting the sign is not being read at all.",
+                  "@ml05": "CONTRAST-SET RULE: For every difficulty tier that introduces subtraction, the first new-concept round must include a same-digit, opposite-sign pair (e.g., 5+3 and 5−3 in the same lineup). This is the minimum viable probe for sign blindness. FEEDBACK RULE: On mis-ordering a same-digit, opposite-sign pair, amber glow + kid-voice line emphasises the sign: 'This tray says PLUS 3 — that's different from MINUS 3!' The sign character (+ or −) on the wrong kid's tray pulses visually for 2 seconds after the amber glow. VISUAL DESIGN RULE: The operation sign must be at least 1.5× the font weight and colour-differentiated from the numeral (e.g., + in green, − in red) from the earliest level at which subtraction appears. LEVEL-DESIGN RULE: Never introduce subtraction for the first time on a round that also introduces a longer line or a new constraint — sign blindness is most likely to be masked when other cognitive load increases simultaneously.",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-new"
+                  },
+                  "@ml07": "Any arithmetic expression game where multiple operation types coexist in the same round — especially any K–3 ordering, sorting, or comparison game that transitions from single-operation to mixed-operation content."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a1b2c3d4-1111-4111-8111-111111111113",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "M6 — Zero-subtraction confusion (zero changes nothing, overgeneralised)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-snack"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-over"
+                  },
+                  "@ml03": "Player has correctly learned that adding zero leaves a number unchanged (n+0=n) but over-generalises this identity to subtraction: assumes n−0 is somehow different from n, or misremembers it as 0. Also appears as: treating 9−0 as equivalent to 0 ('you took away nothing so there's nothing left'), or treating 9−0 and 0+9 as producing different values. The root is a memorised 'zero rule' applied without understanding of why it holds.",
+                  "@ml04": "Mis-ranking of expressions involving −0 compared to expressions with similar but non-zero subtrahends (e.g., ranks 8+1 above 9−0 despite 9−0=9 > 8+1=9 being a tie, or ranks 7+2 above 9−0 despite 7+2 < 9−0). Player may hesitate or verbalise uncertainty specifically on −0 expressions ('wait, minus zero...') while handling all other expressions confidently. Correct-on-addition-zero (n+0) combined with wrong-on-subtraction-zero (n−0) is the diagnostic signature.",
+                  "@ml05": "CONTRAST-SET RULE: Pair n−0 with n+0 and with (n−1) in the same lineup at least once per session once subtraction is introduced. Example round: 9−0, 9+0, 9−1 in a three-kid line. This is the minimum probe for zero overgeneralisation. FEEDBACK RULE: On any mis-ordering involving a −0 expression, amber glow + kid-voice line: 'I took away zero snacks — so I still have all of them!' Do not reveal the total numerically; the line 'I still have ALL of them' is the cue. CONCEPTUAL BRIDGE: In the tutorial/intro for levels containing subtraction, show a brief animation of a kid arriving with a tray showing '8−0' and visually removing zero items — the tray stays full. Label this 'taking nothing away.' LEVEL-DESIGN RULE: Do not combine a −0 expression with a same-minuend +0 expression on the same kid until the player has seen at least two prior rounds with −0 alone — otherwise it becomes a pattern-match rather than a concept.",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-new"
+                  },
+                  "@ml07": "Any K–2 arithmetic game that introduces both addition-of-zero and subtraction-of-zero as expression types — especially ordering, comparison, or balance games where zero-operand expressions must be evaluated relative to non-zero ones."
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a1b2c3d4-1111-4111-8111-111111111114",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "M7 — Bigger number first = bigger result",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@ml01": {
+                    "type": "Select",
+                    "optionId": "g-snack"
+                  },
+                  "@ml02": {
+                    "type": "Select",
+                    "optionId": "ec-short"
+                  },
+                  "@ml03": "Player assumes that an expression with a large leading number must produce a large result, regardless of the operation or the second operand. Distinct from M4 (leftmost digit dominance) in that M7 specifically governs the interaction between a large minuend and a large subtrahend: the player correctly notes the first number is big but fails to account for how much is being taken away. Examples: ranks 9−6 above 4+4 (9−6=3 < 4+4=8); ranks 9−7 above 2+6 (9−7=2 < 2+6=8). Mechanistically: the player anchors on the minuend and applies only partial processing of the subtrahend.",
+                  "@ml04": "Correct ordering when the large-first-number expression uses a small subtrahend (9−1, 8−2 — heuristic and correct answer agree). Mis-ordering specifically when the large-first-number expression has a large subtrahend that brings the total below a competing expression with a small first number but large addend. Diagnostic signature: player's error rate on 'big-minus-big vs small-plus-big' pairs is significantly higher than their error rate on any other expression type in the same session. Player may correctly compute 9−6=3 when prompted directly but still rank 9−6 above 4+4 in the ordering context — suggesting the ranking decision is made before or instead of the computation.",
+                  "@ml05": "CONTRAST-SET RULE: Include at least one 'big-minus-big vs small-plus-big' pair at every difficulty tier containing subtraction. The canonical form is: (L−H) vs (S+M) where L−H < S+M, e.g., 9−6 vs 2+5, 8−5 vs 1+6, 10−8 vs 3+4. FEEDBACK RULE: On mis-ordering this pair type, amber glow + kid-voice line from the smaller-looking but actually-larger kid: 'My tray says plus — so I end up with more!' Do not reveal totals. LEVEL-DESIGN RULE: Introduce 'big-minus-big' expressions (subtrahend ≥ 4) only after the player has demonstrated correct ordering of 'big-minus-small' expressions (subtrahend ≤ 2) in at least 2 prior rounds — this prevents M7 being triggered before the player has any handle on subtraction magnitude. SEQUENCE RULE: When a 'big-minus-big' expression first appears, pair it with an addition expression whose total is clearly and visibly larger (difference ≥ 3) before introducing near-miss pairs (difference = 1 or 2). This establishes the category before testing its edge. BROADER PRINCIPLE: M7 and M4 often co-occur; a player showing both will systematically mis-rank any expression where the leading digit misleads. Design mixed-sign rounds to probe for co-occurrence by including at least one M4-probe pair and one M7-probe pair per mixed-sign session.",
+                  "@ml06": {
+                    "type": "Select",
+                    "optionId": "ls-new"
+                  },
+                  "@ml07": "Any game where arithmetic expressions with subtraction and large minuends must be evaluated or compared against addition expressions — particularly ordering, ranking, or magnitude-comparison games at K–3 level. Also relevant to any game where intuitive magnitude estimation is a viable bypass route for arithmetic computation."
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "fields": {
+      "@ml01": {
+        "displayName": "Game",
+        "type": "Select",
+        "options": {
+          "g-bakery": {
+            "id": "g-bakery",
+            "name": "Bakery Rush",
+            "rank": "0",
+            "color": "#f97316"
+          },
+          "g-fire": {
+            "id": "g-fire",
+            "name": "Fire Dispatch",
+            "rank": "1",
+            "color": "#ef4444"
+          },
+          "g-unit": {
+            "id": "g-unit",
+            "name": "Unit Circle Pizza Lab",
+            "rank": "2",
+            "color": "#6366f1"
+          },
+          "g-power": {
+            "id": "g-power",
+            "name": "Power Grid Operator",
+            "rank": "3",
+            "color": "#3b82f6"
+          },
+          "g-fleet": {
+            "id": "g-fleet",
+            "name": "School Trip Fleet",
+            "rank": "4",
+            "color": "#22c55e"
+          },
+          "g-firefly": {
+            "id": "g-firefly",
+            "name": "Firefly Ranger",
+            "rank": "5",
+            "color": "#eab308"
+          },
+          "g-atc": {
+            "id": "g-atc",
+            "name": "ATC Math Tower",
+            "rank": "6",
+            "color": "#8b5cf6"
+          },
+          "g-grocery": {
+            "id": "g-grocery",
+            "name": "Grocery Dash",
+            "rank": "7",
+            "color": "#10b981"
+          },
+          "g-echo": {
+            "id": "g-echo",
+            "name": "Echo Heist",
+            "rank": "8",
+            "color": "#ec4899"
+          },
+          "g-snack": {
+            "id": "g-snack",
+            "name": "Snack Line Shuffle",
+            "rank": "9",
+            "color": "#fb923c"
+          }
+        }
+      },
+      "@ml02": {
+        "displayName": "Error Category",
+        "type": "Select",
+        "options": {
+          "ec-proc": {
+            "id": "ec-proc",
+            "name": "Procedural Error",
+            "rank": "0",
+            "color": "#ef4444"
+          },
+          "ec-rep": {
+            "id": "ec-rep",
+            "name": "Representation Mismatch",
+            "rank": "1",
+            "color": "#f97316"
+          },
+          "ec-concept": {
+            "id": "ec-concept",
+            "name": "Conceptual Gap",
+            "rank": "2",
+            "color": "#eab308"
+          },
+          "ec-over": {
+            "id": "ec-over",
+            "name": "Overgeneralization",
+            "rank": "3",
+            "color": "#8b5cf6"
+          },
+          "ec-short": {
+            "id": "ec-short",
+            "name": "Shortcut Skill",
+            "rank": "4",
+            "color": "#ec4899"
+          },
+          "ec-load": {
+            "id": "ec-load",
+            "name": "Cognitive Overload",
+            "rank": "5",
+            "color": "#6366f1"
+          }
+        }
+      },
+      "@ml03": {
+        "displayName": "Misconception Description",
+        "type": "string"
+      },
+      "@ml04": {
+        "displayName": "Failure Signal in Game",
+        "type": "string"
+      },
+      "@ml05": {
+        "displayName": "Design Response",
+        "type": "string"
+      },
+      "@ml06": {
+        "displayName": "Library Status",
+        "type": "Select",
+        "options": {
+          "ls-seed": {
+            "id": "ls-seed",
+            "name": "Seeded (Primary)",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "ls-revised": {
+            "id": "ls-revised",
+            "name": "Revised",
+            "rank": "1",
+            "color": "#3b82f6"
+          },
+          "ls-pending": {
+            "id": "ls-pending",
+            "name": "Pending Write-back",
+            "rank": "2",
+            "color": "#f59e0b"
+          },
+          "ls-new": {
+            "id": "ls-new",
+            "name": "New Entry",
+            "rank": "3",
+            "color": "#8b5cf6"
+          }
+        }
+      },
+      "@ml07": {
+        "displayName": "Applies To Future Games When",
+        "type": "string"
+      }
+    },
+    "views": {
+      "list": {
+        "id": "list",
+        "type": "list",
+        "rank": "A",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@ml01": {
+            "id": "/attributes/@ml01",
+            "fieldPath": "/attributes/@ml01",
+            "rank": "z"
+          },
+          "/attributes/@ml02": {
+            "id": "/attributes/@ml02",
+            "fieldPath": "/attributes/@ml02",
+            "rank": "zV"
+          },
+          "/attributes/@ml03": {
+            "id": "/attributes/@ml03",
+            "fieldPath": "/attributes/@ml03",
+            "rank": "zk"
+          },
+          "/attributes/@ml04": {
+            "id": "/attributes/@ml04",
+            "fieldPath": "/attributes/@ml04",
+            "rank": "zs"
+          },
+          "/attributes/@ml05": {
+            "id": "/attributes/@ml05",
+            "fieldPath": "/attributes/@ml05",
+            "rank": "zw"
+          },
+          "/attributes/@ml06": {
+            "id": "/attributes/@ml06",
+            "fieldPath": "/attributes/@ml06",
+            "rank": "zy"
+          },
+          "/attributes/@ml07": {
+            "id": "/attributes/@ml07",
+            "fieldPath": "/attributes/@ml07",
+            "rank": "zz"
+          }
+        }
+      },
+      "board": {
+        "id": "board",
+        "type": "board",
+        "rank": "B",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@ml01": {
+            "id": "/attributes/@ml01",
+            "fieldPath": "/attributes/@ml01",
+            "rank": "z"
+          },
+          "/attributes/@ml02": {
+            "id": "/attributes/@ml02",
+            "fieldPath": "/attributes/@ml02",
+            "rank": "zV"
+          },
+          "/attributes/@ml03": {
+            "id": "/attributes/@ml03",
+            "fieldPath": "/attributes/@ml03",
+            "rank": "zk"
+          },
+          "/attributes/@ml04": {
+            "id": "/attributes/@ml04",
+            "fieldPath": "/attributes/@ml04",
+            "rank": "zs"
+          },
+          "/attributes/@ml05": {
+            "id": "/attributes/@ml05",
+            "fieldPath": "/attributes/@ml05",
+            "rank": "zw"
+          },
+          "/attributes/@ml06": {
+            "id": "/attributes/@ml06",
+            "fieldPath": "/attributes/@ml06",
+            "rank": "zy"
+          },
+          "/attributes/@ml07": {
+            "id": "/attributes/@ml07",
+            "fieldPath": "/attributes/@ml07",
+            "rank": "zz"
+          }
+        }
+      },
+      "mindmap": {
+        "id": "mindmap",
+        "type": "mindmap",
+        "rank": "D",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@ml01": {
+            "id": "/attributes/@ml01",
+            "fieldPath": "/attributes/@ml01",
+            "rank": "z"
+          },
+          "/attributes/@ml02": {
+            "id": "/attributes/@ml02",
+            "fieldPath": "/attributes/@ml02",
+            "rank": "zV"
+          },
+          "/attributes/@ml03": {
+            "id": "/attributes/@ml03",
+            "fieldPath": "/attributes/@ml03",
+            "rank": "zk"
+          },
+          "/attributes/@ml04": {
+            "id": "/attributes/@ml04",
+            "fieldPath": "/attributes/@ml04",
+            "rank": "zs"
+          },
+          "/attributes/@ml05": {
+            "id": "/attributes/@ml05",
+            "fieldPath": "/attributes/@ml05",
+            "rank": "zw"
+          },
+          "/attributes/@ml06": {
+            "id": "/attributes/@ml06",
+            "fieldPath": "/attributes/@ml06",
+            "rank": "zy"
+          },
+          "/attributes/@ml07": {
+            "id": "/attributes/@ml07",
+            "fieldPath": "/attributes/@ml07",
+            "rank": "zz"
+          }
+        }
+      },
+      "orgchart": {
+        "id": "orgchart",
+        "type": "orgchart",
+        "rank": "E",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@ml01": {
+            "id": "/attributes/@ml01",
+            "fieldPath": "/attributes/@ml01",
+            "rank": "z"
+          },
+          "/attributes/@ml02": {
+            "id": "/attributes/@ml02",
+            "fieldPath": "/attributes/@ml02",
+            "rank": "zV"
+          },
+          "/attributes/@ml03": {
+            "id": "/attributes/@ml03",
+            "fieldPath": "/attributes/@ml03",
+            "rank": "zk"
+          },
+          "/attributes/@ml04": {
+            "id": "/attributes/@ml04",
+            "fieldPath": "/attributes/@ml04",
+            "rank": "zs"
+          },
+          "/attributes/@ml05": {
+            "id": "/attributes/@ml05",
+            "fieldPath": "/attributes/@ml05",
+            "rank": "zw"
+          },
+          "/attributes/@ml06": {
+            "id": "/attributes/@ml06",
+            "fieldPath": "/attributes/@ml06",
+            "rank": "zy"
+          },
+          "/attributes/@ml07": {
+            "id": "/attributes/@ml07",
+            "fieldPath": "/attributes/@ml07",
+            "rank": "zz"
+          }
+        }
+      },
+      "gantt": {
+        "id": "gantt",
+        "type": "gantt",
+        "rank": "F",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@ml01": {
+            "id": "/attributes/@ml01",
+            "fieldPath": "/attributes/@ml01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@ml02": {
+            "id": "/attributes/@ml02",
+            "fieldPath": "/attributes/@ml02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@ml03": {
+            "id": "/attributes/@ml03",
+            "fieldPath": "/attributes/@ml03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@ml04": {
+            "id": "/attributes/@ml04",
+            "fieldPath": "/attributes/@ml04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@ml05": {
+            "id": "/attributes/@ml05",
+            "fieldPath": "/attributes/@ml05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@ml06": {
+            "id": "/attributes/@ml06",
+            "fieldPath": "/attributes/@ml06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@ml07": {
+            "id": "/attributes/@ml07",
+            "fieldPath": "/attributes/@ml07",
+            "rank": "zz",
+            "hidden": false
+          }
+        }
+      },
+      "table": {
+        "id": "table",
+        "type": "table",
+        "rank": "V",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@ml01": {
+            "id": "/attributes/@ml01",
+            "fieldPath": "/attributes/@ml01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@ml02": {
+            "id": "/attributes/@ml02",
+            "fieldPath": "/attributes/@ml02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@ml03": {
+            "id": "/attributes/@ml03",
+            "fieldPath": "/attributes/@ml03",
+            "rank": "zk",
+            "width": 214,
+            "hidden": false
+          },
+          "/attributes/@ml04": {
+            "id": "/attributes/@ml04",
+            "fieldPath": "/attributes/@ml04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@ml05": {
+            "id": "/attributes/@ml05",
+            "fieldPath": "/attributes/@ml05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@ml06": {
+            "id": "/attributes/@ml06",
+            "fieldPath": "/attributes/@ml06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@ml07": {
+            "id": "/attributes/@ml07",
+            "fieldPath": "/attributes/@ml07",
+            "rank": "zz",
+            "hidden": false
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "defaultView": "table",
+    "avatar": {
+      "type": "emoji",
+      "value": "📕"
+    }
+  }
+}

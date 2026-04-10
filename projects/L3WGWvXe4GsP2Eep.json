@@ -1,0 +1,2129 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "dd8f5ee8-fc6f-49c9-bfa0-cb2e96b27f07",
+        "text": {
+          "ops": [
+            {
+              "insert": "knowledge 2"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": null,
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "7d4ada58-d4bb-4eb9-a3c3-5c541655fbad",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Change Language"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "1aec6f81-a35c-4bfd-a7a7-61d3881393b3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "English",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/gb.png",
+                        "link": "https://mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "عربى",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/sa.png",
+                        "link": "https://ar.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "中文",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/cn.png",
+                        "link": "https://cn.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Deutsch",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/de.png",
+                        "link": "https://de.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Español",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/es.png",
+                        "link": "https://es.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Eesti",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/ee.png",
+                        "link": "https://et.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Français",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/fr.png",
+                        "link": "https://fr.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "हिन्दी",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/in.png",
+                        "link": "https://hi.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "עִברִית",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/il.png",
+                        "link": "https://he.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Hrvatski",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/hr.png",
+                        "link": "https://hr.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Bahasa Indonesia",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/id.png",
+                        "link": "https://id.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Italiano",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/it.png",
+                        "link": "https://it.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "日本語",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/jp.png",
+                        "link": "https://ja.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "한국어",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/kr.png",
+                        "link": "https://ko.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Nederlands",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/nl.png",
+                        "link": "https://nl.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Polski",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/pl.png",
+                        "link": "https://pl.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Português",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/br.png",
+                        "link": "https://pt.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Română",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/ro.png",
+                        "link": "https://ro.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Русский",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/ru.png",
+                        "link": "https://ru.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Svenska",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/se.png",
+                        "link": "https://sv.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "ภาษาไทย",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/th.png",
+                        "link": "https://th.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Türkçe",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/tr.png",
+                        "link": "https://tr.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Українська",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/ua.png",
+                        "link": "https://uk.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Tiếng Việt",
+                      "attributes": {
+                        "url": "https://mathigon.org/images/flags/vn.png",
+                        "link": "https://vi.mathigon.org/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "4bbe2028-a4f4-4354-9a64-5cc7969b0f83",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Sign in to Mathigon"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "cc6c3513-9a68-472b-bcde-78afd342a378",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "or"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c3bf9b5d-4734-4751-9a31-3b267b524dc2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Email or UsernamePassword"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "07da5e08-75b0-4c8c-bd55-ede57bbf5d87",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "New Account",
+                      "attributes": {
+                        "link": "https://mathigon.org/signup"
+                      }
+                    },
+                    {
+                      "insert": " "
+                    },
+                    {
+                      "insert": "Reset Password",
+                      "attributes": {
+                        "link": "https://mathigon.org/forgot"
+                      }
+                    },
+                    {
+                      "insert": " Sign in"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "499b223b-d24f-4b0f-a0ec-557079e5bda2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The Mathematical Playground"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "h1",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "dcc39b7c-46cb-4c24-ae5f-f92dfeacbc64",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Free tools, courses and manipulatives to make online learning more interactive and engaging than ever before."
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "f70b229e-b97a-4028-a9b8-131e701c6a68",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Polypad has moved from Mathigon to Amplify – read our "
+                        },
+                        {
+                          "insert": "FAQs",
+                          "attributes": {
+                            "link": "https://polypad.amplify.com/faqs"
+                          }
+                        },
+                        {
+                          "insert": " for more details."
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "9ff91a50-8c67-4a85-b64a-d314ed5a3291",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Polypad"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "h2",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "4dbcc676-bfc4-433e-8295-b35248a641b6",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Unleash your creativity",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": " with the world’s "
+                        },
+                        {
+                          "insert": "best manipulatives",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": "! Engage in "
+                        },
+                        {
+                          "insert": "problem-solving",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": ", explore patterns and "
+                        },
+                        {
+                          "insert": "collaborate",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": " with others."
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "a0fd0d5a-0773-4b40-aae2-7d02efa49d8d",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Launch Polypad",
+                          "attributes": {
+                            "link": "https://polypad.amplify.com/p"
+                          }
+                        },
+                        {
+                          "insert": " "
+                        },
+                        {
+                          "insert": "Getting started",
+                          "attributes": {
+                            "link": "https://polypad.amplify.com/help"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "cd024959-86cc-45dc-a62f-04bd917560f5",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "JJQQAA–3–2–1123–3–2–112352220x2xx−x−1−1121616167 × 3 + 38357321332181818x400101020203030404050506060707080809090100100110110120120130130140140150150160160170170180180sin4xy=x2r=4sin4θ"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "e34cdfea-d3fc-41b9-be92-dbdc68093c10",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Fractals",
+                          "attributes": {
+                            "bold": true,
+                            "link": "https://mathigon.org/course/fractals"
+                          }
+                        },
+                        {
+                          "insert": " "
+                        },
+                        {
+                          "insert": "Flash Cards",
+                          "attributes": {
+                            "bold": true,
+                            "link": "https://fluency.amplify.com/"
+                          }
+                        },
+                        {
+                          "insert": " "
+                        },
+                        {
+                          "insert": "Timeline",
+                          "attributes": {
+                            "bold": true,
+                            "link": "https://mathigon.org/timeline"
+                          }
+                        },
+                        {
+                          "insert": " "
+                        },
+                        {
+                          "insert": "Sequences",
+                          "attributes": {
+                            "bold": true,
+                            "link": "https://mathigon.org/course/sequences"
+                          }
+                        },
+                        {
+                          "insert": " "
+                        },
+                        {
+                          "insert": "Graph Theory",
+                          "attributes": {
+                            "bold": true,
+                            "link": "https://mathigon.org/course/graph-theory"
+                          }
+                        },
+                        {
+                          "insert": " "
+                        },
+                        {
+                          "insert": "Factris",
+                          "attributes": {
+                            "bold": true,
+                            "link": "https://mathigon.org/factris"
+                          }
+                        },
+                        {
+                          "insert": " "
+                        },
+                        {
+                          "insert": "Origami",
+                          "attributes": {
+                            "bold": true,
+                            "link": "https://mathigon.org/origami"
+                          }
+                        },
+                        {
+                          "insert": " "
+                        },
+                        {
+                          "insert": "Symmetry",
+                          "attributes": {
+                            "bold": true,
+                            "link": "https://mathigon.org/course/transformations"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "ad74c86a-74b7-4f4f-bafb-b28562088ba0",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Be curious and creative. Learn problem-solving and critical thinking. Discover the great power and unexpected beauty of mathematics."
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "6c627620-9fc2-427e-aa66-362542dda154",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Loved by Educators around the World."
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "h2",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "6f278a10-244d-410d-a618-e5f648e8b870",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Our unique and powerful tools work with whichever curriculum or devices you use. To learn more, sign up for our weekly events or explore our free teacher resources!"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "9955275d-eb1b-4be7-bd02-03bdaec9d42f",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Lesson Plans",
+                          "attributes": {
+                            "link": "https://mathigon.org/tasks"
+                          }
+                        },
+                        {
+                          "insert": " "
+                        },
+                        {
+                          "insert": "Events and Tutorials",
+                          "attributes": {
+                            "link": "https://mathigon.org/learn"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "a9be0e3c-2eba-4723-9ecc-217bccfc78dc",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Tim Brzezinski @TimBrzezinski: This jaw-dropping Mathigon update opens the doors to so many new student exploration & activity possibilities in geometry!",
+                          "attributes": {
+                            "link": "https://twitter.com/TimBrzezinski/status/1422221293487804420"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "24b403f9-7c46-4445-aca3-daa7addc3e79",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Mark Labuda @MrMLabuda: Hands down the best virtual manipulative site that I've ever come across. You can manipulate the tools to meet the needs of your lesson and access so many lessons. Amazing stuff",
+                          "attributes": {
+                            "link": "https://twitter.com/MrMLabuda/status/1392932391438716933"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "67529a41-5824-486d-871f-ac2df250f4a6",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Sunil Singh @Mathgarden: Polypad is quickly becoming the magical locus for most students/teachers and their interactivity with mathematics – and the joyous experiences that result!",
+                          "attributes": {
+                            "link": "https://twitter.com/Mathgarden/status/1426567155018051590"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "8cf292a3-4d0b-433c-84da-034e5b301b43",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Grant Sanderson @3blue1brown: Mathigon is one of the greatest math resources out there on the internet, no question.",
+                          "attributes": {
+                            "link": "https://twitter.com/3blue1brown/status/1237130400406728704"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "1d9da738-d929-4dc6-9b3f-de7a73c8fd23",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Guardian: One of the most accessible and engaging maths resources available on the web, a true mathematical wonderland.",
+                          "attributes": {
+                            "link": "https://www.theguardian.com/science/2019/jan/28/can-you-solve-it-gems-from-a-mathematical-wonderland"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "ad1d39a0-099e-4efe-bd9a-7fc666082d14",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "James Tanton @jamestanton: Mathigon is on its way to revolutionise maths teaching as we know it and what an honour to have explodingdots in their mix!",
+                          "attributes": {
+                            "link": "https://twitter.com/jamestanton/status/1383145287506485248"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "3df2d578-9467-44fc-8085-4be6635a7e56",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Andrea Biro @mrsbistro: Can’t get over how much of a game changer Polypad is. I can manipulate the tiles and write/type on the screen as we go through the lesson together. Ss practice on their own canvases and I can see their work. Beautiful.",
+                          "attributes": {
+                            "link": "https://twitter.com/mrsbistro/status/1395044714949271555"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "09d48052-958f-4251-8c29-75f918e01ebf",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Adina R @adinam225: If you haven't checked out Polypad and taken time to explore all its features, you're seriously missing out!",
+                          "attributes": {
+                            "link": "https://twitter.com/adinam225/status/1414786223726637056"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "ff74c964-e4d4-490d-958e-fd89b1892fda",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Kelli Holden @KelliHolden: Working with area this week and loving how Mathigon makes it easy for my online learners. Their comment? “Using Mathigon feels like my birthday every day!” So grateful for this powerful tool.",
+                          "attributes": {
+                            "link": "https://twitter.com/KelliHolden/status/1392277839194382337"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "fb904f54-c599-457f-b3c0-b63290bc5c02",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Hunter P. @professorpatton: Polypad has been a game changer for virtual learning (and in-person learning).",
+                          "attributes": {
+                            "link": "https://twitter.com/professorpatton/status/1402264598095581193"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "cf4b02e0-f3fe-441e-b4ef-9d04cdd382f1",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Brad Vodden @MrVodden: If you are looking for some online math manipulatives, Mathigon is a game changer! My students love all the tools to represent and show your thinking. You can also save a template to get Ss started.",
+                          "attributes": {
+                            "link": "https://twitter.com/MrVodden/status/1391820794918023171"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "2fe676cf-5ab6-4d12-93e4-54c59d9589b4",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Mark Kaercher @shskaercher: Polypad is quickly becoming a powerful tool for ALL content areas!",
+                          "attributes": {
+                            "link": "https://twitter.com/shskaercher/status/1426879997390753792"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "62785bb9-2aae-48a5-b21f-688d920af73e",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Jean Hume @HumieJ: Wow. The Mathigon Polypad is a game changer! It fits perfectly with middle years math and PAA tasks. I can’t wait to try it with my kids this year! Thanks for this amazing resource!",
+                          "attributes": {
+                            "link": "https://twitter.com/HumieJ/status/1427422064525275138"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "320dd2eb-69e5-4b9b-b48d-7dfbacec41ec",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Jayne Breton @JBretonmath: Just heard a kid exclaim with enthusiasm “BAM! Polypad baby…”",
+                          "attributes": {
+                            "link": "https://twitter.com/JBretonmath/status/1499776130529865735"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "7a4d5b3f-8c65-4e5c-974c-2b9caa285a99",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Pip - Mathematics @AccomplishEdu: Great reaction from a teacher I was working with today when I shared a task using Mathigon tiles - \"I must let the rest of the team know about this site.\"!!! Highly recommend you take a look at",
+                          "attributes": {
+                            "link": "https://twitter.com/AccomplishEdu/status/1402266218732654594"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "60d2a802-b6a3-44aa-9842-28e2e5ed29fd",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Geoff Krall @geoffkrall: Polypad is an absolute game changer and I've only known about it a few months.",
+                          "attributes": {
+                            "link": "https://twitter.com/geoffkrall/status/1487215971337076740"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "04eb75d3-bc66-4342-8876-acf1c02418ed",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Maths Teacher Circles @MathsCirclesOz: Mathematical play. Which part of the Polypad are you drawn to play with most? This Mathigon playpit has been a go-to tool during Maths Teacher Circles explorations.",
+                          "attributes": {
+                            "link": "https://twitter.com/MathsCirclesOz/status/1483215053549719552"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "76140598-703a-46c5-83e7-6b240a2a8bb8",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Maine Math & Science Alliance @mmsa_org: While partnering with teachers this school year, we have used Polypad in Grades K-8 to model a new game, design and project images for math talks and much more.",
+                          "attributes": {
+                            "link": "https://twitter.com/mmsa_org/status/1488139405135069193"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "6de47f29-3eef-4048-9994-a99939697599",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Catherine Tang @EduScribblings: Discovering all these amazing things on Polypad. This fraction strips manipulative is helping to make equivalent fractions very clear!",
+                          "attributes": {
+                            "link": "https://twitter.com/EduScribblings/status/1489620561701621760"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "4b903786-de1f-4187-862c-0b35dea7d349",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "RenieMc @reniemck: Check out this fabulous maths app for Middle school. Love the timeline! So many options for inquiry learning.",
+                          "attributes": {
+                            "link": "https://twitter.com/reniemck/status/1500035911093944325"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "542cb273-3113-4236-afca-a4d5253b4d0e",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "A game changer for education."
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "h2",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "fb23f114-a1a4-48b8-946b-cb4560c0ff4c",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Our unparalleled interactivity allow students to explore, discover, learn problem-solving and be creative. Captivating storytelling and real applications make abstract topics more engaging than ever before."
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "083ec359-e66f-4747-a171-aa00fb7ee348",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Learn more",
+                          "attributes": {
+                            "link": "https://mathigon.org/about"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "e6840b39-3110-4c1c-a07c-e49230c9a622",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "For school district",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "bfa5b394-b6eb-4367-98ed-10cbeaa81ce8",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "We work with schools and districts all around the world. Please "
+                        },
+                        {
+                          "insert": "email us",
+                          "attributes": {
+                            "link": "mailto:contract-support@amplify.com?subject=Mathigon%20DPA%20Request"
+                          }
+                        },
+                        {
+                          "insert": " if you need to sign a data privacy agreement."
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "36367173-f743-4b9d-ae32-4d30222ce9bc",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Partner with us",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "6514fa99-a23b-4473-bbf5-6a0ed086b706",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "We license our technology and content to other organisations. Please "
+                        },
+                        {
+                          "insert": "get in touch",
+                          "attributes": {
+                            "link": "mailto:support@mathigon.org?subject=Commercial%20Partnerships"
+                          }
+                        },
+                        {
+                          "insert": " if you are interested in working with us."
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "26e170e7-7ee5-4d33-bd13-787fc7559078",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Even more math!",
+                          "attributes": {
+                            "bold": true
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "8d5de32e-2aa9-4661-a5f8-83afb0a762e8",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Mathigon is part of "
+                        },
+                        {
+                          "insert": "Amplify",
+                          "attributes": {
+                            "link": "https://amplify.com/"
+                          }
+                        },
+                        {
+                          "insert": ", one of the leading providers of curriculum and assessment programs in the US. "
+                        },
+                        {
+                          "insert": "Learn more…",
+                          "attributes": {
+                            "link": "https://mathigon.org/press"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "e3dea23a-fa70-4548-8283-a4742a966de7",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "BETT Awards Winner",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/bett1.png",
+                            "link": "https://bettawards.com/2022-winners/"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "53f21442-6907-4cbb-8092-2b017ae0a0ce",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "GESS Awards Winner",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/gess.png",
+                            "link": "https://www.gessawards.com/gess-education-awards-2019-finalists"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "f06ec84b-7429-43b5-9230-90cbcc1bb3e7",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Reimagine Education Award Gold Winner",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/reimagine1.png",
+                            "link": "https://www.reimagine-education.com/"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "aaba83fb-be64-4db7-a6b6-a3be517037fe",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "EdTech Digest Cool Tool Award Finalist",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/cool-tool.png",
+                            "link": "https://edtechdigest.com/2020-finalists-winners/"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "271a23d1-f39a-452b-9ae7-7ea792eb6c44",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Common Sense Education Top Pick",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/common-sense.png",
+                            "link": "https://www.commonsense.org/education/website/mathigon"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "85ca68d4-9009-4dde-bcc1-b284f84dd122",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Webby Award Honouree",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/webby1.png",
+                            "link": "http://webbyawards.com/winners/2017/websites/general-website/education/mathigon/"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "859073ec-763c-4240-b90c-79998ec61325",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Lovie Award Gold Winner",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/lovie1.png",
+                            "link": "http://winners.lovieawards.eu/#!y=2013&wc=66&w=153"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "549229e5-ee56-4857-9e04-ca5d1b10ec06",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "American Library Association ALA Notable",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/ala.png",
+                            "link": "http://www.ala.org/alsc/awardsgrants/notalists/ncdm"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "c820afff-24d5-4d40-a1a8-872d59baa05d",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "EdTech Podcast Festival Winner",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/podcast.png",
+                            "link": "https://theedtechpodcast.com/festival/"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "f5f92f9d-639d-4d82-b3fd-824f7c4b7e9c",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "EDUCATE EdWards Evidence Aware",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/educate1.png",
+                            "link": "https://www.ucleducate.com/"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "bed86638-ebf5-4602-b956-19b6ea89b847",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Academics Choice Award Winner",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/ac.png",
+                            "link": "http://www.academicschoice.com/websites/mathigon.php"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "20ead440-f280-4f64-9769-a324bcdc25df",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Educational App Store Certified",
+                          "attributes": {
+                            "url": "https://mathigon.org/images/awards/eas.png",
+                            "link": "http://www.educationalappstore.com/app/mathigon"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "text",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "749b5618-fc21-4c01-853a-66b4085b0977",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Popular Courses"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "h2",
+                      "children": "text"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "a58e354f-e29d-4957-80d5-adc6672affec",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Intermediate – Circles and Pi: Spheres, Cones and Cylinders",
+                          "attributes": {
+                            "link": "https://mathigon.org/course/circles/spheres-cones-cylinders"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "4ea53821-e7ab-4f8e-82a4-d3ca239886bb",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Intermediate – Sequences and Patterns: Fibonacci Numbers",
+                          "attributes": {
+                            "link": "https://mathigon.org/course/sequences/fibonacci"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "8ea9fd21-509f-453c-b24e-56c455275c0a",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Intermediate – Graphs and Networks: The Bridges of Königsberg",
+                          "attributes": {
+                            "link": "https://mathigon.org/course/graph-theory/bridges"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "fa1a8049-c70c-4a67-b2b5-26c945259c60",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Advanced – Fractals: The Mandelbrot Set",
+                          "attributes": {
+                            "link": "https://mathigon.org/course/fractals/mandelbrot"
+                          }
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "preferences": {
+    "avatar": {
+      "type": "emoji",
+      "value": "📅"
+    },
+    "coverImageType": "background"
+  }
+}

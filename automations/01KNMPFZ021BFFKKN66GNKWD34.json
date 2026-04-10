@@ -1,0 +1,231 @@
+{
+  "version": "2",
+  "flowTitle": "Pass Closure — Learning Capture & Promotion",
+  "trigger": {
+    "valid": true,
+    "displayName": "Pass Completed — Capture Learnings",
+    "type": "MANUAL",
+    "settings": {
+      "inputUiInfo": {},
+      "paramsSchema": {
+        "type": "object",
+        "properties": {
+          "game_name": {
+            "type": "string",
+            "description": "Input for game_name"
+          },
+          "pass_number": {
+            "type": "string",
+            "description": "Input for pass_number"
+          },
+          "what_changed": {
+            "type": "string",
+            "description": "Input for what_changed"
+          },
+          "raw_observations": {
+            "type": "string",
+            "description": "Input for raw_observations"
+          },
+          "proof_target_result": {
+            "type": "string",
+            "description": "Input for proof_target_result"
+          },
+          "bottleneck_addressed": {
+            "type": "string",
+            "description": "Input for bottleneck_addressed"
+          },
+          "playtest_question_answer": {
+            "type": "string",
+            "description": "Input for playtest_question_answer"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "pc000001-0000-0000-0000-000000000001",
+      "valid": true,
+      "displayName": "Step 1 — Extract & Classify Learning",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.categorize",
+        "input": {
+          "input": "Game: {{ trigger[\"game_name\"] }}\nPass: {{ trigger[\"pass_number\"] }}\nBottleneck: {{ trigger[\"bottleneck_addressed\"] }}\nWhat Changed in Player Feeling: {{ trigger[\"what_changed\"] }}\nProof Target Result: {{ trigger[\"proof_target_result\"] }}\nPlaytest Answer: {{ trigger[\"playtest_question_answer\"] }}\nRaw Observations: {{ trigger[\"raw_observations\"] }}",
+          "output": {
+            "type": "custom",
+            "schema": {
+              "type": "object",
+              "required": [
+                "learning_summary",
+                "classification",
+                "failure_mode",
+                "is_local_or_general",
+                "promotion_target",
+                "applies_to_future_games_when"
+              ],
+              "properties": {
+                "failure_mode": {
+                  "type": "string",
+                  "description": "If the pass revealed a failure or near-failure, describe the failure mode precisely"
+                },
+                "classification": {
+                  "enum": [
+                    "viability",
+                    "motivation",
+                    "difficulty_tuning",
+                    "personality_and_feel",
+                    "replay",
+                    "release_readiness"
+                  ],
+                  "type": "string"
+                },
+                "learning_summary": {
+                  "type": "string",
+                  "description": "One clear sentence stating what was learned"
+                },
+                "promotion_target": {
+                  "enum": [
+                    "pass_rules",
+                    "os_engagement_rules",
+                    "design_checks",
+                    "game_families",
+                    "learning_capture_only"
+                  ],
+                  "type": "string",
+                  "description": "Where should this learning be promoted?"
+                },
+                "is_local_or_general": {
+                  "enum": [
+                    "LOCAL",
+                    "GENERAL"
+                  ],
+                  "type": "string",
+                  "description": "LOCAL = applies only to this game. GENERAL = pattern that applies across future games."
+                },
+                "promotion_rationale": {
+                  "type": "string",
+                  "description": "Why does this learning deserve promotion (or not)?"
+                },
+                "applies_to_future_games_when": {
+                  "type": "string",
+                  "description": "Describe the conditions under which future games would benefit from this learning"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "pc000002-0000-0000-0000-000000000002",
+      "valid": false,
+      "displayName": "Step 2 — Write Pass Record to Playtest Audit",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-taskade",
+        "pieceVersion": "1.0.0",
+        "actionName": "task.create",
+        "input": {
+          "content": "{{ trigger[\"game_name\"] }} {{ trigger[\"pass_number\"] }} — {{ pc000001-0000-0000-0000-000000000001[\"learning_summary\"] }}",
+          "position": "beforeend",
+          "projectId": {
+            "type": "flow-template-variable-input-type",
+            "id": "9a1qJTArrd2EgdUh"
+          }
+        }
+      }
+    },
+    {
+      "name": "pc000003-0000-0000-0000-000000000003",
+      "valid": true,
+      "displayName": "Route: Promote or Hold?",
+      "type": "BRANCH",
+      "settings": {},
+      "paths": [
+        {
+          "name": "pc000004-0000-0000-0000-000000000004",
+          "valid": true,
+          "displayName": "GENERAL — Promote",
+          "type": "BRANCH_PATH",
+          "settings": {
+            "ruleset": {
+              "type": "CUSTOM",
+              "input": {
+                "type": "or",
+                "value": [
+                  {
+                    "type": "and",
+                    "value": [
+                      {
+                        "condition": "text_matches",
+                        "id": "d297c14b-8513-435b-8ca6-31f8acd15e1b",
+                        "data": "{{ pc000001-0000-0000-0000-000000000001[\"is_local_or_general\"] }}",
+                        "comparator": "GENERAL"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "actions": [
+            {
+              "name": "pc000005-0000-0000-0000-000000000005",
+              "valid": true,
+              "displayName": "Generate Promotion Draft",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "ai.generate",
+                "input": {
+                  "input": "Learning: {{ pc000001-0000-0000-0000-000000000001[\"learning_summary\"] }}\nClassification: {{ pc000001-0000-0000-0000-000000000001[\"classification\"] }}\nPromotion Target: {{ pc000001-0000-0000-0000-000000000001[\"promotion_target\"] }}\nApplies When: {{ pc000001-0000-0000-0000-000000000001[\"applies_to_future_games_when\"] }}\nRationale: {{ pc000001-0000-0000-0000-000000000001[\"promotion_rationale\"] }}",
+                  "prompt": "You are writing a new rule or principle to be added to the Math Game Studio OS. Based on the learning capture below, write a precise, reusable rule that a designer working on any future game could apply. The rule must:\n1. State the condition it applies in (\"When X...\")\n2. State the rule itself (\"...do Y\")\n3. State the rationale (\"Because Z\")\n4. Give one example of correct application\n\nFormat it cleanly, ready to paste into a design document. Do not repeat the original observation — distill it into a principle."
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "pc000006-0000-0000-0000-000000000006",
+          "valid": true,
+          "displayName": "LOCAL — Hold as Learning Capture",
+          "type": "BRANCH_PATH",
+          "settings": {
+            "ruleset": {
+              "type": "FALLBACK"
+            }
+          },
+          "actions": []
+        }
+      ]
+    },
+    {
+      "name": "pc000007-0000-0000-0000-000000000007",
+      "valid": true,
+      "displayName": "Step 4 — Orchestrator Pass Summary",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Game: {{ trigger[\"game_name\"] }}\nPass: {{ trigger[\"pass_number\"] }}\nLearning: {{ pc000001-0000-0000-0000-000000000001[\"learning_summary\"] }}\nPromotion: {{ pc000001-0000-0000-0000-000000000001[\"promotion_target\"] }}",
+          "prompt": "You are the Pipeline Orchestrator. A pass has just been closed. Write a 3-sentence status note confirming: (1) which game and pass was completed, (2) what changed in player feeling, (3) whether a promotion was triggered and to which OS document. End with the recommended next pass for this game."
+        }
+      }
+    }
+  ],
+  "variables": {
+    "9a1qJTArrd2EgdUh": {
+      "id": "9a1qJTArrd2EgdUh",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-project-id"
+    }
+  }
+}

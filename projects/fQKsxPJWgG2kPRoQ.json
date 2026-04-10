@@ -1,0 +1,2834 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "a1111111-1111-1111-1111-111111111101",
+        "text": {
+          "ops": [
+            {
+              "insert": "K-12 Curriculum Map"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": null,
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111102",
+            "text": {
+              "ops": [
+                {
+                  "insert": "📚 Mathematics",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "824e0e79-5da2-428b-8d70-c6220ee9309d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Expressions & Equations Fluency — Review (6–8)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@cm01": {
+                    "type": "Select",
+                    "optionId": "gb-68"
+                  },
+                  "@cm02": {
+                    "type": "Select",
+                    "optionId": "subj-math"
+                  },
+                  "@cm03": "Solving one- and two-step linear equations; inverse operations; equality as balance (T1, T2). Fluency under pressure, not first instruction.",
+                  "@cm04": {
+                    "type": "Select",
+                    "optionId": "st-approved"
+                  },
+                  "@cm05": "Echo Heist (districts 1-3, templates T1-T2)",
+                  "@cm06": "CCSS.Math.Content.6.EE.A.2, 6.EE.B.5-7, 7.EE.B.3-4",
+                  "@cm07": {
+                    "type": "Select",
+                    "optionId": "if-stealth"
+                  },
+                  "@cm08": {
+                    "type": "Select",
+                    "optionId": "cc-solid"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "28ced968-2aeb-4e26-baf7-9116bd2b4f16",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Ratios, Rates & Percents — Spiral Review (6–8)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@cm01": {
+                    "type": "Select",
+                    "optionId": "gb-68"
+                  },
+                  "@cm02": {
+                    "type": "Select",
+                    "optionId": "subj-math"
+                  },
+                  "@cm03": "Converting between fractions, decimals, percents; percent change and discount; rate-time-distance; comparing rates (T3, T4, T5, T7, T8)",
+                  "@cm04": {
+                    "type": "Select",
+                    "optionId": "st-approved"
+                  },
+                  "@cm05": "Echo Heist (multi-district, templates T3-T5, T7-T8)",
+                  "@cm06": "CCSS.Math.Content.7.RP.A.1-3, 6.RP",
+                  "@cm07": {
+                    "type": "Select",
+                    "optionId": "if-stealth"
+                  },
+                  "@cm08": {
+                    "type": "Select",
+                    "optionId": "cc-solid"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8ef76d41-3074-4633-9eec-379168f53ab3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Number System Fluency — Integers & Rounding (6–8)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@cm01": {
+                    "type": "Select",
+                    "optionId": "gb-68"
+                  },
+                  "@cm02": {
+                    "type": "Select",
+                    "optionId": "subj-math"
+                  },
+                  "@cm03": "Integer operations with positive and negative numbers; rounding to specified place values (T6, T9, T10)",
+                  "@cm04": {
+                    "type": "Select",
+                    "optionId": "st-approved"
+                  },
+                  "@cm05": "Echo Heist (templates T6, T9, T10)",
+                  "@cm06": "CCSS.Math.Content.7.NS.A.1-3",
+                  "@cm07": {
+                    "type": "Select",
+                    "optionId": "if-stealth"
+                  },
+                  "@cm08": {
+                    "type": "Select",
+                    "optionId": "cc-solid"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "93ec5caf-2920-48ec-bb32-38b548f88cc5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Operations & Algebraic Thinking — Compare & Order Computed Totals (K–2, Grade 1 anchor)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@cm01": {
+                    "type": "Select",
+                    "optionId": "gb-k2"
+                  },
+                  "@cm02": {
+                    "type": "Select",
+                    "optionId": "subj-math"
+                  },
+                  "@cm03": "Add and subtract within 20; compare and order computed expression totals by total value; develop fluency through repeated contextualised practice. Grade 1 anchor; K extension (within 5–10, addition only); Grade 2 extension (mixed +/–, within 20, longer sequences). Does NOT cover place-value comparison (1.NBT.B.3) — that is a separate slot.",
+                  "@cm04": {
+                    "type": "Select",
+                    "optionId": "st-approved"
+                  },
+                  "@cm05": "Snack Line Shuffle (K–2 anchor, Prototype P1 — GO as of 2026-04-08)",
+                  "@cm06": "CCSS.MATH.CONTENT.1.OA.C.6 — Add and subtract within 20; use strategies to develop fluency. Anchor only; game supports consolidation and practice, not first instruction. Standards explicitly excluded: 1.NBT.B.3 (overreach — not targeted).",
+                  "@cm07": {
+                    "type": "Select",
+                    "optionId": "if-seq"
+                  },
+                  "@cm08": {
+                    "type": "Select",
+                    "optionId": "cc-solid"
+                  }
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "12895228-a645-4d7b-8724-d62155f628b9",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Snack Line Shuffle — Curriculum Entry",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "h2",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "4919bf7a-5d66-450a-9992-29c779151422",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Game: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Snack Line Shuffle",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "a91a7937-d81e-4324-af42-b7803bb48127",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade band: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "K–2 (K–1 core within 10, addition-dominant; Grade 2+ extension with mixed +/–, within 20, longer sequences)",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "87474497-18f0-4a6f-a7de-899c62466382",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade 1 anchor rationale: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "1.OA.C.6 is the first standard to explicitly call for within-20 fluency as a goal. Ordering computed totals is a natural fluency consolidation context at Grade 1. Kindergarten entry uses addition within 5 only (warm-up tier). Grade 2 extension introduces subtraction pairs and longer sequences.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "66c100cb-b21f-4c6f-90ac-d8792e625f12",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Anchor standard: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "CCSS.MATH.CONTENT.1.OA.C.6 — Add and subtract within 20, demonstrating fluency for addition and subtraction within 10. Use strategies such as making ten, decomposing a number leading to a ten, and creating equivalent but easier sums.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "6cdd54a3-ff90-4b24-97bf-697eb07b03b3",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Standard removed / not claimed: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "1.NBT.B.3 (place-value comparison using >, =, < notation). Removed as overreach on 2026-04-08. Do not include in any educator-facing alignment materials for this game.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "7f73a2e3-a3f9-469f-8691-97be1e909c6e",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Curriculum role: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Practice and consolidation. Not a first-instruction tool. Intended for use after classroom introduction of addition strategies. Complements but does not replace direct instruction on 1.OA.C.6.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "2ea15439-a161-4a8b-b8fa-a97b20d160df",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Math domain: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Operations and Algebraic Thinking (OA). Does NOT sit under Number and Operations in Base Ten (NBT) despite surface-level similarity to comparison tasks.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "8672415b-f2b3-4c7c-9434-0532ff5f2768",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Interaction family: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Sequence / Ordering — first K-2 member of this family. Family registry: Game Family Registry (project: N9S2kjQdv3s7tyya), Sequence / Ordering entry.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "37cc8529-512a-4701-98b0-055e56210d49",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Coexistence with Bakery Rush: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Bakery Rush (Exact-Sum Composition family) occupies the \"Addition & Subtraction to 20 — Compose to Exact Total\" slot. Snack Line Shuffle occupies the distinct \"Compare and Order Computed Totals\" sub-skill. The two games serve different cognitive targets within 1.OA and should both appear in a K-2 portfolio without overlap risk.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "cf62e653-8e0f-4e25-9e28-f1ec6c97e212",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Misconceptions addressed: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "M1 bigger addend = bigger total; M2 equal totals must rank differently; M3 subtraction always loses; M4 leftmost digit dominance; M5 operation sign blindness; M6 zero-subtraction overgeneralisation; M7 bigger number first = bigger result. Full register: Misconception Library (project: cyt3zvpjf32D1Ddt). M1–M3 active in K-1 levels; M4–M7 gated to Grade 2+ levels.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "id": "14113c04-e271-45d7-a6cc-1cb134e16aaf",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Grade-Band Scope Map",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "h2",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "6cf97d76-ca02-40f0-92ca-d6b10f08627d",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Kindergarten tier: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Addition within 5 only · 2–3 kids · largest-first rule · all totals distinct · no subtraction. CCSS: K.OA.A.1, K.OA.A.2 (informal practice, not alignment claim).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "ba733153-49b1-4a0a-bec3-1bdd23b7fd70",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade 1 tier (anchor): ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Addition within 10 · 3–4 kids · largest-first rule · contrast sets targeting M1 · no subtraction. CCSS: 1.OA.C.6 (anchor standard).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "0d6aea0c-a0c1-436e-b3e9-33ffe572d714",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Grade 2 tier (gated — not in P1 build): ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Mixed +/– within 20 · 5–6 kids · ordering rule variants (largest-first, smallest-first, positional constraints) · M3–M7 misconception sets active. CCSS: 2.OA.B.2 (extension, not anchor). Gate: content plan must be reviewed by Curriculum Architect before any Grade 2 level is authored.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "b016196f-f4e7-4752-a0ba-e375e8999434",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Natural ceiling: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "6-kid mixed +/– lines within 20 under positional constraints. Beyond this, multi-step or unknown-addend expressions require a different UI model. The game has no content pathway into Grades 3+.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "id": "26733216-6c6d-4297-a538-785a07cdc2ec",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Cross-References",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "h2",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": [
+                      {
+                        "type": "text",
+                        "id": "71b06b88-4fd2-4698-853a-2fd3893fb8ee",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Prototype Specifications: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Full P1 build brief — Snack Line Shuffle entry in project 9bfNR2acXuAHiWyC (Prototype Specifications), under \"Approved — Ready to Build / Building\". Covers scene spec, Option B Serve mechanic, content constraints, grade-band gate, and all 14 P1 DoD gates.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "05365901-b88e-4d0a-8016-71fde5854a15",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Game Family Registry: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Sequence / Ordering family entry in project N9S2kjQdv3s7tyya (Game Family Registry). Family upgraded to Well Covered on 2026-04-08. Snack Line Shuffle listed as first K-2 member; Probability Pipeline as Grades 5-6 member (REVISE status).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "c53c3b61-2c02-415e-8ffc-4f406375af5f",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Misconception Library: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "M1–M7 registered in project cyt3zvpjf32D1Ddt (Misconception Library). M4+M7 co-occurrence flagged. M1–M3 active at K-1 levels; M4–M7 gated to Grade 2+ levels.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "374e158f-d491-45cf-8efa-2d904a19f597",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Game Concepts Pipeline: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "Snack Line Shuffle in project LnpYq2qGt5DrXpda (Game Concepts Pipeline). Pipeline status: GO — Prototype P1 (advanced 2026-04-08).",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      },
+                      {
+                        "type": "text",
+                        "id": "a117ca57-e2a6-4dc7-a112-d83bceccc156",
+                        "text": {
+                          "ops": [
+                            {
+                              "insert": "Related curriculum slot: ",
+                              "attributes": {
+                                "bold": true
+                              }
+                            },
+                            {
+                              "insert": "\"Addition & Subtraction to 20 (K–2)\" — task a1111111-1111-1111-1111-111111111104 in this project. That slot is anchored to Bakery Rush (Exact-Sum Composition). These two slots serve complementary but non-overlapping cognitive targets within the 1.OA domain.",
+                              "attributes": {}
+                            },
+                            {
+                              "insert": "\n",
+                              "attributes": {
+                                "paragraph": true
+                              }
+                            }
+                          ]
+                        },
+                        "format": {
+                          "node": "bullet",
+                          "children": null
+                        },
+                        "collapsed": false,
+                        "completed": false,
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "1006c999-4ba2-40f1-8a93-da6468a5871b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Geometry — Angle Relationships (7)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@cm01": {
+                    "type": "Select",
+                    "optionId": "gb-68"
+                  },
+                  "@cm02": {
+                    "type": "Select",
+                    "optionId": "subj-math"
+                  },
+                  "@cm03": "Complementary and supplementary angles; finding unknown angle measures (T11). Practice and review, not primary instruction.",
+                  "@cm04": {
+                    "type": "Select",
+                    "optionId": "st-approved"
+                  },
+                  "@cm05": "Echo Heist (template T11)",
+                  "@cm06": "CCSS.Math.Content.7.G.B.5",
+                  "@cm07": {
+                    "type": "Select",
+                    "optionId": "if-stealth"
+                  },
+                  "@cm08": {
+                    "type": "Select",
+                    "optionId": "cc-solid"
+                  }
+                },
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a7982ed3-faf0-4cb3-a0bb-3f799611d702",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Probability & Expected Value — Intro Practice (7–8)",
+                      "attributes": {}
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "checkbox",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "attributes": {
+                  "@cm01": {
+                    "type": "Select",
+                    "optionId": "gb-68"
+                  },
+                  "@cm02": {
+                    "type": "Select",
+                    "optionId": "subj-math"
+                  },
+                  "@cm03": "Expected value of simple probability models; outcome-weighted probability computation (T12)",
+                  "@cm04": {
+                    "type": "Select",
+                    "optionId": "st-approved"
+                  },
+                  "@cm05": "Echo Heist (template T12, District 3)",
+                  "@cm06": "CCSS.Math.Content.7.SP.C.7-8",
+                  "@cm07": {
+                    "type": "Select",
+                    "optionId": "if-stealth"
+                  },
+                  "@cm08": {
+                    "type": "Select",
+                    "optionId": "cc-solid"
+                  }
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111103",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Counting & Cardinality (K–2)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-k2"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Number sense: counting to 120, comparing quantities",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-open"
+              },
+              "@cm06": "CCSS.Math.Content.K.CC",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-none"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-none"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111104",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Addition & Subtraction to 20 (K–2)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-k2"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Fluency with addition/subtraction within 20",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-approved"
+              },
+              "@cm05": "Bakery Rush",
+              "@cm06": "CCSS.Math.Content.1.OA",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-comp"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-solid"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111105",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Multiplication & Division (3–5)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-35"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Fluency with multiplication tables, division as inverse",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-approved"
+              },
+              "@cm05": "Fire Dispatch",
+              "@cm06": "CCSS.Math.Content.3.OA",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-disp"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-solid"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111106",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Fractions & Decimals (3–5)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-35"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Understanding fractions as parts of a whole",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-open"
+              },
+              "@cm06": "CCSS.Math.Content.3.NF",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-none"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-none"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111107",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Ratios & Proportional Reasoning (6–8)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-68"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Ratios, unit rates, proportional relationships",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-open"
+              },
+              "@cm06": "CCSS.Math.Content.6.RP",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-none"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-none"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111108",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Algebra & Functions (6–8)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-68"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Linear equations, slope, systems",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-pipeline"
+              },
+              "@cm06": "CCSS.Math.Content.8.EE",
+              "@cm05": "Power Grid Operator",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-alloc"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-weak"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111109",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Trigonometry & Pre-Calculus (9–12)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-912"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Unit circle, trig functions, identities",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-approved"
+              },
+              "@cm05": "Unit Circle Pizza Lab",
+              "@cm06": "CCSS.Math.Content.HSF",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-prec"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-solid"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111110",
+            "text": {
+              "ops": [
+                {
+                  "insert": "📖 English / ELA",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111111",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Phonics & Word Recognition (K–2)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-k2"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-ela"
+              },
+              "@cm03": "Letter-sound correspondence, blending, sight words",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-open"
+              },
+              "@cm06": "CCSS.ELA-Literacy.RF.K",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-none"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-none"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111112",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Vocabulary Building (3–5)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-35"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-ela"
+              },
+              "@cm03": "Context clues, morphology, tier 2 vocabulary",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-open"
+              },
+              "@cm06": "CCSS.ELA-Literacy.L.3",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-none"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-none"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111113",
+            "text": {
+              "ops": [
+                {
+                  "insert": "🔬 Science",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111114",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Life Cycles & Ecosystems (K–2)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-k2"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-sci"
+              },
+              "@cm03": "Plant/animal life cycles, food chains, habitats",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-open"
+              },
+              "@cm06": "NGSS K-LS1",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-none"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-none"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1111111-1111-1111-1111-111111111115",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Forces & Motion (3–5)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-35"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-sci"
+              },
+              "@cm03": "Gravity, friction, balanced/unbalanced forces",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-open"
+              },
+              "@cm06": "NGSS 3-PS2",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-none"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-none"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "6bbc91af-717a-4180-965f-d4a0fe7aa98e",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Division & Ceiling Division (3–5)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-35"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Division as partitioning and grouping; ceiling division for real-world allocation",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-pipeline"
+              },
+              "@cm05": "School Trip Fleet",
+              "@cm06": "CCSS.Math.Content.3.OA.B.6",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-cap"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-weak"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "8742c82f-365d-43f8-8e89-5e175e73676e",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Missing Value / Algebraic Reasoning (6–8)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-68"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Solving for unknown variables; inverse operations; balance equations",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-pipeline"
+              },
+              "@cm05": "Power Grid Operator",
+              "@cm06": "CCSS.Math.Content.6.EE.B.5",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-alloc"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-weak"
+              }
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "020b36de-eee7-47e3-be73-0b37249e4559",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Distance-Rate-Time (6–8)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@cm01": {
+                "type": "Select",
+                "optionId": "gb-68"
+              },
+              "@cm02": {
+                "type": "Select",
+                "optionId": "subj-math"
+              },
+              "@cm03": "Multi-step unit rates; chaining t=d/r across legs; evaluating T ≤ T_deadline and stops ≥ N inequalities",
+              "@cm04": {
+                "type": "Select",
+                "optionId": "st-brainstorm"
+              },
+              "@cm05": "Metro Minute: Express Line (REVISE — 3 required changes before P1)",
+              "@cm06": "CCSS.Math.Content.7.RP.A.1, CCSS.Math.Content.6.EE.B, CCSS.Math.Content.7.EE.B.4",
+              "@cm07": {
+                "type": "Select",
+                "optionId": "if-rout"
+              },
+              "@cm08": {
+                "type": "Select",
+                "optionId": "cc-weak"
+              }
+            },
+            "children": []
+          }
+        ]
+      }
+    ],
+    "fields": {
+      "@cm01": {
+        "displayName": "Grade Band",
+        "type": "Select",
+        "options": {
+          "gb-k2": {
+            "id": "gb-k2",
+            "name": "K–2",
+            "rank": "0",
+            "color": "#f97316"
+          },
+          "gb-35": {
+            "id": "gb-35",
+            "name": "3–5",
+            "rank": "1",
+            "color": "#eab308"
+          },
+          "gb-68": {
+            "id": "gb-68",
+            "name": "6–8",
+            "rank": "2",
+            "color": "#22c55e"
+          },
+          "gb-912": {
+            "id": "gb-912",
+            "name": "9–12",
+            "rank": "3",
+            "color": "#3b82f6"
+          }
+        }
+      },
+      "@cm02": {
+        "displayName": "Subject",
+        "type": "Select",
+        "options": {
+          "subj-math": {
+            "id": "subj-math",
+            "name": "Mathematics",
+            "rank": "0",
+            "color": "#6366f1"
+          },
+          "subj-ela": {
+            "id": "subj-ela",
+            "name": "English / ELA",
+            "rank": "1",
+            "color": "#ec4899"
+          },
+          "subj-sci": {
+            "id": "subj-sci",
+            "name": "Science",
+            "rank": "2",
+            "color": "#14b8a6"
+          },
+          "subj-ss": {
+            "id": "subj-ss",
+            "name": "Social Studies",
+            "rank": "3",
+            "color": "#f59e0b"
+          },
+          "subj-cs": {
+            "id": "subj-cs",
+            "name": "Coding / CS",
+            "rank": "4",
+            "color": "#8b5cf6"
+          },
+          "subj-fin": {
+            "id": "subj-fin",
+            "name": "Financial Literacy",
+            "rank": "5",
+            "color": "#10b981"
+          }
+        }
+      },
+      "@cm03": {
+        "displayName": "Core Skill",
+        "type": "string"
+      },
+      "@cm04": {
+        "displayName": "Status",
+        "type": "Select",
+        "options": {
+          "st-open": {
+            "id": "st-open",
+            "name": "Open Slot",
+            "rank": "0",
+            "color": "#94a3b8"
+          },
+          "st-brainstorm": {
+            "id": "st-brainstorm",
+            "name": "In Brainstorm",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "st-pipeline": {
+            "id": "st-pipeline",
+            "name": "In Pipeline",
+            "rank": "2",
+            "color": "#8b5cf6"
+          },
+          "st-approved": {
+            "id": "st-approved",
+            "name": "Approved",
+            "rank": "3",
+            "color": "#22c55e"
+          },
+          "st-building": {
+            "id": "st-building",
+            "name": "Building",
+            "rank": "4",
+            "color": "#3b82f6"
+          },
+          "st-done": {
+            "id": "st-done",
+            "name": "Complete",
+            "rank": "5",
+            "color": "#16a34a"
+          }
+        }
+      },
+      "@cm05": {
+        "displayName": "Linked Game Concept",
+        "type": "string"
+      },
+      "@cm06": {
+        "displayName": "Learning Standard (CCSS / NGSS)",
+        "type": "string"
+      },
+      "@cm08": {
+        "displayName": "Coverage Confidence",
+        "type": "Select",
+        "options": {
+          "cc-none": {
+            "id": "cc-none",
+            "name": "None — no game in this slot",
+            "rank": "0",
+            "color": "#ef4444"
+          },
+          "cc-weak": {
+            "id": "cc-weak",
+            "name": "Weak — concept GO but not built",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "cc-solid": {
+            "id": "cc-solid",
+            "name": "Solid — prototype in active passes",
+            "rank": "2",
+            "color": "#22c55e"
+          }
+        }
+      },
+      "@cm07": {
+        "displayName": "Interaction Family",
+        "type": "Select",
+        "options": {
+          "if-comp": {
+            "id": "if-comp",
+            "name": "Exact-Sum Composition",
+            "rank": "0",
+            "color": "#f97316"
+          },
+          "if-disp": {
+            "id": "if-disp",
+            "name": "Dispatch / Subset Selection",
+            "rank": "1",
+            "color": "#ef4444"
+          },
+          "if-prec": {
+            "id": "if-prec",
+            "name": "Precision Placement",
+            "rank": "2",
+            "color": "#6366f1"
+          },
+          "if-alloc": {
+            "id": "if-alloc",
+            "name": "Allocation / Network Balancing",
+            "rank": "3",
+            "color": "#3b82f6"
+          },
+          "if-cap": {
+            "id": "if-cap",
+            "name": "Capacity Packing",
+            "rank": "4",
+            "color": "#22c55e"
+          },
+          "if-rout": {
+            "id": "if-rout",
+            "name": "Routing / Pathfinding",
+            "rank": "5",
+            "color": "#8b5cf6"
+          },
+          "if-seq": {
+            "id": "if-seq",
+            "name": "Sequence / Ordering",
+            "rank": "6",
+            "color": "#ec4899"
+          },
+          "if-build": {
+            "id": "if-build",
+            "name": "Build / Craft",
+            "rank": "7",
+            "color": "#eab308"
+          },
+          "if-stealth": {
+            "id": "if-stealth",
+            "name": "Stealth-Gated Precision Solve",
+            "rank": "8",
+            "color": "#14b8a6"
+          },
+          "if-none": {
+            "id": "if-none",
+            "name": "None assigned",
+            "rank": "9",
+            "color": "#94a3b8"
+          }
+        }
+      }
+    },
+    "views": {
+      "list": {
+        "id": "list",
+        "type": "list",
+        "rank": "A",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@cm01": {
+            "id": "/attributes/@cm01",
+            "fieldPath": "/attributes/@cm01",
+            "rank": "z"
+          },
+          "/attributes/@cm02": {
+            "id": "/attributes/@cm02",
+            "fieldPath": "/attributes/@cm02",
+            "rank": "zV"
+          },
+          "/attributes/@cm03": {
+            "id": "/attributes/@cm03",
+            "fieldPath": "/attributes/@cm03",
+            "rank": "zk"
+          },
+          "/attributes/@cm04": {
+            "id": "/attributes/@cm04",
+            "fieldPath": "/attributes/@cm04",
+            "rank": "zs"
+          },
+          "/attributes/@cm05": {
+            "id": "/attributes/@cm05",
+            "fieldPath": "/attributes/@cm05",
+            "rank": "zw"
+          },
+          "/attributes/@cm06": {
+            "id": "/attributes/@cm06",
+            "fieldPath": "/attributes/@cm06",
+            "rank": "zy"
+          },
+          "cfa0f5bc-0366-4a97-846b-2fd63fc9b5d0": {
+            "id": "cfa0f5bc-0366-4a97-846b-2fd63fc9b5d0",
+            "fieldPath": "/attributes/@cm07",
+            "rank": "zz"
+          },
+          "1f88b011-701e-44fa-89b3-60f889049792": {
+            "id": "1f88b011-701e-44fa-89b3-60f889049792",
+            "fieldPath": "/attributes/@cm08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "board": {
+        "id": "board",
+        "type": "board",
+        "rank": "B",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@cm01": {
+            "id": "/attributes/@cm01",
+            "fieldPath": "/attributes/@cm01",
+            "rank": "z"
+          },
+          "/attributes/@cm02": {
+            "id": "/attributes/@cm02",
+            "fieldPath": "/attributes/@cm02",
+            "rank": "zV"
+          },
+          "/attributes/@cm03": {
+            "id": "/attributes/@cm03",
+            "fieldPath": "/attributes/@cm03",
+            "rank": "zk"
+          },
+          "/attributes/@cm04": {
+            "id": "/attributes/@cm04",
+            "fieldPath": "/attributes/@cm04",
+            "rank": "zs"
+          },
+          "/attributes/@cm05": {
+            "id": "/attributes/@cm05",
+            "fieldPath": "/attributes/@cm05",
+            "rank": "zw"
+          },
+          "/attributes/@cm06": {
+            "id": "/attributes/@cm06",
+            "fieldPath": "/attributes/@cm06",
+            "rank": "zy"
+          },
+          "fe4dd999-08ea-4ef5-9ce7-64f6a1f18367": {
+            "id": "fe4dd999-08ea-4ef5-9ce7-64f6a1f18367",
+            "fieldPath": "/attributes/@cm07",
+            "rank": "zz"
+          },
+          "201b762c-e20f-41b6-8f9f-c643dc6639e9": {
+            "id": "201b762c-e20f-41b6-8f9f-c643dc6639e9",
+            "fieldPath": "/attributes/@cm08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "mindmap": {
+        "id": "mindmap",
+        "type": "mindmap",
+        "rank": "D",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@cm01": {
+            "id": "/attributes/@cm01",
+            "fieldPath": "/attributes/@cm01",
+            "rank": "z"
+          },
+          "/attributes/@cm02": {
+            "id": "/attributes/@cm02",
+            "fieldPath": "/attributes/@cm02",
+            "rank": "zV"
+          },
+          "/attributes/@cm03": {
+            "id": "/attributes/@cm03",
+            "fieldPath": "/attributes/@cm03",
+            "rank": "zk"
+          },
+          "/attributes/@cm04": {
+            "id": "/attributes/@cm04",
+            "fieldPath": "/attributes/@cm04",
+            "rank": "zs"
+          },
+          "/attributes/@cm05": {
+            "id": "/attributes/@cm05",
+            "fieldPath": "/attributes/@cm05",
+            "rank": "zw"
+          },
+          "/attributes/@cm06": {
+            "id": "/attributes/@cm06",
+            "fieldPath": "/attributes/@cm06",
+            "rank": "zy"
+          },
+          "1642be96-002d-4797-aada-8a5e8370dedd": {
+            "id": "1642be96-002d-4797-aada-8a5e8370dedd",
+            "fieldPath": "/attributes/@cm07",
+            "rank": "zz"
+          },
+          "605600fd-1a46-418c-9c3f-fa09a5c24b08": {
+            "id": "605600fd-1a46-418c-9c3f-fa09a5c24b08",
+            "fieldPath": "/attributes/@cm08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "orgchart": {
+        "id": "orgchart",
+        "type": "orgchart",
+        "rank": "E",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@cm01": {
+            "id": "/attributes/@cm01",
+            "fieldPath": "/attributes/@cm01",
+            "rank": "z"
+          },
+          "/attributes/@cm02": {
+            "id": "/attributes/@cm02",
+            "fieldPath": "/attributes/@cm02",
+            "rank": "zV"
+          },
+          "/attributes/@cm03": {
+            "id": "/attributes/@cm03",
+            "fieldPath": "/attributes/@cm03",
+            "rank": "zk"
+          },
+          "/attributes/@cm04": {
+            "id": "/attributes/@cm04",
+            "fieldPath": "/attributes/@cm04",
+            "rank": "zs"
+          },
+          "/attributes/@cm05": {
+            "id": "/attributes/@cm05",
+            "fieldPath": "/attributes/@cm05",
+            "rank": "zw"
+          },
+          "/attributes/@cm06": {
+            "id": "/attributes/@cm06",
+            "fieldPath": "/attributes/@cm06",
+            "rank": "zy"
+          },
+          "28a79f31-fa1c-421e-9e52-eb3cc1f8ffcf": {
+            "id": "28a79f31-fa1c-421e-9e52-eb3cc1f8ffcf",
+            "fieldPath": "/attributes/@cm07",
+            "rank": "zz"
+          },
+          "a0d69194-36b2-464f-afd5-b09f3d3eceda": {
+            "id": "a0d69194-36b2-464f-afd5-b09f3d3eceda",
+            "fieldPath": "/attributes/@cm08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "gantt": {
+        "id": "gantt",
+        "type": "gantt",
+        "rank": "F",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@cm01": {
+            "id": "/attributes/@cm01",
+            "fieldPath": "/attributes/@cm01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@cm02": {
+            "id": "/attributes/@cm02",
+            "fieldPath": "/attributes/@cm02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@cm03": {
+            "id": "/attributes/@cm03",
+            "fieldPath": "/attributes/@cm03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@cm04": {
+            "id": "/attributes/@cm04",
+            "fieldPath": "/attributes/@cm04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@cm05": {
+            "id": "/attributes/@cm05",
+            "fieldPath": "/attributes/@cm05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@cm06": {
+            "id": "/attributes/@cm06",
+            "fieldPath": "/attributes/@cm06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "19555417-805c-4652-b1c4-722c6d3e3f8a": {
+            "id": "19555417-805c-4652-b1c4-722c6d3e3f8a",
+            "fieldPath": "/attributes/@cm07",
+            "rank": "zz"
+          },
+          "37ffbc2f-3fa4-4143-a51f-205c17cf94b6": {
+            "id": "37ffbc2f-3fa4-4143-a51f-205c17cf94b6",
+            "fieldPath": "/attributes/@cm08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "table": {
+        "id": "table",
+        "type": "table",
+        "rank": "V",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@cm01": {
+            "id": "/attributes/@cm01",
+            "fieldPath": "/attributes/@cm01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@cm02": {
+            "id": "/attributes/@cm02",
+            "fieldPath": "/attributes/@cm02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@cm03": {
+            "id": "/attributes/@cm03",
+            "fieldPath": "/attributes/@cm03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@cm04": {
+            "id": "/attributes/@cm04",
+            "fieldPath": "/attributes/@cm04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@cm05": {
+            "id": "/attributes/@cm05",
+            "fieldPath": "/attributes/@cm05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@cm06": {
+            "id": "/attributes/@cm06",
+            "fieldPath": "/attributes/@cm06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "2e5c9458-8943-4eae-8973-0d2e9b3a7f9f": {
+            "id": "2e5c9458-8943-4eae-8973-0d2e9b3a7f9f",
+            "fieldPath": "/attributes/@cm07",
+            "rank": "zz"
+          },
+          "f6992815-7238-45f1-9aa8-6f2667275f7f": {
+            "id": "f6992815-7238-45f1-9aa8-6f2667275f7f",
+            "fieldPath": "/attributes/@cm08",
+            "rank": "zzV"
+          }
+        }
+      },
+      "actionsheet": {
+        "id": "actionsheet",
+        "type": "actionsheet",
+        "rank": "F",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "a46ae779-1c6f-49c6-aac4-6bed869a5d01": {
+            "id": "a46ae779-1c6f-49c6-aac4-6bed869a5d01",
+            "fieldPath": "/attributes/@cm07",
+            "rank": "z"
+          },
+          "a151a676-11b2-4e54-8d2f-045bb36d5322": {
+            "id": "a151a676-11b2-4e54-8d2f-045bb36d5322",
+            "fieldPath": "/attributes/@cm08",
+            "rank": "zV"
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "defaultView": "list",
+    "avatar": {
+      "type": "emoji",
+      "value": "🧠"
+    }
+  }
+}

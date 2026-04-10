@@ -1,0 +1,462 @@
+{
+  "version": "2",
+  "flowTitle": "Pipeline Stage Advancement — GO advances, NO-GO archives",
+  "trigger": {
+    "valid": false,
+    "displayName": "GO / NO-GO Decision Changed",
+    "type": "PIECE_TRIGGER",
+    "settings": {
+      "pieceName": "@taskade/automade-internalpiece-taskade",
+      "pieceVersion": "1.0.0",
+      "triggerName": "task.custom_attribute_updated",
+      "input": {
+        "fieldId": "@gcf05",
+        "projectId": {
+          "type": "flow-template-variable-input-type",
+          "id": "LnpYq2qGt5DrXpda"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "a0000001-0000-0000-0000-000000000001",
+      "valid": true,
+      "displayName": "Determine Next Pipeline Stage",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Concept: {{ trigger[\"nodeText\"] }}\nCurrent pipeline stage note: {{ trigger[\"nodeNote\"] }}",
+          "prompt": "You are the Pipeline Orchestrator for a math game studio. A game concept's GO/NO-GO decision has just been updated.\n\nThe pipeline stages in order are:\nstage-idea → stage-spec → stage-precheck → stage-delight → stage-design → stage-overlap → stage-gono → stage-p1 → stage-p2a → stage-p2b → stage-p3 → stage-p4 → stage-p5\n\nRules:\n- If GO/NO-GO = GO and current stage is 'stage-gono', advance to 'stage-p1'\n- If GO/NO-GO = GO and current stage is any earlier stage, advance to the next stage in sequence\n- If GO/NO-GO = Revise, keep same stage\n- If GO/NO-GO = Pause, keep same stage\n- If GO/NO-GO = NO-GO, keep same stage (revision logic will handle it)\n- If GO/NO-GO = Pending, keep same stage\n\nRespond with ONLY the exact stage ID string (e.g. stage-p1) and nothing else."
+        }
+      }
+    },
+    {
+      "name": "b0000001-0000-0000-0000-000000000001",
+      "valid": true,
+      "displayName": "GO vs NO-GO",
+      "type": "BRANCH",
+      "settings": {},
+      "paths": [
+        {
+          "name": "bp000001-0000-0000-0000-000000000001",
+          "valid": true,
+          "displayName": "GO — Advance Stage",
+          "type": "BRANCH_PATH",
+          "settings": {
+            "ruleset": {
+              "type": "CUSTOM",
+              "input": {
+                "type": "or",
+                "value": [
+                  {
+                    "type": "and",
+                    "value": [
+                      {
+                        "condition": "text_not_matches",
+                        "id": "7b6a4a1a-f99e-47c2-88fc-864b837da4f9",
+                        "data": "{{ a0000001-0000-0000-0000-000000000001[\"result\"] }}",
+                        "comparator": "stage-idea"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "actions": [
+            {
+              "name": "a0000002-0000-0000-0000-000000000002",
+              "valid": false,
+              "displayName": "Advance Pipeline Stage",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-taskade",
+                "pieceVersion": "1.0.0",
+                "actionName": "updateCustomFields",
+                "input": {
+                  "fields": {
+                    "@gcf04": {
+                      "data": {
+                        "value": "{{ a0000001-0000-0000-0000-000000000001[\"result\"] }}"
+                      },
+                      "rank": "0",
+                      "fieldId": "@gcf04"
+                    }
+                  },
+                  "nodeId": "{{ trigger[\"nodeId\"] }}",
+                  "projectId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "LnpYq2qGt5DrXpda"
+                  }
+                }
+              }
+            },
+            {
+              "name": "a0000003-0000-0000-0000-000000000003",
+              "valid": true,
+              "displayName": "Generate Stage Advancement Summary",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "ai.generate",
+                "input": {
+                  "input": "Concept: {{ trigger[\"nodeText\"] }}\nNew stage: {{ a0000001-0000-0000-0000-000000000001[\"result\"] }}",
+                  "prompt": "You are the Pipeline Orchestrator for a math game studio. A game concept has just advanced to a new pipeline stage. Write a concise 2-sentence summary of what this stage means for the concept and what the next action should be. Be specific about the stage name and what work is required.\n\nPipeline stages reference:\n- stage-spec: Write the full Game Experience Spec (core fantasy, core action, natural ceiling)\n- stage-precheck: Run Pre-Build Excellence Check (player motivation, memorable moments, mastery layers, decision quality, friction risks)\n- stage-delight: Run Delight Gate assessment — PASS or FAIL with reason\n- stage-design: Run Design Checks (fantasy integrity, satisfaction loop, consequence quality, replay variation)\n- stage-overlap: Run Skill & Overlap Review (family assignment, CCSS alignment, overlap analysis)\n- stage-gono: Render final GO / NO-GO Decision with rationale\n- stage-p1: Build P1 prototype — define success criteria and begin development\n- stage-p2a: P2A — add pressure & progression layer\n- stage-p2b: P2B — content expansion and difficulty ramp\n- stage-p3: P3 — feel, polish, and particle/feedback pass\n- stage-p4: P4 — full content + scaffolding\n- stage-p5: P5 — meta, flair, release polish"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "bp000002-0000-0000-0000-000000000002",
+          "valid": true,
+          "displayName": "NO-GO — Archive Concept",
+          "type": "BRANCH_PATH",
+          "settings": {
+            "ruleset": {
+              "type": "FALLBACK"
+            }
+          },
+          "actions": [
+            {
+              "name": "a0000004-0000-0000-0000-000000000004",
+              "valid": false,
+              "displayName": "Mark Concept as Archived (stage-idea)",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-taskade",
+                "pieceVersion": "1.0.0",
+                "actionName": "updateCustomFields",
+                "input": {
+                  "fields": {
+                    "@gcf04": {
+                      "data": {
+                        "value": "stage-idea"
+                      },
+                      "rank": "0",
+                      "fieldId": "@gcf04"
+                    }
+                  },
+                  "nodeId": "{{ trigger[\"nodeId\"] }}",
+                  "projectId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "LnpYq2qGt5DrXpda"
+                  }
+                }
+              }
+            },
+            {
+              "name": "a0000005-0000-0000-0000-000000000005",
+              "valid": true,
+              "displayName": "Write NO-GO Archive Note to AI Critique",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "ai.generate",
+                "input": {
+                  "input": "Concept: {{ trigger[\"nodeText\"] }}",
+                  "prompt": "Write a concise 2-sentence NO-GO archive note for a math game concept. Acknowledge the NO-GO decision, briefly affirm what might have led to it (worksheet-in-costume risk, weak math-mechanism link, or family overlap — infer from context), and state it is preserved in place for future reference or rework."
+                }
+              }
+            },
+            {
+              "name": "a0000006-0000-0000-0000-000000000006",
+              "valid": false,
+              "displayName": "Append Archive Note to AI Critique Field",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-taskade",
+                "pieceVersion": "1.0.0",
+                "actionName": "updateCustomFields",
+                "input": {
+                  "fields": {
+                    "@gcf07": {
+                      "data": {
+                        "value": "ARCHIVED IN PLACE — {{ a0000005-0000-0000-0000-000000000005[\"result\"] }}"
+                      },
+                      "rank": "0",
+                      "fieldId": "@gcf07"
+                    }
+                  },
+                  "nodeId": "{{ trigger[\"nodeId\"] }}",
+                  "projectId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "LnpYq2qGt5DrXpda"
+                  }
+                }
+              }
+            },
+            {
+              "name": "b0000001-0000-0000-0000-000000000001",
+              "valid": true,
+              "displayName": "Compute New Revision Count",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "ai.ask",
+                "input": {
+                  "input": "Current revision count: {{ trigger[\"nodeNote\"] }}",
+                  "prompt": "You are a counter utility. The current revision count of this concept is stored in its fields. A revision count of 0 or empty means no prior rejections.\n\nThe current revision count value will be passed to you as the input. Return ONLY a single integer: the new revision count (current + 1).\n\nIf the current count is empty or missing, return 1.\nIf the current count is 1, return 2.\nIf the current count is 2, return 3.\nIf the current count is 3 or more, return 3.\n\nReturn ONLY the number. No words, no explanation."
+                }
+              }
+            },
+            {
+              "name": "b0000002-0000-0000-0000-000000000002",
+              "valid": true,
+              "displayName": "Strike Count — Revise or Archive?",
+              "type": "BRANCH",
+              "settings": {},
+              "paths": [
+                {
+                  "name": "bp000003-0000-0000-0000-000000000003",
+                  "valid": true,
+                  "displayName": "Strike 1 or 2 — Rethink & Improve",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "CUSTOM",
+                      "input": {
+                        "type": "or",
+                        "value": [
+                          {
+                            "type": "and",
+                            "value": [
+                              {
+                                "condition": "text_not_matches",
+                                "id": "7463ef95-9f15-481a-8ab2-15c459afab1c",
+                                "data": "{{ b0000001-0000-0000-0000-000000000001[\"result\"] }}",
+                                "comparator": "3"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "r0000001-0000-0000-0000-000000000001",
+                      "valid": false,
+                      "displayName": "Write Revision Count",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcfrc": {
+                              "data": {
+                                "value": "{{ b0000001-0000-0000-0000-000000000001[\"result\"] }}"
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcfrc"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "name": "r0000002-0000-0000-0000-000000000002",
+                      "valid": false,
+                      "displayName": "Brainstorming Agent — Rethink Concept",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-openai",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "agent.ask",
+                        "input": {
+                          "input": "Rethink this game concept. It failed its last pipeline review. Your job is to reimagine it — keep what's genuinely strong, fix what failed.\n\nConcept name: {{ trigger[\"nodeText\"] }}\n\nPrior critique and failure notes:\n{{ trigger[\"nodeNote\"] }}\n\nInstructions:\n1. Identify the core failure reason (Delight Gate fail? Weak math-mechanism link? Family overlap? Worksheet-in-costume?)\n2. Propose a revised Core Fantasy (player-voice, 1 sentence) that fixes the failure\n3. Propose a revised Core Action (what the player literally does, 1-2 sentences)\n4. Propose a revised Math-Mechanism Link (how does the math directly cause game outcome?)\n5. Propose a revised Natural Ceiling (2-3 axes that can scale)\n6. Give a 2-sentence rationale for why this revision addresses the prior failure\n\nFormat your response as:\nCORE FANTASY: [revised]\nCORE ACTION: [revised]\nMATH-MECHANISM: [revised]\nCEILING: [revised]\nRATIONALE: [2 sentences]",
+                          "agentId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "01KNM59YXXTZ9XVS17KJ2JPV1M"
+                          },
+                          "outputType": "plaintext"
+                        }
+                      }
+                    },
+                    {
+                      "name": "r0000003-0000-0000-0000-000000000003",
+                      "valid": false,
+                      "displayName": "Game Design Critic — Validate Revision",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-openai",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "agent.ask",
+                        "input": {
+                          "input": "A game concept has just been revised after a pipeline failure. Evaluate the revision and provide a new AI Critique Summary.\n\nOriginal concept: {{ trigger[\"nodeText\"] }}\n\nRevision proposed by Brainstorming Specialist:\n{{ r0000002-0000-0000-0000-000000000002[\"result\"] }}\n\nPrior failure notes:\n{{ trigger[\"nodeNote\"] }}\n\nYour task:\n1. Does the revision genuinely fix the prior failure reason? (Yes / Partially / No)\n2. Does the revised concept pass the math-as-lockpick test? (Remove math — can you still play? If yes, it fails.)\n3. Write a sharp 3-sentence AI Critique Summary of the revised concept covering: what's improved, what's still at risk, and what the next reviewer should focus on.\n4. Write a one-sentence Delight Gate preliminary verdict (PASS / FAIL / CONDITIONAL PASS) with reason.\n\nFormat:\nFIXED: [Yes/Partially/No]\nMATH-LOCKPICK: [Pass/Fail]\nCRITIQUE: [3 sentences]\nDELIGHT-GATE: [PASS/FAIL/CONDITIONAL PASS — reason]",
+                          "agentId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "01KNM0ECMQFA8EYBP45WTV587M"
+                          },
+                          "outputType": "plaintext"
+                        }
+                      }
+                    },
+                    {
+                      "name": "r0000004-0000-0000-0000-000000000004",
+                      "valid": false,
+                      "displayName": "Write Revision to AI Critique Field",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf05": {
+                              "data": {
+                                "value": "gono-pending"
+                              },
+                              "rank": "1",
+                              "fieldId": "@gcf05"
+                            },
+                            "@gcf06": {
+                              "data": {
+                                "value": "dg-pending"
+                              },
+                              "rank": "2",
+                              "fieldId": "@gcf06"
+                            },
+                            "@gcf07": {
+                              "data": {
+                                "value": "REVISION {{ b0000001-0000-0000-0000-000000000001[\"result\"] }} — Concept rethought after pipeline failure.\n\n=== BRAINSTORMING REVISION ===\n{{ r0000002-0000-0000-0000-000000000002[\"result\"] }}\n\n=== DESIGN CRITIC EVALUATION ===\n{{ r0000003-0000-0000-0000-000000000003[\"result\"] }}"
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "bp000004-0000-0000-0000-000000000004",
+                  "valid": true,
+                  "displayName": "Strike 3 — Permanent Pause",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "FALLBACK"
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "p0000001-0000-0000-0000-000000000001",
+                      "valid": true,
+                      "displayName": "Generate Final Archive Note",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-openai",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "ai.generate",
+                        "input": {
+                          "input": "Concept: {{ trigger[\"nodeText\"] }}\nFailure history and prior critiques:\n{{ trigger[\"nodeNote\"] }}",
+                          "prompt": "Write a concise 3-sentence permanent archive note for a math game concept that has been rejected 3 times through the studio's pipeline. The tone should be honest but respectful — acknowledge what was attempted, state clearly that the concept has been paused after 3 revisions, and note that it is preserved for future reference if the core idea can be fundamentally reimagined. Reference the likely core failure pattern (worksheet-in-costume, weak math-mechanism link, family overlap, or low delight ceiling) based on context."
+                        }
+                      }
+                    },
+                    {
+                      "name": "p0000002-0000-0000-0000-000000000002",
+                      "valid": false,
+                      "displayName": "Archive — Set Stage to Idea + Pause",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf04": {
+                              "data": {
+                                "value": "stage-idea"
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf04"
+                            },
+                            "@gcf05": {
+                              "data": {
+                                "value": "gono-pause"
+                              },
+                              "rank": "1",
+                              "fieldId": "@gcf05"
+                            },
+                            "@gcf07": {
+                              "data": {
+                                "value": "PAUSED AFTER 3 REVISIONS — {{ p0000001-0000-0000-0000-000000000001[\"result\"] }}\n\nFull revision history preserved above."
+                              },
+                              "rank": "3",
+                              "fieldId": "@gcf07"
+                            },
+                            "@gcf11": {
+                              "data": {
+                                "value": "Paused after 3 pipeline rejections. Re-evaluate only if a fundamentally new core fantasy and math-mechanism link can be proposed. Prior failure patterns are documented in AI Critique field."
+                              },
+                              "rank": "4",
+                              "fieldId": "@gcf11"
+                            },
+                            "@gcfrc": {
+                              "data": {
+                                "value": "3"
+                              },
+                              "rank": "2",
+                              "fieldId": "@gcfrc"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "LnpYq2qGt5DrXpda": {
+      "id": "LnpYq2qGt5DrXpda",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-project-id"
+    },
+    "01KNM59YXXTZ9XVS17KJ2JPV1M": {
+      "id": "01KNM59YXXTZ9XVS17KJ2JPV1M",
+      "rank": "k",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "01KNM0ECMQFA8EYBP45WTV587M": {
+      "id": "01KNM0ECMQFA8EYBP45WTV587M",
+      "rank": "s",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    }
+  }
+}

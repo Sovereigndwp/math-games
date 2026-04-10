@@ -1,0 +1,4758 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "99431caa-39a7-42d9-8afa-7266d7261d98",
+        "text": {
+          "ops": [
+            {
+              "insert": "Math Game Studio OS"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": {
+          "node": "h1",
+          "children": "text"
+        },
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "a1c1d9d1-2a88-40ac-a8a6-6bfaf42ac82d",
+            "text": {
+              "ops": [
+                {
+                  "insert": "A multi-agent pipeline that takes a raw educational math game concept and decides whether it is worth building and, if so, produces both a prototype-ready specification and a first-build implementation handoff. Each stage reasons about the concept through a different lens such as learner fit, viability, interaction design, loop structure, prototype translation, and implementation readiness. A gate engine enforces pass, revise, or reject before the pipeline advances."
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "119bd0a1-a2f8-4dab-8520-991439aed858",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Who it's for:",
+                  "attributes": {
+                    "bold": true
+                  }
+                },
+                {
+                  "insert": " Game designers, educators, and developers exploring math game concepts for learners across K–12. The pipeline catches weak ideas early and gives strong ideas a clear path from concept to prototype build handoff."
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "f5804886-e32a-4d0f-8916-7f59df481bd8",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Modes"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "a7a9588c-adca-45c6-9246-8d3ab968022e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stub mode",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " — deterministic keyword-based agents, no API key needed, about 5 seconds. Use for regression testing and development."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "6a613ca6-527c-47cc-9569-940173c254ba",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "LLM mode",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " — each agent calls Claude for real reasoning, about 3 to 5 minutes. Requires ANTHROPIC_API_KEY. Use for production concept evaluation."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "a871203c-29b6-452d-b759-5b0aaa7d18c3",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Pipeline"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "66f3f690-952a-49e0-964d-f1ced458eeb4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 0: Orchestrator",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " ───────────── parse raw command into request_brief"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "5c4d4fe7-b57f-465b-ad8b-efc08030ef3a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 1: Intake Framing",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " ────────── learner band, math domain, world theme"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "cb86ee62-d8db-4302-b2ed-6fb4665deb9e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 2: Kill Test",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " ─────────────── reject overloaded or unviable concepts early"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1751efd1-5b4f-4fcd-9455-1c475ca6f9c8",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 3: Interaction Mapper",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " ────── choose primary interaction type"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "4ace4778-cc5f-44e5-9c22-22ea558ccf6a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 4: Family Architect",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " ──────── place concept in an interaction family"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1f55cb38-6ff8-4a5c-a7eb-04dc1dcef300",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 5: Core Loop Designer",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " ────── define the smallest meaningful loop"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0d5bfea4-ea67-4201-aba8-8568c5200611",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 6: Prototype Spec",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " ────────── translate approved loop into a prototype specification"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0940082d-0ff2-4b42-b010-953c45e71693",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 7: Prototype Build Spec",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " ──── translate spec into an implementation-ready build handoff"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "54feac02-7e43-4807-bc7e-a99c42ceec77",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 8: Prototype UI Spec",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " ─────── translate build spec into screen layouts, components, and accessibility requirements"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "659ecafe-235b-423b-9177-97c6f19df3ae",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Each stage produces one JSON artifact validated against a schema in "
+                    },
+                    {
+                      "insert": "artifacts/schemas/"
+                    },
+                    {
+                      "insert": ". Rejected concepts stop early, usually at Stage 2. Approved concepts run all nine stages, Stages 0 through 8, and exit with a "
+                    },
+                    {
+                      "insert": "prototype_ui_spec"
+                    },
+                    {
+                      "insert": " ready for developer handoff."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "690a434b-b81d-4382-ac8e-30941ab5d490",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Revision behavior:",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " If a gate returns revise, the pipeline retries the agent up to the limit in its "
+                    },
+                    {
+                      "insert": "config.yaml"
+                    },
+                    {
+                      "insert": ". If revision limits are exceeded, the pipeline stalls and reports why."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "bf0856fb-7003-4fd9-8b08-7f896478199c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Quick Start"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "61e72b74-3223-4c69-8594-92285948526b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Activate the virtual environment:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "49e90bb0-6d65-490c-94f5-2ee0c3f44ce5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "source .venv/bin/activate"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "203a763f-1ad1-44a6-8969-5042ce2334e5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Run stub benchmarks:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "73d2ff3e-5a6e-48a5-9c9f-303768d8705e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/run_benchmarks.py"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "edd20663-8b8b-4aa1-9e7c-dabce9f3c899",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Generate a markdown report in "
+                    },
+                    {
+                      "insert": "reports/"
+                    },
+                    {
+                      "insert": ":"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0c47aaa0-42a0-426b-8a08-5edf6a678fdb",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/run_benchmarks.py --report"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9e26fabf-8920-47be-b511-930ee9f6e62b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Expected output: 5/5 passed."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "69e4e340-8e42-471d-a00e-63ae30f6ae91",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "To run the misconception workflow regression tests (no API key needed):"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "eaedda58-fdd3-482d-b1d1-32416f7ebf47",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python -m unittest tests.test_misconception_workflow -v"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a31c7d67-07e3-46b7-acb9-5c050953bd5c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Expected output: 27 tests, all passing."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b41764d7-9d92-423f-b41a-cbb5df820de4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "These tests also run automatically on push and PR via GitHub Actions."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "52ce647d-cbd1-4d25-a032-df489828be0d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "To run a single concept through the pipeline directly:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "93023724-24a6-49fd-9e0a-a918dfd68b25",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "from pathlib import Path"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1cf0db99-ae8f-4f61-bb18-35f0f88b1367",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "from pipeline import run_v1_pipeline"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a3ea9a9d-54ee-46e4-8b3e-9a1213adc595",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7bb6cd1e-5e89-4558-be22-b0286e8c28cc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "result = run_v1_pipeline("
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7b94dd60-6c44-4284-895c-c40defd7aa31",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "    raw_command=\"Create a grade 2 bakery game for addition to 20.\","
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "87e05b01-8a54-4300-b65a-d1c2fbffd3e1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "    repo_root=Path(\".\"),"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "11b30ea4-414a-48ec-9558-d3031d94a598",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": ")"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a869dbcf-af7e-46be-933a-2426a1da89cc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "print(result.outcome)              # \"approved\" or \"rejected\""
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "75da616a-9c1c-4d6d-bdf3-399b3cbfd055",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "print(result.final_artifact_name)  # e.g. \"prototype_ui_spec\""
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a954cf11-dfa0-423e-850f-3b6824d66fbb",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "print(result.final_artifact_path)  # path to the output JSON"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "05a18865-0fee-456f-9e55-b0ad81f6892c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "For LLM mode, see "
+                    },
+                    {
+                      "insert": "RUNBOOK.md"
+                    },
+                    {
+                      "insert": "."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "d96e2c25-77d4-4b59-a613-47245b66c35a",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Benchmark Cases"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "c5c0b0cf-a494-471b-9b9e-0716893d5c00",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Case Learner Expected outcome Stop stage"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9732e2bc-9f36-4b2b-a6d2-da4979bbfe30",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "1 Bakery K–2, addition approved prototype_ui_spec"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "44a24c9e-19eb-4ccc-8fb5-8004cca461ec",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "2 Fire Dispatch grades 4–6, multiplication approved prototype_ui_spec"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "653def76-aff1-41a4-8d8b-c5c5e5c3952c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "3 Unit Circle Pizza Lab high school, trigonometry approved prototype_ui_spec"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b2efba0c-a062-47ae-9b2a-5808be06758e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "4 Overloaded bad concept — rejected kill_report"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "18ebf1c8-9ac4-4dc1-bfac-b369174d7d46",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "5 Cute but weak concept — rejected kill_report"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9d1eda80-0429-498f-99f1-7b9388766d45",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Cases 1 through 3 test the full pipeline through Stage 8. Cases 4 and 5 test early rejection at the kill gate. All five pass in both stub and LLM modes."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "997297ac-4b64-4170-ae1f-000d52c77e0a",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Repository Structure (Pipeline)"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "95076a1b-a736-4189-bb92-7b2dc1c0bdc4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "pipeline.py: Main entry point — runs stages 0–8 in sequence"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "67310e12-23c9-4ced-8af0-fa90ff2a33e4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "agents/: One directory per agent (agent.py, prompt.md, config.yaml)"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "6e8bf449-ef51-407c-aeda-47720c4eaf19",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "intake_framing/: Stage 1 — intake_brief"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "31374fa6-6d6f-4358-966c-e9c5232c08ea",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "kill_test/: Stage 2 — kill_report"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "decc0362-1ea5-4bad-bc9c-850454b535d9",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "interaction_mapper/: Stage 3 — interaction_decision_memo"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "3339c12c-a766-476a-9a59-5fdd89655915",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "family_architect/: Stage 4 — family_architecture_brief"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "42429803-160a-4f37-99f5-d29cda95f6b4",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "core_loop/: Stage 5 — lowest_viable_loop_brief"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "4cfe709d-de39-4fbe-8e4a-585cebac18e9",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "prototype_spec/: Stage 6 — prototype_spec"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "aa49f311-3ab9-4e08-8062-4f9ec2e1f848",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "prototype_build_spec/: Stage 7 — prototype_build_spec"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "3812eddc-5551-4b08-ab1f-73ae6b423c44",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "prototype_ui_spec/: Stage 8 — prototype_ui_spec"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "51f84249-38ec-48fa-b82e-792ec1ac3317",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "engine/: Gate decision engine (pass/revise/reject per stage)"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "5a823c35-97d8-4003-ada8-838a937a93db",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "orchestrator/: Stage ledger — tracks versions, revision counts, gate states"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0f1f687b-a2d0-4a44-aaf5-d30a48d1b34f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "artifacts/schemas/: JSON schemas for all artifact types"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "be8fcbff-2485-4584-814b-add0bf21477b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "utils/: Shared agent runner, LLM caller, schema validator"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8c724cee-55a2-410a-864b-1ab24fca16de",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "scripts/: Benchmark runner (run_benchmarks.py)"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c9fc4cdc-24eb-45c6-a607-50de3d4d3be5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "memory/: Job workspace storage (generated, gitignored)"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c61fa1c4-b240-4a33-8912-3518338cbc3f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "reports/: Benchmark markdown reports (generated, gitignored)"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "83cc6075-c6a3-4c07-ab30-36671fbf12de",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "docs/: Project documentation"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "d8e85644-c555-4278-a9ff-ebcf9fbab04d",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Agent Structure"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "86c98b15-20ae-49fb-84d3-d2c1bd011f60",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Every agent follows the same pattern:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "614c0638-5c7f-42d5-8343-181c0412e755",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "File:",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " Purpose"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b90e0b7f-daa7-4670-85e2-fc3344c47efa",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "agent.py: Stub and LLM implementations. Exports a run() entry point."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "64d76d26-d49e-4219-ae79-5e3eab5e9199",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "prompt.md: Agent contract: role, reasoning rules, and constraint"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "bda21ebb-901f-487b-b59e-d5f3136c58e2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "config.yaml: Allowed artifact reads and writes, revision limit, and model profile."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f9d198a3-7c26-49f1-a7b1-55955e2a182d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The orchestrator calls run(), the shared agent runner injects metadata such as job_id, version, and produced_by, validates the output against its schema, and then hands it to the gate engine. If the gate passes, the pipeline advances. If it revises, the agent retries. If it rejects, the pipeline stops."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "a0131335-425b-4b47-953b-46ce5aa7d64c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Gate Engine"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "56926d95-a17c-4e8e-9a29-8ef805297321",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The gate engine in "
+                    },
+                    {
+                      "insert": "engine/gate_engine.py"
+                    },
+                    {
+                      "insert": " evaluates each artifact independently. Gate dimensions vary by stage."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d437f0b1-728c-47dd-b829-1c1d212ed4bf",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "For "
+                    },
+                    {
+                      "insert": "prototype_spec"
+                    },
+                    {
+                      "insert": ", the gate focuses on:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "cc1d2f35-3a01-41b2-b7c0-b5269e5af3e8",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "concept fidelity"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "81b66b0d-af00-4426-a0e6-9e3f2301c664",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "build clarity"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f6c916a8-dffb-4a63-a27e-749a356e715c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "scope discipline"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8859bd1d-fd46-473d-aba6-6e70d862dc33",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "loop integrity"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ff180026-8323-4428-bdcc-b00891c5ca1b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "testability"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "cac7de05-da81-454c-8420-dbacc5d9e749",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "deferral quality"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7f96e3e2-1222-4604-96ef-cfc0d416483b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "For "
+                    },
+                    {
+                      "insert": "prototype_build_spec"
+                    },
+                    {
+                      "insert": ", the gate focuses on:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a73016c3-aa6d-4edf-9cc8-494281e43475",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "build concreteness"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "859345c4-a3b2-4cda-988c-1d53c854f33d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "prototype fidelity"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b0e1afcc-8885-49f2-ac3a-144c0806e8b4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "state clarity"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "dd8e893b-0204-432f-9610-e9fcfa86aa25",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "edge-case coverage"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "fefa8ece-8cfd-4bec-a79e-83a3e6338c5f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "scope discipline"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "5c8e5814-8852-4831-9338-6f8d26375d96",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "acceptance clarity"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "fc1ff4d3-708b-49fb-97a9-f4193dfa4ff4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "internal consistency"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e4ad2947-37c0-4ae4-acf6-91dc7d9a8c3c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "For "
+                    },
+                    {
+                      "insert": "prototype_ui_spec"
+                    },
+                    {
+                      "insert": ", the gate focuses on:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "cb53765f-d78f-4220-b078-253cc8ad499f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "build spec fidelity"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "fea4e3e0-16d0-4ab0-8f68-4965ab295e8f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "screen completeness"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2136cc95-7fc0-4622-afe1-572425b1501e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "component specification"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7da48050-fce2-4897-9cd9-b47758bb0ff8",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "animation definition"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "49bc3ee5-8cc6-4786-88fa-20f49c7fdad2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "accessibility compliance"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "50ec0af9-4adf-49df-88ce-9f2f2b11323f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Fidelity violations are identity-level failures and should reject. Most other gaps are fixable and should revise."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "4109031b-bb9d-42a7-9e64-ab6243ba838c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Documentation"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "fbb110ed-3a8d-431f-9559-1b3123594d5f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Document:",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": " Contents"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "212c7dff-0f4a-4d65-a1e8-e4dd026b264f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "RUNBOOK.md: Setup, commands, troubleshooting, API key rotation"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "eb94951f-fd7a-4c91-9800-0c9d51280112",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "CHANGELOG.md: Release notes and change history"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "512ae93b-107b-416a-adeb-7bdb0687376e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "docs/v1_handoff.md: What V1 delivered, what is stable, and what is deferred"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c3335266-bfb5-4c30-97e3-e2e3b1f67706",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "docs/v2_boundary.md: V2 scope, gate criteria, and known limitations"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "cdd4019e-0d68-4b02-98d6-95543e0d059e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "docs/v2_boundary_freeze.md: Frozen V2 boundary checkpoint and exact defining files"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ec6185d4-9f28-45f9-abc8-adcafb3185b2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "docs/benchmark_rubric.md: Six-dimension concept scoring criteria"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f3960f7d-e8f6-4c06-a574-6b26c5f29cfe",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "docs/benchmark_review_v1.md: Qualitative review of the three approved concepts"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "e6e9fdd1-0fff-4824-a47e-0e284d8b4458",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Misconception Architect"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "48d0ee85-7bd1-4fa2-bf72-a89c30e292af",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "A post-pipeline component that predicts what learners will get wrong before the game is built. It cross-references a seeded misconception library against the game's brief and produces a misconception map with one entry per error category."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "86c36a64-662b-4f4e-9250-9dcc9882eba1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "For known games with existing library entries, the architect uses a diff-and-extend strategy:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "6dafeff1-0da7-42e5-8186-db6c547e18bd",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Kept entries stay deterministic (zero API cost)"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "3436d1dc-0729-482c-9dd5-0335a9111b57",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Revised entries are rewritten by Sonnet when the brief changes the confusion risk"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9ab102b0-7f9d-4a79-ac1c-477c9e4af482",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Unmatched risks are evaluated by Sonnet for new entry generation or justified rejection"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "989216ce-c904-4667-8050-e156296adf01",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Semantic routing uses Haiku to assign brief risks to categories in one batch call. Semantic gate uses Haiku to decide keep-vs-revise per entry."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e4341c83-f8e4-4030-bf71-07027a81ed0b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Running the Misconception Architect",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2b8808bf-b67e-41d0-84b6-71f376e3e023",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Deterministic only (no API key needed):"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "62c15f35-eaac-497b-bf5a-edd6ad1e49c0",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/run_misconception_architect.py --game bakery-rush"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "00a02640-613e-4bf4-a0ae-623fa04e30a1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "With LLM for revised entries and unmatched risks:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7f3ef578-8e4d-4db2-ad6a-8e59d7f7467d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "export ANTHROPIC_API_KEY=sk-ant-..."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e3f8d888-8b79-4d86-a35b-f19ae2511037",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/run_misconception_architect.py --game bakery-rush-changed --llm"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "36ac714c-10a9-4825-99e1-74b6de19344b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "With mock LLM (plumbing test, no API key):"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1052f5c9-b120-4251-82fd-665075f09174",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/run_misconception_architect.py --game bakery-rush-changed --mock-llm"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ae6073a0-f550-4e77-80d7-ac9aa6985c86",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "With library write-back (generates pending file, does not auto-apply):"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "26d97363-8bcb-4d7a-b32c-2aeec4999885",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/run_misconception_architect.py --game fire-dispatch-changed --llm --write-back"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e47bf3cb-2f07-45aa-a75a-811d0655480e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stability check (two passes, verifies write-back produces a fixed point):"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f047d650-27ca-4707-ab1b-c4ab5feb8f5a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/run_misconception_architect.py --game bakery-rush-changed --llm --stability-check"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "80b1b2ed-f95f-4379-b68a-878b70db73e1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Available games: bakery-rush, bakery-rush-changed, fire-dispatch, fire-dispatch-changed, unit-circle."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "fe784418-58ba-4e6e-8837-18555605090d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Library Write-back Workflow",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e6b1dcc9-6268-432e-b1c5-365b89c1ca44",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Revised primary entries can be written back to the seeded library through a controlled review flow:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "41393628-82a6-4e5d-bc8b-7c0edeecc2a4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "List all pending write-backs:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a39f237d-4b39-4ba6-a168-02eb3bee6937",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/apply_library_writeback.py --list"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b4c718a6-9a39-41b4-abba-667eb8fecca9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Dry-run — show field-level diffs without modifying anything:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e3d9e1a3-f7c8-4e24-a2ad-ea24e6447062",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/apply_library_writeback.py"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "55afb9a8-9d4b-45de-896e-b9927b44bb27",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Apply only selected categories:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "81212403-fc0f-4a3b-a355-2467b8f2a3e6",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/apply_library_writeback.py --apply --only representation_mismatch"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f831ac87-6b4e-42f5-a596-0adb75227713",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Apply all entries:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f210240f-d9c5-41dc-babf-5008f65ef3a5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/apply_library_writeback.py --apply"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d35de468-b30c-4a30-b2aa-9ad6f306c2f0",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Revert an applied write-back (dry-run first):"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b16da23e-1260-43a9-96b8-7d3e1388d838",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/apply_library_writeback.py --revert"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "584a9a0c-9a89-4c64-affc-69e9f8c2804f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/apply_library_writeback.py --revert --apply"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b3789d9d-ee02-41ad-87d5-207271681434",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Prune old backups (dry-run first):"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8329d482-a58c-43fb-a74e-8e5b5ff52018",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/apply_library_writeback.py --prune-backups --keep 3"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1d6e8607-2afb-4456-be9f-e409b685cec2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "python scripts/apply_library_writeback.py --prune-backups --keep 3 --apply"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0d02c44a-f825-4eda-969e-816760038c85",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Write-back safeguards:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0d14b8cf-9183-4313-b5da-a1a9b46d9e53",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Only primary entries can write back (not secondaries)"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "71505119-dc0f-4156-970b-4ff4a230e6d1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Only revised entries that pass quality checks are eligible"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "aec2bcd0-b9a3-4e5c-ab77-26060696fa91",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Pending file must be explicitly applied — never automatic"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "98c4f26e-f3cc-482b-9b23-4146b742335a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Backup of the original library is created before every apply"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1fc3508f-8d14-4ac4-8d46-b18dcd48b434",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Partial apply is supported — select categories, leave others pending"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2a7aaf76-92cf-4545-8fae-e0d383c95ed9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Revert restores from the most recent backup"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "569e42ad-b1f9-4e76-a6ab-7b6f6ee2ee4c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Repository Structure (Full, Including Post-Pipeline)"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "a7dc6a9c-18a8-46ba-94d3-aec3f084b690",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "pipeline.py: Main entry point — runs stages 0–8 in sequence"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "29f46f22-c20c-4d4f-a5a5-4c705217e92c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "agents/: One directory per agent (agent.py, prompt.md, config.yaml)"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "c65dd154-1ded-480f-9d8d-f2f757b500c4",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "intake_framing/: Stage 1 — intake_brief"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "6181cd8c-9287-4112-a391-d6c03301d84c",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "kill_test/: Stage 2 — kill_report"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "92d9e529-7543-4e33-85cc-86299e39d1d4",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "interaction_mapper/: Stage 3 — interaction_decision_memo"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "e12964cd-9082-4e8d-b895-12a642285f6d",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "family_architect/: Stage 4 — family_architecture_brief"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "79398f6b-4795-4936-80ff-075379f62cd6",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "core_loop/: Stage 5 — lowest_viable_loop_brief"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "9ba24ed1-ef72-4836-8829-5124b7811f54",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "prototype_spec/: Stage 6 — prototype_spec"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "3e93ece3-730a-4728-ab74-c5bed4d8b3b8",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "prototype_build_spec/: Stage 7 — prototype_build_spec"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "7c2cab72-1b24-4030-b84e-fc36ff728e5b",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "prototype_ui_spec/: Stage 8 — prototype_ui_spec"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "f1117b56-df0b-46b3-93d3-7b45b7ec4255",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "misconception_architect/: Post-pipeline — misconception_map"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "d2070e83-67be-4e71-a0cf-bec6717e68b5",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Current Status"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "5d021315-58d4-4970-a62c-44ce48f83729",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "V1 — frozen at tag v1.0. Stages 0 through 5, five benchmarks, all passing in stub and LLM modes."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "65a313b9-56e3-4cad-ab50-8962237de450",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "V2 boundary — defined and frozen. Stage 6 prototype_spec and Stage 7 prototype_build_spec are in place."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2eb15777-da31-4946-8b40-d30a441fcd52",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stage 8 — prototype_ui_spec added. Approved concepts now run all nine stages and exit with a UI-ready specification."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2dc9d6fe-4700-4ac9-89ef-e85f2430e853",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Misconception Architect — working post-pipeline component with diff-and-extend, split-model semantic gates (Haiku for routing and gate, Sonnet for rewrites), quality gate with retry, and a controlled library write-back flow with pending review, partial apply, revert, and backup pruning."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f8617e86-217a-4e7a-8959-9b185bc3b17f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stability verified — write-back loop reaches a fixed point (zero revision pressure on re-run after apply)."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "36685e19-a9cf-447c-99c7-a4646cbddc22",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Current Limitations"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "412a4978-f9e4-46bd-8ce2-1025aedf7e1e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The Misconception Architect runs standalone via "
+                    },
+                    {
+                      "insert": "scripts/run_misconception_architect.py"
+                    },
+                    {
+                      "insert": ", not as a pipeline stage. Integration into the orchestrator is not yet implemented."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "165f7c21-9bb8-46c3-8072-875468df53fd",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Write-back is per-game, not batch. Each game's pending file must be reviewed and applied individually."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8d41fdb0-94c0-418b-8d21-07cf741a8ec3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The stability check temporarily patches the library file during its second pass (restored in a finally block). Do not run concurrent stability checks on the same game."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "816ab9e2-1be1-4857-8ac6-8b398debd0ea",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Semantic routing keyword fallback ("
+                    },
+                    {
+                      "insert": "_CATEGORY_KEYWORDS"
+                    },
+                    {
+                      "insert": ") is maintained for deterministic-only mode but is not actively used when "
+                    },
+                    {
+                      "insert": "--llm"
+                    },
+                    {
+                      "insert": " is enabled."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "37b0c373-67df-42c5-aaa2-c4979026bfd9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The quality gate retry loop has not been triggered in practice — model output has been consistently clean. The retry path is tested via the mock LLM plumbing."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "5b05c13f-2133-4803-9cd5-27be6bfaf2b0",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Releases"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "cdda1936-7fa8-4239-bc8c-a7a7b7c7ff04",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "2 tags"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b0401e0e-d339-4f70-8ea1-808fa89b259e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Create a new release"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "22658d0c-c07d-48c9-aeb5-2e5fc5d32d5e",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Packages"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "f583000a-6f90-4316-806b-5a88da83d616",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "No packages published"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "acfe0780-4e58-4da6-a72b-7d4f3d5e2255",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Publish your first package"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "c6049a17-fef2-4d3b-9013-634ef9495a98",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Contributors"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "185cbbbd-c17d-4067-a83d-2feb3b1e890e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "2"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "4fdfabea-5d8d-46be-a398-8dbc203d86fb",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "@Sovereigndwp Sovereigndwp"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1713778f-eafe-48c0-ae7d-6a4190f34ee0",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "@claude claude Claude"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "5250995b-8791-4bbc-b5d7-40ccdf0bf48f",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Languages"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "2f6b048f-168f-4696-bcd1-d81cc051db9d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "HTML: 53.7%"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "23a2a144-2cbd-4924-a611-3ea31f81d128",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Python: 42.9%"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d9177a21-d7dc-4bc7-849e-e83806e66f1a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "JavaScript: 3.4%"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "preferences": {
+    "avatar": {
+      "type": "emoji",
+      "value": "⌨️"
+    },
+    "coverImageType": "background"
+  }
+}

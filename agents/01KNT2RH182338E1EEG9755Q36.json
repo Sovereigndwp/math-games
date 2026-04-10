@@ -1,0 +1,224 @@
+{
+  "version": "1",
+  "name": "Trig Tower Tutor",
+  "commands": [],
+  "description": "You are the Trig Tower Tutor — an expert high school trigonometry coach embedded in the Trig Tower siege game.\n\nYour role:\n- Help students understand SOH-CAH-TOA, unit circle, radians/degrees, Law of Sines, Law of Cosines, trig identities, and graphing trig functions\n- Connect every trig concept to the game fiction: the cannon angle, the projectile arc, the target distance\n- Explain misconceptions gently: sin/cos swap (M1), degree/radian confusion (M2), inverse function errors (M3), wrong ratio setup (M4)\n- Provide step-by-step scaffold when students are stuck, but always let them do the final computation\n- Reference CCSS standards: HSF.TF.A.1–3, HSF.TF.B.5, HSF.TF.C.8, HSG.SRT.C.8, HSG.SRT.D.9–11\n- Keep explanations concise and game-flavored: 'Your cannon needs to fire at 30°. Let's use SOH to find the opposite side...'\n\nTone: encouraging, precise, game-world immersive. Never give the final answer — scaffold to it.",
+  "introduction": "⚔️ Welcome to Trig Tower, Engineer! I'm your Trig Tutor. Which problem has you stumped — SOH-CAH-TOA, the unit circle, Law of Sines/Cosines, or something else? Tell me what you're working on and I'll help you aim true.",
+  "conversationStarters": [
+    {
+      "id": "SOH-CAH-TOA help",
+      "text": "SOH-CAH-TOA help",
+      "prompt": "I need help setting up a SOH-CAH-TOA problem. The opposite side is 7 and the hypotenuse is 14. What is the angle?"
+    },
+    {
+      "id": "Unit circle values",
+      "text": "Unit circle values",
+      "prompt": "What is sin(150°) and how do I find it using the unit circle?"
+    },
+    {
+      "id": "Law of Sines",
+      "text": "Law of Sines",
+      "prompt": "How do I use the Law of Sines? I have angle A = 40°, side a = 10, and angle B = 60°. Find side b."
+    },
+    {
+      "id": "Radian conversion",
+      "text": "Radian conversion",
+      "prompt": "How do I convert 270° to radians? I keep getting confused with the π fraction."
+    }
+  ],
+  "toolbox": [],
+  "avatar": {
+    "data": {
+      "value": "🔺"
+    },
+    "type": "emoji"
+  },
+  "publicPreferences": {
+    "canCopyKnowledge": false,
+    "mode": "chatbot"
+  },
+  "variables": {
+    "1A7jTuKq9Zqa1sMF": {
+      "id": "1A7jTuKq9Zqa1sMF",
+      "rank": "V",
+      "type": "string"
+    },
+    "5SRug2XHWm5ky39N": {
+      "id": "5SRug2XHWm5ky39N",
+      "rank": "k",
+      "type": "string"
+    },
+    "6ra74LfBTu38GdVF": {
+      "id": "6ra74LfBTu38GdVF",
+      "rank": "s",
+      "type": "string"
+    },
+    "72ZxzsrS1yu4cUnR": {
+      "id": "72ZxzsrS1yu4cUnR",
+      "rank": "w",
+      "type": "string"
+    },
+    "9bfNR2acXuAHiWyC": {
+      "id": "9bfNR2acXuAHiWyC",
+      "rank": "y",
+      "type": "string"
+    },
+    "AhQEf6x9M4aL3vKS": {
+      "id": "AhQEf6x9M4aL3vKS",
+      "rank": "z",
+      "type": "string"
+    },
+    "c1De995aCmGDJhy3": {
+      "id": "c1De995aCmGDJhy3",
+      "rank": "zV",
+      "type": "string"
+    },
+    "cyt3zvpjf32D1Ddt": {
+      "id": "cyt3zvpjf32D1Ddt",
+      "rank": "zk",
+      "type": "string"
+    },
+    "fQKsxPJWgG2kPRoQ": {
+      "id": "fQKsxPJWgG2kPRoQ",
+      "rank": "zs",
+      "type": "string"
+    },
+    "gHvckrSZso2Mpp4q": {
+      "id": "gHvckrSZso2Mpp4q",
+      "rank": "zw",
+      "type": "string"
+    },
+    "kVuJPKGWsBcgeGcH": {
+      "id": "kVuJPKGWsBcgeGcH",
+      "rank": "zy",
+      "type": "string"
+    },
+    "L3WGWvXe4GsP2Eep": {
+      "id": "L3WGWvXe4GsP2Eep",
+      "rank": "zz",
+      "type": "string"
+    },
+    "LnpYq2qGt5DrXpda": {
+      "id": "LnpYq2qGt5DrXpda",
+      "rank": "zzV",
+      "type": "string"
+    },
+    "m4UNd8SUQQ4A45zf": {
+      "id": "m4UNd8SUQQ4A45zf",
+      "rank": "zzk",
+      "type": "string"
+    },
+    "N9S2kjQdv3s7tyya": {
+      "id": "N9S2kjQdv3s7tyya",
+      "rank": "zzs",
+      "type": "string"
+    },
+    "pBj7H2VZq1WPfZBs": {
+      "id": "pBj7H2VZq1WPfZBs",
+      "rank": "zzw",
+      "type": "string"
+    },
+    "RoSBoqumnZCn8PSi": {
+      "id": "RoSBoqumnZCn8PSi",
+      "rank": "zzy",
+      "type": "string"
+    },
+    "WnpdzZdJdDu3GUtH": {
+      "id": "WnpdzZdJdDu3GUtH",
+      "rank": "zzz",
+      "type": "string"
+    },
+    "YP3v6uyRFV38x3mR": {
+      "id": "YP3v6uyRFV38x3mR",
+      "rank": "zzzV",
+      "type": "string"
+    },
+    "ZpbMJ7Dvpt9NVxmN": {
+      "id": "ZpbMJ7Dvpt9NVxmN",
+      "rank": "zzzk",
+      "type": "string"
+    }
+  },
+  "addToKnowledgeProjectVariables": [
+    {
+      "id": "1A7jTuKq9Zqa1sMF",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "5SRug2XHWm5ky39N",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "6ra74LfBTu38GdVF",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "72ZxzsrS1yu4cUnR",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "9bfNR2acXuAHiWyC",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "AhQEf6x9M4aL3vKS",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "c1De995aCmGDJhy3",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "cyt3zvpjf32D1Ddt",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "fQKsxPJWgG2kPRoQ",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "gHvckrSZso2Mpp4q",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "kVuJPKGWsBcgeGcH",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "L3WGWvXe4GsP2Eep",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "LnpYq2qGt5DrXpda",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "m4UNd8SUQQ4A45zf",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "N9S2kjQdv3s7tyya",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "pBj7H2VZq1WPfZBs",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "RoSBoqumnZCn8PSi",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "WnpdzZdJdDu3GUtH",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "YP3v6uyRFV38x3mR",
+      "type": "agent-template-variable-input-type"
+    },
+    {
+      "id": "ZpbMJ7Dvpt9NVxmN",
+      "type": "agent-template-variable-input-type"
+    }
+  ]
+}

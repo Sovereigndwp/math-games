@@ -1,0 +1,29 @@
+{
+  "version": "2",
+  "flowTitle": "Pull Request Issue Flow",
+  "trigger": {
+    "valid": false,
+    "displayName": "New Pull Request",
+    "type": "PIECE_TRIGGER",
+    "settings": {
+      "pieceName": "@taskade/automade-piece-github",
+      "pieceVersion": "BLANK",
+      "triggerName": "new_pull_request",
+      "input": {}
+    }
+  },
+  "actions": [
+    {
+      "name": "cdaa85aa-894b-4fbe-a10c-27572d5b533d",
+      "valid": false,
+      "displayName": "Create Issue",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-piece-github",
+        "pieceVersion": "BLANK",
+        "actionName": "create_issue",
+        "input": {}
+      }
+    }
+  ]
+}

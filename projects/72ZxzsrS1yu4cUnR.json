@@ -1,0 +1,1462 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "bb000001-0000-0000-0000-000000000001",
+        "text": {
+          "ops": [
+            {
+              "insert": "Bakery Rush — Question Audit Results"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": null,
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "bb000002-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "BR-T1 — Addition Fact Recall",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "br-t1"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pending"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-skip"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-skip"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-na"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-skip"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-skip"
+              },
+              "@qa08": "Target: K–2 addition fluency ≤10. Risk: counting-up bypass viable if time pressure absent. Verify: correct answer must require recall, not counting.",
+              "@qa09": "Raise time pressure at difficulty 2+ so repeated counting is non-viable. Add timed recall constraint."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "bb000002-0000-0000-0000-000000000002",
+            "text": {
+              "ops": [
+                {
+                  "insert": "BR-T2 — Two-Digit Addition",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "br-t2"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pending"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-skip"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-skip"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-na"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-skip"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-skip"
+              },
+              "@qa08": "Target: two-digit addition with and without regrouping. Risk: regrouping omission misconception (M2) — verify randomizer produces carry-required and carry-not-required problems in roughly equal ratio.",
+              "@qa09": "Audit randomizer distribution: at least 40% of generated problems must require a carry. Add visual carry animation on correct regrouping."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "bb000002-0000-0000-0000-000000000003",
+            "text": {
+              "ops": [
+                {
+                  "insert": "BR-T3 — Regrouping (Carry)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "br-t3"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pending"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-skip"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-skip"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-na"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-skip"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-skip"
+              },
+              "@qa08": "Isolated regrouping template. Risk: answer validation — student entering 3 for 13 (forgetting tens place) must trigger error, not pass. Hint must show tens-place animation, not reveal answer.",
+              "@qa09": "Validate answer parser rejects partial correct (e.g., 3 when answer is 13). Hint 1: 'What happens to the ten you made?' Hint 2: step-by-step with carry highlighted."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "bb000002-0000-0000-0000-000000000004",
+            "text": {
+              "ops": [
+                {
+                  "insert": "BR-T4 — Quantity Matching",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "br-t4"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pending"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-skip"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-skip"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-na"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-skip"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-skip"
+              },
+              "@qa08": "Risk: M3 misconception — matching by icon shape not quantity. Ensure icon sets are rotated so visual similarity is not a reliable cue. Vary icon style, colour, and size across difficulties.",
+              "@qa09": "Randomizer must pull from at least 3 distinct icon families per round. Never repeat same icon set across consecutive orders."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "bb000002-0000-0000-0000-000000000005",
+            "text": {
+              "ops": [
+                {
+                  "insert": "BR-T5 — Icon vs. Number",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "br-t5"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pending"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-skip"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-skip"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-na"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-skip"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-skip"
+              },
+              "@qa08": "Mixed representation: some orders show icon count, some show numerals. Risk: student only reads numerals and ignores icons (or vice versa). Audit requires active representation switching.",
+              "@qa09": "Include at least one order per round where icon-count disagrees with a visible numeral on a distracter. Scaffold: show icon → numeral translation animation on first wrong attempt."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "bb000002-0000-0000-0000-000000000006",
+            "text": {
+              "ops": [
+                {
+                  "insert": "BR-T6 — Order Completion Speed",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "br-t6"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pending"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-skip"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-skip"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-na"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-skip"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-skip"
+              },
+              "@qa08": "Timed throughput template. Risk: speed pressure may cause anxiety for K–2. Verify time limit is 'soft' (no sudden fail) — order drops to a miss, not a game-over. Also verify that the math, not mouse speed, is the bottleneck.",
+              "@qa09": "Cap required input speed so that a correct mental calculation with 2 s execution is always achievable. Add 'nice try' amber feedback (not red failure) when time runs out."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "bb000002-0000-0000-0000-000000000007",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Cross-Cutting: Counting Bypass Risk",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pending"
+              },
+              "@qa08": "Across BR-T1/T2/T3: player may count on fingers or use repeated counting instead of fact recall. This misconception is reinforced if any template allows slow, unconstrained response time on core addition facts.",
+              "@qa09": "All templates targeting fluency (T1, T2) must impose time pressure that makes counting non-viable by difficulty 3. Observer protocol should include latency measurement: flag any correct answer taking >5 s as a counting indicator."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "bb000002-0000-0000-0000-000000000008",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Cross-Cutting: Hint Reveal Risk",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pending"
+              },
+              "@qa08": "Across all BR templates: hints must scaffold thinking, not reveal the answer. Risk is highest in T3 (regrouping) where the correct path is short and a worked example implicitly reveals the answer.",
+              "@qa09": "Hint policy: Hint 1 = strategy ('What do you do when the ones add up to more than 9?'). Hint 2 = worked step using a DIFFERENT number, never the current problem's values."
+            },
+            "children": []
+          }
+        ]
+      }
+    ],
+    "fields": {
+      "@qa01": {
+        "displayName": "Template",
+        "type": "Select",
+        "options": {
+          "br-t1": {
+            "id": "br-t1",
+            "name": "BR-T1 — Addition Fact Recall",
+            "rank": "0",
+            "color": "#6366f1"
+          },
+          "br-t2": {
+            "id": "br-t2",
+            "name": "BR-T2 — Two-Digit Addition",
+            "rank": "1",
+            "color": "#8b5cf6"
+          },
+          "br-t3": {
+            "id": "br-t3",
+            "name": "BR-T3 — Regrouping (Carry)",
+            "rank": "2",
+            "color": "#a855f7"
+          },
+          "br-t4": {
+            "id": "br-t4",
+            "name": "BR-T4 — Quantity Matching",
+            "rank": "3",
+            "color": "#ec4899"
+          },
+          "br-t5": {
+            "id": "br-t5",
+            "name": "BR-T5 — Icon vs. Number",
+            "rank": "4",
+            "color": "#f97316"
+          },
+          "br-t6": {
+            "id": "br-t6",
+            "name": "BR-T6 — Order Completion Speed",
+            "rank": "5",
+            "color": "#f59e0b"
+          }
+        }
+      },
+      "@qa02": {
+        "displayName": "Audit Status",
+        "type": "Select",
+        "options": {
+          "qs-pass": {
+            "id": "qs-pass",
+            "name": "PASS",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "qs-warn": {
+            "id": "qs-warn",
+            "name": "WARN",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "qs-fail": {
+            "id": "qs-fail",
+            "name": "FAIL",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "qs-running": {
+            "id": "qs-running",
+            "name": "RUNNING",
+            "rank": "3",
+            "color": "#3b82f6"
+          },
+          "qs-pending": {
+            "id": "qs-pending",
+            "name": "PENDING",
+            "rank": "4",
+            "color": "#64748b"
+          }
+        }
+      },
+      "@qa03": {
+        "displayName": "Correctness",
+        "type": "Select",
+        "options": {
+          "cr-pass": {
+            "id": "cr-pass",
+            "name": "✓ Correct",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "cr-warn": {
+            "id": "cr-warn",
+            "name": "⚠ 1–2 Errs",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "cr-fail": {
+            "id": "cr-fail",
+            "name": "✗ Systematic",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "cr-skip": {
+            "id": "cr-skip",
+            "name": "—",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa04": {
+        "displayName": "Skill Alignment",
+        "type": "Select",
+        "options": {
+          "sa-pass": {
+            "id": "sa-pass",
+            "name": "✓ On-Skill",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "sa-warn": {
+            "id": "sa-warn",
+            "name": "⚠ Shortcut",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "sa-fail": {
+            "id": "sa-fail",
+            "name": "✗ Off-Skill",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "sa-skip": {
+            "id": "sa-skip",
+            "name": "—",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa05": {
+        "displayName": "Randomization Health",
+        "type": "Select",
+        "options": {
+          "rh-pass": {
+            "id": "rh-pass",
+            "name": "✓ Diverse",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "rh-warn": {
+            "id": "rh-warn",
+            "name": "⚠ Collisions",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "rh-fail": {
+            "id": "rh-fail",
+            "name": "✗ Broken",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "rh-na": {
+            "id": "rh-na",
+            "name": "N/A",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa06": {
+        "displayName": "Hint Quality",
+        "type": "Select",
+        "options": {
+          "hq-pass": {
+            "id": "hq-pass",
+            "name": "✓ Scaffolded",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "hq-warn": {
+            "id": "hq-warn",
+            "name": "⚠ Reveals",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "hq-fail": {
+            "id": "hq-fail",
+            "name": "✗ Useless",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "hq-skip": {
+            "id": "hq-skip",
+            "name": "—",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa07": {
+        "displayName": "Age Band",
+        "type": "Select",
+        "options": {
+          "ab-pass": {
+            "id": "ab-pass",
+            "name": "✓ K–2",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "ab-warn": {
+            "id": "ab-warn",
+            "name": "⚠ Some Off",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "ab-fail": {
+            "id": "ab-fail",
+            "name": "✗ Wrong Level",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "ab-skip": {
+            "id": "ab-skip",
+            "name": "—",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa08": {
+        "displayName": "Issues Found",
+        "type": "string"
+      },
+      "@qa09": {
+        "displayName": "Fix Required",
+        "type": "string"
+      }
+    },
+    "views": {
+      "list": {
+        "id": "list",
+        "type": "list",
+        "rank": "A",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "board": {
+        "id": "board",
+        "type": "board",
+        "rank": "B",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "mindmap": {
+        "id": "mindmap",
+        "type": "mindmap",
+        "rank": "D",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "orgchart": {
+        "id": "orgchart",
+        "type": "orgchart",
+        "rank": "E",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "gantt": {
+        "id": "gantt",
+        "type": "gantt",
+        "rank": "F",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz",
+            "hidden": false
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV",
+            "hidden": false
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk",
+            "hidden": false
+          }
+        }
+      },
+      "table": {
+        "id": "table",
+        "type": "table",
+        "rank": "V",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz",
+            "hidden": false
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV",
+            "hidden": false
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk",
+            "hidden": false
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "defaultView": "table",
+    "avatar": {
+      "type": "emoji",
+      "value": "📁"
+    }
+  }
+}

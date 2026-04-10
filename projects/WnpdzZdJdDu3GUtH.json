@@ -1,0 +1,1838 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "0d88157b-39e3-4cc7-bb38-5c8b9090d586",
+        "text": {
+          "ops": [
+            {
+              "insert": "Make Math and English Fun for Kids",
+              "attributes": {
+                "bold": true
+              }
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": {
+          "node": "h1",
+          "children": "text"
+        },
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "8f16fb3e-af79-4ec7-9ad3-aec9a3b3f7d9",
+            "text": {
+              "ops": [
+                {
+                  "insert": "With Prodigy, kids practice standards-aligned skills in Math and English as they play our fun, adaptive learning games. All with teacher and parent tools to support their learning in class and at home."
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "5bc506b7-65b5-45d0-8bc4-6653526f454b",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Teachers, get full access for free",
+                  "attributes": {
+                    "link": "https://sso.prodigygame.com/signup"
+                  }
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "dd9d26f5-efb0-4226-bb2f-d208528d085c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Parents, explore memberships",
+                  "attributes": {
+                    "link": "https://www.prodigygame.com/Memberships/math"
+                  }
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "5ef2f8bb-8597-46bd-8d89-1eb84cbe0403",
+            "text": {
+              "ops": [
+                {
+                  "insert": "91% of parents said their children enjoy using Prodigy Math*"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "854a0c13-340d-4dd1-ad60-39078ea56800",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "orange quotation marks",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/674f61f4674079fbf46f3fcf_Vectors-Wrapper.svg"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "cfead3b6-290a-41bf-8610-1cdbb1875b20",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "\"Prodigy is a great way to get kids who don't like math into math.\""
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "78eba8c5-c299-4bf5-a511-0030a8e68d3c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Caralena Luthi",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "6a572dbc-3b81-4cf9-bcad-3a3c8c53c43e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Parent"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "be10acc8-7f22-4cad-b20a-c7f1eb8215f4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "orange quotation marks",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/674f61f4674079fbf46f3fcf_Vectors-Wrapper.svg"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "aca37749-d774-4d35-8860-309e3781223a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "\"In less than 12 months... I’ve got kids that have elevated two to three grade levels. That’s huge when you look at those kids who’ve grown three grade levels with everything that’s going on.\""
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "497f5b08-8474-42cd-ac77-245e60a40b73",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stephen P.",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8af3cd97-6d12-46bf-b9dc-3616af326193",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "5th Grade Teacher"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "aee3b114-8811-4943-b86b-61db24f5326e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "orange quotation marks",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/674f61f4674079fbf46f3fcf_Vectors-Wrapper.svg"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "646cc63d-366f-454a-ab34-25e85407470e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "\"Having access to Prodigy really helps supplement our math learning and tells me what areas of the curriculum I need to add more focus on. I think all teachers should use Prodigy if possible because it is an amazing learning tool.\""
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "38308311-0806-4cc7-abe3-682154b6e46c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Monique G.",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7f775b5e-df98-4307-832f-3f2eb4937a35",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "6th Grade Teacher"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "dc7d0b15-9e87-4cdb-ac56-8ff9b219208f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Parent and teacher choice award",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/679fcb2cc8e146310be6d2d7_668af508-54ae-49e2-aa57-d3b92b8afe3c_Parent-And-Teacher-Choice-noLabel.png",
+                        "link": "https://www.howtolearn.com/prodigy-math-wins-parent-and-teacher-choice-award/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "239e4e62-139b-435b-b5e1-c307dc39d6a9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "EdTech 1000 Companies Transforming Education",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/67b6666e1825fb0d00603602_9928f87c-3bc3-4f06-94d0-bb5ea1e1b656-edtechdigest-top1000badge-67b6665baf22c.webp",
+                        "link": "https://www.edtechdigest.com/2022-finalists-winners/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "07f4131f-c1e7-425d-a22c-ecbbcb66ca7b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Mom's choice award",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/679fcb2c8d08494e2250e9df_641d203d-76e5-4475-969a-46bc4fd58f8b_MCA_Logo_English_Color.png",
+                        "link": "https://www.momschoiceawards.com/blog/wr-2022-03-06-2022-03-12/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ef2d6854-46f7-4ba2-805d-3ed0d2187907",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "image",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/68066aeab5812ebd837d4c7e_common-sense-seal-68066ab59bfd4.webp",
+                        "link": "https://privacy.commonsense.org/evaluation/Prodigy"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "fe4c175e-00c9-4dab-94f3-325baf316c2c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Clever 4.8 stars",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/679fcc918d08494e22521034_ae521d90-8825-4837-adfb-a70dc8ba551a_CleverStarRatings.webp",
+                        "link": "https://clever.com/library/app/prodigy"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "65e06fbb-8bba-422b-9159-4a62af7f3d67",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "*In one survey of parents commissioned by Prodigy Education."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "3f973270-e4ca-4b6f-bdb6-b1ab620105d0",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Our Mission is to Help Every Student in the World Love Learning!"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "ad9f8a14-5dd9-4310-ab1c-303fdd9954d1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "That’s why all of our standards-aligned educational math and English content is free and students can play Prodigy at school or at home."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "1d098bf6-537b-432b-bcce-c41e8bc64f0a",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Teachers"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "2c22503a-76e9-4316-986c-d8c5594b522c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Here's how nearly one million teachers use Prodigy in the classroom at no cost!"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "38e6b9dd-04f2-444f-999f-f5b738ff52e6",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Help students master math standards with a fun and engaging gameplay experience"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e0b57369-30b5-4000-a0bf-edff18087343",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Adjust and align Prodigy's in-game math content with your lesson plans"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7bb200e4-10b1-469e-b593-ec546ba982b6",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Track student development to decide where to best spend your time"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7af84220-b8f7-4139-ab65-daf410eff121",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "No trial period, no hidden costs for educators. Our optional parent memberships ensure Prodigy stays free for all teachers.",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8ac08518-a48b-41bb-8bd7-0898b86c4203",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Prodigy for Teachers",
+                      "attributes": {
+                        "link": "https://www.prodigygame.com/main-en/teachers"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7ef0333a-08bf-4aab-915c-17e3c5be1feb",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Photograph of a smiling teacher and students looking at a screen in a classroom, overlaid with a tablet interface displaying a color-coded Assignment Report.",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/6798fd5143ed0df7e2a8016d_1afb39f034dad1d8f810a0d3e27db90a_teachers-business-model.webp"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "bc4915cd-27c8-4df5-9d4c-9cba3f440082",
+            "text": {
+              "ops": [
+                {
+                  "insert": "2X"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "63840f33-d87c-4004-943d-fec817c221a7",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Students reported an average of "
+                    },
+                    {
+                      "insert": "twice the level of math enjoyment",
+                      "attributes": {
+                        "bold": true,
+                        "link": "https://www.prodigygame.com/main-en/blog/prodigy-can-shift-students-mindsets/"
+                      }
+                    },
+                    {
+                      "insert": " in just a few months."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "50b64d33-5bb2-4590-81ba-103dd48b134c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "68%"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "e48d8637-b456-4761-ac06-225244f8975e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "In one school district, students mastered an average of "
+                    },
+                    {
+                      "insert": "68% more math skills per month",
+                      "attributes": {
+                        "bold": true,
+                        "link": "https://www.prodigygame.com/main-en/prodigy-math-research-clifton-new-jersey/"
+                      }
+                    },
+                    {
+                      "insert": "."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "4382a982-c278-44bc-b3a6-2650a57774bb",
+            "text": {
+              "ops": [
+                {
+                  "insert": "96%"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "7c27457c-e436-4c25-a335-a21ae8cdacbb",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "96%** of parents and teachers were satisfied with the educational impact of Prodigy Math."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "755a72b6-6997-43cd-b135-5ffdb69f0b6c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "**Based on a survey of parents and a survey of teachers commissioned by Prodigy Education."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "53dffebb-c770-4beb-9e34-74ae7f2a17fa",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Parents"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "801c6f12-9909-4e3e-ba73-02bf3247cb66",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Invest in your child's learning journey with engaging games that make learning fun!"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "158f3c7f-dd55-4540-ab45-bca42417bc33",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Help your child improve their math skills and confidence in a fun, safe and secure environment"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d4d3b514-df19-4075-b2cd-5e521b41d789",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Motivate learning, track their progress and inspire them to practice new skills"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "42624693-eba6-4fd6-b33e-632ca5f238dc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Get insights into their classroom progress with a Prodigy parent account"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2a38f019-4b70-446f-b8d4-840c7e11dad5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Optional Prodigy memberships provide additional features that are engaging and promote more math practice - and they also help us keep Prodigy free for all teachers!",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e8e90407-6a94-4332-8f94-27ff16410692",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Prodigy for Parents",
+                      "attributes": {
+                        "link": "https://www.prodigygame.com/main-en/parents"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "703bc3a6-6144-4b02-adc1-204a2ddc9583",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Photograph of a parent and child sitting on a sofa looking at a tablet, overlaid with an interface displaying a detailed Student Report with progress charts.",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/679fc911741ee16bbddc2c6b_b02ec746e074df4ba869e5bfa246d9c3_a104c323-a133-4539-ab17-43b67b692618_HomepageTest-Parents-BusinessModel.webp"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "a6321fea-b2ed-4d72-ac9a-e6dbed4a14d1",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Learning Made Fun, in More Ways Than One"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "46cc75fd-33d4-442b-bbfb-e61385a3419e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Our safe, curriculum-aligned games make online learning an adventure!"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "92e86646-46f7-4791-8f95-faea4a5d5e11",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Illustration of an epic wizard battle in the Prodigy Math game, overlaid with tablet screens displaying in-game combat and a math question interface.",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/679be5b516126cdc19bec7e1_e11399981a3e6c978757d282c2571fcc_prodigy-math-game-multi-tablet.webp"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "43583124-06a6-4ba7-b4ed-255b33e7afd0",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Prodigy Math",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a77ae6f3-c46a-4263-a3af-54255b8ccd49",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Discover the magic of math! Players embark on a journey filled with quests, battles, spells and rewards. Every battle brings more skill-building math questions for students to solve."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "97da3578-bde0-4c43-88f2-346e0824dbd9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Discover Prodigy Math",
+                      "attributes": {
+                        "link": "https://www.prodigygame.com/main-en/prodigy-math"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b8cf91bf-6028-471c-a415-0d3128e3c38b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Illustration of a character in the Prodigy English game world, overlaid with tablet screens displaying village gameplay and a dialogue-based question.",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/679be5ba48439f8719dc64d8_94ae45f4e63a102ce6247984aa98b803_prodigy-english-game-multi-tablet.webp"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "bdac6af0-6490-4819-a32c-6a1cc372c9bb",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Prodigy English",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "3e765b33-82c6-440b-9208-d1e67165164b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Discover the magic of math! Players embark on a journey filled with quests, battles, spells and rewards. Every battle brings more skill-building math questions for students to solve."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "10dd33fe-7f18-4ad6-914a-32fbad42b110",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Explore Prodigy English",
+                      "attributes": {
+                        "link": "https://www.prodigygame.com/main-en/prodigy-english"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "792b0b17-a1b0-43f3-a80d-ff55d8542290",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "graduation cap on world",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/679fc77dc6b20edf95704dea_c2a861f4-9bab-4ef2-b46a-f7985a9c4007_ellipse-seaweed-globe-w-hat.png"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "c5f5c7df-900b-4b91-94e8-a455cbf09e45",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Aligned to Your Curriculum"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "f65562a5-e9ef-4d88-b3ba-c1d3ccdf3bd7",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Prodigy Math provides comprehensive math curriculum coverage, including Common Core, TEKS and many more state-specific standards. Prodigy English also aligns with Common Core, with more skills and coverage on the way!"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2e404aad-ce91-444a-a245-c6b8045297ac",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "See your Math curriculum",
+                      "attributes": {
+                        "link": "https://www.prodigygame.com/main-en/math-curriculum-standards"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ad833a6e-e895-4e09-899d-878b386b8253",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "See your English curriculum",
+                      "attributes": {
+                        "link": "https://www.prodigygame.com/main-en/english-language-curriculum-standards"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ee5e5234-1848-4d68-9d96-154f029fdaef",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Ed character prodigy mascot arms crossed",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/679ace15bb9cff1135804130_ellipse-sunshine-ed-arms.webp"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "453a1d8a-b781-4f18-a456-12611444b938",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Ready to Kickstart a Learning Adventure?",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "81370590-0103-4c51-bac4-d9c01cd64aeb",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Create a free account",
+                      "attributes": {
+                        "link": "https://sso.prodigygame.com/signup"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "cef6683b-7724-455e-a807-d2daa42eedb2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Save 50% on annual memberships this holiday season! 🎁",
+                      "attributes": {
+                        "link": "https://www.prodigygame.com/Memberships/math/?holiday2025"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "af453be1-33b7-4a09-9818-411876c7d081",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "image",
+                      "attributes": {
+                        "url": "https://cdn.prod.website-files.com/67290eb56db5c02dee62db8d/68d6a23835f95fbbdc1b2451_logo-prodigy-new.svg",
+                        "link": "https://www.prodigygame.com/main-en"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "17821301-589f-4abe-95d1-38815163e9fd",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Log in",
+                      "attributes": {
+                        "link": "https://sso.prodigygame.com/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e2632ddf-8435-4c72-beb5-416c59d872c7",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Play now",
+                      "attributes": {
+                        "link": "https://play.prodigygame.com/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "preferences": {
+    "avatar": {
+      "type": "emoji",
+      "value": "💭"
+    },
+    "coverImageType": "background"
+  }
+}

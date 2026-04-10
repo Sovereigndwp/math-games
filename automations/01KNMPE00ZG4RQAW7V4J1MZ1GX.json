@@ -1,0 +1,221 @@
+{
+  "version": "2",
+  "flowTitle": "Misconception Architect — Post-Pipeline Analysis",
+  "trigger": {
+    "valid": true,
+    "displayName": "Game Concept — GO Decision",
+    "type": "MANUAL",
+    "settings": {
+      "inputUiInfo": {},
+      "paramsSchema": {
+        "type": "object",
+        "properties": {
+          "target_age": {
+            "type": "string",
+            "description": "Input for target_age"
+          },
+          "target_skill": {
+            "type": "string",
+            "description": "Input for target_skill"
+          },
+          "concept_title": {
+            "type": "string",
+            "description": "Input for concept_title"
+          },
+          "concept_description": {
+            "type": "string",
+            "description": "Input for concept_description"
+          },
+          "game_experience_spec": {
+            "type": "string",
+            "description": "Input for game_experience_spec"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "ma000001-0000-0000-0000-000000000001",
+      "valid": true,
+      "displayName": "Stage 1 — Check Library for Known Game",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Concept: {{ trigger[\"concept_title\"] }}\nDescription: {{ trigger[\"concept_description\"] }}\nTarget Skill: {{ trigger[\"target_skill\"] }}\nTarget Age: {{ trigger[\"target_age\"] }}",
+          "prompt": "You are the Misconception Architect's Library Router. A game concept has just received a GO decision. Your job is to check whether this game concept overlaps with any known game in the Misconception Library, and if so, extract all applicable seeded misconception entries.\n\nKnown games with seeded entries:\n- Bakery Rush: counting-up, carry/regrouping errors, visual-shape matching\n- Fire Dispatch: repeated-addition, division-as-subtraction\n- Unit Circle Pizza Lab: radian/degree confusion, sin/cos axis flip\n- Power Grid Operator: equals-as-command, inverse-operation confusion\n- School Trip Fleet: ceiling division truncation, per-vehicle vs total capacity confusion\n\nFor the incoming concept:\n1. Identify if it belongs to the same interaction family as any known game\n2. List which seeded misconception entries are DIRECTLY RELEVANT (will transfer unchanged)\n3. List which seeded entries need REVISION because the brief changes the confusion risk\n4. Identify what NEW misconception risks this concept introduces that have no library entry\n\nBe specific. Name the exact seeded entry. Explain why it transfers or why it needs revision."
+        }
+      }
+    },
+    {
+      "name": "ma000002-0000-0000-0000-000000000002",
+      "valid": true,
+      "displayName": "Stage 2 — Semantic Risk Routing (Haiku-level)",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.categorize",
+        "input": {
+          "input": "Concept: {{ trigger[\"concept_title\"] }}\nSkill: {{ trigger[\"target_skill\"] }}\nAge: {{ trigger[\"target_age\"] }}\nGame Experience Spec: {{ trigger[\"game_experience_spec\"] }}\n\nLibrary Check:\n{{ ma000001-0000-0000-0000-000000000001[\"result\"] }}",
+          "output": {
+            "type": "custom",
+            "schema": {
+              "type": "object",
+              "required": [
+                "misconception_risks",
+                "categories_needing_new_entries",
+                "library_coverage"
+              ],
+              "properties": {
+                "library_coverage": {
+                  "enum": [
+                    "FULL",
+                    "PARTIAL",
+                    "NONE"
+                  ],
+                  "type": "string",
+                  "description": "How well does the existing library cover this concept's misconception space?"
+                },
+                "misconception_risks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "risk": {
+                        "type": "string",
+                        "description": "Plain-language description of the misconception risk"
+                      },
+                      "category": {
+                        "enum": [
+                          "procedural_error",
+                          "representation_mismatch",
+                          "conceptual_gap",
+                          "overgeneralization",
+                          "shortcut_skill",
+                          "cognitive_overload"
+                        ],
+                        "type": "string"
+                      },
+                      "severity": {
+                        "enum": [
+                          "HIGH",
+                          "MEDIUM",
+                          "LOW"
+                        ],
+                        "type": "string"
+                      },
+                      "library_action": {
+                        "enum": [
+                          "KEEP",
+                          "REVISE",
+                          "NEW"
+                        ],
+                        "type": "string",
+                        "description": "KEEP = seeded entry transfers unchanged. REVISE = needs rewrite. NEW = no library entry exists."
+                      }
+                    }
+                  },
+                  "description": "All identified misconception risks for this concept"
+                },
+                "categories_needing_new_entries": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Error categories that need brand new library entries generated"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "ma000003-0000-0000-0000-000000000003",
+      "valid": true,
+      "displayName": "Stage 3 — Generate Full Misconception Map",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.generate",
+        "input": {
+          "input": "Game: {{ trigger[\"concept_title\"] }}\nSkill: {{ trigger[\"target_skill\"] }}\nAge: {{ trigger[\"target_age\"] }}\n\nIdentified Risks:\n{{ ma000002-0000-0000-0000-000000000002[\"misconception_risks\"] }}\n\nCategories needing new entries:\n{{ ma000002-0000-0000-0000-000000000002[\"categories_needing_new_entries\"] }}",
+          "prompt": "You are the Misconception Architect. Generate a complete misconception map for this game concept. For each risk identified, produce a structured library entry following this exact format:\n\n---\nMISCONCEPTION: [plain-language name]\nCATEGORY: [procedural_error | representation_mismatch | conceptual_gap | overgeneralization | shortcut_skill | cognitive_overload]\nDESCRIPTION: [What exactly does the player do wrong? Be specific about the wrong operation or reasoning pattern.]\nFAILURE SIGNAL: [What observable behavior in the game reveals this misconception? What would the designer or researcher see?]\nDESIGN RESPONSE: [What specific design decision, mechanic, feedback, or constraint addresses this misconception?]\nAPPLIES TO FUTURE GAMES WHEN: [What conditions in a future game would make this entry relevant again?]\nLIBRARY ACTION: [KEEP | REVISE | NEW]\nSEVERITY: [HIGH | MEDIUM | LOW]\n---\n\nDo not produce generic entries. Every entry must be grounded in the specific mechanics, age band, and skill of this game."
+        }
+      }
+    },
+    {
+      "name": "ma000004-0000-0000-0000-000000000004",
+      "valid": false,
+      "displayName": "Stage 4 — Write Misconception Map to Library (Pending)",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-taskade",
+        "pieceVersion": "1.0.0",
+        "actionName": "task.create",
+        "input": {
+          "content": "[PENDING REVIEW] {{ trigger[\"concept_title\"] }} — Misconception Map",
+          "position": "beforeend",
+          "projectId": {
+            "type": "flow-template-variable-input-type",
+            "id": "cyt3zvpjf32D1Ddt"
+          }
+        }
+      }
+    },
+    {
+      "name": "ma000005-0000-0000-0000-000000000005",
+      "valid": false,
+      "displayName": "Stage 5 — Add Concept to Prototype Specs",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-taskade",
+        "pieceVersion": "1.0.0",
+        "actionName": "task.create",
+        "input": {
+          "content": "{{ trigger[\"concept_title\"] }}",
+          "position": "beforeend",
+          "projectId": {
+            "type": "flow-template-variable-input-type",
+            "id": "9bfNR2acXuAHiWyC"
+          }
+        }
+      }
+    },
+    {
+      "name": "ma000006-0000-0000-0000-000000000006",
+      "valid": true,
+      "displayName": "Stage 6 — Notify Pipeline Orchestrator",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Concept: {{ trigger[\"concept_title\"] }}\nLibrary Coverage: {{ ma000002-0000-0000-0000-000000000002[\"library_coverage\"] }}\nMisconception Map:\n{{ ma000003-0000-0000-0000-000000000003[\"result\"] }}",
+          "prompt": "You are the Pipeline Orchestrator. A concept has just completed the Misconception Architect stage. Write a brief status update (3-5 sentences) confirming:\n1. The concept name and that it passed GO\n2. How many misconception entries were generated (KEEP / REVISE / NEW breakdown)\n3. What the highest-severity risk is and the design response\n4. The recommended next action for the team (which prototype phase to enter and what to prove first)"
+        }
+      }
+    }
+  ],
+  "variables": {
+    "cyt3zvpjf32D1Ddt": {
+      "id": "cyt3zvpjf32D1Ddt",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-project-id"
+    },
+    "9bfNR2acXuAHiWyC": {
+      "id": "9bfNR2acXuAHiWyC",
+      "rank": "k",
+      "type": "string",
+      "format": "taskade-project-id"
+    }
+  }
+}

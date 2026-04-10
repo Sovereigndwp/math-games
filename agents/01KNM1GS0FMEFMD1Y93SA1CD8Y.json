@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "⛔ Project Manager [DEPRECATED]",
+  "commands": [],
+  "description": "This agent is deprecated and should be deleted.\n\nAll project management functions for this studio — pipeline tracking, stage routing, gate enforcement, dashboard reporting — are owned by the Pipeline Orchestrator.\n\nDo not use this agent. Use the Pipeline Orchestrator instead.",
+  "introduction": "This agent is deprecated. Please use the Pipeline Orchestrator for all project management and pipeline tracking.",
+  "conversationStarters": [],
+  "toolbox": []
+}

@@ -1,0 +1,217 @@
+{
+  "version": "2",
+  "flowTitle": "Scout Brief → Brainstorming Specialist Handoff v2",
+  "trigger": {
+    "valid": true,
+    "displayName": "Scout Expansion Brief Received",
+    "type": "MANUAL",
+    "settings": {
+      "inputUiInfo": {},
+      "paramsSchema": {
+        "type": "object",
+        "properties": {
+          "risk_flags": {
+            "type": "string",
+            "description": "Input for risk_flags"
+          },
+          "target_skill": {
+            "type": "string",
+            "description": "Input for target_skill"
+          },
+          "why_game_wins": {
+            "type": "string",
+            "description": "Input for why_game_wins"
+          },
+          "core_mechanic_idea": {
+            "type": "string",
+            "description": "Input for core_mechanic_idea"
+          },
+          "closest_existing_games": {
+            "type": "string",
+            "description": "Input for closest_existing_games"
+          },
+          "subject_and_grade_band": {
+            "type": "string",
+            "description": "Input for subject_and_grade_band"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "a3f8c912-7b4e-4d1a-9c6f-2e5b8d3a1047",
+      "valid": true,
+      "displayName": "Context Pull 1 — Fetch Game Concepts Pipeline (live)",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-piece-http",
+        "pieceVersion": "1.0.0",
+        "actionName": "http.sendRequest",
+        "input": {
+          "url": "/api/taskade/LnpYq2qGt5DrXpda/nodes",
+          "method": "GET",
+          "responseType": "json"
+        }
+      }
+    },
+    {
+      "name": "b7e1d453-2a9c-4f8b-8e3d-6c4f9a2b5e81",
+      "valid": true,
+      "displayName": "Context Pull 2 — Fetch Game Family Registry (live)",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-piece-http",
+        "pieceVersion": "1.0.0",
+        "actionName": "http.sendRequest",
+        "input": {
+          "url": "/api/taskade/N9S2kjQdv3s7tyya/nodes",
+          "method": "GET",
+          "responseType": "json"
+        }
+      }
+    },
+    {
+      "name": "c2d5e847-3f1a-4c9b-7d2e-8a6b3f4c9e15",
+      "valid": true,
+      "displayName": "Context Pull 3 — Fetch K-12 Curriculum Map (live)",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-piece-http",
+        "pieceVersion": "1.0.0",
+        "actionName": "http.sendRequest",
+        "input": {
+          "url": "/api/taskade/fQKsxPJWgG2kPRoQ/nodes",
+          "method": "GET",
+          "responseType": "json"
+        }
+      }
+    },
+    {
+      "name": "d9f4b261-8c3e-4a7d-6b5f-1e2c9a8d4f73",
+      "valid": true,
+      "displayName": "Context Compile — Compress Pipeline + Registry + Curriculum into Context Block",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "PIPELINE JSON: {{ a3f8c912-7b4e-4d1a-9c6f-2e5b8d3a1047[\"data\"] }}\n\nFAMILY REGISTRY JSON: {{ b7e1d453-2a9c-4f8b-8e3d-6c4f9a2b5e81[\"data\"] }}\n\nCURRICULUM MAP JSON: {{ c2d5e847-3f1a-4c9b-7d2e-8a6b3f4c9e15[\"data\"] }}",
+          "prompt": "You are a context compiler for the K-12 Math Game Studio. Compress three JSON node datasets into a structured reference block for the Brainstorming Specialist.\n\nOutput exactly THREE sections with no preamble:\n\n## GAME CONCEPTS PIPELINE\nFor each game concept row, one line: title | Pipeline Stage | GO/NO-GO | Delight Gate. Skip any header or template rows (rows without a real game title).\n\n## GAME FAMILY REGISTRY\nFor each family: Family Name | Coverage status | Member Games listed.\n\n## CURRICULUM MAP — OPEN SLOTS\nOnly rows where Status = Open Slot or In Brainstorm: Grade Band | Subject | Core Skill | Status.\n\nBe completely terse. No prose sentences. This is a machine-readable reference block."
+        }
+      }
+    },
+    {
+      "name": "e5c7a934-1b6f-4e8d-a2c9-7f3d5b8e2a46",
+      "valid": false,
+      "displayName": "Step 1 — Brainstorming Specialist: Generate Full Game Design Plan",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "agent.ask",
+        "input": {
+          "input": "=== LIVE PIPELINE CONTEXT (fetched at workflow run time — treat as authoritative) ===\n\n{{ d9f4b261-8c3e-4a7d-6b5f-1e2c9a8d4f73[\"result\"] }}\n\n=== END LIVE CONTEXT ===\n\nYou have received a validated expansion brief from the Subject Expansion Scout. The LIVE PIPELINE CONTEXT above was fetched directly from the projects at the moment this workflow ran. Do NOT use your web search or website extract tools to re-read these projects — the data above is current and complete. Use it to identify gaps and avoid overlap.\n\nSCOUT EXPANSION BRIEF:\n\nSubject and Grade Band: {{ trigger[\"subject_and_grade_band\"] }}\nTarget Skill: {{ trigger[\"target_skill\"] }}\nWhy a Game Wins Here: {{ trigger[\"why_game_wins\"] }}\nCore Mechanic Idea: {{ trigger[\"core_mechanic_idea\"] }}\nClosest Existing Games (for differentiation): {{ trigger[\"closest_existing_games\"] }}\nRisk Flags: {{ trigger[\"risk_flags\"] }}\n\nInstructions:\n1. Using the LIVE PIPELINE CONTEXT above (not your tools), identify the highest-priority gap this brief fills across family and grade band dimensions.\n2. Evaluate 3-5 candidate concepts that fit the brief and pass your four screening tests: math is the lockpick, fills a real gap, one primary CCSS skill cluster, natural ceiling at or above P3.\n3. Select the strongest candidate and write the complete 9-section game design plan — all sections required, none abbreviated.\n4. End with: 'Concept plan complete. Ready for Game Design Critic review.'",
+          "agentId": {
+            "type": "flow-template-variable-input-type",
+            "id": "01KNM59YXXTZ9XVS17KJ2JPV1M"
+          }
+        }
+      }
+    },
+    {
+      "name": "f6d8b045-4c2a-4f9e-b3d1-8e5c7a9f3b52",
+      "valid": true,
+      "displayName": "Step 2 — Extract Concept Title",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "{{ e5c7a934-1b6f-4e8d-a2c9-7f3d5b8e2a46[\"result\"] }}",
+          "prompt": "Extract only the game title from this game design plan. Return just the title — nothing else. No quotes, no punctuation, no explanation."
+        }
+      }
+    },
+    {
+      "name": "a1b3c5d7-e9f2-4a6b-8c0d-2e4f6a8b0c1d",
+      "valid": false,
+      "displayName": "Step 3 — Write Full Plan to Game Concepts Pipeline",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-taskade",
+        "pieceVersion": "1.0.0",
+        "actionName": "task.create",
+        "input": {
+          "fields": {
+            "@gcf01": {
+              "data": {
+                "value": "{{ trigger[\"subject_and_grade_band\"] }}"
+              },
+              "rank": "3",
+              "fieldId": "@gcf01"
+            },
+            "@gcf03": {
+              "data": {
+                "value": "{{ trigger[\"target_skill\"] }}"
+              },
+              "rank": "4",
+              "fieldId": "@gcf03"
+            },
+            "@gcf04": {
+              "data": {
+                "value": "stage-gono"
+              },
+              "rank": "0",
+              "fieldId": "@gcf04"
+            },
+            "@gcf05": {
+              "data": {
+                "value": "gono-pending"
+              },
+              "rank": "1",
+              "fieldId": "@gcf05"
+            },
+            "@gcf06": {
+              "data": {
+                "value": "dg-pending"
+              },
+              "rank": "2",
+              "fieldId": "@gcf06"
+            },
+            "@gcf07": {
+              "data": {
+                "value": "SOURCE: Subject Expansion Scout handoff. Risk flags: {{ trigger[\"risk_flags\"] }}"
+              },
+              "rank": "5",
+              "fieldId": "@gcf07"
+            }
+          },
+          "content": "{{ f6d8b045-4c2a-4f9e-b3d1-8e5c7a9f3b52[\"result\"] }}\n\n---\nSOURCE: Subject Expansion Scout Handoff\nSubject: {{ trigger[\"subject_and_grade_band\"] }}\nSkill: {{ trigger[\"target_skill\"] }}\n\n{{ e5c7a934-1b6f-4e8d-a2c9-7f3d5b8e2a46[\"result\"] }}",
+          "position": "beforeend",
+          "projectId": {
+            "type": "flow-template-variable-input-type",
+            "id": "LnpYq2qGt5DrXpda"
+          }
+        }
+      }
+    }
+  ],
+  "variables": {
+    "01KNM59YXXTZ9XVS17KJ2JPV1M": {
+      "id": "01KNM59YXXTZ9XVS17KJ2JPV1M",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "LnpYq2qGt5DrXpda": {
+      "id": "LnpYq2qGt5DrXpda",
+      "rank": "k",
+      "type": "string",
+      "format": "taskade-project-id"
+    }
+  }
+}

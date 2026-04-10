@@ -1,0 +1,80 @@
+{
+  "version": "2",
+  "flowTitle": "GO Decision → Curriculum Slot Assignment",
+  "trigger": {
+    "valid": false,
+    "displayName": "GO Decision Logged on Pipeline Concept",
+    "type": "PIECE_TRIGGER",
+    "settings": {
+      "pieceName": "@taskade/automade-internalpiece-taskade",
+      "pieceVersion": "1.0.0",
+      "triggerName": "task.custom_attribute_updated",
+      "input": {
+        "fieldId": "@gcf05",
+        "projectId": {
+          "type": "flow-template-variable-input-type",
+          "id": "LnpYq2qGt5DrXpda"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "e5e5e5e5-eeee-eeee-eeee-e5e5e5e5e5e5",
+      "valid": false,
+      "displayName": "Generate Curriculum Slot & Prototype Entry",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "agent.ask",
+        "input": {
+          "input": "A game concept has just received a GO decision in our pipeline. Please:\n1. Identify the exact CCSS or NGSS standard this covers\n2. Confirm the grade band (K-2, 3-5, 6-8, or 9-12)\n3. Check if this slot is open in our curriculum map\n4. Recommend the prototype priority (P1-P5 entry point)\n\nConcept: {{ trigger[\"nodeText\"] }}\nNote: {{ trigger[\"nodeNote\"] }}",
+          "agentId": {
+            "type": "flow-template-variable-input-type",
+            "id": "01KNMN97E63DVSZFE50AW67BN6"
+          }
+        }
+      }
+    },
+    {
+      "name": "f6f6f6f6-ffff-ffff-ffff-f6f6f6f6f6f6",
+      "valid": false,
+      "displayName": "Add Approved Concept to Prototype Specs",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-taskade",
+        "pieceVersion": "1.0.0",
+        "actionName": "task.create",
+        "input": {
+          "content": "{{ trigger[\"nodeText\"] }}",
+          "position": "beforeend",
+          "projectId": {
+            "type": "flow-template-variable-input-type",
+            "id": "9bfNR2acXuAHiWyC"
+          }
+        }
+      }
+    }
+  ],
+  "variables": {
+    "LnpYq2qGt5DrXpda": {
+      "id": "LnpYq2qGt5DrXpda",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-project-id"
+    },
+    "01KNMN97E63DVSZFE50AW67BN6": {
+      "id": "01KNMN97E63DVSZFE50AW67BN6",
+      "rank": "k",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "9bfNR2acXuAHiWyC": {
+      "id": "9bfNR2acXuAHiWyC",
+      "rank": "s",
+      "type": "string",
+      "format": "taskade-project-id"
+    }
+  }
+}

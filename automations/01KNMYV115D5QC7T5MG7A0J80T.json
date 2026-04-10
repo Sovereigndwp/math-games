@@ -1,0 +1,119 @@
+{
+  "version": "2",
+  "flowTitle": "Echo Heist — Question Audit Pipeline",
+  "trigger": {
+    "valid": false,
+    "displayName": "When Template Task Flow is Triggered",
+    "type": "PIECE_TRIGGER",
+    "settings": {
+      "pieceName": "@taskade/automade-internalpiece-taskade",
+      "pieceVersion": "1.0.0",
+      "triggerName": "task.flow_triggered",
+      "input": {}
+    }
+  },
+  "actions": [
+    {
+      "name": "qa001001-0001-0001-0001-000000000001",
+      "valid": true,
+      "displayName": "Stage 1 — Independent Answer Verification",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Template: {{ trigger[\"nodeId\"] }} -- {{ trigger[\"nodeText\"] }}\nNote: {{ trigger[\"nodeNote\"] }}\nProject: {{ trigger[\"projectId\"] }}",
+          "prompt": "You are the Math Question QA agent for Echo Heist, a stealth game where typed math answers unlock obstacles for students aged 11-13 (Grades 6-8). Your only job in this stage is independent answer verification.\n\nThe task note contains the question batch to audit. For EACH question in the batch: read the question, compute the answer yourself from scratch showing every step, compare to the stored answer, rate PASS or WARN or FAIL.\n\nPASS means your answer matches within 0.01 tolerance. WARN means numerically correct but format may cause issues such as 18.0 vs 18 or 4/8 vs 1/2. FAIL means your computed answer is different — this is a bug.\n\nFor every FAIL state the stored answer, your correct answer, and the difference. End with CORRECTNESS SUMMARY: X PASS Y WARN Z FAIL."
+        }
+      }
+    },
+    {
+      "name": "qa001002-0001-0001-0001-000000000002",
+      "valid": true,
+      "displayName": "Stage 2 — Skill Alignment Analysis",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Task: {{ trigger[\"nodeText\"] }}\nNote: {{ trigger[\"nodeNote\"] }}",
+          "prompt": "You are the Math Question QA agent. Determine whether each question genuinely requires the target skill or can be shortcut.\n\nFor each question ask: What is the intended method? What shortcuts could a student use? Do the numbers make shortcuts too easy? Is difficulty appropriate for the stated age?\n\nRate each question as: ON-SKILL meaning it requires the skill with no viable shortcut and appropriate difficulty. SHORTCUT-RISK meaning a student could get the answer without using the skill. OFF-SKILL meaning the question does not exercise the stated skill. TOO-EASY meaning numbers are so simple the skill is not exercised at grade level. TOO-HARD meaning it exceeds grade 6-8 expectations.\n\nEnd with ALIGNMENT SUMMARY: counts per rating."
+        }
+      }
+    },
+    {
+      "name": "qa001003-0001-0001-0001-000000000003",
+      "valid": true,
+      "displayName": "Stage 3 — Randomization Health Check",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Task: {{ trigger[\"nodeText\"] }}\nNote: {{ trigger[\"nodeNote\"] }}",
+          "prompt": "You are the Math Question QA agent. Analyze the randomization health of this template generator. If no generator code is provided in the task note, this is a D3 authored question so mark randomization as NA and skip the analysis.\n\nFor procedural templates analyze: degenerate cases where answer equals zero or one or where parameters create trivial questions. Collision risk estimating the number of distinct outputs as HIGH under 20 distinct outputs or MEDIUM 20-50 or LOW over 50. Answer bias for A/B questions checking if one answer is systematically more likely. Float precision risks from operations like 0.1 plus 0.2. Missing guards that should be added to prevent degenerate outputs.\n\nEnd with RANDOMIZATION HEALTH: PASS or WARN or FAIL. Then FIX REQUIRED: specific gen function changes or None."
+        }
+      }
+    },
+    {
+      "name": "qa001004-0001-0001-0001-000000000004",
+      "valid": true,
+      "displayName": "Stage 4 — Hint Quality Review",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Task: {{ trigger[\"nodeText\"] }}\nNote with hints: {{ trigger[\"nodeNote\"] }}",
+          "prompt": "You are the Math Question QA agent. Review hint quality for every question in the task note.\n\nhint1 should name the skill category and approach without solving the problem. Rate PASS if it names the approach such as Percent decrease or Two-step equation. Rate WARN if it is too vague such as Work backwards. Rate FAIL if it gives the answer directly or is mathematically wrong.\n\nhint2 should set up the computation without completing it. Rate PASS if it sets up the calculation such as 18 times 0.75. Rate WARN if it restates the question without advancing the student. Rate FAIL if it completes the calculation giving the answer or is incorrect.\n\nAlso flag any hints using notation inappropriate for ages 11-13 such as sigma notation or calculus.\n\nEnd with HINT SUMMARY: X PASS Y WARN Z FAIL."
+        }
+      }
+    },
+    {
+      "name": "qa001005-0001-0001-0001-000000000005",
+      "valid": true,
+      "displayName": "Stage 5 — Consolidated Audit Report",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "Task: {{ trigger[\"nodeText\"] }}\n\nStage 1 Correctness Report:\n{{ qa001001-0001-0001-0001-000000000001[\"result\"] }}\n\nStage 2 Skill Alignment Report:\n{{ qa001002-0001-0001-0001-000000000002[\"result\"] }}\n\nStage 3 Randomization Report:\n{{ qa001003-0001-0001-0001-000000000003[\"result\"] }}\n\nStage 4 Hint Quality Report:\n{{ qa001004-0001-0001-0001-000000000004[\"result\"] }}",
+          "prompt": "You are the Math Question QA agent. Synthesize the four stage reports into a final structured audit report.\n\nOverall audit status rules: FAIL if any single dimension is FAIL. WARN if no FAILs but any WARNs exist. PASS only if all four dimensions pass.\n\nOutput your report in exactly this format:\n\nOVERALL STATUS: PASS or WARN or FAIL\nCORRECTNESS: PASS or WARN or FAIL\nSKILL ALIGNMENT: PASS or WARN or FAIL\nRANDOMIZATION: PASS or WARN or FAIL or NA\nHINT QUALITY: PASS or WARN or FAIL\nAGE BAND FIT: PASS or WARN or FAIL\n\nISSUES FOUND:\n[bullet list of every issue across all four stages, marked with their severity: CRITICAL for FAIL items or MEDIUM for WARN items]\n\nFIX REQUIRED:\n[for each issue: specific actionable fix. If no fixes needed write None]"
+        }
+      }
+    },
+    {
+      "name": "qa001006-0001-0001-0001-000000000006",
+      "valid": false,
+      "displayName": "Stage 6 — Write Audit Result to Tracker",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-taskade",
+        "pieceVersion": "1.0.0",
+        "actionName": "task.create",
+        "input": {
+          "content": "AUDIT: {{ trigger[\"nodeText\"] }}\n\n{{ qa001005-0001-0001-0001-000000000005[\"result\"] }}",
+          "position": "beforeend",
+          "projectId": {
+            "type": "flow-template-variable-input-type",
+            "id": "1A7jTuKq9Zqa1sMF"
+          }
+        }
+      }
+    }
+  ],
+  "variables": {
+    "1A7jTuKq9Zqa1sMF": {
+      "id": "1A7jTuKq9Zqa1sMF",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-project-id"
+    }
+  }
+}

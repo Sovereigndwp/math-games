@@ -1,0 +1,1012 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "03cadf94-1870-4a85-937e-caa68c4d951f",
+        "text": {
+          "ops": [
+            {
+              "insert": "PORTFOLIO"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": {
+          "node": "h1",
+          "children": "text"
+        },
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "7f23b76a-1ae4-4f4a-8686-26edf7f03e1d",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Built / in repo"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "a31e68bc-744a-41de-bc96-175f3a3db038",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Bakery Rush",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "51b8e238-e9fe-465b-999f-f4a6b9332c9e",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Status: secondary candidate / learning proof case"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "fec0607d-04e8-4be0-8876-88ed87c97733",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Family: exact-sum composition / fast matching"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "07ffaa22-8d33-4dc1-a64e-eb690468459a",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Skill: addition to target"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "379f833d-8bd5-4037-bd83-bbe53e032e27",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Role now: not active flagship"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "ca9f5d59-00be-4d93-8be9-592abde2d1d7",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Fire Dispatch",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "b931af30-4e8d-4495-b3f8-cd07133a6c37",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Status: primary mature proof case"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "349a051f-e1eb-493c-8f36-4e007450c53c",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Family: dispatch / subset selection / prioritization"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "36076476-4ef8-4f9b-afb7-a1ebec9715b5",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Skill: additive composition, exact matching, later efficiency"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "e76d1e24-c9fd-4090-8aac-fb5ff393a6b2",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Role now: active mature game"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "9b07e8ed-ccc9-4e5f-b4a3-55180c1fcc0e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Unit Circle",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "4edaad95-1b22-41ad-9275-a7217540f687",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Status: learning scaffold"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "dd916d59-93a3-4cc9-866a-6653a32f54f9",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Family: precision placement / representational translation"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "5a92e1ba-5dba-4c50-b4db-98a9e8241446",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Skill: angles, radians, coordinates"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "4d2dc534-28ec-40b0-8075-2dbd46140c33",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Role now: frozen as scaffold, not flagship"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "e05e1709-790e-4879-92c4-4b04b1b55ba0",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Power Grid Operator",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "1eb9fc59-1037-4bd6-9fc2-f2d930b939ef",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Status: active flagship candidate"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "3d5df72e-cdc9-4187-bef0-54e3b734d96f",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Family: allocation / network balancing"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "43b9ee0f-0b6d-4bc8-82f6-f2622c12a19d",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Skill: algebra, missing value, later optimization"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "3172c1a5-46e6-44bb-a99f-c4fccae16703",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Role now: main active concept"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "98feba30-9394-4e2d-8f71-3e1bd4add721",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Echo Heist",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": null
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "d7bf920f-c0d3-4b4c-b732-eae304525059",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Status: active — Pass 5 complete, most advanced prototype in studio (304 tests, 0 failures)",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "27c4ab53-819f-4c41-9e25-c37071bcc318",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Family: Stealth-Puzzle / Routing — math-as-lockpick, movement through constrained spatial environment",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "ddb38315-c938-4204-aa77-1ab10f325bc6",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Skill: Fractions, percents, equations, rate-time-distance, expected value, rounding, angles — Grades 6–8 (CCSS 6.EE, 7.RP, 7.EE, 8.EE)",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "a978af4c-f305-44d2-8987-88119b007055",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Pass record: P1 (core loop + typed math-as-lockpick) → P2 (class abilities, 30 missions, 3 districts) → P3 (juice, streaks, focus mode, wall AI) → P4 (authored D3 content, scaffolding panel, auto-hint) → P5 (class unlocks, daily contract, mission select, ability VFX, stealth drone)",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "6c5c90dc-1ceb-48c3-b82c-7c0037bb4930",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Role now: most feature-complete game in studio — benchmark for what a full production pass arc looks like",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "22cf980c-a16b-4e53-ae46-ddfa8866315f",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Core fantasy: You are a math-powered heist operative — solve equations to crack locks, disable cameras, and escape before time runs out. Math is the skeleton key.",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "fca2e8ba-c4a5-40e7-a045-a826fab2538b",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Deferred: shared daily seed (server), adaptive difficulty, meta-tool unlocks (Fraction Lens, Percent Wheel, Rate HUD), full P4+5 playtest extension",
+                          "attributes": {}
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": null
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "f705833b-fca9-49d2-939d-73f0d01cc672",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Concept stage"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "f3a000d5-d9f7-4d11-95af-410fa33fa298",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "School Trip Fleet",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "8c479d00-084d-4f66-b08f-bd66219ea371",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Status: approved concept, secondary concept lane"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "8002a9cf-f7e6-42d0-bc58-b4ca18df3eea",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Family: capacity allocation / packing / scheduling"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "c934386b-9e06-431c-b50b-3091635aaaef",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Skill: division, ceiling division, ratios, efficiency"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "id": "e8aa4242-e7f7-4b5f-91f6-ff3a2c9c9046",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Firefly Ranger",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": [
+                  {
+                    "type": "text",
+                    "id": "31aee577-d3ae-4919-afde-60321dc60c3d",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Status: held / needs revision"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "e1e40b04-9a39-453a-af92-18ed30e6a8df",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Family: exact-sum composition / light routing"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "8946f3ef-3bd4-4a67-b39d-3c3af1ee5328",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Skill: addition, number bonds"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  },
+                  {
+                    "type": "text",
+                    "id": "79be3191-b7f3-410d-9120-10b37de1262e",
+                    "text": {
+                      "ops": [
+                        {
+                          "insert": "Overlap risk: high with Bakery Rush"
+                        },
+                        {
+                          "insert": "\n",
+                          "attributes": {
+                            "paragraph": true
+                          }
+                        }
+                      ]
+                    },
+                    "format": {
+                      "node": "bullet",
+                      "children": "bullet"
+                    },
+                    "collapsed": false,
+                    "completed": false,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "preferences": {
+    "avatar": {
+      "type": "emoji",
+      "value": "⚗️"
+    },
+    "coverImageType": "background"
+  }
+}

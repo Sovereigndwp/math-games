@@ -1,0 +1,1159 @@
+{
+  "version": "2",
+  "flowTitle": "Pass Execution — Stage Work Dispatch (P2A→Release)",
+  "trigger": {
+    "valid": false,
+    "displayName": "Pipeline Stage Advanced (P2A→Release)",
+    "type": "PIECE_TRIGGER",
+    "settings": {
+      "pieceName": "@taskade/automade-internalpiece-taskade",
+      "pieceVersion": "1.0.0",
+      "triggerName": "task.custom_attribute_updated",
+      "input": {
+        "fieldId": "@gcf04",
+        "projectId": {
+          "type": "flow-template-variable-input-type",
+          "id": "LnpYq2qGt5DrXpda"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "a0000001-0001-4000-8000-000000000001",
+      "valid": true,
+      "displayName": "Extract Current Pipeline Stage",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "1.0.0",
+        "actionName": "ai.ask",
+        "input": {
+          "input": "nodeId={{ trigger[\"nodeId\"] }} | stage={{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf04\"] }}",
+          "prompt": "Return the exact text you receive as input. Output only that text, nothing else."
+        }
+      }
+    },
+    {
+      "name": "b0000001-0001-4000-8000-000000000002",
+      "valid": true,
+      "displayName": "Which Stage?",
+      "type": "BRANCH",
+      "settings": {},
+      "paths": [
+        {
+          "name": "b0000001-0001-4000-8000-000000000010",
+          "valid": true,
+          "displayName": "P2A — Pressure & Progression",
+          "type": "BRANCH_PATH",
+          "settings": {
+            "ruleset": {
+              "type": "CUSTOM",
+              "input": {
+                "type": "or",
+                "value": [
+                  {
+                    "type": "and",
+                    "value": [
+                      {
+                        "condition": "text_matches",
+                        "id": "a2274b54-d9cc-48d5-a902-945595c56ef1",
+                        "data": "{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf04\"] }}",
+                        "comparator": "stage-p2a"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "actions": [
+            {
+              "name": "a0000001-0001-4000-8000-000000000011",
+              "valid": false,
+              "displayName": "Game Design Critic — P2A Review",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "agent.ask",
+                "input": {
+                  "input": "Game context:\nCore Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }}\nCore Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\nMath Skill: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf03\"] }}\nDepth Potential: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf09\"] }}\nClosest Existing Game: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf08\"] }}\nNatural Ceiling: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf10\"] }}\nStage: P2A — Pressure & Progression\n\nExisting AI Critique / Pipeline History:\n{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf07\"] }}\n\nReview this game's P2A pass requirements:\n1. Has the core loop been proven in P1? Summarize what P1 validated.\n2. Design the P2A work: What pressure and progression mechanics should be added?\n3. Define P2A success criteria: What must be true before P2B begins?\n4. List the 2-3 most important things to add at this stage.\n5. Write a 2-sentence P2A directive for the development team.",
+                  "agentId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "01KNM0ECMQFA8EYBP45WTV587M"
+                  },
+                  "outputType": "plaintext"
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000012",
+              "valid": false,
+              "displayName": "Write P2A Directive to AI Critique Field",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-taskade",
+                "pieceVersion": "1.0.0",
+                "actionName": "updateCustomFields",
+                "input": {
+                  "fields": {
+                    "@gcf07": {
+                      "data": {
+                        "value": "=== P2A — PRESSURE & PROGRESSION DIRECTIVE ===\n{{ a0000001-0001-4000-8000-000000000011[\"result\"] }}"
+                      },
+                      "rank": "0",
+                      "fieldId": "@gcf07"
+                    }
+                  },
+                  "nodeId": "{{ trigger[\"nodeId\"] }}",
+                  "projectId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "LnpYq2qGt5DrXpda"
+                  }
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000013",
+              "valid": true,
+              "displayName": "P2A Pass Gate — Evaluate Readiness",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "ai.ask",
+                "input": {
+                  "input": "Core Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }} | Core Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\n\nP2A Directive:\n{{ a0000001-0001-4000-8000-000000000011[\"result\"] }}",
+                  "prompt": "You are the autonomous P2A Pass Gate for a math game studio pipeline. Your decision advances or blocks the game — no human will review this.\n\nP2A success criteria (ALL must be met to PASS):\n1. A pressure mechanic is clearly specified (streak bonus, hint cost scaling, time pressure, or equivalent)\n2. A progression mechanic is clearly specified (difficulty ramp, XP, level unlock, or equivalent)\n3. P2A success criteria are explicitly defined (what must be true before P2B begins)\n4. A dev-ready directive of at least 2 sentences is present\n5. The core loop from P1 is confirmed as validated\n\nEvaluate the P2A directive below and issue your verdict.\n\nRespond with ONLY one of these two strings:\nPASS\nFAIL: [one sentence listing the specific unmet criteria]"
+                }
+              }
+            },
+            {
+              "name": "b0000001-0001-4000-8000-000000000014",
+              "valid": true,
+              "displayName": "P2A Gate — PASS or FAIL?",
+              "type": "BRANCH",
+              "settings": {},
+              "paths": [
+                {
+                  "name": "b0000001-0001-4000-8000-000000000015",
+                  "valid": true,
+                  "displayName": "FAIL — Block & Log",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "FALLBACK"
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000016",
+                      "valid": false,
+                      "displayName": "Write P2A Block Notice",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P2A — PRESSURE & PROGRESSION DIRECTIVE ===\n{{ a0000001-0001-4000-8000-000000000011[\"result\"] }}\n\n🚫 P2A GATE: BLOCKED\n{{ a0000001-0001-4000-8000-000000000013[\"result\"] }}\n\nThis game remains at stage-p2a. The above criteria must be satisfied before advancement."
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "b0000001-0001-4000-8000-000000000017",
+                  "valid": true,
+                  "displayName": "PASS — Advance to P2B",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "CUSTOM",
+                      "input": {
+                        "type": "or",
+                        "value": [
+                          {
+                            "type": "and",
+                            "value": [
+                              {
+                                "condition": "text_starts_with",
+                                "id": "0b67be1c-d6d3-44e3-b882-7f1bdc043a4b",
+                                "data": "{{ a0000001-0001-4000-8000-000000000013[\"result\"] }}",
+                                "comparator": "PASS"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000018",
+                      "valid": false,
+                      "displayName": "Advance Stage → P2B",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf04": {
+                              "data": {
+                                "value": "stage-p2b"
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf04"
+                            },
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P2A — PRESSURE & PROGRESSION DIRECTIVE ===\n{{ a0000001-0001-4000-8000-000000000011[\"result\"] }}\n\n✅ P2A GATE: PASSED — Stage advanced to P2B automatically."
+                              },
+                              "rank": "1",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "b0000001-0001-4000-8000-000000000020",
+          "valid": true,
+          "displayName": "P2B — Content Expansion",
+          "type": "BRANCH_PATH",
+          "settings": {
+            "ruleset": {
+              "type": "CUSTOM",
+              "input": {
+                "type": "or",
+                "value": [
+                  {
+                    "type": "and",
+                    "value": [
+                      {
+                        "condition": "text_matches",
+                        "id": "5499f4de-9d53-42ed-9886-275d0d91f851",
+                        "data": "{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf04\"] }}",
+                        "comparator": "stage-p2b"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "actions": [
+            {
+              "name": "a0000001-0001-4000-8000-000000000021",
+              "valid": false,
+              "displayName": "Content Expansion Agent — P2B Plan",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "agent.ask",
+                "input": {
+                  "input": "Game context:\nCore Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }}\nCore Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\nMath Skill: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf03\"] }}\nStage: P2B — Content Expansion\n\nPipeline history:\n{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf07\"] }}\n\nYour tasks:\n1. Analyze the current content set from the pipeline notes above\n2. Identify which difficulty tiers (D1/D2/D3) are underrepresented\n3. Plan the full content expansion: list each new content type needed\n4. Specify misconception coverage gaps — which M1-M4 traps are missing?\n5. Verify difficulty ramp is smooth\n6. Write the P2B content expansion plan as a developer-ready spec\n7. Define P2B pass criteria (minimum round count, misconception coverage %, CCSS coverage)",
+                  "agentId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "01KNT43VDGP9ZHWD4PP2D0FJTS"
+                  },
+                  "outputType": "plaintext"
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000022",
+              "valid": false,
+              "displayName": "Write P2B Plan to AI Critique Field",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-taskade",
+                "pieceVersion": "1.0.0",
+                "actionName": "updateCustomFields",
+                "input": {
+                  "fields": {
+                    "@gcf07": {
+                      "data": {
+                        "value": "=== P2B — CONTENT EXPANSION PLAN ===\n{{ a0000001-0001-4000-8000-000000000021[\"result\"] }}"
+                      },
+                      "rank": "0",
+                      "fieldId": "@gcf07"
+                    }
+                  },
+                  "nodeId": "{{ trigger[\"nodeId\"] }}",
+                  "projectId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "LnpYq2qGt5DrXpda"
+                  }
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000023",
+              "valid": true,
+              "displayName": "P2B Pass Gate — Evaluate Readiness",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "ai.ask",
+                "input": {
+                  "input": "Core Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }} | Core Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\n\nP2B Plan:\n{{ a0000001-0001-4000-8000-000000000021[\"result\"] }}",
+                  "prompt": "You are the autonomous P2B Pass Gate for a math game studio pipeline. Your decision advances or blocks the game — no human will review this.\n\nP2B success criteria (ALL must be met to PASS):\n1. A full content expansion plan is specified with concrete content types listed\n2. Difficulty tiers D1, D2, D3 are addressed — underrepresented tiers have explicit new content planned\n3. Misconception coverage gaps are identified (M1–M4 traps) with specific new question types specified\n4. CCSS coverage is evaluated and documented\n5. Minimum round count is defined as a P2B pass criterion\n6. The difficulty ramp is verified as smooth across tiers\n7. The plan is written as a developer-ready spec (not vague or aspirational)\n\nEvaluate the P2B plan below and issue your verdict.\n\nRespond with ONLY one of these two strings:\nPASS\nFAIL: [one sentence listing the specific unmet criteria]"
+                }
+              }
+            },
+            {
+              "name": "b0000001-0001-4000-8000-000000000024",
+              "valid": true,
+              "displayName": "P2B Gate — PASS or FAIL?",
+              "type": "BRANCH",
+              "settings": {},
+              "paths": [
+                {
+                  "name": "b0000001-0001-4000-8000-000000000025",
+                  "valid": true,
+                  "displayName": "FAIL — Block & Log",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "FALLBACK"
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000026",
+                      "valid": false,
+                      "displayName": "Write P2B Block Notice",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P2B — CONTENT EXPANSION PLAN ===\n{{ a0000001-0001-4000-8000-000000000021[\"result\"] }}\n\n🚫 P2B GATE: BLOCKED\n{{ a0000001-0001-4000-8000-000000000023[\"result\"] }}\n\nThis game remains at stage-p2b. The above criteria must be satisfied before advancement."
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "b0000001-0001-4000-8000-000000000027",
+                  "valid": true,
+                  "displayName": "PASS — Advance to P3",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "CUSTOM",
+                      "input": {
+                        "type": "or",
+                        "value": [
+                          {
+                            "type": "and",
+                            "value": [
+                              {
+                                "condition": "text_starts_with",
+                                "id": "0059159f-8a3e-4c31-ba95-689c69640ad1",
+                                "data": "{{ a0000001-0001-4000-8000-000000000023[\"result\"] }}",
+                                "comparator": "PASS"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000028",
+                      "valid": false,
+                      "displayName": "Advance Stage → P3",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf04": {
+                              "data": {
+                                "value": "stage-p3"
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf04"
+                            },
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P2B — CONTENT EXPANSION PLAN ===\n{{ a0000001-0001-4000-8000-000000000021[\"result\"] }}\n\n✅ P2B GATE: PASSED — Stage advanced to P3 automatically."
+                              },
+                              "rank": "1",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "b0000001-0001-4000-8000-000000000030",
+          "valid": true,
+          "displayName": "P3 — Feel, Polish & Feedback Pass",
+          "type": "BRANCH_PATH",
+          "settings": {
+            "ruleset": {
+              "type": "CUSTOM",
+              "input": {
+                "type": "or",
+                "value": [
+                  {
+                    "type": "and",
+                    "value": [
+                      {
+                        "condition": "text_matches",
+                        "id": "c71821cd-9bb9-4c03-9493-d8abc563922e",
+                        "data": "{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf04\"] }}",
+                        "comparator": "stage-p3"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "actions": [
+            {
+              "name": "a0000001-0001-4000-8000-000000000031",
+              "valid": false,
+              "displayName": "Player Clarity Auditor — P3 Audit",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "agent.ask",
+                "input": {
+                  "input": "Game context:\nCore Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }}\nCore Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\nMath Skill: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf03\"] }}\nStage: P3 — Feel, Polish and Particle/Feedback Pass\n\nPipeline history:\n{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf07\"] }}\n\nRun the P3 clarity and feel audit:\n1. Check all 6 Clarity Obligations (CO-1 through CO-6) — RESOLVED/UNRESOLVED/N/A\n2. Check all 6 Named Anxiety Points (AP-1 through AP-6) — PRESENT/ABSENT\n3. Identify what feedback/particle/animation improvements are needed\n4. Write specific P3 polish directives for the dev team\n5. Define P3 pass criteria\n6. Issue preliminary gate status: GREEN/AMBER/RED with reasons",
+                  "agentId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "01KNN06QC17WFGVCFNGJ5FJRA4"
+                  },
+                  "outputType": "plaintext"
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000032",
+              "valid": false,
+              "displayName": "Math Question QA — P3 Question Audit",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "agent.ask",
+                "input": {
+                  "input": "Game context:\nCore Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }}\nCore Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\nMath Skill: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf03\"] }}\nStage: P3 — Run QA audit on question quality\n\nPipeline notes:\n{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf07\"] }}\n\nRun the 6-stage QA pipeline:\n1. Correctness check — are all answer choices and correct answers mathematically accurate?\n2. Skill alignment — does each question target the stated CCSS standard?\n3. Randomization check — are distractors non-trivially wrong (targeting misconceptions)?\n4. Hint quality — do hints scaffold without revealing the answer?\n5. Write a QA report with severity ratings (CRITICAL/HIGH/MED/LOW) per issue found\n6. List top 3 issues to fix before P4",
+                  "agentId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "01KNMYTFPEHNWARKW3EBMPSXPQ"
+                  },
+                  "outputType": "plaintext"
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000033",
+              "valid": false,
+              "displayName": "Write P3 Audit Results",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-taskade",
+                "pieceVersion": "1.0.0",
+                "actionName": "updateCustomFields",
+                "input": {
+                  "fields": {
+                    "@gcf07": {
+                      "data": {
+                        "value": "=== P3 — FEEL & POLISH AUDIT ===\n\n--- CLARITY & ANXIETY POINTS ---\n{{ a0000001-0001-4000-8000-000000000031[\"result\"] }}\n\n--- MATH QUESTION QA ---\n{{ a0000001-0001-4000-8000-000000000032[\"result\"] }}"
+                      },
+                      "rank": "0",
+                      "fieldId": "@gcf07"
+                    }
+                  },
+                  "nodeId": "{{ trigger[\"nodeId\"] }}",
+                  "projectId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "LnpYq2qGt5DrXpda"
+                  }
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000034",
+              "valid": true,
+              "displayName": "P3 Pass Gate — Evaluate Readiness",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "ai.ask",
+                "input": {
+                  "input": "Core Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }} | Core Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\n\n--- CLARITY & ANXIETY POINTS AUDIT ---\n{{ a0000001-0001-4000-8000-000000000031[\"result\"] }}\n\n--- MATH QUESTION QA ---\n{{ a0000001-0001-4000-8000-000000000032[\"result\"] }}",
+                  "prompt": "You are the autonomous P3 Pass Gate for a math game studio pipeline. Your decision advances or blocks the game — no human will review this.\n\nP3 success criteria (ALL must be met to PASS):\n1. All 6 Clarity Obligations (CO-1 through CO-6) are assessed with a RESOLVED or N/A status — no UNRESOLVED items\n2. All 6 Named Anxiety Points (AP-1 through AP-6) are assessed — no PRESENT anxiety points remain unaddressed\n3. Specific polish directives are written for feedback, particles, and animation\n4. The gate status is GREEN (AMBER is only acceptable if all AMBER items are explicitly minor and named; RED = automatic FAIL)\n5. Math QA found no CRITICAL or HIGH severity issues, OR all CRITICAL/HIGH issues are explicitly enumerated for the dev team to fix before P4\n6. The top 3 issues from QA are listed\n\nEvaluate both the Clarity Audit and the Math QA results below and issue your verdict.\n\nRespond with ONLY one of these two strings:\nPASS\nFAIL: [one sentence listing the specific blocking issues]"
+                }
+              }
+            },
+            {
+              "name": "b0000001-0001-4000-8000-000000000035",
+              "valid": true,
+              "displayName": "P3 Gate — PASS or FAIL?",
+              "type": "BRANCH",
+              "settings": {},
+              "paths": [
+                {
+                  "name": "b0000001-0001-4000-8000-000000000036",
+                  "valid": true,
+                  "displayName": "FAIL — Block & Log",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "FALLBACK"
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000037",
+                      "valid": false,
+                      "displayName": "Write P3 Block Notice",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P3 — FEEL & POLISH AUDIT ===\n\n--- CLARITY & ANXIETY POINTS ---\n{{ a0000001-0001-4000-8000-000000000031[\"result\"] }}\n\n--- MATH QUESTION QA ---\n{{ a0000001-0001-4000-8000-000000000032[\"result\"] }}\n\n🚫 P3 GATE: BLOCKED\n{{ a0000001-0001-4000-8000-000000000034[\"result\"] }}\n\nThis game remains at stage-p3. All blocking issues above must be resolved before advancement."
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "b0000001-0001-4000-8000-000000000038",
+                  "valid": true,
+                  "displayName": "PASS — Advance to P4",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "CUSTOM",
+                      "input": {
+                        "type": "or",
+                        "value": [
+                          {
+                            "type": "and",
+                            "value": [
+                              {
+                                "condition": "text_starts_with",
+                                "id": "cff190bd-e5e9-43f8-8f01-e43418c7eeb4",
+                                "data": "{{ a0000001-0001-4000-8000-000000000034[\"result\"] }}",
+                                "comparator": "PASS"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000039",
+                      "valid": false,
+                      "displayName": "Advance Stage → P4",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf04": {
+                              "data": {
+                                "value": "stage-p4"
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf04"
+                            },
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P3 — FEEL & POLISH AUDIT ===\n\n--- CLARITY & ANXIETY POINTS ---\n{{ a0000001-0001-4000-8000-000000000031[\"result\"] }}\n\n--- MATH QUESTION QA ---\n{{ a0000001-0001-4000-8000-000000000032[\"result\"] }}\n\n✅ P3 GATE: PASSED — Stage advanced to P4 automatically."
+                              },
+                              "rank": "1",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "b0000001-0001-4000-8000-000000000040",
+          "valid": true,
+          "displayName": "P4 — Full Content + Scaffolding",
+          "type": "BRANCH_PATH",
+          "settings": {
+            "ruleset": {
+              "type": "CUSTOM",
+              "input": {
+                "type": "or",
+                "value": [
+                  {
+                    "type": "and",
+                    "value": [
+                      {
+                        "condition": "text_matches",
+                        "id": "56563acb-86c9-4aa2-b586-6741778ac009",
+                        "data": "{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf04\"] }}",
+                        "comparator": "stage-p4"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "actions": [
+            {
+              "name": "a0000001-0001-4000-8000-000000000041",
+              "valid": false,
+              "displayName": "Game Build Standards Agent — P4 Gate Check",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "agent.ask",
+                "input": {
+                  "input": "Game context:\nCore Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }}\nCore Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\nMath Skill: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf03\"] }}\nDepth Potential: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf09\"] }}\nStage: P4 — Full Content + Scaffolding\n\nPipeline history:\n{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf07\"] }}\n\nRun the Build Standards Gate evaluation for P4 readiness:\n1. Check all CO items (CO-1 through CO-6) against the P4 spec\n2. Check all AP items (AP-1 through AP-6)\n3. Check all MG items (MG-1 through MG-6) if applicable\n4. Evaluate whether scaffolding is complete (hint tiers, F-key references, step panels)\n5. Evaluate whether full content is implemented (all designed rounds/levels)\n6. Issue GATE STATUS: GREEN/AMBER/RED\n7. If not GREEN: list all blocking items with specific what-is-missing descriptions\n8. Write P4→P5 readiness recommendation",
+                  "agentId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "01KNQF8R7MKP55BTX318H0HFYG"
+                  },
+                  "outputType": "plaintext"
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000042",
+              "valid": false,
+              "displayName": "Write P4 Gate Evaluation",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-taskade",
+                "pieceVersion": "1.0.0",
+                "actionName": "updateCustomFields",
+                "input": {
+                  "fields": {
+                    "@gcf07": {
+                      "data": {
+                        "value": "=== P4 — BUILD STANDARDS GATE EVALUATION ===\n{{ a0000001-0001-4000-8000-000000000041[\"result\"] }}"
+                      },
+                      "rank": "0",
+                      "fieldId": "@gcf07"
+                    }
+                  },
+                  "nodeId": "{{ trigger[\"nodeId\"] }}",
+                  "projectId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "LnpYq2qGt5DrXpda"
+                  }
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000043",
+              "valid": true,
+              "displayName": "P4 Pass Gate — Evaluate Readiness",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "ai.ask",
+                "input": {
+                  "input": "Core Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }} | Core Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\n\nP4 Gate Evaluation:\n{{ a0000001-0001-4000-8000-000000000041[\"result\"] }}",
+                  "prompt": "You are the autonomous P4 Pass Gate for a math game studio pipeline. Your decision advances or blocks the game — no human will review this.\n\nP4 success criteria (ALL must be met to PASS):\n1. Gate Status is GREEN — AMBER or RED = automatic FAIL unless all AMBER items are minor and explicitly named\n2. All CO items (CO-1 through CO-6) are confirmed compliant\n3. All AP items (AP-1 through AP-6) are confirmed resolved\n4. Scaffolding is confirmed complete: hint tiers, F-key references, and step panels are all implemented\n5. Full designed content is confirmed implemented (all rounds/levels)\n6. A specific P4→P5 readiness recommendation is written\n7. All blocking items (if any) are explicitly listed — none may remain unresolved\n\nEvaluate the P4 gate evaluation below and issue your verdict.\n\nRespond with ONLY one of these two strings:\nPASS\nFAIL: [one sentence listing the specific blocking items]"
+                }
+              }
+            },
+            {
+              "name": "b0000001-0001-4000-8000-000000000044",
+              "valid": true,
+              "displayName": "P4 Gate — PASS or FAIL?",
+              "type": "BRANCH",
+              "settings": {},
+              "paths": [
+                {
+                  "name": "b0000001-0001-4000-8000-000000000045",
+                  "valid": true,
+                  "displayName": "FAIL — Block & Log",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "FALLBACK"
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000046",
+                      "valid": false,
+                      "displayName": "Write P4 Block Notice",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P4 — BUILD STANDARDS GATE EVALUATION ===\n{{ a0000001-0001-4000-8000-000000000041[\"result\"] }}\n\n🚫 P4 GATE: BLOCKED\n{{ a0000001-0001-4000-8000-000000000043[\"result\"] }}\n\nThis game remains at stage-p4. All blocking items above must be resolved before advancement to P5."
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "b0000001-0001-4000-8000-000000000047",
+                  "valid": true,
+                  "displayName": "PASS — Advance to P5",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "CUSTOM",
+                      "input": {
+                        "type": "or",
+                        "value": [
+                          {
+                            "type": "and",
+                            "value": [
+                              {
+                                "condition": "text_starts_with",
+                                "id": "46b8a8ae-49fe-443b-99e8-325bd615b893",
+                                "data": "{{ a0000001-0001-4000-8000-000000000043[\"result\"] }}",
+                                "comparator": "PASS"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000048",
+                      "valid": false,
+                      "displayName": "Advance Stage → P5",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf04": {
+                              "data": {
+                                "value": "stage-p5"
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf04"
+                            },
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P4 — BUILD STANDARDS GATE EVALUATION ===\n{{ a0000001-0001-4000-8000-000000000041[\"result\"] }}\n\n✅ P4 GATE: PASSED — Stage advanced to P5 automatically."
+                              },
+                              "rank": "1",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "b0000001-0001-4000-8000-000000000050",
+          "valid": true,
+          "displayName": "P5 — Release Polish + Release Gate",
+          "type": "BRANCH_PATH",
+          "settings": {
+            "ruleset": {
+              "type": "CUSTOM",
+              "input": {
+                "type": "or",
+                "value": [
+                  {
+                    "type": "and",
+                    "value": [
+                      {
+                        "condition": "text_matches",
+                        "id": "cf2e6f36-414b-4f34-bf17-3b111e3d9c30",
+                        "data": "{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf04\"] }}",
+                        "comparator": "stage-p5"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "actions": [
+            {
+              "name": "a0000001-0001-4000-8000-000000000051",
+              "valid": false,
+              "displayName": "Release Gate Agent — Final Certification",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "agent.ask",
+                "input": {
+                  "input": "Game context:\nCore Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }}\nCore Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\nMath Skill: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf03\"] }}\nStage: P5 — Release Polish\n\nFull pipeline history:\n{{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf07\"] }}\n\nRun all five release gate domains:\n1. Build Standards Compliance — were all CO/MG issues resolved?\n2. Content Completeness — is the full designed content set implemented?\n3. Player Clarity — are all AP anxiety points resolved?\n4. QA Audit Status — are all CRITICAL/HIGH issues from QA resolved?\n5. Pass Record Completeness — is there a documented pass record for P1-P5?\n\nIssue RELEASE GATE STATUS: GREEN / AMBER / RED\nIf GREEN: write the official release certification statement.\nIf AMBER: list exact conditions and owner.\nIf RED: list all blocking items — these must be resolved before release.",
+                  "agentId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "01KNT44QZCAS478T59ZCH4PVSB"
+                  },
+                  "outputType": "plaintext"
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000052",
+              "valid": false,
+              "displayName": "Pipeline Orchestrator — Release Summary",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "agent.ask",
+                "input": {
+                  "input": "Core Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }} | Core Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\n\nRelease Gate result: {{ a0000001-0001-4000-8000-000000000051[\"result\"] }}\n\nWrite the final pipeline orchestrator release summary:\n1. Confirm which stage this game reached and what was certified\n2. Note any conditions on release (AMBER) or blocks (RED)\n3. Write a 2-sentence studio announcement note for this game reaching P5\n4. Recommend next steps: announce for beta access, run teacher pilot, full release, or return to P4",
+                  "agentId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "01KNMNAPBV02J41TQPV2W5XV51"
+                  },
+                  "outputType": "plaintext"
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000053",
+              "valid": false,
+              "displayName": "Write P5 Release Certification",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-taskade",
+                "pieceVersion": "1.0.0",
+                "actionName": "updateCustomFields",
+                "input": {
+                  "fields": {
+                    "@gcf07": {
+                      "data": {
+                        "value": "=== P5 — RELEASE GATE CERTIFICATION ===\n\n--- RELEASE GATE AGENT ---\n{{ a0000001-0001-4000-8000-000000000051[\"result\"] }}\n\n--- PIPELINE ORCHESTRATOR SUMMARY ---\n{{ a0000001-0001-4000-8000-000000000052[\"result\"] }}"
+                      },
+                      "rank": "0",
+                      "fieldId": "@gcf07"
+                    }
+                  },
+                  "nodeId": "{{ trigger[\"nodeId\"] }}",
+                  "projectId": {
+                    "type": "flow-template-variable-input-type",
+                    "id": "LnpYq2qGt5DrXpda"
+                  }
+                }
+              }
+            },
+            {
+              "name": "a0000001-0001-4000-8000-000000000054",
+              "valid": true,
+              "displayName": "P5 Release Gate — Final Certification Verdict",
+              "type": "PIECE",
+              "settings": {
+                "pieceName": "@taskade/automade-internalpiece-openai",
+                "pieceVersion": "1.0.0",
+                "actionName": "ai.ask",
+                "input": {
+                  "input": "Core Fantasy: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf01\"] }} | Core Action: {{ trigger[\"LnpYq2qGt5DrXpda/fields/@gcf02\"] }}\n\n--- RELEASE GATE AGENT ---\n{{ a0000001-0001-4000-8000-000000000051[\"result\"] }}\n\n--- PIPELINE ORCHESTRATOR SUMMARY ---\n{{ a0000001-0001-4000-8000-000000000052[\"result\"] }}",
+                  "prompt": "You are the autonomous P5 Final Release Gate for a math game studio pipeline. Your decision certifies or blocks release — no human will review this.\n\nRelease gate domains (ALL must be GREEN to PASS):\n1. Build Standards Compliance — all CO/MG issues from prior passes are resolved\n2. Content Completeness — full designed content set is implemented\n3. Player Clarity — all AP anxiety points resolved (none PRESENT)\n4. QA Audit Status — all CRITICAL and HIGH severity issues from P3 QA are resolved\n5. Pass Record Completeness — documented pass record exists for P1 through P4 at minimum\n6. Gate Status from Release Gate Agent is GREEN (AMBER with named minor conditions is conditionally acceptable; RED = automatic FAIL)\n\nEvaluate the release gate and orchestrator summary below.\n\nRespond with ONLY one of these two strings:\nPASS\nFAIL: [one sentence listing the specific blocking domains]"
+                }
+              }
+            },
+            {
+              "name": "b0000001-0001-4000-8000-000000000055",
+              "valid": true,
+              "displayName": "P5 Gate — CERTIFIED or BLOCKED?",
+              "type": "BRANCH",
+              "settings": {},
+              "paths": [
+                {
+                  "name": "b0000001-0001-4000-8000-000000000056",
+                  "valid": true,
+                  "displayName": "BLOCKED — Return to P4",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "FALLBACK"
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000057",
+                      "valid": false,
+                      "displayName": "Write P5 Block — Return to P4",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf04": {
+                              "data": {
+                                "value": "stage-p4"
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf04"
+                            },
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P5 — RELEASE GATE CERTIFICATION ===\n\n--- RELEASE GATE AGENT ---\n{{ a0000001-0001-4000-8000-000000000051[\"result\"] }}\n\n--- PIPELINE ORCHESTRATOR SUMMARY ---\n{{ a0000001-0001-4000-8000-000000000052[\"result\"] }}\n\n🚫 RELEASE BLOCKED\n{{ a0000001-0001-4000-8000-000000000054[\"result\"] }}\n\nGame returned to stage-p4. All blocking domains above must be resolved before re-entering P5."
+                              },
+                              "rank": "1",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "b0000001-0001-4000-8000-000000000058",
+                  "valid": true,
+                  "displayName": "CERTIFIED — Mark Released",
+                  "type": "BRANCH_PATH",
+                  "settings": {
+                    "ruleset": {
+                      "type": "CUSTOM",
+                      "input": {
+                        "type": "or",
+                        "value": [
+                          {
+                            "type": "and",
+                            "value": [
+                              {
+                                "condition": "text_starts_with",
+                                "id": "cb37958c-12a5-407c-b66d-3818268b9b31",
+                                "data": "{{ a0000001-0001-4000-8000-000000000054[\"result\"] }}",
+                                "comparator": "PASS"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "actions": [
+                    {
+                      "name": "a0000001-0001-4000-8000-000000000059",
+                      "valid": false,
+                      "displayName": "Mark Game — Released ✅",
+                      "type": "PIECE",
+                      "settings": {
+                        "pieceName": "@taskade/automade-internalpiece-taskade",
+                        "pieceVersion": "1.0.0",
+                        "actionName": "updateCustomFields",
+                        "input": {
+                          "fields": {
+                            "@gcf04": {
+                              "data": {
+                                "value": "stage-p5"
+                              },
+                              "rank": "0",
+                              "fieldId": "@gcf04"
+                            },
+                            "@gcf05": {
+                              "data": {
+                                "value": "gono-go"
+                              },
+                              "rank": "1",
+                              "fieldId": "@gcf05"
+                            },
+                            "@gcf07": {
+                              "data": {
+                                "value": "=== P5 — RELEASE GATE CERTIFICATION ===\n\n--- RELEASE GATE AGENT ---\n{{ a0000001-0001-4000-8000-000000000051[\"result\"] }}\n\n--- PIPELINE ORCHESTRATOR SUMMARY ---\n{{ a0000001-0001-4000-8000-000000000052[\"result\"] }}\n\n✅ RELEASE CERTIFIED — All five gate domains passed. Game is cleared for release."
+                              },
+                              "rank": "2",
+                              "fieldId": "@gcf07"
+                            }
+                          },
+                          "nodeId": "{{ trigger[\"nodeId\"] }}",
+                          "projectId": {
+                            "type": "flow-template-variable-input-type",
+                            "id": "LnpYq2qGt5DrXpda"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "LnpYq2qGt5DrXpda": {
+      "id": "LnpYq2qGt5DrXpda",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-project-id"
+    },
+    "01KNM0ECMQFA8EYBP45WTV587M": {
+      "id": "01KNM0ECMQFA8EYBP45WTV587M",
+      "rank": "k",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "01KNT43VDGP9ZHWD4PP2D0FJTS": {
+      "id": "01KNT43VDGP9ZHWD4PP2D0FJTS",
+      "rank": "s",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "01KNN06QC17WFGVCFNGJ5FJRA4": {
+      "id": "01KNN06QC17WFGVCFNGJ5FJRA4",
+      "rank": "w",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "01KNMYTFPEHNWARKW3EBMPSXPQ": {
+      "id": "01KNMYTFPEHNWARKW3EBMPSXPQ",
+      "rank": "y",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "01KNQF8R7MKP55BTX318H0HFYG": {
+      "id": "01KNQF8R7MKP55BTX318H0HFYG",
+      "rank": "z",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "01KNT44QZCAS478T59ZCH4PVSB": {
+      "id": "01KNT44QZCAS478T59ZCH4PVSB",
+      "rank": "zV",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    },
+    "01KNMNAPBV02J41TQPV2W5XV51": {
+      "id": "01KNMNAPBV02J41TQPV2W5XV51",
+      "rank": "zk",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    }
+  }
+}

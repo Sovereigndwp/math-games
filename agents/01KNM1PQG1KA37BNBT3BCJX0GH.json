@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "⛔ SEO Content Writer [DEPRECATED]",
+  "commands": [],
+  "description": "This agent is deprecated and should be deleted.\n\nIts prompt mixed SEO writing with game ideation in a way that overlapped with both the Brainstorming Specialist and the Subject Expansion Scout, without being precise enough to serve either function well. It had no defined output format and no path into the pipeline.\n\nIf a dedicated launch-copy or app-store-description writer is needed in the future, it should be created with a specific brief: receives a shipped game spec, produces SEO-ready descriptions targeting teachers and parents, with keyword research grounded in educational game search behavior.\n\nDo not use this agent.",
+  "introduction": "This agent is deprecated and should be deleted.",
+  "conversationStarters": [],
+  "toolbox": []
+}

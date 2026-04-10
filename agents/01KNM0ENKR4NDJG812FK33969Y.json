@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "⛔ Researcher [DEPRECATED]",
+  "commands": [],
+  "description": "This agent is deprecated and should be deleted.\n\nIts function has been fully absorbed by the Subject Expansion Scout, which performs all research tasks with domain specificity, a priority order, and structured output format appropriate to this studio.\n\nDo not use this agent. Use the Subject Expansion Scout instead.",
+  "introduction": "This agent is deprecated. Please use the Subject Expansion Scout for all research tasks.",
+  "conversationStarters": [],
+  "toolbox": []
+}

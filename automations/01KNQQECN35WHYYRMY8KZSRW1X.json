@@ -1,0 +1,34 @@
+{
+  "version": "2",
+  "flowTitle": "Pass Closure Agent Automation",
+  "trigger": {
+    "type": "EMPTY"
+  },
+  "actions": [
+    {
+      "name": "0f63bc11-1563-4450-9f34-2838f3c73145",
+      "valid": false,
+      "displayName": "Run Agent Command",
+      "type": "PIECE",
+      "settings": {
+        "pieceName": "@taskade/automade-internalpiece-openai",
+        "pieceVersion": "BLANK",
+        "actionName": "agent.run_command",
+        "input": {
+          "agentId": {
+            "type": "flow-template-variable-input-type",
+            "id": "01KNQKQDTCWCX46233P9SC50RH"
+          }
+        }
+      }
+    }
+  ],
+  "variables": {
+    "01KNQKQDTCWCX46233P9SC50RH": {
+      "id": "01KNQKQDTCWCX46233P9SC50RH",
+      "rank": "V",
+      "type": "string",
+      "format": "taskade-space-agent-id"
+    }
+  }
+}

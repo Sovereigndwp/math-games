@@ -1,0 +1,5166 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "005566e9-e0a4-4b74-a0fe-dc27fe5dcb49",
+        "text": {
+          "ops": [
+            {
+              "insert": "Error 403 (Forbidden)!!1"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": {
+          "node": "h1",
+          "children": "text"
+        },
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "a0061b6a-1b0a-4f52-adf8-8bcc121264fa",
+            "text": {
+              "ops": [
+                {
+                  "insert": "403.",
+                  "attributes": {
+                    "bold": true
+                  }
+                },
+                {
+                  "insert": " That’s an error."
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "dc0bb412-5878-4901-bc00-69e82e4b3bad",
+            "text": {
+              "ops": [
+                {
+                  "insert": "We're sorry, but you do not have access to this page. That’s all we know."
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "ce891797-4cd2-420a-aea3-e6bd8e57fc51",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Back",
+                  "attributes": {
+                    "link": "https://www.youtube.com/"
+                  }
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "42bc9ead-8b5b-4813-93bd-12676f8bc4fd",
+            "text": {
+              "ops": [
+                {
+                  "insert": "YouTube Home",
+                  "attributes": {
+                    "url": "https://www.youtube.com/@GMTK",
+                    "link": "https://www.youtube.com/"
+                  }
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "text",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "b579a925-107c-49ef-b552-ccce56c3bcc4",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Navigation"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "257f7bf8-2910-4a02-bab3-e29ffc296755",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Home",
+                      "attributes": {
+                        "link": "https://www.youtube.com/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9a5826de-a840-407c-a5f6-26a1ed96a239",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Shorts",
+                      "attributes": {
+                        "link": "https://www.youtube.com/feed/shorts"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f7e3bbb1-463a-43c0-ad6e-044db153a550",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Subscriptions",
+                      "attributes": {
+                        "link": "https://www.youtube.com/feed/subscriptions"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8f1f712b-b607-4f68-b6c2-018d34c59543",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "You",
+                      "attributes": {
+                        "link": "https://www.youtube.com/feed/you"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "72222670-7ac4-4e88-b27e-1e9cf835943c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "History",
+                      "attributes": {
+                        "link": "https://www.youtube.com/feed/history"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e90dae55-889b-49b8-a638-0ece8a79eb02",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Sign in to like videos, comment, and subscribe. "
+                    },
+                    {
+                      "insert": "Sign in",
+                      "attributes": {
+                        "link": "https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252F%2540GMTK&hl=en"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "c4d10c81-757c-4e20-9903-5ac337ad9fe0",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Explore"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "5ba43d80-6616-4db8-a1e4-748dc3e20a55",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Shopping",
+                      "attributes": {
+                        "link": "https://www.youtube.com/channel/UCkYQyvc_i9hXEo4xic9Hh2g"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "35c75af8-9f5a-4ce6-ac64-4d7afe361032",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Music",
+                      "attributes": {
+                        "link": "https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "605e217b-110c-490a-8db0-cece677b502f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Movies & TV",
+                      "attributes": {
+                        "link": "https://www.youtube.com/feed/storefront"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "83625cdd-2e1f-4c00-b441-b2bc57d136e3",
+            "text": {
+              "ops": [
+                {
+                  "insert": "More from YouTube"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "0e2676ac-5727-4578-9db0-14c17b8f5818",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "YouTube Premium",
+                      "attributes": {
+                        "link": "https://www.youtube.com/premium"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e687146c-e19e-4438-883c-bc24f163f4e9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "YouTube TV",
+                      "attributes": {
+                        "link": "https://tv.youtube.com/?utm_source=youtube_web&utm_medium=ep&utm_campaign=home&ve=34273"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2cf5d7f9-9eeb-416f-ac1d-35b56833c154",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "YouTube Music",
+                      "attributes": {
+                        "link": "https://music.youtube.com/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "dd7a4112-23e3-4ec7-aec4-d14f5466bef3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "YouTube Kids",
+                      "attributes": {
+                        "link": "https://www.youtubekids.com/?source=youtube_web"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "4fb6e84c-5c43-4d6c-9ab8-8075caf5ee79",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Report history",
+                      "attributes": {
+                        "link": "https://www.youtube.com/reporthistory"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "5a6f6bf8-9e80-4c4e-b5da-a2cf96137b89",
+            "text": {
+              "ops": [
+                {
+                  "insert": "How to find amazing game ideas"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "d63b1404-7816-49d3-9611-bd1d8ade7410",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Watch Video",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=0m60QbT85Tc"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f6fd4fac-2557-4fff-a08a-3488c75be3af",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "838,163 views 1 year ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d3bd2a0f-0ac4-47b1-8b67-e7cc5a70b8b5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "🔴 Get my premium monthly newsletter - "
+                    },
+                    {
+                      "insert": "Game Maker's Toolkit Digest",
+                      "attributes": {
+                        "link": "https://gamemakerstoolkit.com/digest/"
+                      }
+                    },
+                    {
+                      "insert": " 🔴"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "686a3b9b-d21b-4166-a4a0-408fa786a44e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The first step to making your next game is to come up with an idea. But where do game designers get their ideas? And how do you know if the idea is worth pursuing? Let's find out, in part one of Game Dev 101."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "066a7327-27ca-4b35-b32a-d158c4d4ad6c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Sources",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d61e96fb-759a-4e27-aa96-a9d286b6f890",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Game Maker's Toolkit Sources",
+                      "attributes": {
+                        "link": "https://gamemakerstoolkit.com/sources-how-to-come-up-with-great-game-ideas/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "3995c1bf-e7aa-44a0-a251-1823cc6edb07",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Chapters",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f4b9f858-a88b-4538-9011-cdc96819be2f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "00:00 - Intro"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f57a2ae6-ae87-40d0-909a-acebdbb17c74",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "02:10 - Other Games"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "62a898bc-0d7a-4e86-a260-5580a8dc844a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "05:06 - Using Genres"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "6703fe36-88e5-4cb9-af60-a78068b6064a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "07:59 - Making Mechanics"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "4882504e-b580-4425-9f29-4565ed2c5dbb",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "12:01 - The Experience"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "845a3e2a-623c-4a7b-b43a-05d7be760548",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "15:04 - 10 Tips"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "457b0379-e8e7-47d7-ad24-339a870554c1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "19:12 - Can you make it?"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e6c9383c-6d3f-4c52-b716-fa946418caa3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "21:03 - Will it stand out?"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "68f5a257-0d5c-4fd0-ab9e-3aa61934d61a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "25:23 - How would you market it?"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1062109e-8d07-4a79-b973-9708145b0590",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "26:20 - Conclusion"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "number",
+                  "children": "number"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "94898d98-23e3-41d0-8d26-794b9358ee1a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Games Shown",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2ef0bf48-06ed-467d-b9c1-a74d74e37f38",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Mind Over Magnet | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "32354b1c-1604-4e50-9c37-e39c6a0999bc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Cuphead | 2017"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "97d0a7a8-7a2d-43de-badb-24cce6d4e6c1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Celeste | 2018"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c97bbb3e-6806-4109-b83a-8cba7988924c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Super Mario Maker 2 | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9da2fe6d-2044-4ab3-ac72-a54b065d3ead",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Game Dev Story | 2010"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "62a78a79-2f79-4c25-8389-c70ce64b1def",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Like a Dragon: Infinite Wealth | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ef41e680-0494-4c85-bfac-170897bcea4d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The Artful Escape | 2021"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "20a822a3-e99d-4116-859f-9a452e4fa5ff",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Pizza Tower | 2023"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "fa552847-d2bc-425c-b96f-b78040705233",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Satisfactory | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a1c872e8-715d-4280-8eb9-570924a86e71",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Factorio | 2020"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c50c9bd2-9e2a-4b9a-9344-d38d7bde52dc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Subnautica | 2018"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "76a2df22-f8c7-4bc9-9152-3e24ee195ebc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Minecraft | 2011"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "09bf1794-85c7-4866-ae75-9c056e327b58",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Among Us | 2018"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c4e556c6-0386-4643-a0fc-dfbbff62b494",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Stardew Valley | 2016"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d15d0b3a-7dab-4359-8740-e585170ba4e2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Harvest Moon: Back to Nature | 1999"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "476eabea-f054-4aec-a49b-3f49e5017961",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Hakaiman | 2006"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c2fdfbbb-a175-4f39-9903-9ee23f20379f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Tetuahu | 1999"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "664f9779-0f84-4d70-8e21-8a2fcb62e70b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Super Carnage | Unreleased"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e965b19b-e966-4dbd-a6b8-2cf8134ffbc0",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Hotline Miami | 2012"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "397436d2-63c4-4199-ac10-a52af4e06b6b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "God’s Trigger | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "20155b2d-6570-45bd-b631-33f9e28d3769",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Anger Foot | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "6b522fc8-078d-4cf1-88b8-bae1d317e84f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Katana Zero | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a0dab75e-306b-4260-a6ad-f85a125fbc50",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Ape Out | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f221ef45-a258-4968-9d8a-ff2ff189a7c5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Infiniminer | 2009"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "81c7832f-29ec-4c31-ac20-f4e12d565b89",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Vampire Survivors | 2022"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c4de5db3-b231-440a-a12d-b729ccf3cd47",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Magic Survival | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ad3f8abf-4f66-4eeb-9ef2-989d1a53d993",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Fortnite | 2017"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b201a122-a348-47e8-ba21-03dd0d22fe7a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "PUBG: Battlegrounds | 2017"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "11a173a3-82bd-4b89-a8cb-90f47c217915",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Indiana Jones and the Great Circle | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d2291a50-1cfb-4c13-9f26-0e57dc524e4c",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Dicey Dungeons | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9534c050-e5ea-425b-b1ea-19d105e14aba",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Dream Quest | 2014"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7e1f7b98-ae41-4b35-90c6-b5959664de47",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Doom | 2016"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2b39f732-0416-4499-b342-1d2009423489",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Crypt of the NecroDancer | 2015"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "6062563e-6713-4004-8ee1-0583e9026358",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Rogue | 1980"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9f06c366-cd0c-43e9-906c-955e735b5f80",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Islanders | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "43e14180-0349-41c0-b6bb-9b6e23798050",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Slay the Spire | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "291bf440-2dd0-4db1-9336-28eb203819f5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Spelunky | 2012"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7f208e5c-5c91-4c6d-b9c4-79332247e9f9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Super Mario 3D World | 2013"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1f84a200-f86f-4785-af93-34c574ce2a5a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Metaphor: ReFantazio | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d857c576-fbec-4274-a80d-2a18295b90e0",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Call of Duty: Black Ops 6 | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "69501e8f-2591-4474-b540-12edfc8adcb3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Pokemon Snap | 1999"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "808ab3a9-4f4c-4522-8ecb-9bf872ef92ab",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "PowerWash Simulator | 2022"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2733b73d-b7a4-4d53-866c-cd719921c294",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Unpacking | 2021"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "bd78aaf0-fd01-4402-9016-8bc2b25bccbd",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Return of the Obra Dinn | 2018"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e56a7b1e-f17a-4504-ad35-23708bc4b3c1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Papers, Please | 2013"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "df4a2c70-6c78-489e-85da-cd576c5b6b75",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Wilmot’s Warehouse | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ef7bcfd8-3635-4635-aece-eb635fb2f1b8",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Pikmin | 2001"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "4c03eccc-978d-43f4-b777-d37ddf239ebe",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Astro Bot | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "00ab0b63-2439-43c0-83cc-bb0c98086cf2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Fruit Ninja | 2010"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e765c3d5-2560-44b3-bfa7-345057b52dca",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Super Mario Sunshine | 2002"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "906cd922-257e-48a3-acf8-5fd2e8aafe65",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Shovel Knight | 2014"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "24caec57-6dac-46cd-8af5-972b7dc5fe96",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Braid: Anniversary Edition | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "608ec7bd-f6e8-4fb4-bb93-bdd12e4d091d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Prince of Persia: The Sands of Time | 2003"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "79d6b015-3c41-4894-93be-560a957c173e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Zelda II: The Adventure of Link | 1987"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d742ddf1-123f-43bf-8f05-b0f64843ebb3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The Legend of Zelda: Oracle of Seasons | 2001"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ab34da69-149f-40f8-86c3-7d5a9fe22b35",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Splatoon | 2015"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "46d9a021-8c10-4deb-b491-ef713315b05b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Death Stranding: Director's Cut | 2021"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "62f8a831-468f-4ecb-8397-b169f057f513",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Star Wars Jedi: Survivor | 2023"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "510fda1f-4705-463a-8de9-9be966d02b2d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "FTL: Faster Than Light | 2012"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "39c7eff0-d61f-4f85-b095-be7bf173694e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Thronefall | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f5dc3010-c3b8-4f9a-b6b7-ec59daca60c5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Spiritfarer | 2020"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "79d1e585-4ce8-4ade-b871-382d851f236a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Into the Breach | 2018"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "03be15fd-1b9f-4e4e-aa12-66ce2668507a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "That Dragon, Cancer | 2016"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0f89b85d-1e07-48ea-8fc2-7bf161df51d6",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Crazy Taxi | 1999"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d3dd38a3-deb7-4152-b0f1-bc5120a05b5a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Venba | 2023"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c5f98371-2368-4069-b822-804076db3abc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Uncharted: Legacy of Thieves Collection | 2022"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9df10839-4b3e-4cd4-a622-233fed932b70",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Undertale | 2015"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9ecbffad-f522-4fcd-a4cc-ab5e48c04911",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Touhou Koumakyou: The Embodiment of Scarlet Devil | 2002"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c8eeeeb9-0a21-4b8c-9c46-7c70e07aae99",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Lorelei And The Laser Eyes | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d99c8a99-0622-4861-a4ce-4cd8021ee3f4",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Sayonara Wild Hearts | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "28179fe9-f667-44fa-98a6-1593970c505f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Rollerdrome | 2022"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8ecb51b0-cc8c-4100-9f01-67fdc62f2771",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "A Little to the Left | 2022"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b033ee39-41c4-485a-8bd7-1739d767f1de",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Forza Horizon 5 | 2021"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "091e9ff4-88e8-474a-917d-6ee0134e54e9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Parking Garage Rally Circuit | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9dbf4e2f-e40e-4480-adf9-55cadb54337e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "A Short Hike | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8064dad7-98d7-430e-a7b9-54a25b7c91ad",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "World of Goo | 2008"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "11d61242-0fc3-4014-a31d-0971aa04a191",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The Witcher 3: Wild Hunt | 2015"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "fd25032e-3e2f-4ab1-b141-d3887a570387",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Psychonauts 2 | 2021"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c6ad1bcd-e993-459a-8310-ebd1ddd43f73",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Will You Snail? | 2022"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f089b16b-e4c8-4f97-9f33-a11f8fe9a7a3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Firewatch | 2016"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a253c456-8883-4942-b07a-924279c1856d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Sega Bass Fishing | 1997"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "3c0d3ea2-ede3-4123-ba69-1e525fd9ec28",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Darkest Dungeon | 2016"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c34973e9-d426-49cc-8e2c-fe5190383393",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Animal Crossing: New Horizons | 2020"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "882171ba-0791-4747-b13f-624d993bc509",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Arco | 2024"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "5d066fcc-4589-432d-b1dd-91e5567bb3ad",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Dave the Diver | 2023"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "42ddaf99-182c-47bb-9141-3c04c61fa017",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Control | 2019"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a074fc2d-bcf6-4271-8ed6-85de6a016a3f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "DIEmunition | 2022"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9a1684fc-a506-45d2-a388-68d73a3bdce2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Maze of the Mini-Taur | 2021"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7d0d8b15-aa32-4f1b-86b2-174d9e10d61e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Two-Timin’ Towers | Unreleased"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "8b280515-6ce4-47bc-99f4-ea19429656b3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Getting Over It with Bennett Foddy | 2017"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e8c91070-2bb1-4f49-8814-b8011676c4e7",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Hyper Light Drifter | 2016"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "432600af-cfd1-4d66-be7c-4cee4db37564",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Angry Birds | 2009"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "95f63e8b-fbc1-483c-8026-f443155bd5c3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Wordle | 2021"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "bullet",
+                  "children": "bullet"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "6454065a-f9b6-436f-aa27-685aaf86240a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Credits",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c0873596-d440-4c78-bafc-d0e7e6f676cd",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Music provided by Epidemic Sound - "
+                    },
+                    {
+                      "insert": "Epidemic Sound Referral Link",
+                      "attributes": {
+                        "link": "https://www.epidemicsound.com/referral/vtdu5y"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7233f91d-80f1-4ac4-9057-558c6af30813",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Werewolf: How to Play | Stellar Factory"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1b3ccf95-a891-4f0b-b819-fa3bb7fe9b09",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Watch Video",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=Sau32ahQvDM"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "1d5c7b69-7bb3-4070-aa03-19029b5d91e5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "You Have Arrived | US Customs and Border"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "13d1644d-a384-4000-8296-d83743fee188",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Watch Video",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=WHt2xnXk8AI"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b0f3a1b3-59fc-47f5-84c2-8fe8249e79c3",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "2001 - GameCube American Reveal | NeoGamer"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b39694f2-0cf1-459f-a53a-d0f3aa7d7aac",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Watch Video",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=vB7yXT0dpQI"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7cde9f19-5de4-47de-a307-48311ad75454",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Hellblade Development Diary 10 | Ninja Theory"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "85c77182-8394-438d-ae9a-dcb94b4987d9",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Watch Video",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=YBprDIzcXxw"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2d35ed99-9ae5-44cc-b876-17a1e69fd294",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Astor Piazzolla - Tango Apasionado"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "3197627c-bcbe-4ea0-9c26-24ff9e7573ed",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Watch Video",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=1CifcnZGIoE"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "35b8034b-a458-4310-a855-eb80d0f06dbf",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Drive © FilmDistrict"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a9dce44e-a34f-4a7f-bff3-5b5cf6ca9ed6",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Man of Steel © Warner Bros"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ec031313-59ca-4a4f-900f-7ae7cdee9386",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Ratatouille © Disney"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "122efdc0-e4f1-4b99-aaaf-283d5f5dd160",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Subtitles",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2b994e4d-d433-4ad5-999d-63c4f4973f95",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Contribute translated subtitles - "
+                    },
+                    {
+                      "insert": "Translation Link",
+                      "attributes": {
+                        "link": "https://gamemakerstoolkit.com/translation/"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "9d904c4a-e750-4eaf-807b-d9aa10cfa584",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Videos"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "6116ccf2-8b92-44ed-a8fd-c5952de48c27",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Has Zelda Changed Forever?",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=MILJzR0x3IY&pp=0gcJCdoKAYcqIYzv",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f63a8e98-4f6b-4219-ac40-d81fac59eaf1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "284K views10 days ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "67ab8e63-fbd7-4002-94af-88844e0d1698",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The World Design of Hollow Knight: Silksong",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=l7xXW0EbK4g",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0b8074aa-c58d-43a2-b52c-c2ea09f59ed6",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "537K views3 months ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "daafed74-4c14-4302-9c56-fee3bcb060a7",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "What's the Point of Prototyping?",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=8tHJgtbj6rs",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "69bfe0bd-7368-4b41-a3d0-653fdd0acefb",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "289K views5 months ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "180a3762-b2b5-40d3-bb9a-59c913e57240",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "How Games Do Destruction",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=JZ9GRFD-mSc",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "73a79e7e-4e39-4ddd-bb0a-0c7b1f948bc0",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "457K views6 months ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e5f368ea-e6d5-4533-8776-7dab70b9cc44",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "What's The Point Of Hard Games, Anyway?",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=Ip5pYl-MuYs",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "2a36a6f6-6837-4b40-93f3-b283e00c980e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "651K views6 months ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "5901f9c0-3186-42cb-b7a3-1fe03d4bb150",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "My Favourite Games from GMTK Game Jam 2025",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=kG3LWpuiLqg",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "df1dc576-ab38-4719-be43-49361e45d5fc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "483K views7 months ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "d7043c12-a062-46bf-a1e3-26c4a8fa3b75",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Popular Videos"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "3f985297-fb7c-4889-988e-55f716fa8240",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The Unity Tutorial For Complete Beginners",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=XtQMytORBmM",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "4941760f-96bd-4dd7-bd56-2a5658368fd2",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "6.6M views3 years ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "9dd8740d-f115-41e7-97c3-6d1d46922631",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "How Game Designers Protect Players From Themselves",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=7L8vAGGitr8",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "906d89bc-2243-456e-88ff-40807935308a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "5.6M views8 years ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "af67ba35-236a-43b7-97e3-771073188dff",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Why Metro Exodus is so Immersive",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=8geGHbWIMXA",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "097facf1-eeb8-4d70-b2db-ad7a5d763f13",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "4.2M views6 years ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7ad3007b-3d6c-4675-b39b-6110f842ff36",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The World Design of Hollow Knight | Boss Keys",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=7ITtPPE-pXE",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d325cb74-ff80-4620-8596-a341ac8cd64b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "3.8M views6 years ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "f888b180-bc0e-47f1-b2ed-cb3d48d761d5",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The Two Types of Random in Game Design",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=dwI5b-wRLic",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "20bd77d6-8f75-4c18-8b58-a2bd787d54d0",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "3.5M views6 years ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "50e01ae3-e008-49f2-ade1-1b4a56b9e1b1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "How the Nemesis System Creates Stories",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=Lm_AzK27mZY",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "eacbf466-c723-4be9-865c-b585a25af6e1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "3.1M views5 years ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "c1321690-00b4-431b-96ab-0a81376d1e2c",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Game Maker's Toolkit Series"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "9acee405-728e-479c-860f-bf96e2d00833",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "The main series for this channel, with videos on game design and game analysis."
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "fc0333ad-c4eb-4ec5-96b3-3ad0daadb676",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Has Zelda Changed Forever?",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=MILJzR0x3IY",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "e2813ab6-f831-441c-9b86-debb02c1653f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "284K views10 days ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "fd105485-7c3f-4d6f-a310-8a8b045e8865",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "How Games Do Destruction",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=JZ9GRFD-mSc",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "5409df52-1f8b-4bf1-9a8e-f2d6e487e9cf",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "457K views6 months ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a34d171e-b9b2-4224-a598-64fcac2ad292",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Can I fix Zelda's UI using Unity?",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=e4vsgC41bYg&pp=0gcJCdoKAYcqIYzv",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d156f14b-f862-46ee-8be9-fe8e62054ac7",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "502K views1 year ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "436f877b-08f8-43f2-8ca1-9c69580b8f8a",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "How a Super Smash Bros. Fighter is Designed",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=_TjTBE9ii8k",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "7bac5af7-4e6a-4b78-ae30-17a98769a5c1",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "368K views1 year ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "5673735c-12e0-49a3-a943-dccfd39f14dc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "10 Game Design Lessons from 10 Years of GMTK",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=Cm2_drGLGbc",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "5cfbcffa-b77a-425d-aee7-f346aef8132e",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "362K views1 year ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "a7af2cbc-e27b-4718-be2f-1eb04129640d",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "What Makes a Game Feel Mysterious?",
+                      "attributes": {
+                        "link": "https://www.youtube.com/watch?v=ilnq1ZNmhoM",
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "ca3f4a0a-d3d4-49b1-be10-f1cdb5fdab52",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "697K views1 year ago"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "66a5da79-3653-4193-9bde-ae439064edc1",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Series"
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": "text"
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": [
+              {
+                "type": "text",
+                "id": "9f7e5324-3a13-4c8c-89f2-c14eca54f75b",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "View all:"
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "40b9fcc1-d605-45aa-9f55-22bab9d3f378",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Game Maker's Toolkit",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "60b702b2-e7df-453e-bae0-cef2ac0a8070",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "View full playlist",
+                      "attributes": {
+                        "link": "https://www.youtube.com/playlist?list=PLc38fcMFcV_s7Lf6xbeRfWYRt7-Vmi_X9"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "b540de67-31b3-4151-a58d-d77b84dcd420",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "GMTK Game Jam",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "0b7653de-c138-4ed9-9f45-b2b09d84337f",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "View full playlist",
+                      "attributes": {
+                        "link": "https://www.youtube.com/playlist?list=PLc38fcMFcV_vnAZjugCRdKr8_8d_y_rRl"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "49474246-55c8-4a44-a330-773f5325c583",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Developing - Word Play",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "acc2db55-0fa9-468c-b7fd-6fb835b218e7",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "View full playlist",
+                      "attributes": {
+                        "link": "https://www.youtube.com/playlist?list=PLc38fcMFcV_tSvzPsVQYB9jDNpQAJMjjm"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "12867539-ba5d-483a-8710-a13e7128eec8",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Developing - Mind Over Magnet",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "71a7aed9-be3d-41a9-9008-431e0876fcbc",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "View full playlist",
+                      "attributes": {
+                        "link": "https://www.youtube.com/playlist?list=PLc38fcMFcV_uH3OK4sTa4bfUXGk2NW2n"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "c354ad05-c565-41e5-b372-7a35e7e079fd",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "Boss Keys",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "be2cac19-5b20-488d-8d4d-a992fc92d3ca",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "View full playlist",
+                      "attributes": {
+                        "link": "https://www.youtube.com/playlist?list=PLc38fcMFcV_ul4D6OChdWhsNsYY3NA5B2"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "626878a7-3c55-43a1-b89b-686a5fceca98",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "GMTK Mini",
+                      "attributes": {
+                        "bold": true
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              },
+              {
+                "type": "text",
+                "id": "d9cadcf0-176d-41f9-8409-1c87fd038b20",
+                "text": {
+                  "ops": [
+                    {
+                      "insert": "View full playlist",
+                      "attributes": {
+                        "link": "https://www.youtube.com/playlist?list=PLc38fcMFcV_sOPSV6eFQmJh_Sh4dyfjj2"
+                      }
+                    },
+                    {
+                      "insert": "\n",
+                      "attributes": {
+                        "paragraph": true
+                      }
+                    }
+                  ]
+                },
+                "format": {
+                  "node": "text",
+                  "children": "text"
+                },
+                "collapsed": false,
+                "completed": false,
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "preferences": {
+    "avatar": {
+      "type": "emoji",
+      "value": "🔥"
+    },
+    "coverImageType": "background"
+  }
+}

@@ -1,0 +1,1840 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "cc000001-0000-0000-0000-000000000001",
+        "text": {
+          "ops": [
+            {
+              "insert": "Fire Dispatch — Question Audit Results"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": null,
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-T1 — Multiplication Fact Recall",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-t1"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-pass"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "Correctness ✓ (R2=5×3=15, R3=6×4=24, R4=7×4=28, R5=9×5=45 — all correct). Skill alignment ✓ (multiplicative, not additive). Randomization: no randomizer; static content covers ×5–×9 range ✓. Hints: wrongHint + wrongHint2 now both say 'Think × not +' targeting M1 — ✓. Age band ✓ Grade 3–5. WARN: no time pressure enforced at difficulty 3+ (spec requires ≤4s window for ×6–×9). Gap is architectural — untimed by P1 design.",
+              "@qa09": "WARN (not blocking): Add soft time pressure at multiply block rounds 3–5 in a future P2 pass. Current static content is mathematically correct and hint quality is good."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000002",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-T2 — Division as Partitioning",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-t2"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-pass"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "All division prompts audited: zero occurrences of 'take away', 'remove', 'subtract' in division context. R6: 'how many stations can the fleet cover?' ✓. R7: 'how many piers can the fleet reach?' ✓. R8: 'how many full units can you cover?' ✓. R9: 'how many substations get full coverage?' ✓. Division equation reveal now shows totalPool ÷ trucksPerUnit = answer ✓. WrongHint2 added for all divide rounds using multiplicative inverse framing ✓.",
+              "@qa09": "PASS — no fixes needed. Division-as-partitioning language is consistent across all 4 divide rounds."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000003",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-T3 — Multi-Step Dispatch",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-t3"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-pass"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "R10 (4×9=36) and R11 (8×6=48) are tagged multi-step. Final answers are correct. WrongHint + wrongHint2 both scaffold the two-step process (multiply first, then check fleet). Step label added to HUD showing 'Step 1: multiply · Step 2: verify fleet'. WARN: no locked step-by-step UI — single input accepts final answer. Spec calls for greyed Step 2 field until Step 1 solved. This is a P2 architectural item.",
+              "@qa09": "WARN (not blocking for P1): Step-by-step locked UI deferred to P2. Current hints adequately scaffold the two steps via wrongHint/wrongHint2 text."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000004",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-T4 — Remainder / Ceiling",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-t4"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-pass"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "CRITICAL BUG FIXED (2026-04-09): R8 was 20÷4=5 (exact — no remainder, M3 trap impossible). R9 was 30÷5=6 (exact — no remainder). Both were answering wrong values. Fixed: R8 now 22÷4=5 r2 (answer=5 full units, 2 trucks in reserve). R9 now 27÷5=5 r2 (answer=5 substations). Division equation reveal now shows remainder ✓. WrongHint2 explicitly names the remainder ✓. WARN: no leftover-firefighter animation (requires sprite layer — P2 item).",
+              "@qa09": "M3 remainder trap now mathematically valid. Data corrected. Animation deferred to P2."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000005",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-M1 — Intro: Single-Zone Dispatch",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-m1"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-na"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "R0 (2×3=6) and R1 (4×2=8) are intro rounds. On success, equation reveal shows trucksPerUnit × units = answer and labels it 'Used multiplication — each unit needs its own full crew' ✓. This names the operation explicitly as required. WrongHint scaffolds the multiplication concept without revealing answer ✓.",
+              "@qa09": "PASS — intro rounds correctly introduce multiplication and name the operation on success."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000006",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-M2 — Multiply: 2–4 Tables",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-m2"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-warn"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "Multiply block covers ×5 (R2), ×6 (R3), ×7 (R4), ×9 (R5). ×2, ×3, ×4 appear only in intro (R0, R1). Spec says 4-round session must guarantee factors 2, 3, 4 each appear at least once. Static content partially covers but no randomizer exists. WARN: no randomizer — content is static by P1 design.",
+              "@qa09": "WARN: randomizer deferred to P2. Static content is pedagogically reasonable for P1 demonstration."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000007",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-M3 — Multiply: 5–9 Tables",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-m3"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-warn"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "Multiply block has ×6 (R3) and ×7 (R4) but no ×8. Spec requires at least 2 from {×6,×7,×8}. Has 2/3 ✓. No randomizer — static. WARN: ×8 not covered. No randomizer.",
+              "@qa09": "WARN: add a ×8 round to the multiply block in P2 content expansion. Randomizer deferred to P2."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000008",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-M4 — Divide: Partition 12–36",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-m4"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-pass"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "R6 (18÷3=6) and R7 (28÷4=7). Both exact quotients (no remainder) ✓. Prompts use 'per station'/'per pier' — multiplicative language, no subtraction ✓. Division equation reveal shows totalPool ÷ trucksPerUnit = answer ✓. WrongHint2 reframes as inverse multiplication ('what number times 4 equals 28?') ✓.",
+              "@qa09": "PASS — exact dividends, correct partitioning language, good hint quality."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000009",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-M5 — Divide: Inverse Multiplication",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-m5"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-pass"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "R8 (22÷4=5 r2) and R9 (27÷5=5 r2). FIXED: numbers now non-divisible so M3 remainder trap is real. Prompts frame it as 'leftover trucks stay in reserve' ✓. Answer parser accepts 5 (floor), not 5.5 or 6 ✓. Equation reveal shows 22÷4=5 r2 and 27÷5=5 r2 ✓. WrongHint2 explicitly states the remainder value ('2 left over') without revealing the answer ✓.",
+              "@qa09": "PASS — M3 trap is now mathematically valid. Remainder blindness is correctly targeted."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000010",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-M6 — Multi-Step: Multiply then Divide",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-m6"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-pass"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "R10 (4×9=36) and R11 (8×6=48). Multi-step structure present: multiply then check fleet. Step label shown in HUD ✓. WrongHint + wrongHint2 scaffold both steps ✓. WARN: no locked two-step UI (single input accepts final answer). Spec: Step 2 input should be greyed until Step 1 correct.",
+              "@qa09": "WARN (P2 item): two-step locked UI not implemented. Acceptable for P1 — text scaffolding covers the gap."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000011",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-M7 — Multi-Step: Remainders",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-m7"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-pass"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "Same as FD-M6: no locked two-step UI. Remainder scenario in M7 is now correctly implemented in R8/R9 (non-divisible numbers, M3 trap valid). Progressive hints now show wrongHint2 after 2nd wrong attempt ✓. Hint progression unlocks in correct order ✓.",
+              "@qa09": "WARN (P2 item): two-step locked UI deferred. Hint progression now correctly implemented."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000012",
+            "text": {
+              "ops": [
+                {
+                  "insert": "FD-M8 — Boss Round: Full Dispatch",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa01": {
+                "type": "Select",
+                "optionId": "fd-m8"
+              },
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@qa03": {
+                "type": "Select",
+                "optionId": "cr-pass"
+              },
+              "@qa04": {
+                "type": "Select",
+                "optionId": "sa-pass"
+              },
+              "@qa05": {
+                "type": "Select",
+                "optionId": "rh-pass"
+              },
+              "@qa06": {
+                "type": "Select",
+                "optionId": "hq-pass"
+              },
+              "@qa07": {
+                "type": "Select",
+                "optionId": "ab-pass"
+              },
+              "@qa08": "R11 (Skyline Tower, 8×6=48) is now marked isBossRound=true. Hint display is suppressed — wrong-attempt overlay shows 'Boss round · no hints' and 'Use your skills — no hints on the final zone' ✓. No blocking mechanism for T1–T4 PASS requirement — all prior rounds must be completed in sequence naturally ✓.",
+              "@qa09": "WARN: no explicit 'T1–T4 must pass before boss' gate — game progresses linearly so all prior rounds are always completed first. Blocking is structural by default."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000013",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Cross-Cutting: Repeated-Addition Bypass",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-warn"
+              },
+              "@qa08": "No time pressure at any difficulty level. All multiplication rounds are untimed — player can compute for unlimited seconds before dispatching. Spec requires ≤4s response window for ×6–×9 at difficulty 3+. This is an architectural gap requiring a timer component. WARN not FAIL for P1: time pressure is a P2+ feature.",
+              "@qa09": "WARN (P2 item): add soft time pressure (countdown bar, not punitive) for multiply block rounds at higher difficulty. Observer protocol latency measurement is not yet in place."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "cc000002-0000-0000-0000-000000000014",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Cross-Cutting: Subtraction-Division Confusion",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@qa02": {
+                "type": "Select",
+                "optionId": "qs-pass"
+              },
+              "@qa08": "Full audit of all game text strings completed 2026-04-09. Zero occurrences of 'remove', 'take away', 'subtract' in any division-context prompt or hint. All 4 divide rounds (R6–R9) use partitioning language: 'how many groups', 'how many stations can the fleet cover', 'leftover trucks stay in reserve' ✓. Introduction screen uses 'drain the fleet' in a general context (not division-specific) — acceptable ✓.",
+              "@qa09": "PASS — subtraction-division confusion is fully mitigated across all text strings."
+            },
+            "children": []
+          }
+        ]
+      }
+    ],
+    "fields": {
+      "@qa01": {
+        "displayName": "Template",
+        "type": "Select",
+        "options": {
+          "fd-t1": {
+            "id": "fd-t1",
+            "name": "FD-T1 — Multiplication Fact Recall",
+            "rank": "0",
+            "color": "#6366f1"
+          },
+          "fd-t2": {
+            "id": "fd-t2",
+            "name": "FD-T2 — Division as Partitioning",
+            "rank": "1",
+            "color": "#8b5cf6"
+          },
+          "fd-t3": {
+            "id": "fd-t3",
+            "name": "FD-T3 — Multi-Step Dispatch",
+            "rank": "2",
+            "color": "#a855f7"
+          },
+          "fd-t4": {
+            "id": "fd-t4",
+            "name": "FD-T4 — Remainder / Ceiling",
+            "rank": "3",
+            "color": "#ec4899"
+          },
+          "fd-m1": {
+            "id": "fd-m1",
+            "name": "FD-M1 — Intro: Single-Zone Dispatch",
+            "rank": "4",
+            "color": "#22c55e"
+          },
+          "fd-m2": {
+            "id": "fd-m2",
+            "name": "FD-M2 — Multiply: 2-4 Tables",
+            "rank": "5",
+            "color": "#10b981"
+          },
+          "fd-m3": {
+            "id": "fd-m3",
+            "name": "FD-M3 — Multiply: 5-9 Tables",
+            "rank": "6",
+            "color": "#06b6d4"
+          },
+          "fd-m4": {
+            "id": "fd-m4",
+            "name": "FD-M4 — Divide: Partition 12–36",
+            "rank": "7",
+            "color": "#3b82f6"
+          },
+          "fd-m5": {
+            "id": "fd-m5",
+            "name": "FD-M5 — Divide: Inverse Mult",
+            "rank": "8",
+            "color": "#0ea5e9"
+          },
+          "fd-m6": {
+            "id": "fd-m6",
+            "name": "FD-M6 — Multi-Step: Mult+Div",
+            "rank": "9",
+            "color": "#f97316"
+          },
+          "fd-m7": {
+            "id": "fd-m7",
+            "name": "FD-M7 — Multi-Step: Remainders",
+            "rank": "10",
+            "color": "#f59e0b"
+          },
+          "fd-m8": {
+            "id": "fd-m8",
+            "name": "FD-M8 — Boss: Full Dispatch",
+            "rank": "11",
+            "color": "#ef4444"
+          }
+        }
+      },
+      "@qa02": {
+        "displayName": "Audit Status",
+        "type": "Select",
+        "options": {
+          "qs-pass": {
+            "id": "qs-pass",
+            "name": "PASS",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "qs-warn": {
+            "id": "qs-warn",
+            "name": "WARN",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "qs-fail": {
+            "id": "qs-fail",
+            "name": "FAIL",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "qs-running": {
+            "id": "qs-running",
+            "name": "RUNNING",
+            "rank": "3",
+            "color": "#3b82f6"
+          },
+          "qs-pending": {
+            "id": "qs-pending",
+            "name": "PENDING",
+            "rank": "4",
+            "color": "#64748b"
+          }
+        }
+      },
+      "@qa03": {
+        "displayName": "Correctness",
+        "type": "Select",
+        "options": {
+          "cr-pass": {
+            "id": "cr-pass",
+            "name": "✓ Correct",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "cr-warn": {
+            "id": "cr-warn",
+            "name": "⚠ 1–2 Errs",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "cr-fail": {
+            "id": "cr-fail",
+            "name": "✗ Systematic",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "cr-skip": {
+            "id": "cr-skip",
+            "name": "—",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa04": {
+        "displayName": "Skill Alignment",
+        "type": "Select",
+        "options": {
+          "sa-pass": {
+            "id": "sa-pass",
+            "name": "✓ On-Skill",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "sa-warn": {
+            "id": "sa-warn",
+            "name": "⚠ Shortcut",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "sa-fail": {
+            "id": "sa-fail",
+            "name": "✗ Off-Skill",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "sa-skip": {
+            "id": "sa-skip",
+            "name": "—",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa05": {
+        "displayName": "Randomization Health",
+        "type": "Select",
+        "options": {
+          "rh-pass": {
+            "id": "rh-pass",
+            "name": "✓ Diverse",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "rh-warn": {
+            "id": "rh-warn",
+            "name": "⚠ Collisions",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "rh-fail": {
+            "id": "rh-fail",
+            "name": "✗ Broken",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "rh-na": {
+            "id": "rh-na",
+            "name": "N/A",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa06": {
+        "displayName": "Hint Quality",
+        "type": "Select",
+        "options": {
+          "hq-pass": {
+            "id": "hq-pass",
+            "name": "✓ Scaffolded",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "hq-warn": {
+            "id": "hq-warn",
+            "name": "⚠ Reveals",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "hq-fail": {
+            "id": "hq-fail",
+            "name": "✗ Useless",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "hq-skip": {
+            "id": "hq-skip",
+            "name": "—",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa07": {
+        "displayName": "Age Band",
+        "type": "Select",
+        "options": {
+          "ab-pass": {
+            "id": "ab-pass",
+            "name": "✓ Gr 3–5",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "ab-warn": {
+            "id": "ab-warn",
+            "name": "⚠ Some Off",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "ab-fail": {
+            "id": "ab-fail",
+            "name": "✗ Wrong Level",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "ab-skip": {
+            "id": "ab-skip",
+            "name": "—",
+            "rank": "3",
+            "color": "#475569"
+          }
+        }
+      },
+      "@qa08": {
+        "displayName": "Issues Found",
+        "type": "string"
+      },
+      "@qa09": {
+        "displayName": "Fix Required",
+        "type": "string"
+      }
+    },
+    "views": {
+      "list": {
+        "id": "list",
+        "type": "list",
+        "rank": "A",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "board": {
+        "id": "board",
+        "type": "board",
+        "rank": "B",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "mindmap": {
+        "id": "mindmap",
+        "type": "mindmap",
+        "rank": "D",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "orgchart": {
+        "id": "orgchart",
+        "type": "orgchart",
+        "rank": "E",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z"
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV"
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk"
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs"
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw"
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy"
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz"
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV"
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk"
+          }
+        }
+      },
+      "gantt": {
+        "id": "gantt",
+        "type": "gantt",
+        "rank": "F",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz",
+            "hidden": false
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV",
+            "hidden": false
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk",
+            "hidden": false
+          }
+        }
+      },
+      "table": {
+        "id": "table",
+        "type": "table",
+        "rank": "V",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@qa01": {
+            "id": "/attributes/@qa01",
+            "fieldPath": "/attributes/@qa01",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@qa02": {
+            "id": "/attributes/@qa02",
+            "fieldPath": "/attributes/@qa02",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@qa03": {
+            "id": "/attributes/@qa03",
+            "fieldPath": "/attributes/@qa03",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@qa04": {
+            "id": "/attributes/@qa04",
+            "fieldPath": "/attributes/@qa04",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@qa05": {
+            "id": "/attributes/@qa05",
+            "fieldPath": "/attributes/@qa05",
+            "rank": "zw",
+            "hidden": false
+          },
+          "/attributes/@qa06": {
+            "id": "/attributes/@qa06",
+            "fieldPath": "/attributes/@qa06",
+            "rank": "zy",
+            "hidden": false
+          },
+          "/attributes/@qa07": {
+            "id": "/attributes/@qa07",
+            "fieldPath": "/attributes/@qa07",
+            "rank": "zz",
+            "hidden": false
+          },
+          "/attributes/@qa08": {
+            "id": "/attributes/@qa08",
+            "fieldPath": "/attributes/@qa08",
+            "rank": "zzV",
+            "hidden": false
+          },
+          "/attributes/@qa09": {
+            "id": "/attributes/@qa09",
+            "fieldPath": "/attributes/@qa09",
+            "rank": "zzk",
+            "hidden": false
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "defaultView": "table",
+    "avatar": {
+      "type": "emoji",
+      "value": "📙"
+    }
+  }
+}

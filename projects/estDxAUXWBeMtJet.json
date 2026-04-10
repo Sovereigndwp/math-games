@@ -1,0 +1,1762 @@
+{
+  "root": {
+    "type": "root",
+    "children": [
+      {
+        "type": "text",
+        "id": "a1000000-0000-0000-0000-000000000001",
+        "text": {
+          "ops": [
+            {
+              "insert": "Snack Line Shuffle — Question Audit Results"
+            },
+            {
+              "insert": "\n",
+              "attributes": {
+                "paragraph": true
+              }
+            }
+          ]
+        },
+        "format": null,
+        "collapsed": false,
+        "completed": false,
+        "children": [
+          {
+            "type": "text",
+            "id": "a1000001-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Audit Run — 2026-04-09 · Auditor: EVE",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h1",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000002-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Warm-Up Block (R0–R1) — 2 kids, no trap",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000003-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R0 · Warm-up · 2 kids · [2+1, 1+1] → order: a→b (3,2) · M1: NO",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "Expressions, totals, correctOrder all match spec. amberLine 'Hmm, are we in the right order?' — direction-free, no totals, no >/< relation. PASS.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000004-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R1 · Warm-up · 2 kids · [3+1, 1+2] → order: a→b (4,3) · M1: NO",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "Expressions, totals, correctOrder match spec. amberLine 'I'm not sure I'm in the right spot.' — compliant. PASS.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000005-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Core Block A (R2–R8) — 3 kids, mixed",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000006-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R2 · 3-kid · [1+1, 2+1, 3+2] → order: c→b→a (5,3,2) · M1: NO",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "Correct ordering c(5)→b(3)→a(2) matches spec. First addends (1,2,3) align with totals — no trap, pedagogical purpose confirmed. amberLine 'Do you think I belong here?' — compliant.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000007-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R3 · 3-kid M1 · [3+0, 2+2, 4+1] → order: c→b→a (5,4,3) · M1: YES",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "M1 trap verified: 3+0 has bigger first addend (3) than 2+2 (2) but 3+0=3 < 2+2=4. Correct order c(5)→b(4)→a(3). amberLine 'Um… I think someone might be out of place.' — compliant, no direction hint.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000008-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R4 · 3-kid M1 · [4+0, 3+2, 2+1] → order: b→a→c (5,4,3) · M1: YES",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "M1 trap verified: 4+0 (first addend 4) has smaller total (4) than 3+2 (total 5). Correct leader is b=3+2. amberLine 'Are you sure about this spot?' — compliant.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000009-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R5 · 3-kid clean · [1+0, 2+0, 1+3] → order: c→b→a (4,2,1) · M1: NO",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "Clean round. c=1+3=4 leads. Reinforces that second addend determines total when first addend is small. amberLine 'Hmm, I'm not sure this is right.' — compliant.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000010-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R6 · 3-kid M1 · [4+0, 3+2, 1+1] → order: b→a→c (5,4,2) · M1: YES",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "M1 trap verified: same structure as R4 but third kid differs (1+1=2 vs 2+1=3). 4+0 loses to 3+2 at top. amberLine 'Wait — should I be here?' — compliant.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000011-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R7 · 3-kid clean · [0+2, 1+3, 0+3] → order: b→c→a (4,3,2) · M1: NO",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "Clean. Two kids share 0 first addend (0+2 and 0+3) — first-addend heuristic useless for them. Full computation required. amberLine 'Something feels off about this order.' — compliant.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000012-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R8 · 3-kid M1 · [3+0, 2+3, 1+0] → order: b→a→c (5,3,1) · M1: YES",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "M1 trap verified: 3+0 bigger first addend (3) than 2+3 (2) but 3+0=3 < 2+3=5. amberLine 'I don't think this neighbour and I are in the right order.' — compliant.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000013-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Core Block B (R9–R13) — 4 kids, mixed",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000014-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R9 · 4-kid clean · [1+1, 2+1, 1+3, 2+3] → order: d→c→b→a (5,4,3,2) · M1: NO",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "First 4-kid round. Perfectly consecutive totals 2,3,4,5. No trap — establishes 4-way ordering before adding complexity. amberLine 'Hmm, are we lined up the right way?' — compliant.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000015-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R10 · 4-kid M1 (double) · [4+0, 3+0, 2+3, 1+0] → order: c→a→b→d (5,4,3,1) · FIXED",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "fixed"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "high"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "amber"
+              },
+              "@slsf3": "DATA: correctOrder c→a→b→d matches spec (2+3=5 leads). Double M1 trap verified. AMBER VIOLATION FOUND: old amberLine 'I think someone nearby has more snacks than me' implied a directional comparison (who has more/less) — banned by the permanent Visual Neutrality Constraint ('no >/< relation, no explicit who-goes-first'). Classified HIGH severity.",
+              "@slsf4": "FIXED 2026-04-09: Replaced amberLine with 'Hmm, I'm not sure we've all been counted up properly.' — direction-free, prompts recomputation only. Fix note displayed in Level Browser."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000016-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R11 · 4-kid M1 · [3+2, 4+0, 2+0, 1+0] → order: a→b→c→d (5,4,2,1) · M1: YES",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "M1 trap: 4+0 bigger first addend (4) than 3+2 (3) but 4+0=4 < 3+2=5. Three X+0 kids have trivial totals; challenge is entirely at top pair. correctOrder a→b→c→d verified. amberLine 'Wait — check our snack counts again!' — compliant (encourages recomputation).",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000017-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R12 · 4-kid clean · [0+1, 0+2, 0+4, 0+3] → order: c→d→b→a (4,3,2,1) · M1: NO",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "All four kids have 0 first addend — first-addend heuristic is completely useless. Player must read second addend for every kid. Presented order scrambles the rank. correctOrder c(4)→d(3)→b(2)→a(1) verified. amberLine 'Are we in the right spots?' — compliant.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000018-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "SLS-R13 · 4-kid M1 (final) · [3+2, 4+0, 2+1, 1+0] → order: a→b→c→d (5,4,3,1) · M1: YES",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "data"
+              },
+              "@slsf3": "M1 trap: 4+0 bigger first addend (4) than 3+2 (3), yet 4+0=4 < 3+2=5. Top pair reversed by M1 heuristic. Totals 5,4,3,1 — clean finale, uneven bottom gap. correctOrder a→b→c→d verified. amberLine 'Something's off — I'm not sure this is right.' — compliant.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000019-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Cross-Cutting Issues",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000020-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "CC-1 · Amber trigger — transition-only compliance · FIXED",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "fixed"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "medium"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "crosscut"
+              },
+              "@slsf3": "Spec requires: 'Do not play VO if the pair was already amber — transition only.' Original handleReorder fired on any drag where amber pairs existed AND no toast was currently shown. After toast dismissed, any subsequent drag with same amber pairs would re-fire — not true transition-only. Classified MEDIUM.",
+              "@slsf4": "FIXED 2026-04-09: Rewrote handleReorder to track prevAmberPairsRef (Set of pair keys from previous drag). Toast fires only if at least one amber pair key is NEW vs previous drag. prevAmberPairsRef reset to empty Set in startRound() on each new round."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000021-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "CC-2 · Visual neutrality — totals never displayed · PASS",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "checkbox",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "attributes": {
+              "@slsf1": {
+                "type": "Select",
+                "optionId": "pass"
+              },
+              "@slsf2": {
+                "type": "Select",
+                "optionId": "info"
+              },
+              "@slsf5": {
+                "type": "Select",
+                "optionId": "crosscut"
+              },
+              "@slsf3": "Audited all UI states: DraggableKidCard renders kid.expression only (e.g. '2+1'), never kid.total. Served state (celebration) shows expressions only. Level Browser has reveal-total toggle gated as 'internal reference' — acceptable for design tooling, not player-facing. Fairness language audit: idle screen copy and rule reminder are computation-framed, no fairness/friendship language.",
+              "@slsf4": "None required."
+            },
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000022-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Audit Summary — 2026-04-09",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "h2",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000023-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Rounds audited: 14/14 (R0–R13)",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "bullet",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000024-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Data correctness: 14/14 PASS — all expressions, totals, correctOrder match spec exactly",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "bullet",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000025-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "M1 trap count: 7/14 (50%) — R3, R4, R6, R8, R10, R11, R13. Spec requires ≥30%. PASS.",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "bullet",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000026-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Amber VO copy: 13/14 PASS, 1 FIXED (R10 — HIGH). Visual Neutrality Constraint violation patched.",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "bullet",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000027-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Cross-cutting: 2 issues — CC-1 amber trigger FIXED (MEDIUM), CC-2 visual neutrality PASS",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "bullet",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          },
+          {
+            "type": "text",
+            "id": "a1000028-0000-0000-0000-000000000001",
+            "text": {
+              "ops": [
+                {
+                  "insert": "Overall: 0 FAIL · 0 WARN · 2 FIXED (HIGH + MEDIUM) · 14 PASS · Cold-start readiness: GOOD",
+                  "attributes": {}
+                },
+                {
+                  "insert": "\n",
+                  "attributes": {
+                    "paragraph": true
+                  }
+                }
+              ]
+            },
+            "format": {
+              "node": "bullet",
+              "children": null
+            },
+            "collapsed": false,
+            "completed": false,
+            "children": []
+          }
+        ]
+      }
+    ],
+    "fields": {
+      "@slsf1": {
+        "displayName": "Status",
+        "type": "Select",
+        "options": {
+          "pass": {
+            "id": "pass",
+            "name": "PASS",
+            "rank": "0",
+            "color": "#22c55e"
+          },
+          "warn": {
+            "id": "warn",
+            "name": "WARN",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "fail": {
+            "id": "fail",
+            "name": "FAIL",
+            "rank": "2",
+            "color": "#ef4444"
+          },
+          "fixed": {
+            "id": "fixed",
+            "name": "FIXED",
+            "rank": "3",
+            "color": "#6366f1"
+          },
+          "na": {
+            "id": "na",
+            "name": "N/A",
+            "rank": "4",
+            "color": "#64748b"
+          }
+        }
+      },
+      "@slsf2": {
+        "displayName": "Severity",
+        "type": "Select",
+        "options": {
+          "critical": {
+            "id": "critical",
+            "name": "CRITICAL",
+            "rank": "0",
+            "color": "#dc2626"
+          },
+          "high": {
+            "id": "high",
+            "name": "HIGH",
+            "rank": "1",
+            "color": "#ea580c"
+          },
+          "medium": {
+            "id": "medium",
+            "name": "MEDIUM",
+            "rank": "2",
+            "color": "#ca8a04"
+          },
+          "low": {
+            "id": "low",
+            "name": "LOW",
+            "rank": "3",
+            "color": "#64748b"
+          },
+          "info": {
+            "id": "info",
+            "name": "INFO",
+            "rank": "4",
+            "color": "#3b82f6"
+          }
+        }
+      },
+      "@slsf3": {
+        "displayName": "Audit Notes",
+        "type": "string"
+      },
+      "@slsf4": {
+        "displayName": "Fix Applied",
+        "type": "string"
+      },
+      "@slsf5": {
+        "displayName": "Category",
+        "type": "Select",
+        "options": {
+          "data": {
+            "id": "data",
+            "name": "Data Correctness",
+            "rank": "0",
+            "color": "#8b5cf6"
+          },
+          "amber": {
+            "id": "amber",
+            "name": "Amber VO Copy",
+            "rank": "1",
+            "color": "#f59e0b"
+          },
+          "mechanic": {
+            "id": "mechanic",
+            "name": "Mechanic",
+            "rank": "2",
+            "color": "#06b6d4"
+          },
+          "visual": {
+            "id": "visual",
+            "name": "Visual Neutrality",
+            "rank": "3",
+            "color": "#ec4899"
+          },
+          "crosscut": {
+            "id": "crosscut",
+            "name": "Cross-Cutting",
+            "rank": "4",
+            "color": "#10b981"
+          }
+        }
+      }
+    },
+    "views": {
+      "list": {
+        "id": "list",
+        "type": "list",
+        "rank": "A",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@slsf1": {
+            "id": "/attributes/@slsf1",
+            "fieldPath": "/attributes/@slsf1",
+            "rank": "z"
+          },
+          "/attributes/@slsf2": {
+            "id": "/attributes/@slsf2",
+            "fieldPath": "/attributes/@slsf2",
+            "rank": "zV"
+          },
+          "/attributes/@slsf3": {
+            "id": "/attributes/@slsf3",
+            "fieldPath": "/attributes/@slsf3",
+            "rank": "zk"
+          },
+          "/attributes/@slsf4": {
+            "id": "/attributes/@slsf4",
+            "fieldPath": "/attributes/@slsf4",
+            "rank": "zs"
+          },
+          "/attributes/@slsf5": {
+            "id": "/attributes/@slsf5",
+            "fieldPath": "/attributes/@slsf5",
+            "rank": "zw"
+          }
+        }
+      },
+      "board": {
+        "id": "board",
+        "type": "board",
+        "rank": "B",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@slsf1": {
+            "id": "/attributes/@slsf1",
+            "fieldPath": "/attributes/@slsf1",
+            "rank": "z"
+          },
+          "/attributes/@slsf2": {
+            "id": "/attributes/@slsf2",
+            "fieldPath": "/attributes/@slsf2",
+            "rank": "zV"
+          },
+          "/attributes/@slsf3": {
+            "id": "/attributes/@slsf3",
+            "fieldPath": "/attributes/@slsf3",
+            "rank": "zk"
+          },
+          "/attributes/@slsf4": {
+            "id": "/attributes/@slsf4",
+            "fieldPath": "/attributes/@slsf4",
+            "rank": "zs"
+          },
+          "/attributes/@slsf5": {
+            "id": "/attributes/@slsf5",
+            "fieldPath": "/attributes/@slsf5",
+            "rank": "zw"
+          }
+        }
+      },
+      "mindmap": {
+        "id": "mindmap",
+        "type": "mindmap",
+        "rank": "D",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@slsf1": {
+            "id": "/attributes/@slsf1",
+            "fieldPath": "/attributes/@slsf1",
+            "rank": "z"
+          },
+          "/attributes/@slsf2": {
+            "id": "/attributes/@slsf2",
+            "fieldPath": "/attributes/@slsf2",
+            "rank": "zV"
+          },
+          "/attributes/@slsf3": {
+            "id": "/attributes/@slsf3",
+            "fieldPath": "/attributes/@slsf3",
+            "rank": "zk"
+          },
+          "/attributes/@slsf4": {
+            "id": "/attributes/@slsf4",
+            "fieldPath": "/attributes/@slsf4",
+            "rank": "zs"
+          },
+          "/attributes/@slsf5": {
+            "id": "/attributes/@slsf5",
+            "fieldPath": "/attributes/@slsf5",
+            "rank": "zw"
+          }
+        }
+      },
+      "orgchart": {
+        "id": "orgchart",
+        "type": "orgchart",
+        "rank": "E",
+        "displayedFields": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7"
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A"
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F"
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N"
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V"
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c"
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k"
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s"
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t"
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u"
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF"
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF"
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x"
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y"
+          },
+          "/attributes/@slsf1": {
+            "id": "/attributes/@slsf1",
+            "fieldPath": "/attributes/@slsf1",
+            "rank": "z"
+          },
+          "/attributes/@slsf2": {
+            "id": "/attributes/@slsf2",
+            "fieldPath": "/attributes/@slsf2",
+            "rank": "zV"
+          },
+          "/attributes/@slsf3": {
+            "id": "/attributes/@slsf3",
+            "fieldPath": "/attributes/@slsf3",
+            "rank": "zk"
+          },
+          "/attributes/@slsf4": {
+            "id": "/attributes/@slsf4",
+            "fieldPath": "/attributes/@slsf4",
+            "rank": "zs"
+          },
+          "/attributes/@slsf5": {
+            "id": "/attributes/@slsf5",
+            "fieldPath": "/attributes/@slsf5",
+            "rank": "zw"
+          }
+        }
+      },
+      "gantt": {
+        "id": "gantt",
+        "type": "gantt",
+        "rank": "F",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@slsf1": {
+            "id": "/attributes/@slsf1",
+            "fieldPath": "/attributes/@slsf1",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@slsf2": {
+            "id": "/attributes/@slsf2",
+            "fieldPath": "/attributes/@slsf2",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@slsf3": {
+            "id": "/attributes/@slsf3",
+            "fieldPath": "/attributes/@slsf3",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@slsf4": {
+            "id": "/attributes/@slsf4",
+            "fieldPath": "/attributes/@slsf4",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@slsf5": {
+            "id": "/attributes/@slsf5",
+            "fieldPath": "/attributes/@slsf5",
+            "rank": "zw",
+            "hidden": false
+          }
+        }
+      },
+      "table": {
+        "id": "table",
+        "type": "table",
+        "rank": "V",
+        "columns": {
+          "/text": {
+            "id": "/text",
+            "fieldPath": "/text",
+            "rank": "7",
+            "width": 480
+          },
+          "/attributes/agent": {
+            "id": "/attributes/agent",
+            "fieldPath": "/attributes/agent",
+            "rank": "A",
+            "hidden": true
+          },
+          "/attributes/date": {
+            "id": "/attributes/date",
+            "fieldPath": "/attributes/date",
+            "rank": "F",
+            "hidden": true
+          },
+          "/attributes/assignee": {
+            "id": "/attributes/assignee",
+            "fieldPath": "/attributes/assignee",
+            "rank": "N",
+            "hidden": true
+          },
+          "/attributes/comment": {
+            "id": "/attributes/comment",
+            "fieldPath": "/attributes/comment",
+            "rank": "V",
+            "hidden": true
+          },
+          "/attributes/reaction": {
+            "id": "/attributes/reaction",
+            "fieldPath": "/attributes/reaction",
+            "rank": "c",
+            "hidden": true
+          },
+          "/attributes/timer": {
+            "id": "/attributes/timer",
+            "fieldPath": "/attributes/timer",
+            "rank": "k",
+            "hidden": true
+          },
+          "/attributes/media": {
+            "id": "/attributes/media",
+            "fieldPath": "/attributes/media",
+            "rank": "s",
+            "hidden": true
+          },
+          "/attributes/created/at": {
+            "id": "/attributes/created/at",
+            "fieldPath": "/attributes/created/at",
+            "rank": "t",
+            "hidden": true
+          },
+          "/attributes/created/by": {
+            "id": "/attributes/created/by",
+            "fieldPath": "/attributes/created/by",
+            "rank": "u",
+            "hidden": true
+          },
+          "/attributes/updated/at": {
+            "id": "/attributes/updated/at",
+            "fieldPath": "/attributes/updated/at",
+            "rank": "vF",
+            "hidden": true
+          },
+          "/attributes/updated/by": {
+            "id": "/attributes/updated/by",
+            "fieldPath": "/attributes/updated/by",
+            "rank": "wF",
+            "hidden": true
+          },
+          "/attributes/completed/at": {
+            "id": "/attributes/completed/at",
+            "fieldPath": "/attributes/completed/at",
+            "rank": "x",
+            "hidden": true
+          },
+          "/attributes/completed/by": {
+            "id": "/attributes/completed/by",
+            "fieldPath": "/attributes/completed/by",
+            "rank": "y",
+            "hidden": true
+          },
+          "/attributes/@slsf1": {
+            "id": "/attributes/@slsf1",
+            "fieldPath": "/attributes/@slsf1",
+            "rank": "z",
+            "hidden": false
+          },
+          "/attributes/@slsf2": {
+            "id": "/attributes/@slsf2",
+            "fieldPath": "/attributes/@slsf2",
+            "rank": "zV",
+            "hidden": false
+          },
+          "/attributes/@slsf3": {
+            "id": "/attributes/@slsf3",
+            "fieldPath": "/attributes/@slsf3",
+            "rank": "zk",
+            "hidden": false
+          },
+          "/attributes/@slsf4": {
+            "id": "/attributes/@slsf4",
+            "fieldPath": "/attributes/@slsf4",
+            "rank": "zs",
+            "hidden": false
+          },
+          "/attributes/@slsf5": {
+            "id": "/attributes/@slsf5",
+            "fieldPath": "/attributes/@slsf5",
+            "rank": "zw",
+            "hidden": false
+          }
+        }
+      }
+    }
+  },
+  "preferences": {
+    "defaultView": "table",
+    "avatar": {
+      "type": "emoji",
+      "value": "🎖️"
+    }
+  }
+}
