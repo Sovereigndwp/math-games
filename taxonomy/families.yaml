@@ -1,0 +1,187 @@
+# math-games — Repo-Native Family Taxonomy
+#
+# scope: operational
+#
+# This file lists game FAMILIES with repo-grounded evidence. A family is a
+# cognitive/mechanic grouping that spans multiple games — broader than an
+# interaction_type but narrower than a math domain.
+#
+# IMPORTANT: this file is deliberately short.
+#
+# The FORMAL policy definition of families lives in math-game-studio-os at:
+#
+#   memory/registries/family_registry.json
+#
+# which itself currently contains only two real families plus a pseudo-family
+# holding area. When this file and the policy registry conflict, the policy
+# registry wins until explicitly synced.
+#
+# This operational taxonomy owns:
+#   - family IDs that match the policy registry 1:1 where possible
+#   - operational classification fields the policy registry does not carry
+#     (include_when, exclude_when, interaction_types_allowed, notes)
+#   - a per-family STATUS: proven | under_review | inherited_unproven
+#
+# This file does NOT:
+#   - invent new families without repo evidence
+#   - copy Taskade-authored family names that have no repo evidence
+#     (Taskade's Game Family Registry used names like "Exact-Sum Composition",
+#     "Precision Placement", "Build / Craft" — these are operational Taskade
+#     labels, not repo-validated families, and must not be promoted here
+#     without a concrete repo packet)
+#   - include speculative families for concepts that exist only in the
+#     Taskade concept inbox
+#
+# Why it is short: repo evidence currently supports exactly two families.
+# One is formally packetized (compare_and_order → Snack Line Shuffle) and
+# one has a review build but no formal packet (quantity_and_fulfillment →
+# Bakery Rush). Every other candidate game sits in the
+# "Pending Formal Family Placement" pseudo-family in the policy registry
+# and does not belong here.
+#
+# Adding a new family here requires:
+#   1. At least one game with either a formal concepts/<slug>/concept.md
+#      packet claiming the family, OR an active review build whose family
+#      framing is documented in the policy registry's provenance notes.
+#   2. A clear include/exclude rule that distinguishes the new family from
+#      existing ones.
+#   3. A named allowed interaction type or a justified cross-type note.
+
+schema_version: "0.1.0"
+scope: operational
+source_policy_ref:
+  repo: Sovereigndwp/math-game-studio-os
+  path: memory/registries/family_registry.json
+  note: >
+    This taxonomy mirrors family IDs from the policy registry where those
+    IDs are grounded in repo evidence. The policy registry also contains a
+    pseudo-family called "Pending Formal Family Placement" — that pseudo
+    family is intentionally NOT mirrored here, because it is a holding area,
+    not a real family.
+
+# Status values
+#   proven             : at least one game has a formal concepts/<slug>/concept.md
+#                        packet that claims this family, AND the policy registry
+#                        records the claim.
+#   under_review       : at least one game has an active review build and the
+#                        policy registry uses this family name informally (e.g.,
+#                        in provenance notes or the pseudo-family holding area),
+#                        but no formal concept packet exists yet. The family is
+#                        documentable but not packet-proven.
+#   inherited_unproven : family exists in the policy registry or a policy
+#                        reference doc with no repo-native game as evidence.
+#                        Not currently used in this file — no such families
+#                        meet the "on-file in the policy registry" bar.
+
+families:
+
+  - id: compare_and_order
+    display_name: Compare and Order
+    status: proven
+    definition: >
+      Games whose core cognitive act is computing values and then placing them
+      in a ranked order. Distinct from games that compute a single answer,
+      from games that select subsets, and from games that predict the next
+      element of a pattern. The family verb is "rank-by-magnitude".
+    include_when:
+      - the player must produce a ranking or ordered placement as the final action
+      - every item in the set has a computable value that must be worked out to rank correctly
+      - the ranking rule is explicit (largest-first, smallest-first, positional variant)
+    exclude_when:
+      - the player produces a single numeric answer (that is combine_and_build or a calculation game)
+      - the player picks a subset rather than ranking the whole set (route_and_dispatch)
+      - the player predicts the next element of a pattern (sequence_and_predict)
+      - the player positions items spatially without comparing magnitudes (navigate_and_position)
+    interaction_types_allowed:
+      - sequence_and_order
+    example_games:
+      - name: Snack Line Shuffle
+        slug: snack-line-shuffle
+        repo_status: approved_concept
+        evidence_ref: concepts/snack-line-shuffle/concept.md
+        note: >
+          Formal concept packet. Primary standard CCSS.MATH.CONTENT.1.OA.C.6.
+          First and only proven member of this family as of 2026-04-10.
+    notes: >
+      Proven because Snack Line Shuffle has a formal concept packet. Promotion
+      of this family to "well covered" is deferred until a second member exists.
+      Also referenced in math-game-studio-os/memory/registries/family_registry.json
+      as the "Compare and Order" family.
+
+  - id: quantity_and_fulfillment
+    display_name: Quantity and Fulfillment
+    status: under_review
+    definition: >
+      Games whose core cognitive act is accumulating quantities to fulfill a
+      stated target. Running total is always visible or trivially inferable.
+      Over- or under-shooting the target is an explicit failure state.
+    include_when:
+      - the player accumulates items toward a target sum
+      - the target is stated or visible before the player starts accumulating
+      - the running total is trackable at any moment during the round
+    exclude_when:
+      - the player ranks values by magnitude (compare_and_order)
+      - items are categorical rather than combinative (route_and_dispatch)
+      - the player distributes across multiple sinks (allocate_and_balance)
+    interaction_types_allowed:
+      - combine_and_build
+    example_games:
+      - name: Bakery Rush
+        slug: bakery
+        repo_status: active_review_build
+        evidence_ref: memory/registries/family_registry.json
+        note: >
+          Active review build in math-game-studio-os. No formal
+          concepts/bakery/ packet. Family framing is recorded in the policy
+          registry but is benchmark-case language, not a formal alignment.
+          Status is under_review until either (a) a formal concept packet
+          claims this family, or (b) the policy registry explicitly
+          declares the informal framing sufficient.
+    notes: >
+      This family is also referenced in
+      docs/concept_inputs/strategy/family_map_math.md (in the policy repo)
+      as "Family 1: Quantity and Fulfillment" with Bakery Rush explicitly
+      named as the strongest current concept. That reference is not itself
+      a formal alignment. The taxonomy here keeps under_review status to
+      reflect the evidence level honestly.
+
+# Deliberately not included
+#
+# The following family candidates have been considered and excluded from this
+# file. Each excluded entry has a specific reason that must be addressed before
+# the family can be added.
+#
+# - "Dispatch / Subset Selection" — Taskade-authored label. Fire Dispatch has
+#   a review build and the interaction_type route_and_dispatch, but no formal
+#   concept packet and no repo-native family assignment. Promoting this as a
+#   family today would duplicate the interaction_type naming without adding
+#   classification value.
+#
+# - "Precision Placement" — Taskade-authored label. Unit Circle Pizza Lab has
+#   a review build and is in the pseudo-family holding area in the policy
+#   registry. No formal concept packet.
+#
+# - "Allocation / Network Balancing" — Taskade label. Power Grid Operator is
+#   in the pseudo-family holding area. No formal concept packet. No
+#   repo-native concept brief.
+#
+# - "Routing / Pathfinding" — Taskade label. No repo-native proof case.
+#   Puddle Patrol exists only in docs/taskade_concept_inbox.md in the policy
+#   repo with Taskade-claimed CCSS.
+#
+# - "Build / Craft" — Taskade label. No repo-native proof case.
+#   Fraction Forge and Signal Tower exist only in the inbox.
+#
+# - "Stealth-Gated Precision Solve" — Taskade label. Echo Heist has a review
+#   build but is in pending_taxonomy_placement in the policy registry with
+#   pending_taxonomy_placement interaction type. This is a hybrid concept
+#   and does not cleanly fit one family.
+#
+# - "Exact-Sum Composition" — Taskade label. Overlaps significantly with
+#   quantity_and_fulfillment and was never adopted in the policy registry
+#   under this name. If adopted later, it should be reconciled against
+#   quantity_and_fulfillment rather than landing as a sibling.
+#
+# To promote any of the above into a real family entry: create a
+# concepts/<slug>/concept.md packet that claims the family, OR get the
+# policy registry to record the informal framing as sufficient evidence.

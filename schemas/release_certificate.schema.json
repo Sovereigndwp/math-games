@@ -1,0 +1,437 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/release_certificate.schema.json",
+  "title": "Release Certificate",
+  "description": "Stage 8 artifact. A structured evidence package that justifies a release. The Release Gate Agent consumes this to decide GREEN / AMBER / RED. The Dispatcher Agent reads a GREEN+final certificate to construct the promote_build payload. Certificate lifecycle: certificates begin as 'draft' while evidence is being compiled. A certificate becomes 'final' only after review is complete. The Dispatcher Agent MUST reject any certificate with certificate_status != final OR release_verdict != GREEN. Amending a rejected, stale, or regenerated certificate means creating a new certificate_id that sets supersedes_certificate_id to the old one. This creates an explicit chain of evidence across regenerations. Every QA audit referenced in this certificate's evidence domains MUST have audit_applies_to_release_evidence = true; the Release Gate Agent enforces this at generation time (JSON Schema cannot cross-read referenced artifacts).",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "certificate_id",
+    "supersedes_certificate_id",
+    "certificate_status",
+    "created_at",
+    "slug",
+    "version",
+    "build_ref",
+    "concept_packet_ref",
+    "build_plan_ref",
+    "evidence",
+    "implementation_drift_check",
+    "release_verdict",
+    "verdict_reasons",
+    "unresolved_blockers",
+    "dispatch_payload_preview",
+    "provenance"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.1.0"},
+    "certificate_id": {
+      "type": "string",
+      "pattern": "^rc_[0-9]{8}_[a-z0-9]{6}$",
+      "description": "Stable identifier. Format: rc_YYYYMMDD_<6-char-random>. Never reused. A rejected or superseded certificate cannot be amended — generate a new certificate_id and set its supersedes_certificate_id to the old one."
+    },
+    "supersedes_certificate_id": {
+      "type": ["string", "null"],
+      "pattern": "^rc_[0-9]{8}_[a-z0-9]{6}$",
+      "description": "If this certificate replaces an earlier one (because the earlier one was rejected, stale, or regenerated after fixes), the earlier certificate_id goes here. Null for fresh certificates that do not replace anything. Required-but-nullable: every certificate must explicitly declare its chain state rather than omit this field. Creates a linked list of certificates for the same slug+version, letting the Release Gate Agent and Dispatcher Agent trace evidence-replacement history without external state. A certificate cannot supersede itself; the Release Gate Agent enforces this at generation time."
+    },
+    "certificate_status": {
+      "type": "string",
+      "enum": ["draft", "final"],
+      "description": "Lifecycle status. 'draft' = the certificate is being compiled; the Dispatcher Agent MUST NOT read draft certificates as authoritative. 'final' = locked; the Dispatcher Agent may read a final certificate IF release_verdict is GREEN. A final certificate cannot be returned to draft; instead, generate a new certificate with a new certificate_id that supersedes this one."
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "finalized_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Timestamp when certificate_status transitioned from draft to final. Null while status is draft."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "build_ref": {
+      "type": "object",
+      "required": ["path", "sha"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string"},
+        "sha": {"type": "string", "pattern": "^(sha256:[a-f0-9]{64}|git:[a-f0-9]{40})$"}
+      }
+    },
+    "concept_packet_ref": {
+      "type": "object",
+      "required": ["path", "hash"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string"},
+        "hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}
+      }
+    },
+    "build_plan_ref": {
+      "type": "object",
+      "required": ["plan_id", "path", "hash"],
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {"type": "string"},
+        "path": {"type": "string"},
+        "hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "build_standards",
+        "content_completeness",
+        "player_clarity",
+        "math_qa",
+        "pass_records"
+      ],
+      "additionalProperties": false,
+      "description": "The five Release Gate domains. Every qa_audit referenced in any domain MUST have audit_applies_to_release_evidence = true (enforced at certificate generation time by the Release Gate Agent; JSON Schema cannot cross-read referenced artifacts).",
+      "properties": {
+        "build_standards": {
+          "type": "object",
+          "required": ["status", "audit_refs"],
+          "additionalProperties": false,
+          "properties": {
+            "status": {"type": "string", "enum": ["pass", "fail", "missing_evidence"]},
+            "audit_refs": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/artifactRef"}
+            },
+            "build_plan_gate_readiness": {
+              "type": ["string", "null"],
+              "enum": ["GREEN", "AMBER", "RED", null]
+            }
+          }
+        },
+        "content_completeness": {
+          "type": "object",
+          "required": ["status", "coverage_rule_results"],
+          "additionalProperties": false,
+          "properties": {
+            "status": {"type": "string", "enum": ["pass", "fail", "missing_evidence"]},
+            "coverage_rule_results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["rule_id", "result"],
+                "additionalProperties": false,
+                "properties": {
+                  "rule_id": {"type": "string"},
+                  "result": {"type": "string", "enum": ["pass", "fail", "not_applicable"]},
+                  "measured_value": {"type": ["number", "string", "null"]},
+                  "threshold": {"type": ["number", "string", "null"]}
+                }
+              }
+            },
+            "authored_item_count": {"type": ["integer", "null"]},
+            "min_authored_items": {"type": ["integer", "null"]}
+          }
+        },
+        "player_clarity": {
+          "type": "object",
+          "required": ["status", "audit_refs"],
+          "additionalProperties": false,
+          "properties": {
+            "status": {"type": "string", "enum": ["pass", "fail", "missing_evidence"]},
+            "audit_refs": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/artifactRef"}
+            },
+            "ap_statuses": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "AP_1_penalties_before_objectives": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+                "AP_2_silent_wrong_answer": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+                "AP_3_silent_mechanics_during_popup": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+                "AP_4_timer_expiry_without_escalation": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+                "AP_5_cost_without_fiction": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]},
+                "AP_6_format_reminder_absent": {"type": "string", "enum": ["RESOLVED", "UNRESOLVED", "NA"]}
+              }
+            },
+            "estimated_cold_start_success_rate": {
+              "type": ["number", "null"],
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "math_qa": {
+          "type": "object",
+          "required": ["status", "audit_refs", "open_critical_count", "open_major_count"],
+          "additionalProperties": false,
+          "properties": {
+            "status": {"type": "string", "enum": ["pass", "fail", "missing_evidence"]},
+            "audit_refs": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/artifactRef"}
+            },
+            "open_critical_count": {"type": "integer", "minimum": 0},
+            "open_major_count": {"type": "integer", "minimum": 0}
+          }
+        },
+        "pass_records": {
+          "type": "object",
+          "required": ["status", "pass_ids", "required_passes_for_version"],
+          "additionalProperties": false,
+          "properties": {
+            "status": {"type": "string", "enum": ["pass", "fail", "missing_evidence"]},
+            "pass_ids": {
+              "type": "array",
+              "items": {"type": "string", "enum": ["P0", "P1", "P2A", "P2B", "P3", "P4", "P5"]}
+            },
+            "required_passes_for_version": {
+              "type": "array",
+              "items": {"type": "string", "enum": ["P0", "P1", "P2A", "P2B", "P3", "P4", "P5"]}
+            },
+            "missing_passes": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "pass_record_refs": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/artifactRef"}
+            }
+          }
+        }
+      }
+    },
+    "implementation_drift_check": {
+      "type": "object",
+      "required": ["expected_paths", "actual_changed_paths", "drift_verdict"],
+      "additionalProperties": false,
+      "properties": {
+        "expected_paths": {"type": "array", "items": {"type": "string"}},
+        "actual_changed_paths": {"type": "array", "items": {"type": "string"}},
+        "unexpected_changes": {"type": "array", "items": {"type": "string"}},
+        "missing_changes": {"type": "array", "items": {"type": "string"}},
+        "drift_verdict": {
+          "type": "string",
+          "enum": ["no_drift", "drift_within_policy", "drift_violation"]
+        },
+        "drift_approval_ref": {"type": ["string", "null"]},
+        "drift_explanation": {"type": ["string", "null"], "maxLength": 1000}
+      }
+    },
+    "release_verdict": {
+      "type": "string",
+      "enum": ["GREEN", "AMBER", "RED"]
+    },
+    "verdict_reasons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["domain", "status", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "domain": {
+            "type": "string",
+            "enum": [
+              "build_standards",
+              "content_completeness",
+              "player_clarity",
+              "math_qa",
+              "pass_records",
+              "implementation_drift",
+              "blockers",
+              "certificate_status",
+              "supersession_chain",
+              "other"
+            ]
+          },
+          "status": {"type": "string", "enum": ["pass", "fail", "warning"]},
+          "reason": {"type": "string", "maxLength": 500}
+        }
+      }
+    },
+    "unresolved_blockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "description", "owner"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "source": {
+            "type": "string",
+            "enum": ["build_plan", "qa_audit", "policy_decision", "governance"]
+          },
+          "description": {"type": "string", "maxLength": 500},
+          "owner": {"type": "string"}
+        }
+      }
+    },
+    "dispatch_payload_preview": {
+      "type": "object",
+      "required": ["event_type", "client_payload"],
+      "additionalProperties": false,
+      "description": "The exact payload the Dispatcher Agent will POST to GitHub if release_verdict is GREEN and certificate_status is final. The Dispatcher Agent MUST use this preview verbatim, not reconstruct it.",
+      "properties": {
+        "event_type": {"type": "string", "const": "promote_build"},
+        "client_payload": {
+          "type": "object",
+          "required": ["slug", "version", "gate_status"],
+          "additionalProperties": false,
+          "properties": {
+            "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+            "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+            "gate_status": {"type": "string", "const": "GREEN"},
+            "gate_url": {"type": ["string", "null"]},
+            "summary": {"type": ["string", "null"], "maxLength": 500}
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["generated_by", "policy_refs", "generated_from_schema_versions"],
+      "additionalProperties": false,
+      "properties": {
+        "generated_by": {"type": "string"},
+        "policy_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["policy_repo", "path", "commit_hash"],
+            "additionalProperties": false,
+            "properties": {
+              "policy_repo": {"type": "string"},
+              "path": {"type": "string"},
+              "commit_hash": {"type": "string"}
+            }
+          }
+        },
+        "generated_from_schema_versions": {
+          "type": "object",
+          "required": [
+            "release_certificate_schema",
+            "build_plan_schema",
+            "qa_audit_schema"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "release_certificate_schema": {"type": "string"},
+            "build_plan_schema": {"type": "string"},
+            "qa_audit_schema": {"type": "string"},
+            "concept_brief_schema": {"type": ["string", "null"]}
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "artifactRef": {
+      "type": "object",
+      "required": ["path", "hash"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string"},
+        "hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "kind": {"type": ["string", "null"]}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "description": "A GREEN verdict requires certificate_status to be final. Draft certificates cannot claim GREEN.",
+      "if": {
+        "properties": {"release_verdict": {"const": "GREEN"}},
+        "required": ["release_verdict"]
+      },
+      "then": {
+        "properties": {"certificate_status": {"const": "final"}}
+      }
+    },
+    {
+      "description": "A GREEN verdict requires every evidence domain status to be pass.",
+      "if": {
+        "properties": {"release_verdict": {"const": "GREEN"}},
+        "required": ["release_verdict"]
+      },
+      "then": {
+        "properties": {
+          "evidence": {
+            "properties": {
+              "build_standards": {"properties": {"status": {"const": "pass"}}, "required": ["status"]},
+              "content_completeness": {"properties": {"status": {"const": "pass"}}, "required": ["status"]},
+              "player_clarity": {"properties": {"status": {"const": "pass"}}, "required": ["status"]},
+              "math_qa": {"properties": {"status": {"const": "pass"}}, "required": ["status"]},
+              "pass_records": {"properties": {"status": {"const": "pass"}}, "required": ["status"]}
+            }
+          },
+          "implementation_drift_check": {
+            "properties": {
+              "drift_verdict": {"enum": ["no_drift", "drift_within_policy"]}
+            },
+            "required": ["drift_verdict"]
+          },
+          "unresolved_blockers": {"maxItems": 0}
+        }
+      }
+    },
+    {
+      "description": "A GREEN verdict requires math_qa open_critical_count and open_major_count to both be zero.",
+      "if": {
+        "properties": {"release_verdict": {"const": "GREEN"}},
+        "required": ["release_verdict"]
+      },
+      "then": {
+        "properties": {
+          "evidence": {
+            "properties": {
+              "math_qa": {
+                "properties": {
+                  "open_critical_count": {"const": 0},
+                  "open_major_count": {"const": 0}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "A drift_within_policy verdict requires drift_approval_ref to be non-null.",
+      "if": {
+        "properties": {
+          "implementation_drift_check": {
+            "properties": {"drift_verdict": {"const": "drift_within_policy"}},
+            "required": ["drift_verdict"]
+          }
+        },
+        "required": ["implementation_drift_check"]
+      },
+      "then": {
+        "properties": {
+          "implementation_drift_check": {
+            "required": ["drift_approval_ref"],
+            "properties": {
+              "drift_approval_ref": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "When certificate_status is final, finalized_at must be non-null.",
+      "if": {
+        "properties": {"certificate_status": {"const": "final"}},
+        "required": ["certificate_status"]
+      },
+      "then": {
+        "properties": {
+          "finalized_at": {"type": "string", "format": "date-time"}
+        },
+        "required": ["finalized_at"]
+      }
+    }
+  ]
+}

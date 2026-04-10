@@ -1,0 +1,459 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/qa_audit.schema.json",
+  "title": "QA Audit",
+  "description": "Stage 6 artifact. A structured record of a QA audit run against a specific build of a specific game. This schema replaces the ad-hoc narrative audit format with a machine-readable contract. Critical design goal: make it structurally impossible to confuse which build was audited, and make it structurally impossible to feed the wrong kind of audit into the release gate. Every audit MUST name its build_target explicitly, include a scope_statement, declare its audit_basis (what kind of audit this is), and declare audit_applies_to_release_evidence (whether it can be consumed by the Release Gate Agent as evidence). These four fields together prevent the Echo Heist scope confusion failure mode.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "audit_id",
+    "created_at",
+    "audit_kind",
+    "audit_basis",
+    "build_target",
+    "scope_statement",
+    "audit_applies_to_release_evidence",
+    "auditor",
+    "policy_refs",
+    "concept_ref",
+    "summary_counts",
+    "overall_verdict",
+    "provenance"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.1.0"},
+    "audit_id": {
+      "type": "string",
+      "pattern": "^qa_[0-9]{8}_[a-z0-9]{6}$",
+      "description": "Stable identifier. Format: qa_YYYYMMDD_<6-char-random>. Never reused."
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "last_updated_at": {"type": "string", "format": "date-time"},
+    "audit_kind": {
+      "type": "string",
+      "enum": [
+        "math_question_qa",
+        "player_clarity",
+        "content_completeness",
+        "generator_contract",
+        "release_gate_preflight",
+        "composite"
+      ],
+      "description": "What KIND of audit this is — which policy area it covers. Composite audits cover multiple kinds in a single run. This is orthogonal to audit_basis (which is about WHY the audit was run) and to audit_applies_to_release_evidence (which is about whether it can be consumed as release evidence)."
+    },
+    "audit_basis": {
+      "type": "string",
+      "enum": [
+        "release_readiness",
+        "exploratory",
+        "historical",
+        "policy_review",
+        "regression_check"
+      ],
+      "description": "Why this audit was run. Five recognized bases. 'release_readiness' = the audit was commissioned to evaluate a build for release and its findings should flow to a release_certificate. 'exploratory' = the audit is a dry-run, spike, or investigation; findings are information only and do not flow to release evidence. 'historical' = the audit re-runs against an older build for learning-loop purposes; never release evidence for the current version. 'policy_review' = the audit exists to propose new rules (new AP types, new MG rules, new CO items) rather than to certify a specific build. 'regression_check' = the audit verifies that a previously-resolved finding has not recurred. This field is orthogonal to audit_kind and audit_applies_to_release_evidence: basis is 'why', kind is 'what area', and the release-evidence flag is 'does it count'. All three are independent signals used by downstream filters."
+    },
+    "build_target": {
+      "type": "object",
+      "required": [
+        "slug",
+        "codebase",
+        "file_path",
+        "target_sha",
+        "applies_to_repo_build"
+      ],
+      "additionalProperties": false,
+      "description": "Precise identification of what was audited. Every audit MUST be explicit about whether it targets a repo-native build or a parallel codebase. The Release Gate Agent MUST check applies_to_repo_build before consuming this audit as release evidence.",
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "codebase": {
+          "type": "string",
+          "enum": ["repo_native", "parallel_codebase", "external"],
+          "description": "Where the audited build lives. 'repo_native' = this math-games repo. 'parallel_codebase' = a codebase NOT in this repo (e.g., the Taskade embedded Studio OS app extracted from taskade_exports/concept-journey-dashboard/apps/default.json). 'external' = third-party or reference implementation."
+        },
+        "parallel_codebase_identifier": {
+          "type": ["string", "null"],
+          "description": "Required when codebase is 'parallel_codebase' or 'external'. Null when codebase is 'repo_native'."
+        },
+        "file_path": {
+          "type": "string",
+          "description": "The specific file or directory audited."
+        },
+        "target_sha": {
+          "type": "string",
+          "pattern": "^(sha256:[a-f0-9]{64}|git:[a-f0-9]{40}|unhashed)$",
+          "description": "Cryptographic identifier of the exact content audited. 'unhashed' is only valid when the audit is a forward-looking policy review."
+        },
+        "applies_to_repo_build": {
+          "type": "boolean",
+          "description": "True only if codebase is repo_native. A parallel_codebase or external audit MUST set this to false."
+        }
+      }
+    },
+    "scope_statement": {
+      "type": "object",
+      "required": ["applies_to", "does_not_apply_to", "reusable_findings"],
+      "additionalProperties": false,
+      "properties": {
+        "applies_to": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 1000,
+          "description": "Plain-language statement of what the audit does apply to. Must name the build, the codebase, and the audit window."
+        },
+        "does_not_apply_to": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 1000,
+          "description": "Plain-language statement of what the audit does NOT apply to."
+        },
+        "reusable_findings": {
+          "type": "boolean",
+          "description": "True if findings in this audit may be cited as cross-game engineering lessons."
+        }
+      }
+    },
+    "audit_applies_to_release_evidence": {
+      "type": "boolean",
+      "description": "Explicit gate on whether this audit is allowed to be consumed by the Release Gate Agent as release evidence. SEPARATE from build_target.applies_to_repo_build. An audit may be repo_native AND still not qualify as release evidence. Examples of repo_native audits that should set this to false: exploratory dry-runs, historical snapshots re-audited for learning-loop purposes, WIP drafts still being edited, policy-review audits whose purpose is to propose new rules rather than certify a build. The Release Gate Agent MUST check BOTH applies_to_repo_build AND audit_applies_to_release_evidence before accepting an audit into a release_certificate's evidence refs arrays. See also audit_basis, which records what kind of audit this is; the two fields are independent signals."
+    },
+    "auditor": {
+      "type": "object",
+      "required": ["kind", "identifier"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["agent", "human", "automated_runner"]
+        },
+        "identifier": {"type": "string"},
+        "taskade_agent_id": {"type": ["string", "null"]}
+      }
+    },
+    "policy_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["policy_repo", "path", "commit_hash"],
+        "additionalProperties": false,
+        "properties": {
+          "policy_repo": {"type": "string"},
+          "path": {"type": "string"},
+          "commit_hash": {"type": "string"}
+        }
+      }
+    },
+    "concept_ref": {
+      "type": "object",
+      "required": ["packet_path", "packet_hash"],
+      "additionalProperties": false,
+      "properties": {
+        "packet_path": {"type": "string"},
+        "packet_hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "brief_id": {"type": ["string", "null"]}
+      }
+    },
+    "build_plan_ref": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {"type": "string"},
+        "plan_path": {"type": "string"},
+        "plan_hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}
+      }
+    },
+    "template_findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    },
+    "mission_findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    },
+    "cross_cutting_findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    },
+    "clarity_findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    },
+    "anxiety_findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    },
+    "misconception_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["misconception_id", "covered", "evidence"],
+        "additionalProperties": false,
+        "properties": {
+          "misconception_id": {"type": "string"},
+          "covered": {"type": "boolean"},
+          "evidence": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 600
+          },
+          "coverage_rate": {
+            "type": ["number", "null"],
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "recommended_fixes": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/fix"},
+      "description": "Fixes proposed by this audit. Proposal-only. The execution lifecycle (attempts, retries, verification, outcome) will be tracked by repair_record.schema.json in the next package."
+    },
+    "summary_counts": {
+      "type": "object",
+      "required": ["pass", "fail", "warn", "fixed", "open_critical", "open_major"],
+      "additionalProperties": false,
+      "properties": {
+        "pass": {"type": "integer", "minimum": 0},
+        "fail": {"type": "integer", "minimum": 0},
+        "warn": {"type": "integer", "minimum": 0},
+        "fixed": {"type": "integer", "minimum": 0},
+        "open_critical": {"type": "integer", "minimum": 0},
+        "open_major": {"type": "integer", "minimum": 0}
+      }
+    },
+    "overall_verdict": {
+      "type": "string",
+      "enum": ["pass", "pass_with_warnings", "fail", "blocked_scope"]
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["generated_by", "generated_from_schema_versions"],
+      "additionalProperties": false,
+      "properties": {
+        "generated_by": {"type": "string"},
+        "generated_from_schema_versions": {
+          "type": "object",
+          "required": ["qa_audit_schema"],
+          "additionalProperties": false,
+          "properties": {
+            "qa_audit_schema": {"type": "string"},
+            "concept_brief_schema": {"type": ["string", "null"]},
+            "build_plan_schema": {"type": ["string", "null"]}
+          }
+        },
+        "taskade_source_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["export_path"],
+            "additionalProperties": false,
+            "properties": {"export_path": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "unresolved_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "field": {"type": "string"},
+          "reason": {"type": "string", "maxLength": 400},
+          "blocking": {"type": "boolean"},
+          "raised_at": {"type": "string", "format": "date-time"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "required": ["finding_id", "kind", "description", "severity", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "finding_id": {
+          "type": "string",
+          "pattern": "^f_[a-z0-9_]+$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "template_bug",
+            "mission_bug",
+            "cross_cutting",
+            "clarity_dimension",
+            "anxiety_point",
+            "misconception_gap",
+            "generator_contract_violation",
+            "policy_violation",
+            "other"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["critical", "major", "minor", "info"]
+        },
+        "affected_items": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "evidence": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "fix_refs": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "status": {
+          "type": "string",
+          "enum": ["open", "fixed", "verified", "wontfix", "deferred", "escalated"]
+        },
+        "first_seen_in_audit_id": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "fix": {
+      "type": "object",
+      "required": ["fix_id", "target_finding_ids", "strategy", "apply_method"],
+      "additionalProperties": false,
+      "description": "A PROPOSED fix from the auditor's perspective. Strategy recommendation, not lifecycle record. The execution lifecycle will be tracked by repair_record.schema.json in the next package.",
+      "properties": {
+        "fix_id": {
+          "type": "string",
+          "pattern": "^fx_[a-z0-9_]+$"
+        },
+        "target_finding_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 1
+        },
+        "strategy": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 1000
+        },
+        "proposed_diff": {"type": ["string", "null"]},
+        "proposed_diff_kind": {
+          "type": ["string", "null"],
+          "enum": [
+            "text_replacement",
+            "unified_diff",
+            "file_create",
+            "file_delete",
+            "structural_refactor",
+            "manual_step",
+            null
+          ]
+        },
+        "apply_method": {
+          "type": "string",
+          "enum": ["auto", "human"]
+        },
+        "proposed_verification_assertion": {"type": ["string", "null"]},
+        "priority_hint": {
+          "type": "string",
+          "enum": ["urgent", "normal", "deferred"]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "description": "If build_target.codebase is not repo_native, applies_to_repo_build must be false.",
+      "if": {
+        "properties": {
+          "build_target": {
+            "properties": {"codebase": {"enum": ["parallel_codebase", "external"]}},
+            "required": ["codebase"]
+          }
+        },
+        "required": ["build_target"]
+      },
+      "then": {
+        "properties": {
+          "build_target": {
+            "properties": {"applies_to_repo_build": {"const": false}}
+          }
+        }
+      }
+    },
+    {
+      "description": "If build_target.codebase is parallel_codebase or external, parallel_codebase_identifier is required and non-null.",
+      "if": {
+        "properties": {
+          "build_target": {
+            "properties": {"codebase": {"enum": ["parallel_codebase", "external"]}},
+            "required": ["codebase"]
+          }
+        },
+        "required": ["build_target"]
+      },
+      "then": {
+        "properties": {
+          "build_target": {
+            "required": ["parallel_codebase_identifier"],
+            "properties": {
+              "parallel_codebase_identifier": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "If build_target.applies_to_repo_build is false, audit_applies_to_release_evidence must also be false. A non-repo audit cannot be release evidence.",
+      "if": {
+        "properties": {
+          "build_target": {
+            "properties": {"applies_to_repo_build": {"const": false}},
+            "required": ["applies_to_repo_build"]
+          }
+        },
+        "required": ["build_target"]
+      },
+      "then": {
+        "properties": {
+          "audit_applies_to_release_evidence": {"const": false}
+        }
+      }
+    },
+    {
+      "description": "If audit_basis is 'release_readiness', audit_applies_to_release_evidence must be true. A release-readiness audit that is explicitly not release evidence is contradictory.",
+      "if": {
+        "properties": {"audit_basis": {"const": "release_readiness"}},
+        "required": ["audit_basis"]
+      },
+      "then": {
+        "properties": {
+          "audit_applies_to_release_evidence": {"const": true}
+        }
+      }
+    },
+    {
+      "description": "overall_verdict 'blocked_scope' is only valid when target_sha is 'unhashed'.",
+      "if": {
+        "properties": {"overall_verdict": {"const": "blocked_scope"}},
+        "required": ["overall_verdict"]
+      },
+      "then": {
+        "properties": {
+          "build_target": {
+            "properties": {"target_sha": {"const": "unhashed"}}
+          }
+        }
+      }
+    }
+  ]
+}
