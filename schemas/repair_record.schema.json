@@ -1,0 +1,746 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/repair_record.schema.json",
+  "title": "Repair Record",
+  "description": "Stage 7 artifact. A structured record of a repair lifecycle against one or more findings from a qa_audit. The bridge between audit findings and release evidence. Every repair_record traces back to a source audit, names its target artifacts, captures the complete attempt history (not just final state), records how verification was performed, and declares whether the repair is eligible to count toward release evidence. Tracking attempt history is a deliberate design choice: one repair can have attempt 1 fail, attempt 2 partially work, and attempt 3 verify. That history is valuable for the learning loop — it shows which strategies actually converge on real fixes. A repair_record is the authoritative lifecycle record; the recommended_fixes entries inside a qa_audit are strategy proposals only, and the repair_record is what actually happened.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "repair_id",
+    "created_at",
+    "slug",
+    "source_audit_ref",
+    "target_finding_ids",
+    "repair_basis",
+    "repair_strategy",
+    "repair_targets",
+    "attempts",
+    "verification",
+    "outcome",
+    "release_evidence_eligible",
+    "provenance"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.1.0"},
+    "repair_id": {
+      "type": "string",
+      "pattern": "^rr_[0-9]{8}_[a-z0-9]{6}$",
+      "description": "Stable identifier. Format: rr_YYYYMMDD_<6-char-random>. Never reused. A repair_record represents one complete attempt series from creation through terminal outcome. If a repair is abandoned and re-tried later with a different strategy, that is a new repair_id with a new source_audit_ref snapshot."
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "last_updated_at": {"type": "string", "format": "date-time"},
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Game slug the repair applies to. Matches the release contract regex."
+    },
+    "version": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Target SemVer this repair is intended to ship under. Nullable because some repairs (manual_hotfix, cleanup) are not tied to a specific target version."
+    },
+    "source_audit_ref": {
+      "type": "object",
+      "required": ["audit_id", "audit_path", "audit_hash"],
+      "additionalProperties": false,
+      "description": "Immutable reference to the qa_audit that surfaced the finding(s) this repair addresses. Every repair traces back to exactly one audit by audit_id + hash.",
+      "properties": {
+        "audit_id": {
+          "type": "string",
+          "pattern": "^qa_[0-9]{8}_[a-z0-9]{6}$"
+        },
+        "audit_path": {
+          "type": "string",
+          "description": "Repo-relative path to the qa_audit artifact."
+        },
+        "audit_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "SHA-256 of the audit contents at repair creation time. If the audit is later revised, the hash mismatch signals that this repair was based on a prior audit version."
+        }
+      }
+    },
+    "target_finding_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^f_[a-z0-9_]+$"
+      },
+      "minItems": 1,
+      "description": "One or more finding_id values from the source audit. Every repair must target at least one finding."
+    },
+    "target_fix_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^fx_[a-z0-9_]+$"
+      },
+      "description": "Optional. If the repair was initiated from one or more recommended_fixes in the source audit, their fix_ids go here. Empty array if the repair strategy was chosen independently."
+    },
+    "repair_basis": {
+      "type": "string",
+      "enum": [
+        "audit_driven",
+        "regression_fix",
+        "manual_hotfix",
+        "policy_alignment",
+        "cleanup"
+      ],
+      "description": "Why this repair was initiated. 'audit_driven' = the standard case; a qa_audit finding triggered the repair. 'regression_fix' = a finding that had been verified-fixed previously has recurred, and this repair re-closes it. 'manual_hotfix' = a human-initiated repair outside the normal audit loop. 'policy_alignment' = the repair exists to bring an existing build into line with a new or updated policy. 'cleanup' = structural/housekeeping repair."
+    },
+    "repair_strategy": {
+      "type": "object",
+      "required": ["kind", "description"],
+      "additionalProperties": false,
+      "description": "The high-level repair approach. Describes the intended strategy; the attempts array records what actually happened at execution time.",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "diff_apply",
+            "regenerate",
+            "refactor",
+            "parameter_change",
+            "content_edit",
+            "rollback",
+            "manual_edit",
+            "no_op"
+          ],
+          "description": "'diff_apply' = apply a specific textual diff. 'regenerate' = re-run a generator or template. 'refactor' = structural code change. 'parameter_change' = config values without touching logic. 'content_edit' = modify authored content. 'rollback' = revert to a prior known-good state. 'manual_edit' = human-authored changes. 'no_op' = the decision is to accept the finding as-is (paired with outcome.status in ['wontfix', 'deferred'] and release_evidence_eligible=false; enforced by conditional rule)."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 1000
+        },
+        "proposed_diff": {"type": ["string", "null"]},
+        "proposed_diff_kind": {
+          "type": ["string", "null"],
+          "enum": [
+            "text_replacement",
+            "unified_diff",
+            "file_create",
+            "file_delete",
+            "structural_refactor",
+            "manual_step",
+            null
+          ]
+        }
+      }
+    },
+    "repair_targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "path", "codebase", "applies_to_repo_build"],
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "source_file",
+              "generated_file",
+              "concept_packet",
+              "build_plan",
+              "test_fixture",
+              "configuration",
+              "asset",
+              "other"
+            ]
+          },
+          "path": {"type": "string"},
+          "pre_repair_sha": {
+            "type": ["string", "null"],
+            "pattern": "^(sha256:[a-f0-9]{64}|git:[a-f0-9]{40})$"
+          },
+          "codebase": {
+            "type": "string",
+            "enum": ["repo_native", "parallel_codebase", "external"]
+          },
+          "parallel_codebase_identifier": {
+            "type": ["string", "null"]
+          },
+          "applies_to_repo_build": {"type": "boolean"}
+        },
+        "allOf": [
+          {
+            "description": "Non-repo targets cannot claim applies_to_repo_build=true and must name parallel_codebase_identifier.",
+            "if": {
+              "properties": {
+                "codebase": {"enum": ["parallel_codebase", "external"]}
+              },
+              "required": ["codebase"]
+            },
+            "then": {
+              "properties": {
+                "applies_to_repo_build": {"const": false},
+                "parallel_codebase_identifier": {"type": "string", "minLength": 1}
+              },
+              "required": ["parallel_codebase_identifier"]
+            }
+          }
+        ]
+      },
+      "description": "One or more files / artifacts changed by this repair. Empty array is valid only when repair_strategy.kind is 'no_op' OR outcome.status is 'wontfix' or 'deferred' (enforced by conditional rule). Otherwise at least one target is required."
+    },
+    "attempts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/attempt"},
+      "description": "Full attempt history. At least one attempt is required — even a no_op repair records an attempt with status 'applied' (nothing changed) or 'abandoned'. Attempts are append-only: never delete prior attempts when retrying."
+    },
+    "verification": {
+      "type": "object",
+      "required": ["method", "result"],
+      "additionalProperties": false,
+      "description": "How the repair was verified after its terminal attempt. One verification record per repair; if multiple verification rounds were run, summarize the most-recent authoritative one here and record intermediate verifications in attempts[*].notes.",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "assertion",
+            "regression_test",
+            "re_audit",
+            "structural_diff",
+            "human_review",
+            "manual_check",
+            "not_verified"
+          ],
+          "description": "'not_verified' requires verification.result = 'not_run' (enforced by conditional rule). 're_audit' requires verification.re_audit_ref to be non-null (enforced by conditional rule)."
+        },
+        "assertion": {
+          "type": ["string", "null"],
+          "description": "Machine-runnable assertion text. Populated when method is 'assertion'."
+        },
+        "re_audit_ref": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "description": "If verification method is 're_audit', this must be non-null and reference the follow-up qa_audit. For any other method, this MUST be null (enforced by conditional rule).",
+          "properties": {
+            "audit_id": {
+              "type": "string",
+              "pattern": "^qa_[0-9]{8}_[a-z0-9]{6}$"
+            },
+            "audit_path": {"type": "string"},
+            "audit_hash": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            }
+          },
+          "required": ["audit_id", "audit_path", "audit_hash"]
+        },
+        "result": {
+          "type": "string",
+          "enum": ["pass", "fail", "partial", "inconclusive", "not_run"],
+          "description": "'pass' = all targeted findings verified resolved. 'fail' = verification ran and found the repair did not resolve the targets. 'partial' = some targets resolved, some not. 'inconclusive' = verification ran but could not determine resolution. 'not_run' = verification was deliberately skipped (required when method is 'not_verified')."
+        },
+        "result_evidence": {
+          "type": ["string", "null"],
+          "maxLength": 2000,
+          "description": "Plain-language evidence summary."
+        },
+        "verified_at": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Timestamp when verification was performed. Null if verification has not yet run (e.g., deferred, escalated, or repairs whose verification is pending). For methods other than 'not_verified', this should normally be populated when result is known."
+        }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "description": "Terminal state of this repair.",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "verified_fix",
+            "partial_fix",
+            "failed_fix",
+            "deferred",
+            "escalated",
+            "wontfix"
+          ]
+        },
+        "post_repair_shas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "sha"],
+            "additionalProperties": false,
+            "properties": {
+              "path": {"type": "string"},
+              "sha": {
+                "type": "string",
+                "pattern": "^(sha256:[a-f0-9]{64}|git:[a-f0-9]{40})$"
+              }
+            }
+          },
+          "description": "Per-target post-repair SHAs. One entry per repair_targets item that was actually modified. Must be empty when outcome.status is 'wontfix' or 'deferred' (enforced by conditional rule)."
+        },
+        "commit_refs": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Git commit hash(es) where the repair landed in the repo. Empty for non-repo_native repairs or for wontfix / deferred repairs."
+        },
+        "escalation_details": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "description": "Required when outcome.status is 'escalated'.",
+          "properties": {
+            "escalated_to": {
+              "type": "object",
+              "required": ["kind", "identifier"],
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": ["human_owner", "human_reviewer", "policy_committee", "operator"]
+                },
+                "identifier": {"type": "string"}
+              }
+            },
+            "escalation_reason": {
+              "type": "string",
+              "maxLength": 1000
+            }
+          }
+        },
+        "rejection_reason": {
+          "type": ["string", "null"],
+          "maxLength": 1000,
+          "description": "Required when outcome.status is 'wontfix'."
+        },
+        "resolution_summary": {
+          "type": ["string", "null"],
+          "maxLength": 1000,
+          "description": "Plain-language summary of the resolution — what changed, what was verified, what remains open if partial. Optional; null when no summary is needed."
+        }
+      }
+    },
+    "release_evidence_eligible": {
+      "type": "boolean",
+      "description": "Explicit gate on whether this repair can be cited as release evidence by a release_certificate. Must be false when repair_strategy.kind is 'no_op'. When true, conditional rules require (1) outcome.status = 'verified_fix', (2) every repair_target has applies_to_repo_build=true, and (3) verification.result = 'pass'. Setting this to false is the safe default."
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["generated_by", "generated_from_schema_versions"],
+      "additionalProperties": false,
+      "properties": {
+        "generated_by": {"type": "string"},
+        "policy_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["policy_repo", "path", "commit_hash"],
+            "additionalProperties": false,
+            "properties": {
+              "policy_repo": {"type": "string"},
+              "path": {"type": "string"},
+              "commit_hash": {"type": "string"}
+            }
+          }
+        },
+        "generated_from_schema_versions": {
+          "type": "object",
+          "required": ["repair_record_schema", "qa_audit_schema"],
+          "additionalProperties": false,
+          "properties": {
+            "repair_record_schema": {"type": "string"},
+            "qa_audit_schema": {"type": "string"},
+            "build_plan_schema": {"type": ["string", "null"]}
+          }
+        }
+      }
+    },
+    "unresolved_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "field": {"type": "string"},
+          "reason": {"type": "string", "maxLength": 400},
+          "blocking": {"type": "boolean"},
+          "raised_at": {"type": "string", "format": "date-time"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "attempt": {
+      "type": "object",
+      "required": ["attempt_number", "started_at", "executor", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "attempt_number": {"type": "integer", "minimum": 1},
+        "started_at": {"type": "string", "format": "date-time"},
+        "ended_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "executor": {
+          "type": "object",
+          "required": ["kind", "identifier"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": ["agent", "human", "automated_runner"]
+            },
+            "identifier": {"type": "string"}
+          }
+        },
+        "strategy_kind_used": {
+          "type": ["string", "null"],
+          "enum": [
+            "diff_apply",
+            "regenerate",
+            "refactor",
+            "parameter_change",
+            "content_edit",
+            "rollback",
+            "manual_edit",
+            "no_op",
+            null
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "proposed",
+            "in_progress",
+            "applied",
+            "verified",
+            "failed",
+            "deferred",
+            "escalated",
+            "abandoned"
+          ]
+        },
+        "failure_reason": {
+          "type": ["string", "null"],
+          "maxLength": 1000,
+          "description": "Required non-null and non-empty when status is 'failed', 'escalated', or 'abandoned' (enforced by conditional rule)."
+        },
+        "artifacts_changed": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "notes": {
+          "type": ["string", "null"],
+          "maxLength": 2000
+        }
+      },
+      "allOf": [
+        {
+          "description": "If attempt status is 'failed', 'escalated', or 'abandoned', failure_reason must be non-null and non-empty.",
+          "if": {
+            "properties": {
+              "status": {"enum": ["failed", "escalated", "abandoned"]}
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["failure_reason"],
+            "properties": {
+              "failure_reason": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "description": "outcome.status 'verified_fix' requires verification.result = pass.",
+      "if": {
+        "properties": {
+          "outcome": {
+            "properties": {"status": {"const": "verified_fix"}},
+            "required": ["status"]
+          }
+        },
+        "required": ["outcome"]
+      },
+      "then": {
+        "properties": {
+          "verification": {
+            "properties": {"result": {"const": "pass"}},
+            "required": ["result"]
+          }
+        }
+      }
+    },
+    {
+      "description": "outcome.status 'partial_fix' requires verification.result = partial.",
+      "if": {
+        "properties": {
+          "outcome": {
+            "properties": {"status": {"const": "partial_fix"}},
+            "required": ["status"]
+          }
+        },
+        "required": ["outcome"]
+      },
+      "then": {
+        "properties": {
+          "verification": {
+            "properties": {"result": {"const": "partial"}},
+            "required": ["result"]
+          }
+        }
+      }
+    },
+    {
+      "description": "outcome.status 'failed_fix' requires verification.result in {fail, inconclusive}.",
+      "if": {
+        "properties": {
+          "outcome": {
+            "properties": {"status": {"const": "failed_fix"}},
+            "required": ["status"]
+          }
+        },
+        "required": ["outcome"]
+      },
+      "then": {
+        "properties": {
+          "verification": {
+            "properties": {"result": {"enum": ["fail", "inconclusive"]}},
+            "required": ["result"]
+          }
+        }
+      }
+    },
+    {
+      "description": "outcome.status 'escalated' requires outcome.escalation_details to be non-null.",
+      "if": {
+        "properties": {
+          "outcome": {
+            "properties": {"status": {"const": "escalated"}},
+            "required": ["status"]
+          }
+        },
+        "required": ["outcome"]
+      },
+      "then": {
+        "properties": {
+          "outcome": {
+            "required": ["escalation_details"],
+            "properties": {
+              "escalation_details": {"type": "object"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "outcome.status 'wontfix' requires outcome.rejection_reason to be non-null and non-empty.",
+      "if": {
+        "properties": {
+          "outcome": {
+            "properties": {"status": {"const": "wontfix"}},
+            "required": ["status"]
+          }
+        },
+        "required": ["outcome"]
+      },
+      "then": {
+        "properties": {
+          "outcome": {
+            "required": ["rejection_reason"],
+            "properties": {
+              "rejection_reason": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "release_evidence_eligible=true requires outcome.status = verified_fix.",
+      "if": {
+        "properties": {"release_evidence_eligible": {"const": true}},
+        "required": ["release_evidence_eligible"]
+      },
+      "then": {
+        "properties": {
+          "outcome": {
+            "properties": {"status": {"const": "verified_fix"}},
+            "required": ["status"]
+          }
+        }
+      }
+    },
+    {
+      "description": "release_evidence_eligible=true requires every repair_target to have applies_to_repo_build=true.",
+      "if": {
+        "properties": {"release_evidence_eligible": {"const": true}},
+        "required": ["release_evidence_eligible"]
+      },
+      "then": {
+        "properties": {
+          "repair_targets": {
+            "items": {
+              "properties": {"applies_to_repo_build": {"const": true}}
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "release_evidence_eligible=true requires verification.result = pass.",
+      "if": {
+        "properties": {"release_evidence_eligible": {"const": true}},
+        "required": ["release_evidence_eligible"]
+      },
+      "then": {
+        "properties": {
+          "verification": {
+            "properties": {"result": {"const": "pass"}},
+            "required": ["result"]
+          }
+        }
+      }
+    },
+    {
+      "description": "If verification.method = 're_audit', verification.re_audit_ref must be non-null (an object).",
+      "if": {
+        "properties": {
+          "verification": {
+            "properties": {"method": {"const": "re_audit"}},
+            "required": ["method"]
+          }
+        },
+        "required": ["verification"]
+      },
+      "then": {
+        "properties": {
+          "verification": {
+            "required": ["re_audit_ref"],
+            "properties": {
+              "re_audit_ref": {"type": "object"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "If verification.method is NOT 're_audit', verification.re_audit_ref must be null.",
+      "if": {
+        "properties": {
+          "verification": {
+            "properties": {"method": {"not": {"const": "re_audit"}}},
+            "required": ["method"]
+          }
+        },
+        "required": ["verification"]
+      },
+      "then": {
+        "properties": {
+          "verification": {
+            "properties": {
+              "re_audit_ref": {"type": "null"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "If verification.method = 'not_verified', verification.result must be 'not_run'.",
+      "if": {
+        "properties": {
+          "verification": {
+            "properties": {"method": {"const": "not_verified"}},
+            "required": ["method"]
+          }
+        },
+        "required": ["verification"]
+      },
+      "then": {
+        "properties": {
+          "verification": {
+            "properties": {"result": {"const": "not_run"}},
+            "required": ["result"]
+          }
+        }
+      }
+    },
+    {
+      "description": "If repair_strategy.kind = 'no_op', outcome.status must be 'deferred' or 'wontfix', AND release_evidence_eligible must be false.",
+      "if": {
+        "properties": {
+          "repair_strategy": {
+            "properties": {"kind": {"const": "no_op"}},
+            "required": ["kind"]
+          }
+        },
+        "required": ["repair_strategy"]
+      },
+      "then": {
+        "properties": {
+          "outcome": {
+            "properties": {"status": {"enum": ["deferred", "wontfix"]}},
+            "required": ["status"]
+          },
+          "release_evidence_eligible": {"const": false}
+        }
+      }
+    },
+    {
+      "description": "repair_targets may be empty only when repair_strategy.kind = 'no_op' OR outcome.status is 'wontfix' or 'deferred'. Otherwise at least one repair_target is required.",
+      "if": {
+        "allOf": [
+          {
+            "properties": {
+              "repair_strategy": {
+                "properties": {"kind": {"not": {"const": "no_op"}}},
+                "required": ["kind"]
+              }
+            },
+            "required": ["repair_strategy"]
+          },
+          {
+            "properties": {
+              "outcome": {
+                "properties": {
+                  "status": {"not": {"enum": ["wontfix", "deferred"]}}
+                },
+                "required": ["status"]
+              }
+            },
+            "required": ["outcome"]
+          }
+        ]
+      },
+      "then": {
+        "properties": {
+          "repair_targets": {"minItems": 1}
+        }
+      }
+    },
+    {
+      "description": "If outcome.status is 'wontfix' or 'deferred', outcome.post_repair_shas must be empty.",
+      "if": {
+        "properties": {
+          "outcome": {
+            "properties": {"status": {"enum": ["wontfix", "deferred"]}},
+            "required": ["status"]
+          }
+        },
+        "required": ["outcome"]
+      },
+      "then": {
+        "properties": {
+          "outcome": {
+            "properties": {
+              "post_repair_shas": {"maxItems": 0}
+            }
+          }
+        }
+      }
+    }
+  ]
+}
