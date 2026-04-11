@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/promotion_request.schema.json",
+  "title": "Promotion Request",
+  "description": "Package 6. A typed request to promote a generated draft artifact into a review-ready artifact. A promotion_request does not itself perform promotion; it is the input consumed by a promotion script. The first promoter in the pipeline is scripts/promote_draft_stub.py, which accepts a concept_packet draft under generated/drafts/ plus its generation manifest, verifies both source hashes, and writes a review artifact plus a promotion record under generated/review/. No AI, no network, no release: review artifacts remain non-authoritative until a later pipeline stage that does not exist yet.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request_id",
+    "created_at",
+    "artifact_type",
+    "source_draft_ref",
+    "source_manifest_ref",
+    "target_path",
+    "promoter_version",
+    "mode",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^pr_[0-9]{8}_[a-z0-9]{6}$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "type": "string",
+      "enum": ["concept_packet_draft"]
+    },
+    "source_draft_ref": {
+      "type": "object",
+      "required": ["path", "hash"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "source_manifest_ref": {
+      "type": "object",
+      "required": ["path", "hash"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "target_path": {
+      "type": "string",
+      "description": "Repo-relative directory where the review artifact and promotion record will be written. Must live under generated/review/."
+    },
+    "promoter_version": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["review"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "completed", "failed"]
+    }
+  }
+}

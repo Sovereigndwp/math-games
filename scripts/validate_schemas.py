@@ -87,6 +87,16 @@ PAIRS = [
         REPO_ROOT / "schemas" / "generation_manifest.schema.json",
         REPO_ROOT / "schemas" / "examples" / "generation_manifest.example.json",
     ),
+    (
+        "promotion_request",
+        REPO_ROOT / "schemas" / "promotion_request.schema.json",
+        REPO_ROOT / "schemas" / "examples" / "promotion_request.example.json",
+    ),
+    (
+        "promotion_record",
+        REPO_ROOT / "schemas" / "promotion_record.schema.json",
+        REPO_ROOT / "schemas" / "examples" / "promotion_record.example.json",
+    ),
 ]
 
 

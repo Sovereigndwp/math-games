@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/promotion_record.schema.json",
+  "title": "Promotion Record",
+  "description": "Package 6. The provenance record of a single promotion run. Written by a promoter script after it processes a promotion_request. Records what draft was promoted, what manifest it came from, what review artifact was written, and which schema versions were in effect. Promotion records are append-only: once written for a request, they should not be rewritten. Convention: a promotion_record does NOT list itself in output_artifacts; it is the record of the run, not an output of it.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_id",
+    "request_id",
+    "promoted_at",
+    "promoter_name",
+    "promoter_version",
+    "source_artifacts",
+    "output_artifacts",
+    "schema_versions_used",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "record_id": {
+      "type": "string",
+      "pattern": "^pm_[0-9]{8}_[a-z0-9]{6}$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^pr_[0-9]{8}_[a-z0-9]{6}$"
+    },
+    "promoted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "promoter_name": {
+      "type": "string"
+    },
+    "promoter_version": {
+      "type": "string"
+    },
+    "source_artifacts": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["path", "hash", "kind"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["concept_packet_draft", "generation_manifest"]
+          }
+        }
+      }
+    },
+    "output_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "hash", "kind"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["concept_packet_review", "promotion_record"]
+          }
+        }
+      }
+    },
+    "schema_versions_used": {
+      "type": "object",
+      "required": [
+        "promotion_request_schema",
+        "promotion_record_schema"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "promotion_request_schema": {
+          "type": "string"
+        },
+        "promotion_record_schema": {
+          "type": "string"
+        },
+        "generation_manifest_schema": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["success", "failure"]
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "maxLength": 1000
+    }
+  }
+}
