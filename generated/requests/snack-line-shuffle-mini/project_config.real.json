@@ -1,0 +1,38 @@
+{
+  "config_id": "pc_20260410_989c98",
+  "core_misconception": {
+    "description": "Player sorts the cards by visual position, by where a card happens to start, or by card color or size, without actually computing the addition expression on each card and comparing the resulting values.",
+    "id": "M1"
+  },
+  "created_at": "2026-04-10T19:05:00Z",
+  "current_phase": "review",
+  "family_candidate": null,
+  "forbidden_scope": [
+    "single scene only",
+    "exactly three cards per round in this first real run",
+    "each card shows a simple addition expression with single-digit values summing to within 10",
+    "ordering rule must be stated in plain text before the round starts",
+    "ordering rule must remain visible for the whole round",
+    "no timer pressure in this first real run",
+    "no scoring layer in this first real run",
+    "an incorrect commit must not penalize the player; it must only jiggle-and-reset for another attempt"
+  ],
+  "grade_band": "k_2",
+  "interaction_type_candidate": "sequence_and_order",
+  "notes": "Backfilled by scripts/backfill_project_config.py from legacy artifacts for slug snack-line-shuffle-mini. Source summary: concept_brief.real.json + concept_packet.draft.json + concept_packet.manifest.json. CLI overrides: none. This file was derived from existing artifacts that pre-date Package 10; it must be reviewed before being treated as authoritative operational state.",
+  "primary_standard": "CCSS.MATH.CONTENT.1.OA.C.6",
+  "schema_version": "0.1.0",
+  "sensory_priorities": [
+    "visual_clarity",
+    "low_distraction"
+  ],
+  "slug": "snack-line-shuffle-mini",
+  "subject": "math",
+  "success_metric": "The player places all three cards in the correct smallest-to-largest order on first commit, demonstrating that they computed each expression value and compared them rather than guessing by position or appearance.",
+  "target_skill": {
+    "ccss_candidate": [
+      "CCSS.MATH.CONTENT.1.OA.C.6"
+    ],
+    "description": "Compute small single-digit addition expressions mentally, compare the resulting values, and rank-order three items from smallest to largest without guessing from visual position or card appearance."
+  }
+}

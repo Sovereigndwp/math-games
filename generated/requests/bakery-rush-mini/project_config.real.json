@@ -1,0 +1,36 @@
+{
+  "config_id": "pc_20260410_72edcc",
+  "core_misconception": {
+    "description": "The player assumes that any tap is progress and keeps adding without checking whether the running total still fits the target.",
+    "id": "M1"
+  },
+  "created_at": "2026-04-10T19:00:00Z",
+  "current_phase": "review",
+  "family_candidate": "quantity_and_fulfillment",
+  "forbidden_scope": [
+    "single scene only",
+    "running total must remain visible at all times",
+    "order target must remain visible at all times",
+    "no timer pressure in this first real run",
+    "values limited to totals within 10",
+    "overshoot must be visible and easy to understand"
+  ],
+  "grade_band": "k_2",
+  "interaction_type_candidate": "combine_and_build",
+  "notes": "Backfilled by scripts/backfill_project_config.py from legacy artifacts for slug bakery-rush-mini. Source summary: concept_brief.real.json + concept_packet.draft.json + concept_packet.manifest.json. CLI overrides: none. This file was derived from existing artifacts that pre-date Package 10; it must be reviewed before being treated as authoritative operational state.",
+  "primary_standard": "CCSS.MATH.CONTENT.1.OA.C.6",
+  "schema_version": "0.1.0",
+  "sensory_priorities": [
+    "visual_clarity",
+    "low_distraction"
+  ],
+  "slug": "bakery-rush-mini",
+  "subject": "math",
+  "success_metric": "The player stops adding when the tray total equals the order target exactly and commits before overshooting.",
+  "target_skill": {
+    "ccss_candidate": [
+      "CCSS.MATH.CONTENT.1.OA.C.6"
+    ],
+    "description": "Compose a target total within 10 by selecting addends deliberately instead of guessing or tapping randomly."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "config_id": "pc_20260410_45b2cd",
+  "core_misconception": {
+    "description": "Player treats the visible given part as the answer, or chooses a number that looks small or familiar, instead of reasoning about what missing part combines with the given part to make the total.",
+    "id": "M1"
+  },
+  "created_at": "2026-04-10T20:10:00Z",
+  "current_phase": "review",
+  "family_candidate": null,
+  "forbidden_scope": [
+    "single scene only",
+    "one number bond per round in this first real run",
+    "totals limited to within 10",
+    "the total must remain visible at all times",
+    "the given part must remain visible at all times",
+    "answer choices must all be plausible small numbers, not obviously wrong distractors",
+    "no timer pressure in this first real run",
+    "no scoring layer in this first real run",
+    "wrong answers must not punish the player; they should only trigger a retry cue"
+  ],
+  "grade_band": "k_2",
+  "interaction_type_candidate": "unresolved",
+  "notes": "Backfilled by scripts/backfill_project_config.py from legacy artifacts for slug number-bond-bridge-mini. Source summary: concept_brief.real.json + concept_packet.draft.json + concept_packet.manifest.json. CLI overrides: none. This file was derived from existing artifacts that pre-date Package 10; it must be reviewed before being treated as authoritative operational state.",
+  "primary_standard": "CCSS.MATH.CONTENT.1.OA.C.6",
+  "schema_version": "0.1.0",
+  "sensory_priorities": [
+    "visual_clarity",
+    "low_distraction"
+  ],
+  "slug": "number-bond-bridge-mini",
+  "subject": "math",
+  "success_metric": "The player chooses the correct missing part on first commit, showing they understand the relationship between the whole and the two parts rather than guessing.",
+  "target_skill": {
+    "ccss_candidate": [
+      "CCSS.MATH.CONTENT.1.OA.C.6"
+    ],
+    "description": "Use part part whole reasoning to determine the missing addend within 10 instead of guessing from appearance or memorizing one surface pattern."
+  }
+}
