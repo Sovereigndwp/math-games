@@ -1,0 +1,53 @@
+{
+  "concept_summary": "A tiny K-2 ordering game. Three snack cards appear on a tray, each card showing a short addition expression with small single-digit values. The ordering rule — 'smallest first' — is stated in plain text before the round starts and stays visible throughout. The player drags the three cards left-to-right into the correct smallest-to-largest order and commits. A correct commit highlights the line green and ends the round. An incorrect commit jiggles the misplaced cards and returns them to the starting row for another attempt. No timer, no scoring.",
+  "constraints": [
+    "single scene only",
+    "exactly three cards per round in this first real run",
+    "each card shows a simple addition expression with single-digit values summing to within 10",
+    "ordering rule must be stated in plain text before the round starts",
+    "ordering rule must remain visible for the whole round",
+    "no timer pressure in this first real run",
+    "no scoring layer in this first real run",
+    "an incorrect commit must not penalize the player; it must only jiggle-and-reset for another attempt"
+  ],
+  "core_mechanic": {
+    "feedback_loop": "The ordering rule stays visible the entire round. On a correct commit the line highlights green and the round ends. On an incorrect commit the misplaced cards jiggle and return to the starting row; the rule text and all three cards remain visible for another attempt.",
+    "player_action": "Drag three snack cards left-to-right into the correct smallest-to-largest order based on the short addition expression shown on each card, then commit the line."
+  },
+  "family_candidate": null,
+  "generated_from": {
+    "generator_name": "concept-packet-stub",
+    "generator_version": "concept-packet-stub-v0.2.0",
+    "manifest_id": "gm_20260410_sls001",
+    "request_id": "gr_20260410_sls001"
+  },
+  "interaction_type_candidate": "sequence_and_order",
+  "math_domain": "operations_and_algebraic_thinking",
+  "misconception_targets": [
+    {
+      "description": "Player sorts the cards by visual position, by where a card happens to start, or by card color or size, without actually computing the addition expression on each card and comparing the resulting values.",
+      "existing_library_match": null,
+      "id": "M1"
+    }
+  ],
+  "schema_version": "0.1.0",
+  "slug": "snack-line-shuffle-mini",
+  "source_brief_id": "cb_20260410_sls001",
+  "status": "draft_generated",
+  "success_condition": "The player places all three cards in the correct smallest-to-largest order on first commit, demonstrating that they computed each expression value and compared them rather than guessing by position or appearance.",
+  "target_learners": {
+    "grade_band_candidate": "k_2",
+    "prerequisites_candidate": [
+      "counting within 10",
+      "adding two small single-digit values",
+      "reading a short addition expression like '2 + 1'"
+    ]
+  },
+  "target_skill": {
+    "ccss_candidate": [
+      "CCSS.MATH.CONTENT.1.OA.C.6"
+    ],
+    "description": "Compute small single-digit addition expressions mentally, compare the resulting values, and rank-order three items from smallest to largest without guessing from visual position or card appearance."
+  },
+  "title": "Snack Line Shuffle Mini"
+}

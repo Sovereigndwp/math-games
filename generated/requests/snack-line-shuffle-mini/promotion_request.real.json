@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "pr_20260410_sls001",
+  "created_at": "2026-04-10T19:30:00Z",
+  "artifact_type": "concept_packet_draft",
+  "source_draft_ref": {
+    "path": "generated/drafts/snack-line-shuffle-mini/concept_packet.draft.json",
+    "hash": "sha256:afc14744b0acffd503d5639114218dcd089608d08473d80d531c7dcf2ca1bb6d"
+  },
+  "source_manifest_ref": {
+    "path": "generated/drafts/snack-line-shuffle-mini/concept_packet.manifest.json",
+    "hash": "sha256:255079bd4be6ad12db56addadc4bf4af23f50313f4acc00ef3e321702cf3f740"
+  },
+  "target_path": "generated/review/snack-line-shuffle-mini/",
+  "promoter_version": "draft-promoter-stub-v0.1.0",
+  "mode": "review",
+  "status": "pending"
+}

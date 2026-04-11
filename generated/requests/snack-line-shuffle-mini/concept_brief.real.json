@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1.0",
+  "brief_id": "cb_20260410_sls001",
+  "created_at": "2026-04-10T19:05:00Z",
+  "title": "Snack Line Shuffle Mini",
+  "proposed_slug": "snack-line-shuffle-mini",
+  "source": {
+    "origin": "human_direct",
+    "captured_by": "dalia",
+    "taskade_project_id": null,
+    "external_url": null,
+    "notes": "Second real concept run. Deliberately different interaction type from bakery-rush-mini (sequence_and_order instead of combine_and_build) to stress the post-Package-7 concept_packet shape on a non-bakery pattern."
+  },
+  "concept_summary": "A tiny K-2 ordering game. Three snack cards appear on a tray, each card showing a short addition expression with small single-digit values. The ordering rule — 'smallest first' — is stated in plain text before the round starts and stays visible throughout. The player drags the three cards left-to-right into the correct smallest-to-largest order and commits. A correct commit highlights the line green and ends the round. An incorrect commit jiggles the misplaced cards and returns them to the starting row for another attempt. No timer, no scoring.",
+  "core_mechanic": {
+    "player_action": "Drag three snack cards left-to-right into the correct smallest-to-largest order based on the short addition expression shown on each card, then commit the line.",
+    "feedback_loop": "The ordering rule stays visible the entire round. On a correct commit the line highlights green and the round ends. On an incorrect commit the misplaced cards jiggle and return to the starting row; the rule text and all three cards remain visible for another attempt.",
+    "math_as_lockpick_statement": null
+  },
+  "target_learners": {
+    "grade_band_candidate": "k_2",
+    "age_range_candidate": null,
+    "prerequisites_candidate": [
+      "counting within 10",
+      "adding two small single-digit values",
+      "reading a short addition expression like '2 + 1'"
+    ]
+  },
+  "math_domain": "operations_and_algebraic_thinking",
+  "target_skill": {
+    "description": "Compute small single-digit addition expressions mentally, compare the resulting values, and rank-order three items from smallest to largest without guessing from visual position or card appearance.",
+    "ccss_candidate": [
+      "CCSS.MATH.CONTENT.1.OA.C.6"
+    ]
+  },
+  "interaction_type_candidate": "sequence_and_order",
+  "family_candidate": null,
+  "misconception_targets": [
+    {
+      "id": "M1",
+      "description": "Player sorts the cards by visual position, by where a card happens to start, or by card color or size, without actually computing the addition expression on each card and comparing the resulting values.",
+      "existing_library_match": null
+    }
+  ],
+  "success_condition": "The player places all three cards in the correct smallest-to-largest order on first commit, demonstrating that they computed each expression value and compared them rather than guessing by position or appearance.",
+  "constraints": [
+    "single scene only",
+    "exactly three cards per round in this first real run",
+    "each card shows a simple addition expression with single-digit values summing to within 10",
+    "ordering rule must be stated in plain text before the round starts",
+    "ordering rule must remain visible for the whole round",
+    "no timer pressure in this first real run",
+    "no scoring layer in this first real run",
+    "an incorrect commit must not penalize the player; it must only jiggle-and-reset for another attempt"
+  ],
+  "dependencies": [],
+  "closest_existing_game": {
+    "name": "Snack Line Shuffle",
+    "slug": null,
+    "overlap_risk": "medium",
+    "differentiation": "This mini is a deliberately scoped-down variant: fixed three-card rounds, single 'smallest first' rule, no scoring layer, no timer. It does not attempt to replace the full Snack Line Shuffle concept described in taxonomy/interaction_types.yaml as the canonical proof case for sequence_and_order."
+  },
+  "portfolio_fit": {
+    "why_now": "Second real concept run through the post-Package-7 backbone. Chosen to stress the enriched concept_packet shape on a sequence_and_order interaction type, distinct from the first real run's combine_and_build (bakery-rush-mini), so we can test whether constraints, misconception_targets, success_condition, interaction_type_candidate, and family_candidate all flow cleanly on a non-bakery pattern.",
+    "overlap_risk": "low",
+    "replacement_or_extension_of": null
+  },
+  "status": "approved_for_packetization",
+  "next_action": {
+    "type": "packetize",
+    "owner": "dalia",
+    "reason": "Use this brief as the second real concept run to test whether Package 7's generator carry-through works outside the combine_and_build pattern it was validated against on bakery-rush-mini."
+  },
+  "unresolved_items": [
+    {
+      "field": "family_candidate",
+      "reason": "No repo-grounded families.yaml entry exists for sequence_and_order mini variants. Leaving as null rather than inventing a family name. Non-blocking at intake; should be revisited when a families taxonomy for ordering games is introduced.",
+      "blocking": false,
+      "raised_at": "2026-04-10T19:05:00Z"
+    }
+  ],
+  "review_notes": [],
+  "author_notes": [
+    "Keep this second real run intentionally small — three cards per round, no variable counts.",
+    "Do not add scoring, stars, or timer pressure.",
+    "Use a single ordering rule: smallest first. Do not introduce multiple rule variants yet.",
+    "Cards should show short addition expressions like '2 + 1', not pure numerals, so 'compute then compare' is the actual cognitive work rather than pure visual comparison.",
+    "Run this through the post-Package-7 backbone to test whether the enriched concept_packet shape survives a non-bakery interaction type. This is a contract test, not a shippable build."
+  ]
+}
