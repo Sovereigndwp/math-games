@@ -77,6 +77,16 @@ PAIRS = [
         REPO_ROOT / "schemas" / "release_certificate.schema.json",
         REPO_ROOT / "schemas" / "examples" / "release_certificate.example.json",
     ),
+    (
+        "generation_request",
+        REPO_ROOT / "schemas" / "generation_request.schema.json",
+        REPO_ROOT / "schemas" / "examples" / "generation_request.example.json",
+    ),
+    (
+        "generation_manifest",
+        REPO_ROOT / "schemas" / "generation_manifest.schema.json",
+        REPO_ROOT / "schemas" / "examples" / "generation_manifest.example.json",
+    ),
 ]
 
 

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/generation_request.schema.json",
+  "title": "Generation Request",
+  "description": "Package 5. A typed request to deterministically generate a draft artifact from a typed source artifact. A generation_request does NOT perform any generation itself — it is the typed input consumed by a generator script. The first generator in the pipeline is scripts/generate_concept_packet_stub.py, which accepts source_type=concept_brief and artifact_type=concept_packet_draft and writes a draft + manifest under generated/drafts/. No LLM calls, no network, no promotion: drafts never become authoritative without a separate promotion step that does not exist yet.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request_id",
+    "created_at",
+    "source_type",
+    "source_ref",
+    "artifact_type",
+    "target_path",
+    "generator_version",
+    "mode",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^gr_[0-9]{8}_[a-z0-9]{6}$",
+      "description": "Stable ID for this request. Format: gr_YYYYMMDD_<6-char-random>. Never reused."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["concept_brief", "build_plan"],
+      "description": "The kind of source artifact the generator reads. The Package 5 stub only handles concept_brief; build_plan is reserved for a future generator."
+    },
+    "source_ref": {
+      "type": "object",
+      "required": ["path", "hash"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Repo-relative path to the source file."
+        },
+        "hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "SHA-256 of the source file, with sha256: prefix. The generator refuses to run if the actual file hash does not match."
+        },
+        "id": {
+          "type": ["string", "null"],
+          "description": "Optional stable ID from the source artifact (e.g., brief_id), for convenience."
+        }
+      }
+    },
+    "artifact_type": {
+      "type": "string",
+      "enum": ["concept_packet_draft"],
+      "description": "The kind of artifact the generator will produce. Only concept_packet_draft is supported in Package 5."
+    },
+    "target_path": {
+      "type": "string",
+      "description": "Repo-relative directory where the generator will write its output files. MUST live under generated/drafts/ — the generator rejects any other path."
+    },
+    "generator_version": {
+      "type": "string",
+      "description": "Expected generator version, e.g., concept-packet-stub-v0.1.0."
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["draft"],
+      "description": "Generation mode. Only 'draft' is supported in Package 5."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "completed", "failed"],
+      "description": "Lifecycle state of the request. Operators author the file with status=pending; the Package 5 stub reports status through the manifest rather than rewriting the request file. Future packages may add in-place request updating."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1.0",
+  "manifest_id": "gm_20260410_fxt001",
+  "request_id": "gr_20260410_fxt001",
+  "generated_at": "2026-04-10T18:00:00Z",
+  "generator_name": "concept-packet-stub",
+  "generator_version": "concept-packet-stub-v0.1.0",
+  "source_artifacts": [
+    {
+      "path": "schemas/examples/concept_brief.example.json",
+      "hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "kind": "concept_brief"
+    }
+  ],
+  "output_artifacts": [
+    {
+      "path": "generated/drafts/example-game/concept_packet.draft.json",
+      "hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "kind": "concept_packet_draft"
+    }
+  ],
+  "schema_versions_used": {
+    "generation_request_schema": "0.1.0",
+    "generation_manifest_schema": "0.1.0",
+    "concept_brief_schema": "0.1.0",
+    "build_plan_schema": null
+  },
+  "status": "success",
+  "notes": "Hand-authored happy-path fixture. Independent of the runtime manifest under generated/drafts/. Hashes are placeholders."
+}

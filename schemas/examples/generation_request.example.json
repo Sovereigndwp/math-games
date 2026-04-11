@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "gr_20260410_a1b2c3",
+  "created_at": "2026-04-10T18:00:00Z",
+  "source_type": "concept_brief",
+  "source_ref": {
+    "path": "schemas/examples/concept_brief.example.json",
+    "hash": "sha256:78ef4a669468802c38ec8779e12719aa6e9e44b70385bb287e181eb5f1a04060",
+    "id": "cb_20260410_a1b2c3"
+  },
+  "artifact_type": "concept_packet_draft",
+  "target_path": "generated/drafts/example-game/",
+  "generator_version": "concept-packet-stub-v0.1.0",
+  "mode": "draft",
+  "status": "pending"
+}
