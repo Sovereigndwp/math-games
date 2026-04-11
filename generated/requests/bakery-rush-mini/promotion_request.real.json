@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "pr_20260410_brm001",
+  "created_at": "2026-04-10T19:30:00Z",
+  "artifact_type": "concept_packet_draft",
+  "source_draft_ref": {
+    "path": "generated/drafts/bakery-rush-mini/concept_packet.draft.json",
+    "hash": "sha256:a423a06f151ea48c3ec1baa701de389bc10dc4358c8d627e148d60f7d5b52558"
+  },
+  "source_manifest_ref": {
+    "path": "generated/drafts/bakery-rush-mini/concept_packet.manifest.json",
+    "hash": "sha256:bad5ac28f47a4bd61f3c3b73eac917d65ae2adef55d6e520b4ae560a7900a6fb"
+  },
+  "target_path": "generated/review/bakery-rush-mini/",
+  "promoter_version": "draft-promoter-stub-v0.1.0",
+  "mode": "review",
+  "status": "pending"
+}

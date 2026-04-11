@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "gr_20260410_brm001",
+  "created_at": "2026-04-10T19:15:00Z",
+  "source_type": "concept_brief",
+  "source_ref": {
+    "path": "generated/requests/bakery-rush-mini/concept_brief.real.json",
+    "hash": "sha256:b65eda7e4d3143be45992de431914e7a0188df63815199a1ece35ade673a4b14",
+    "id": "cb_20260410_brm001"
+  },
+  "artifact_type": "concept_packet_draft",
+  "target_path": "generated/drafts/bakery-rush-mini/",
+  "generator_version": "concept-packet-stub-v0.1.0",
+  "mode": "draft",
+  "status": "pending"
+}

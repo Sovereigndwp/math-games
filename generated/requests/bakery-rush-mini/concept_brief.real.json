@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1.0",
+  "brief_id": "cb_20260410_brm001",
+  "created_at": "2026-04-10T19:00:00Z",
+  "title": "Bakery Rush Mini",
+  "proposed_slug": "bakery-rush-mini",
+  "source": {
+    "origin": "human_direct",
+    "captured_by": "dalia",
+    "taskade_project_id": null,
+    "external_url": null,
+    "notes": "First real concept run through the contract backbone. Deliberately small and close to the example flow."
+  },
+  "concept_summary": "A simple early math game where the player fulfills bakery orders by tapping pastry tiles to build an exact total. The target order value is visible at all times. The player wins only when the built total matches the order exactly. Overshooting is a visible failure state that resets the tray.",
+  "core_mechanic": {
+    "player_action": "Tap pastry tiles to add their values to a running tray total, then commit the tray when the total matches the order exactly.",
+    "feedback_loop": "The order target and running tray total stay visible the whole time. A correct tray highlights green and clears the order. An overshoot highlights amber, clears the tray, and asks the player to try again.",
+    "math_as_lockpick_statement": null
+  },
+  "target_learners": {
+    "grade_band_candidate": "k_2",
+    "age_range_candidate": null,
+    "prerequisites_candidate": [
+      "counting within 10",
+      "basic number recognition",
+      "understanding that adding more increases a total"
+    ]
+  },
+  "math_domain": "operations_and_algebraic_thinking",
+  "target_skill": {
+    "description": "Compose a target total within 10 by selecting addends deliberately instead of guessing or tapping randomly.",
+    "ccss_candidate": [
+      "CCSS.MATH.CONTENT.1.OA.C.6"
+    ]
+  },
+  "interaction_type_candidate": "combine_and_build",
+  "family_candidate": "quantity_and_fulfillment",
+  "misconception_targets": [
+    {
+      "id": "M1",
+      "description": "The player assumes that any tap is progress and keeps adding without checking whether the running total still fits the target.",
+      "existing_library_match": null
+    }
+  ],
+  "success_condition": "The player stops adding when the tray total equals the order target exactly and commits before overshooting.",
+  "constraints": [
+    "single scene only",
+    "running total must remain visible at all times",
+    "order target must remain visible at all times",
+    "no timer pressure in this first real run",
+    "values limited to totals within 10",
+    "overshoot must be visible and easy to understand"
+  ],
+  "dependencies": [],
+  "closest_existing_game": {
+    "name": "Bakery Rush",
+    "slug": null,
+    "overlap_risk": "low"
+  },
+  "portfolio_fit": {
+    "why_now": "This is the safest first real concept to run because it is mechanically simple, already close to the example fixture, and aligned with an existing under review family.",
+    "overlap_risk": "low",
+    "replacement_or_extension_of": "example-game"
+  },
+  "status": "approved_for_packetization",
+  "next_action": {
+    "type": "packetize",
+    "owner": "dalia",
+    "reason": "Use this brief as the first real concept to test the concept brief to generation request to draft to review flow."
+  },
+  "unresolved_items": [],
+  "review_notes": [
+    {
+      "timestamp": "2026-04-10T19:00:00Z",
+      "reviewer": "dalia",
+      "note": "Keep this first run intentionally small.",
+      "decision": null
+    },
+    {
+      "timestamp": "2026-04-10T19:00:00Z",
+      "reviewer": "dalia",
+      "note": "Do not add scoring, stars, or timer pressure yet.",
+      "decision": null
+    },
+    {
+      "timestamp": "2026-04-10T19:00:00Z",
+      "reviewer": "dalia",
+      "note": "Use this run to test contract clarity, not content ambition.",
+      "decision": null
+    }
+  ]
+}
