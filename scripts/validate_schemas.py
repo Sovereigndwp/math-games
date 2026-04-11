@@ -102,6 +102,11 @@ PAIRS = [
         REPO_ROOT / "schemas" / "concept_packet.schema.json",
         REPO_ROOT / "schemas" / "examples" / "concept_packet.example.json",
     ),
+    (
+        "project_config",
+        REPO_ROOT / "schemas" / "project_config.schema.json",
+        REPO_ROOT / "schemas" / "examples" / "project_config.example.json",
+    ),
 ]
 
 

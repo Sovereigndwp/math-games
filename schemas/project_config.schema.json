@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/project_config.schema.json",
+  "title": "Project Config",
+  "description": "Package 10 v0.1.0. A project_config is a per-slug, per-run operational control artifact for a specific game in math-games. It is NOT studio-wide policy: authoritative vocabularies for interaction_type_candidate, grade bands, and standards live in math-game-studio-os. project_config is where a production run records the per-game decisions a future new_game_init script, lightweight phase router, or lean agent map would need as one stable source of truth: what the game is trying to teach, what sensory priorities matter, what scope is forbidden, what phase it is in, and what counts as success right now. The file is intended to be small, authored at intake, and updated as the game moves through production phases.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "config_id",
+    "created_at",
+    "slug",
+    "subject",
+    "grade_band",
+    "primary_standard",
+    "target_skill",
+    "interaction_type_candidate",
+    "family_candidate",
+    "core_misconception",
+    "sensory_priorities",
+    "forbidden_scope",
+    "current_phase",
+    "success_metric",
+    "notes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "config_id": {
+      "type": "string",
+      "pattern": "^pc_[0-9]{8}_[a-z0-9]{6}$",
+      "description": "Stable identifier for this project_config. Format: pc_YYYYMMDD_<6-char-random>. Never reused."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 2,
+      "maxLength": 64,
+      "description": "kebab-case slug identifying the game this project_config controls. Must match the slug used by the rest of the game's artifact chain (concept_brief.proposed_slug, concept_packet.slug, generated paths under generated/.../<slug>/)."
+    },
+    "subject": {
+      "type": "string",
+      "enum": ["math"],
+      "description": "Subject area of the game. Narrow to 'math' for v0.1.0; additional subjects are a future cross-repo coordination."
+    },
+    "grade_band": {
+      "type": "string",
+      "enum": [
+        "pre_k",
+        "k_2",
+        "3_5",
+        "6_8",
+        "9_12",
+        "cross_band"
+      ],
+      "description": "Target grade band for this game. Matches the enum used in concept_brief.target_learners.grade_band_candidate except this field is not a candidate — it is a committed operational decision once set. Does NOT include 'unresolved' on purpose: project_config is meant to be actionable state, not intake uncertainty."
+    },
+    "primary_standard": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "The primary standards label this game targets (e.g., 'CCSS.MATH.CONTENT.1.OA.C.6'). Kept as a plain string for v0.1.0 — strict format validation is deliberately not enforced here. The authoritative standards vocabulary lives in math-game-studio-os; math-games treats this field as a label."
+    },
+    "target_skill": {
+      "type": "object",
+      "required": ["description", "ccss_candidate"],
+      "additionalProperties": false,
+      "description": "The specific skill the game develops. Same shape as concept_brief.target_skill and concept_packet.target_skill so future normalization (e.g., a skill-resolver pass) can process all three uniformly.",
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500
+        },
+        "ccss_candidate": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 80
+          }
+        }
+      }
+    },
+    "interaction_type_candidate": {
+      "type": "string",
+      "description": "The interaction type the game is currently classified as. Value MUST match an 'id' from taxonomy/interaction_types.yaml OR be the literal string 'unresolved'. JSON Schema cannot enforce cross-file YAML membership; this is a runner-validation responsibility, same style as concept_packet.schema.json."
+    },
+    "family_candidate": {
+      "type": ["string", "null"],
+      "description": "Family grouping name for this game (e.g., 'quantity_and_fulfillment'), or null if no family has been assigned. Free-form because math-games does not yet own a families registry."
+    },
+    "core_misconception": {
+      "type": "object",
+      "required": ["id", "description"],
+      "additionalProperties": false,
+      "description": "The single most important misconception this game is designed to expose and teach. Multi-misconception concepts should list additional misconceptions in the concept_brief; project_config tracks only the core one to keep phase-router and agent-map decisions simple.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^M[0-9]+$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 400
+        }
+      }
+    },
+    "sensory_priorities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "visual_clarity",
+          "motion_feedback",
+          "audio_feedback",
+          "tactile_illusion",
+          "calm_pacing",
+          "high_energy",
+          "low_distraction"
+        ]
+      },
+      "description": "Ordered list of sensory properties the game should prioritize. First entry is most important. A future prototype build step should consult this list before choosing animations, audio cues, and pacing. At least one entry is required — a project_config with no sensory priority is not actionable."
+    },
+    "forbidden_scope": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "maxLength": 300
+      },
+      "description": "Hard 'do not build this' rules for this game at its current phase (e.g., 'no scoring layer in P1', 'no timer pressure in P1', 'no multi-scene flow in P1'). A future phase router must refuse to advance any artifact that violates a forbidden_scope entry. At least one entry is required — empty forbidden_scope is almost always an oversight at intake."
+    },
+    "current_phase": {
+      "type": "string",
+      "enum": [
+        "concept",
+        "packet",
+        "prototype",
+        "review",
+        "qa",
+        "repair",
+        "release_ready"
+      ],
+      "description": "Current production phase for this game. Updated by operators or by a future phase-router script when a game advances."
+    },
+    "success_metric": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500,
+      "description": "One-sentence human-legible statement of what counts as success RIGHT NOW at this phase. Not a KPI — a legible outcome check. Example for the review phase: 'A first-time K-2 player completes one correct commit within 60 seconds with no verbal hint.' This changes as the game advances through phases."
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "maxLength": 1000,
+      "description": "Free-form operational notes about this project_config. Optional null means no notes. Use for things like 'updated from concept phase to review phase after promotion'."
+    }
+  }
+}

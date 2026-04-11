@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "config_id": "pc_20260411_a1b2c3",
+  "created_at": "2026-04-11T08:00:00Z",
+  "slug": "example-game",
+  "subject": "math",
+  "grade_band": "k_2",
+  "primary_standard": "CCSS.MATH.CONTENT.1.OA.C.6",
+  "target_skill": {
+    "description": "Additive composition toward a stated target within 10, demonstrated through deliberate tap-to-accumulate gameplay.",
+    "ccss_candidate": [
+      "CCSS.MATH.CONTENT.1.OA.C.6"
+    ]
+  },
+  "interaction_type_candidate": "combine_and_build",
+  "family_candidate": "quantity_and_fulfillment",
+  "core_misconception": {
+    "id": "M1",
+    "description": "Player clicks as fast as possible and ignores the running total, assuming any click is progress regardless of the target."
+  },
+  "sensory_priorities": [
+    "visual_clarity",
+    "calm_pacing",
+    "low_distraction"
+  ],
+  "forbidden_scope": [
+    "no timer pressure in P1",
+    "no scoring layer in P1",
+    "no multi-scene flow in P1",
+    "no silent wrong-answer feedback"
+  ],
+  "current_phase": "review",
+  "success_metric": "A first-time K-2 player reaches a correct commit on the running-total game within 60 seconds with no verbal hint from an adult.",
+  "notes": "Mirrors the example-game request -> draft -> review chain already in the repo. primary_standard and target_skill.description match schemas/examples/concept_brief.example.json and schemas/examples/concept_packet.example.json so the three files tell a consistent operational story for the example slug."
+}
