@@ -59,13 +59,11 @@ CONCEPT_PACKET_SCHEMA = REPO_ROOT / "schemas" / "concept_packet.schema.json"
 GENERATOR_NAME = "concept-packet-stub"
 GENERATOR_VERSION = "concept-packet-stub-v0.2.0"
 
-# Frozen for deterministic fixture output. Edit this value (and re-run) to
-# refresh the committed snapshot with a new timestamp. Value chosen to
-# post-date the example concept_brief's created_at (2026-04-10T14:00:00Z)
-# and the bakery-rush-mini real run's brief (19:00Z) and generation_request
-# (19:15Z), so the manifest's generated_at is always honest relative to its
-# inputs.
-THE_EXAMPLE_GENERATED_AT = "2026-04-10T19:20:00Z"
+# Package 8: manifest.generated_at is derived from the generation_request's
+# own created_at field. This is deterministic by construction (same request,
+# same output, always) and honest relative to its inputs by construction
+# (the timestamp literally IS the request author's stated creation time).
+# No global frozen constant is needed.
 
 
 def die_setup(msg):
@@ -114,6 +112,13 @@ def build_draft(brief, request, manifest_id):
     # success_condition, interaction_type_candidate, family_candidate, and
     # target_skill.ccss_candidate from the brief. Adds schema_version for
     # validation against concept_packet.schema.json.
+    #
+    # Package 8: author_notes is intentionally NOT carried through. It is an
+    # intake-phase field on concept_brief (free-form author intent notes)
+    # and has no place in the downstream packet. Design intent reaches the
+    # packet through constraints, not through author_notes. See the
+    # author_notes description in concept_brief.schema.json for the formal
+    # statement of this rule.
     return {
         "schema_version": "0.1.0",
         "slug": brief["proposed_slug"],
@@ -249,7 +254,7 @@ def main(argv):
         "schema_version": "0.1.0",
         "manifest_id": manifest_id,
         "request_id": request["request_id"],
-        "generated_at": THE_EXAMPLE_GENERATED_AT,
+        "generated_at": request["created_at"],
         "generator_name": GENERATOR_NAME,
         "generator_version": GENERATOR_VERSION,
         "source_artifacts": [

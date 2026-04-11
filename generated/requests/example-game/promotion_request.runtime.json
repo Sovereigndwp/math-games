@@ -9,7 +9,7 @@
   },
   "source_manifest_ref": {
     "path": "generated/drafts/example-game/concept_packet.manifest.json",
-    "hash": "sha256:7de88db4a46584ebcc80d393625c7a19de3df5217a737572af5f6f2742a99ef8"
+    "hash": "sha256:a32e125bc2a586cdd7073f18e9eeaa3b24c6413c2e63a3d3c8d71904b25e6774"
   },
   "target_path": "generated/review/example-game/",
   "promoter_version": "draft-promoter-stub-v0.1.0",

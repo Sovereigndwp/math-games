@@ -70,13 +70,10 @@ PROMOTION_RECORD_SCHEMA = REPO_ROOT / "schemas" / "promotion_record.schema.json"
 PROMOTER_NAME = "draft-promoter-stub"
 PROMOTER_VERSION = "draft-promoter-stub-v0.1.0"
 
-# Frozen for deterministic fixture output. Edit this value (and re-run after
-# deleting the previous target files) to refresh the committed snapshot.
-# Value chosen to post-date the example generation manifest's generated_at
-# (2026-04-10T19:20:00Z) and the bakery-rush-mini promotion_request's
-# created_at (19:30Z), so the promoted_at is always honest relative to its
-# inputs.
-THE_EXAMPLE_PROMOTED_AT = "2026-04-10T19:45:00Z"
+# Package 8: promoted_at is derived from the promotion_request's own
+# created_at field, in both the review artifact's promotion block and the
+# promotion_record. Deterministic by construction and honest relative to
+# inputs by construction. No global frozen constant is needed.
 
 
 def die_setup(msg):
@@ -218,7 +215,7 @@ def main(argv):
         "promotion": {
             "request_id": request["request_id"],
             "record_id": record_id,
-            "promoted_at": THE_EXAMPLE_PROMOTED_AT,
+            "promoted_at": request["created_at"],
             "promoter_name": PROMOTER_NAME,
             "promoter_version": PROMOTER_VERSION,
         },
@@ -233,7 +230,7 @@ def main(argv):
         "schema_version": "0.1.0",
         "record_id": record_id,
         "request_id": request["request_id"],
-        "promoted_at": THE_EXAMPLE_PROMOTED_AT,
+        "promoted_at": request["created_at"],
         "promoter_name": PROMOTER_NAME,
         "promoter_version": PROMOTER_VERSION,
         "source_artifacts": [
