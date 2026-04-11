@@ -72,7 +72,11 @@ PROMOTER_VERSION = "draft-promoter-stub-v0.1.0"
 
 # Frozen for deterministic fixture output. Edit this value (and re-run after
 # deleting the previous target files) to refresh the committed snapshot.
-THE_EXAMPLE_PROMOTED_AT = "2026-04-10T18:30:00Z"
+# Value chosen to post-date the example generation manifest's generated_at
+# (2026-04-10T19:20:00Z) and the bakery-rush-mini promotion_request's
+# created_at (19:30Z), so the promoted_at is always honest relative to its
+# inputs.
+THE_EXAMPLE_PROMOTED_AT = "2026-04-10T19:45:00Z"
 
 
 def die_setup(msg):

@@ -1,15 +1,15 @@
 {
   "schema_version": "0.1.0",
   "request_id": "pr_20260410_a1b2c3",
-  "created_at": "2026-04-10T18:30:00Z",
+  "created_at": "2026-04-10T19:30:00Z",
   "artifact_type": "concept_packet_draft",
   "source_draft_ref": {
     "path": "generated/drafts/example-game/concept_packet.draft.json",
-    "hash": "sha256:a06cd0c0863bbbb909401af584f8c402be9a23e4c854431044353f13f44bbf1c"
+    "hash": "sha256:9a56dbd447b2989b4260d23c5bc89a99ffd4bcbfe3e9bea8cba0abcd764dbbef"
   },
   "source_manifest_ref": {
     "path": "generated/drafts/example-game/concept_packet.manifest.json",
-    "hash": "sha256:9e4161c547206970b765e3a6c2836a40e10219a05cef08e8fb5419b82e28c1be"
+    "hash": "sha256:7de88db4a46584ebcc80d393625c7a19de3df5217a737572af5f6f2742a99ef8"
   },
   "target_path": "generated/review/example-game/",
   "promoter_version": "draft-promoter-stub-v0.1.0",

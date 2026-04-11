@@ -97,6 +97,11 @@ PAIRS = [
         REPO_ROOT / "schemas" / "promotion_record.schema.json",
         REPO_ROOT / "schemas" / "examples" / "promotion_record.example.json",
     ),
+    (
+        "concept_packet",
+        REPO_ROOT / "schemas" / "concept_packet.schema.json",
+        REPO_ROOT / "schemas" / "examples" / "concept_packet.example.json",
+    ),
 ]
 
 

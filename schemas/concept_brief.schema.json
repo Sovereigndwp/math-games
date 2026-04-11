@@ -398,6 +398,11 @@
         }
       },
       "description": "Append-only log of review actions on this brief. Used by Stage 2 (validation) and the human checkpoint at Stage 3 entry."
+    },
+    "author_notes": {
+      "type": "array",
+      "items": {"type": "string", "maxLength": 500},
+      "description": "Free-form intake-time notes from the original author. Distinct from review_notes, which are downstream reviewer actions. Use this for author intent notes like 'keep this small' or 'do not add scoring yet' without conflating them with formal review decisions. Empty array is allowed. This is an intake convenience field; runners must NOT derive policy decisions from it."
     }
   },
   "allOf": [

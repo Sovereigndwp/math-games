@@ -54,13 +54,18 @@ DEFAULT_REQUEST = REPO_ROOT / "schemas" / "examples" / "generation_request.examp
 GENERATION_REQUEST_SCHEMA = REPO_ROOT / "schemas" / "generation_request.schema.json"
 GENERATION_MANIFEST_SCHEMA = REPO_ROOT / "schemas" / "generation_manifest.schema.json"
 CONCEPT_BRIEF_SCHEMA = REPO_ROOT / "schemas" / "concept_brief.schema.json"
+CONCEPT_PACKET_SCHEMA = REPO_ROOT / "schemas" / "concept_packet.schema.json"
 
 GENERATOR_NAME = "concept-packet-stub"
-GENERATOR_VERSION = "concept-packet-stub-v0.1.0"
+GENERATOR_VERSION = "concept-packet-stub-v0.2.0"
 
 # Frozen for deterministic fixture output. Edit this value (and re-run) to
-# refresh the committed snapshot with a new timestamp.
-THE_EXAMPLE_GENERATED_AT = "2026-04-10T18:00:00Z"
+# refresh the committed snapshot with a new timestamp. Value chosen to
+# post-date the example concept_brief's created_at (2026-04-10T14:00:00Z)
+# and the bakery-rush-mini real run's brief (19:00Z) and generation_request
+# (19:15Z), so the manifest's generated_at is always honest relative to its
+# inputs.
+THE_EXAMPLE_GENERATED_AT = "2026-04-10T19:20:00Z"
 
 
 def die_setup(msg):
@@ -105,7 +110,12 @@ def derive_manifest_id_from_request_id(request_id):
 
 def build_draft(brief, request, manifest_id):
     # Pure structural transform. No interpretation, no enrichment.
+    # Package 7 v0.2.0: carry through constraints, misconception_targets,
+    # success_condition, interaction_type_candidate, family_candidate, and
+    # target_skill.ccss_candidate from the brief. Adds schema_version for
+    # validation against concept_packet.schema.json.
     return {
+        "schema_version": "0.1.0",
         "slug": brief["proposed_slug"],
         "title": brief["title"],
         "source_brief_id": brief["brief_id"],
@@ -129,7 +139,15 @@ def build_draft(brief, request, manifest_id):
         "math_domain": brief["math_domain"],
         "target_skill": {
             "description": brief["target_skill"]["description"],
+            "ccss_candidate": brief["target_skill"].get("ccss_candidate", []),
         },
+        "interaction_type_candidate": brief.get(
+            "interaction_type_candidate", "unresolved"
+        ),
+        "family_candidate": brief.get("family_candidate"),
+        "misconception_targets": brief.get("misconception_targets", []),
+        "success_condition": brief["success_condition"],
+        "constraints": brief.get("constraints", []),
         "status": "draft_generated",
     }
 
@@ -148,12 +166,14 @@ def main(argv):
         GENERATION_REQUEST_SCHEMA,
         GENERATION_MANIFEST_SCHEMA,
         CONCEPT_BRIEF_SCHEMA,
+        CONCEPT_PACKET_SCHEMA,
     ]:
         if not p.exists():
             die_setup(f"required schema missing: {p}")
     req_schema = load_json(GENERATION_REQUEST_SCHEMA, "generation_request schema")
     mf_schema = load_json(GENERATION_MANIFEST_SCHEMA, "generation_manifest schema")
     brief_schema = load_json(CONCEPT_BRIEF_SCHEMA, "concept_brief schema")
+    packet_schema = load_json(CONCEPT_PACKET_SCHEMA, "concept_packet schema")
 
     # --- load request ---
     if len(argv) > 1:
@@ -211,6 +231,16 @@ def main(argv):
     # --- build draft ---
     manifest_id = derive_manifest_id_from_request_id(request["request_id"])
     draft = build_draft(brief, request, manifest_id)
+
+    # Self-validate draft against concept_packet.schema.json before writing.
+    try:
+        Draft202012Validator(packet_schema).validate(draft)
+    except ValidationError as e:
+        die_failure(
+            f"generated draft does not validate against concept_packet schema: "
+            f"{e.message}"
+        )
+
     draft_path.write_text(canonical_dump(draft), encoding="utf-8")
     draft_hash = sha256_of_file(draft_path)
 

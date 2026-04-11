@@ -2,12 +2,12 @@
   "notes": null,
   "output_artifacts": [
     {
-      "hash": "sha256:94c80573e0817d67bf810953c35b5a8530e63199c31febc77942c6a2390c45c6",
+      "hash": "sha256:78aff8372cc45257d829240e57143a238100841eccd24b59ba2264576657dfd7",
       "kind": "concept_packet_review",
       "path": "generated/review/example-game/concept_packet.review.json"
     }
   ],
-  "promoted_at": "2026-04-10T18:30:00Z",
+  "promoted_at": "2026-04-10T19:45:00Z",
   "promoter_name": "draft-promoter-stub",
   "promoter_version": "draft-promoter-stub-v0.1.0",
   "record_id": "pm_20260410_a1b2c3",
@@ -20,12 +20,12 @@
   },
   "source_artifacts": [
     {
-      "hash": "sha256:a06cd0c0863bbbb909401af584f8c402be9a23e4c854431044353f13f44bbf1c",
+      "hash": "sha256:9a56dbd447b2989b4260d23c5bc89a99ffd4bcbfe3e9bea8cba0abcd764dbbef",
       "kind": "concept_packet_draft",
       "path": "generated/drafts/example-game/concept_packet.draft.json"
     },
     {
-      "hash": "sha256:9e4161c547206970b765e3a6c2836a40e10219a05cef08e8fb5419b82e28c1be",
+      "hash": "sha256:7de88db4a46584ebcc80d393625c7a19de3df5217a737572af5f6f2742a99ef8",
       "kind": "generation_manifest",
       "path": "generated/drafts/example-game/concept_packet.manifest.json"
     }

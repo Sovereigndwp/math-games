@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1.0",
+  "slug": "example-game",
+  "title": "Example Game",
+  "source_brief_id": "cb_20260410_a1b2c3",
+  "generated_from": {
+    "request_id": "gr_20260410_a1b2c3",
+    "manifest_id": "gm_20260410_a1b2c3",
+    "generator_name": "concept-packet-stub",
+    "generator_version": "concept-packet-stub-v0.2.0"
+  },
+  "concept_summary": "A tiny example concept used as a cross-schema fixture. The player reads a target number and taps counter tiles to accumulate a running total; when the running total equals the target, the player commits. Happy-path illustration of additive composition toward a visible target within 10.",
+  "core_mechanic": {
+    "player_action": "Tap counter tiles to add their value to a running total, then commit when the running total equals the target.",
+    "feedback_loop": "The running total is always visible. On a matching commit the target flashes green; on overshoot the running total resets with an amber cue."
+  },
+  "target_learners": {
+    "grade_band_candidate": "k_2",
+    "prerequisites_candidate": []
+  },
+  "math_domain": "operations_and_algebraic_thinking",
+  "target_skill": {
+    "description": "Additive composition toward a stated target within 10, demonstrated through deliberate tap-to-accumulate gameplay.",
+    "ccss_candidate": []
+  },
+  "interaction_type_candidate": "combine_and_build",
+  "family_candidate": "quantity_and_fulfillment",
+  "misconception_targets": [
+    {
+      "id": "M1",
+      "description": "Player clicks as fast as possible and ignores the running total, assuming any click is progress regardless of the target.",
+      "existing_library_match": null
+    }
+  ],
+  "success_condition": "Player stops tapping when the running total equals the target, not before and not after.",
+  "constraints": [
+    "running total must be visible at all times"
+  ],
+  "status": "draft_generated"
+}

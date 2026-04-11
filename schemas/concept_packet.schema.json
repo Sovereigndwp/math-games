@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Sovereigndwp/math-games/schemas/concept_packet.schema.json",
+  "title": "Concept Packet",
+  "description": "Package 7 v0.1.0. A concept packet is the structured representation of a game concept carried from a concept_brief through draft and review stages. Covers both status=draft_generated (pre-review) and status=review_ready (post-promotion) states. The generator (scripts/generate_concept_packet_stub.py) produces packets in draft state; the promoter (scripts/promote_draft_stub.py) produces packets in review_ready state. Optional review block carries post-promotion human-review decisions; the promoter does NOT populate it, and it is reserved for a later human-review script. A conditional allOf rule enforces: status=review_ready requires the promotion block, and status=draft_generated forbids it.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "slug",
+    "title",
+    "source_brief_id",
+    "generated_from",
+    "concept_summary",
+    "core_mechanic",
+    "target_learners",
+    "math_domain",
+    "target_skill",
+    "interaction_type_candidate",
+    "family_candidate",
+    "misconception_targets",
+    "success_condition",
+    "constraints",
+    "status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 2,
+      "maxLength": 64
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "source_brief_id": {
+      "type": "string",
+      "pattern": "^cb_[0-9]{8}_[a-z0-9]{6}$"
+    },
+    "generated_from": {
+      "type": "object",
+      "required": ["request_id", "manifest_id", "generator_name", "generator_version"],
+      "additionalProperties": false,
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "pattern": "^gr_[0-9]{8}_[a-z0-9]{6}$"
+        },
+        "manifest_id": {
+          "type": "string",
+          "pattern": "^gm_[0-9]{8}_[a-z0-9]{6}$"
+        },
+        "generator_name": {
+          "type": "string"
+        },
+        "generator_version": {
+          "type": "string"
+        }
+      }
+    },
+    "concept_summary": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 1000
+    },
+    "core_mechanic": {
+      "type": "object",
+      "required": ["player_action", "feedback_loop"],
+      "additionalProperties": false,
+      "properties": {
+        "player_action": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500
+        },
+        "feedback_loop": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500
+        }
+      }
+    },
+    "target_learners": {
+      "type": "object",
+      "required": ["grade_band_candidate"],
+      "additionalProperties": false,
+      "properties": {
+        "grade_band_candidate": {
+          "type": "string",
+          "enum": [
+            "pre_k",
+            "k_2",
+            "3_5",
+            "6_8",
+            "9_12",
+            "cross_band",
+            "unresolved"
+          ]
+        },
+        "prerequisites_candidate": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "math_domain": {
+      "type": "string",
+      "enum": [
+        "number_and_operations",
+        "operations_and_algebraic_thinking",
+        "number_and_operations_in_base_ten",
+        "number_and_operations_fractions",
+        "ratios_and_proportional_relationships",
+        "expressions_and_equations",
+        "functions",
+        "geometry",
+        "measurement_and_data",
+        "statistics_and_probability",
+        "trigonometry",
+        "cross_domain",
+        "unresolved"
+      ]
+    },
+    "target_skill": {
+      "type": "object",
+      "required": ["description"],
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500
+        },
+        "ccss_candidate": {
+          "type": "array",
+          "items": {"type": "string", "maxLength": 80}
+        }
+      }
+    },
+    "interaction_type_candidate": {
+      "type": "string",
+      "description": "Must match an id from taxonomy/interaction_types.yaml or the literal string 'unresolved'. JSON Schema cannot enforce cross-file YAML membership; runner-validation responsibility."
+    },
+    "family_candidate": {
+      "type": ["string", "null"]
+    },
+    "misconception_targets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^M[0-9]+$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 400
+          },
+          "existing_library_match": {
+            "type": ["string", "null"]
+          }
+        }
+      }
+    },
+    "success_condition": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500
+    },
+    "constraints": {
+      "type": "array",
+      "items": {"type": "string", "maxLength": 300}
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft_generated", "review_ready"]
+    },
+    "promotion": {
+      "type": "object",
+      "required": ["request_id", "record_id", "promoted_at", "promoter_name", "promoter_version"],
+      "additionalProperties": false,
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "pattern": "^pr_[0-9]{8}_[a-z0-9]{6}$"
+        },
+        "record_id": {
+          "type": "string",
+          "pattern": "^pm_[0-9]{8}_[a-z0-9]{6}$"
+        },
+        "promoted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "promoter_name": {
+          "type": "string"
+        },
+        "promoter_version": {
+          "type": "string"
+        }
+      }
+    },
+    "review": {
+      "type": ["object", "null"],
+      "required": ["decision", "reviewer", "reviewed_at"],
+      "additionalProperties": false,
+      "description": "Review decision applied to this packet AFTER promotion. Populated by a human-review step (not by promote_draft_stub.py). Absence means the review has not yet occurred. Null is equivalent to absence.",
+      "properties": {
+        "decision": {
+          "type": "string",
+          "enum": ["approve", "request_changes", "reject"]
+        },
+        "reviewer": {
+          "type": "string"
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "notes": {
+          "type": "array",
+          "items": {"type": "string", "maxLength": 500}
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "description": "When status is review_ready, the promotion block is required.",
+      "if": {
+        "properties": {"status": {"const": "review_ready"}},
+        "required": ["status"]
+      },
+      "then": {"required": ["promotion"]}
+    },
+    {
+      "description": "When status is draft_generated, the promotion block must not be present.",
+      "if": {
+        "properties": {"status": {"const": "draft_generated"}},
+        "required": ["status"]
+      },
+      "then": {"not": {"required": ["promotion"]}}
+    }
+  ]
+}
