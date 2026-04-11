@@ -201,8 +201,7 @@ def build_project_config(
         "target_skill": {
             "description": (
                 f"{PLACEHOLDER_PREFIX} Describe the specific skill this "
-                f"game develops. Rewrite before advancing current_phase "
-                f"from 'concept'."
+                f"game develops. Rewrite before this slug advances."
             ),
             "ccss_candidate": [primary_standard],
         },
@@ -286,8 +285,7 @@ def build_concept_brief(
         "target_skill": {
             "description": (
                 f"{PLACEHOLDER_PREFIX} Describe the specific skill this "
-                f"game develops. Rewrite before advancing status from "
-                f"'draft'."
+                f"game develops. Rewrite before this slug advances."
             ),
             "ccss_candidate": [primary_standard],
         },
