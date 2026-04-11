@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1.0",
+  "brief_id": "cb_20260410_nbb001",
+  "created_at": "2026-04-10T20:10:00Z",
+  "title": "Number Bond Bridge Mini",
+  "proposed_slug": "number-bond-bridge-mini",
+  "source": {
+    "origin": "human_direct",
+    "captured_by": "dalia",
+    "taskade_project_id": null,
+    "external_url": null,
+    "notes": "Third real concept run. Chosen to test a relation-and-decomposition style concept after combine_and_build (bakery-rush-mini) and sequence_and_order (snack-line-shuffle-mini). Also the first real run after Package 8 to confirm that request-derived timestamps remove the need for any timing coordination workaround."
+  },
+  "concept_summary": "A tiny K to 2 math game where the player completes a bridge by choosing the missing part in a number bond. The total is always visible, one part is given, and the player must choose the correct missing part so the two parts make the total exactly. A correct choice completes the bridge and lights it green. A wrong choice leaves the bridge incomplete and shows a gentle retry cue. No timer, no scoring, no multi-step levels.",
+  "core_mechanic": {
+    "player_action": "Look at the total and the given part, then choose the missing part that completes the number bond exactly.",
+    "feedback_loop": "The total and given part stay visible the whole time. A correct choice completes the bridge visually and highlights it green. A wrong choice shows a gentle retry cue while keeping the bond visible for another attempt.",
+    "math_as_lockpick_statement": null
+  },
+  "target_learners": {
+    "grade_band_candidate": "k_2",
+    "age_range_candidate": null,
+    "prerequisites_candidate": [
+      "counting within 10",
+      "understanding that two parts can make a whole",
+      "recognizing small numerals"
+    ]
+  },
+  "math_domain": "operations_and_algebraic_thinking",
+  "target_skill": {
+    "description": "Use part part whole reasoning to determine the missing addend within 10 instead of guessing from appearance or memorizing one surface pattern.",
+    "ccss_candidate": [
+      "CCSS.MATH.CONTENT.1.OA.C.6"
+    ]
+  },
+  "interaction_type_candidate": "unresolved",
+  "family_candidate": null,
+  "misconception_targets": [
+    {
+      "id": "M1",
+      "description": "Player treats the visible given part as the answer, or chooses a number that looks small or familiar, instead of reasoning about what missing part combines with the given part to make the total.",
+      "existing_library_match": null
+    }
+  ],
+  "success_condition": "The player chooses the correct missing part on first commit, showing they understand the relationship between the whole and the two parts rather than guessing.",
+  "constraints": [
+    "single scene only",
+    "one number bond per round in this first real run",
+    "totals limited to within 10",
+    "the total must remain visible at all times",
+    "the given part must remain visible at all times",
+    "answer choices must all be plausible small numbers, not obviously wrong distractors",
+    "no timer pressure in this first real run",
+    "no scoring layer in this first real run",
+    "wrong answers must not punish the player; they should only trigger a retry cue"
+  ],
+  "dependencies": [],
+  "closest_existing_game": null,
+  "portfolio_fit": {
+    "why_now": "Third real concept run through the post-Package-8 backbone. Chosen to test whether the system handles a missing-component relation task cleanly after a composition task and an ordering task, and to confirm in practice that Package 8's request-derived timestamps remove the need for any timing coordination workaround.",
+    "overlap_risk": "low",
+    "replacement_or_extension_of": null
+  },
+  "status": "approved_for_packetization",
+  "next_action": {
+    "type": "packetize",
+    "owner": "dalia",
+    "reason": "Use this brief as the third real concept run to confirm that request-derived timestamps remove the need for any timing workaround and that the enriched packet shape works on a missing-part concept."
+  },
+  "unresolved_items": [
+    {
+      "field": "interaction_type_candidate",
+      "reason": "No taxonomy/interaction_types.yaml entry exists for part-whole missing-component (number bond) tasks. The closest proven type combine_and_build is accumulation toward a target, which is the opposite cognitive act from decomposition. Leaving as 'unresolved' rather than forcing a bad label. See Friction #17.",
+      "blocking": false,
+      "raised_at": "2026-04-10T20:10:00Z"
+    },
+    {
+      "field": "family_candidate",
+      "reason": "No repo-grounded families.yaml entry exists for missing-component mini variants. Leaving as null rather than inventing a family name. Non-blocking at intake; should be revisited when a families taxonomy for part-whole games is introduced.",
+      "blocking": false,
+      "raised_at": "2026-04-10T20:10:00Z"
+    }
+  ],
+  "review_notes": [],
+  "author_notes": [
+    "Keep this run small and literal.",
+    "Do not add scoring, stars, or timer pressure.",
+    "Keep the visual representation simple so the missing-part reasoning is the real task.",
+    "Use this run mainly to confirm that Package 8 removed the timestamp workaround — pick ordinary chronological timestamps for brief, generation_request, and promotion_request and verify the written manifest and promotion timestamps mirror them exactly.",
+    "If this run stays clean, it becomes the third evidence point that the backbone is stabilizing across different interaction types."
+  ]
+}

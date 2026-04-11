@@ -1,0 +1,61 @@
+{
+  "concept_summary": "A tiny K to 2 math game where the player completes a bridge by choosing the missing part in a number bond. The total is always visible, one part is given, and the player must choose the correct missing part so the two parts make the total exactly. A correct choice completes the bridge and lights it green. A wrong choice leaves the bridge incomplete and shows a gentle retry cue. No timer, no scoring, no multi-step levels.",
+  "constraints": [
+    "single scene only",
+    "one number bond per round in this first real run",
+    "totals limited to within 10",
+    "the total must remain visible at all times",
+    "the given part must remain visible at all times",
+    "answer choices must all be plausible small numbers, not obviously wrong distractors",
+    "no timer pressure in this first real run",
+    "no scoring layer in this first real run",
+    "wrong answers must not punish the player; they should only trigger a retry cue"
+  ],
+  "core_mechanic": {
+    "feedback_loop": "The total and given part stay visible the whole time. A correct choice completes the bridge visually and highlights it green. A wrong choice shows a gentle retry cue while keeping the bond visible for another attempt.",
+    "player_action": "Look at the total and the given part, then choose the missing part that completes the number bond exactly."
+  },
+  "family_candidate": null,
+  "generated_from": {
+    "generator_name": "concept-packet-stub",
+    "generator_version": "concept-packet-stub-v0.2.0",
+    "manifest_id": "gm_20260410_nbb001",
+    "request_id": "gr_20260410_nbb001"
+  },
+  "interaction_type_candidate": "unresolved",
+  "math_domain": "operations_and_algebraic_thinking",
+  "misconception_targets": [
+    {
+      "description": "Player treats the visible given part as the answer, or chooses a number that looks small or familiar, instead of reasoning about what missing part combines with the given part to make the total.",
+      "existing_library_match": null,
+      "id": "M1"
+    }
+  ],
+  "promotion": {
+    "promoted_at": "2026-04-10T20:30:00Z",
+    "promoter_name": "draft-promoter-stub",
+    "promoter_version": "draft-promoter-stub-v0.1.0",
+    "record_id": "pm_20260410_nbb001",
+    "request_id": "pr_20260410_nbb001"
+  },
+  "schema_version": "0.1.0",
+  "slug": "number-bond-bridge-mini",
+  "source_brief_id": "cb_20260410_nbb001",
+  "status": "review_ready",
+  "success_condition": "The player chooses the correct missing part on first commit, showing they understand the relationship between the whole and the two parts rather than guessing.",
+  "target_learners": {
+    "grade_band_candidate": "k_2",
+    "prerequisites_candidate": [
+      "counting within 10",
+      "understanding that two parts can make a whole",
+      "recognizing small numerals"
+    ]
+  },
+  "target_skill": {
+    "ccss_candidate": [
+      "CCSS.MATH.CONTENT.1.OA.C.6"
+    ],
+    "description": "Use part part whole reasoning to determine the missing addend within 10 instead of guessing from appearance or memorizing one surface pattern."
+  },
+  "title": "Number Bond Bridge Mini"
+}

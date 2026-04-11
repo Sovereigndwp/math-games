@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "pr_20260410_nbb001",
+  "created_at": "2026-04-10T20:30:00Z",
+  "artifact_type": "concept_packet_draft",
+  "source_draft_ref": {
+    "path": "generated/drafts/number-bond-bridge-mini/concept_packet.draft.json",
+    "hash": "sha256:77f21e8229dbe0aa7d077de8feab17d79b79ab8207ca177de153a83d050c00a8"
+  },
+  "source_manifest_ref": {
+    "path": "generated/drafts/number-bond-bridge-mini/concept_packet.manifest.json",
+    "hash": "sha256:c4244fe9e8e67999f18eb7129b89b208f1e7960715c1c3be00a1db27cf16fc1d"
+  },
+  "target_path": "generated/review/number-bond-bridge-mini/",
+  "promoter_version": "draft-promoter-stub-v0.1.0",
+  "mode": "review",
+  "status": "pending"
+}

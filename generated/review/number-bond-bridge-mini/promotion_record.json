@@ -1,0 +1,34 @@
+{
+  "notes": null,
+  "output_artifacts": [
+    {
+      "hash": "sha256:d237d2cb5b683e5def3996e649e35d392d36992c2587cd2d05aff37f4b1f4a13",
+      "kind": "concept_packet_review",
+      "path": "generated/review/number-bond-bridge-mini/concept_packet.review.json"
+    }
+  ],
+  "promoted_at": "2026-04-10T20:30:00Z",
+  "promoter_name": "draft-promoter-stub",
+  "promoter_version": "draft-promoter-stub-v0.1.0",
+  "record_id": "pm_20260410_nbb001",
+  "request_id": "pr_20260410_nbb001",
+  "schema_version": "0.1.0",
+  "schema_versions_used": {
+    "generation_manifest_schema": "0.1.0",
+    "promotion_record_schema": "0.1.0",
+    "promotion_request_schema": "0.1.0"
+  },
+  "source_artifacts": [
+    {
+      "hash": "sha256:77f21e8229dbe0aa7d077de8feab17d79b79ab8207ca177de153a83d050c00a8",
+      "kind": "concept_packet_draft",
+      "path": "generated/drafts/number-bond-bridge-mini/concept_packet.draft.json"
+    },
+    {
+      "hash": "sha256:c4244fe9e8e67999f18eb7129b89b208f1e7960715c1c3be00a1db27cf16fc1d",
+      "kind": "generation_manifest",
+      "path": "generated/drafts/number-bond-bridge-mini/concept_packet.manifest.json"
+    }
+  ],
+  "status": "success"
+}
