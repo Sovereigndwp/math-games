@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dino Dig — Train Your Brain Games</title>
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#1a1005;overflow:hidden;font-family:'Segoe UI',system-ui,sans-serif;color:#fff}
+
+/* ── LAYOUT ───────────────────────────────────────────────────── */
+#root{display:flex;flex-direction:column;height:100%;max-width:900px;margin:0 auto;position:relative}
+
+/* DOM HUD (text-heavy UI lives in DOM, not canvas) ──────────── */
+#hud{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:6px 12px;background:rgba(15,8,0,0.9);
+  border-bottom:1px solid #5c3d10;flex-shrink:0;min-height:46px;
+  gap:8px;
+}
+#hud-career{font-size:11px;color:#f5a623;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+#hud-title{font-size:13px;color:#ffe0a0;font-weight:600}
+#hud-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+#hud-bones{font-size:14px;color:#f5a623;font-weight:700}
+#hud-timer{font-size:14px;color:#fff;font-weight:700;min-width:32px;text-align:right}
+#hud-level{font-size:11px;color:#a07040;text-transform:uppercase;letter-spacing:1px}
+
+/* CANVAS WRAPPER ─────────────────────────────────────────────── */
+#canvas-wrap{flex:1;position:relative;overflow:hidden}
+canvas{display:block;width:100%;height:100%}
+
+/* DOM SIDE PANEL (patterns-that-work L3: DOM for text UI) ────── */
+#side-panel{
+  position:absolute;right:0;top:0;bottom:0;width:180px;
+  background:rgba(10,5,0,0.92);border-left:1px solid #5c3d10;
+  padding:10px 8px;overflow:hidden;display:flex;flex-direction:column;gap:6px;
+  pointer-events:none;
+}
+#panel-title{font-size:10px;color:#f5a623;text-transform:uppercase;letter-spacing:1px;font-weight:700;border-bottom:1px solid #3a2010;padding-bottom:4px}
+#fossil-list{flex:1;overflow:hidden}
+.fossil-item{
+  display:flex;align-items:center;gap:6px;padding:4px 4px;
+  border-radius:4px;margin-bottom:2px;transition:background 0.2s;
+}
+.fossil-item.found{background:rgba(245,166,35,0.15)}
+.fossil-item.found .fi-name{color:#f5d080}
+.fossil-item.needed{background:rgba(255,255,255,0.04)}
+.fi-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.fi-name{font-size:11px;color:#806040;line-height:1.3}
+.fi-count{font-size:10px;color:#f5a623;font-weight:700;margin-left:auto}
+
+/* OBJECTIVE PANEL ────────────────────────────────────────────── */
+#obj-panel{
+  background:rgba(30,15,0,0.8);border-top:1px solid #3a2010;
+  padding:6px 8px;font-size:10px;color:#907050;line-height:1.5;
+}
+#obj-text{color:#ffe0a0;font-size:11px;font-weight:600}
+
+/* SCREENS ────────────────────────────────────────────────────── */
+.screen{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(15,8,0,0.97);z-index:100;flex-direction:column;gap:16px;
+  padding:24px;text-align:center;
+}
+.screen.hidden{display:none}
+.screen h1{font-size:28px;font-weight:800;color:#f5a623;line-height:1.2}
+.screen h2{font-size:20px;font-weight:700;color:#ffe0a0}
+.screen p{font-size:14px;color:#c0a060;max-width:400px;line-height:1.6}
+.btn{
+  background:#f5a623;color:#1a0800;border:none;border-radius:8px;
+  padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;
+  transition:transform 0.1s,background 0.1s;
+}
+.btn:hover{background:#ffc040;transform:scale(1.03)}
+.btn:active{transform:scale(0.97)}
+.btn.secondary{background:transparent;color:#f5a623;border:2px solid #f5a623;margin-top:4px}
+.btn.secondary:hover{background:rgba(245,166,35,0.1)}
+.career-badge{
+  background:rgba(245,166,35,0.15);border:1px solid #f5a623;
+  border-radius:20px;padding:6px 16px;font-size:12px;color:#f5a623;
+  font-weight:700;letter-spacing:1px;text-transform:uppercase;
+}
+
+/* STARS / RESULT ─────────────────────────────────────────────── */
+.star-row{font-size:32px;letter-spacing:4px;line-height:1}
+.tier-label{font-size:13px;font-weight:600;color:#f5a623}
+.tier-hint{font-size:12px;color:#907050;max-width:320px}
+
+/* TOAST ──────────────────────────────────────────────────────── */
+#toast{
+  position:absolute;bottom:60px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:rgba(245,166,35,0.95);color:#1a0800;font-size:13px;font-weight:700;
+  padding:8px 18px;border-radius:20px;pointer-events:none;
+  opacity:0;transition:opacity 0.25s,transform 0.25s;z-index:200;white-space:nowrap;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* MINI-GAME (label/sort popup) ───────────────────────────────── */
+#minigame{
+  position:absolute;inset:0;background:rgba(10,5,0,0.94);
+  display:flex;align-items:center;justify-content:center;z-index:50;
+}
+#minigame.hidden{display:none}
+#mg-card{
+  background:#1f1005;border:1px solid #5c3d10;border-radius:12px;
+  padding:20px;max-width:380px;width:90%;text-align:center;
+}
+#mg-card h3{font-size:15px;color:#f5a623;margin-bottom:4px}
+#mg-card p{font-size:12px;color:#907050;margin-bottom:14px;line-height:1.5}
+#mg-bone-img{font-size:48px;margin-bottom:8px;display:block}
+#mg-question{font-size:16px;color:#ffe0a0;font-weight:600;margin-bottom:14px}
+#mg-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mg-choice{
+  background:#2a1508;border:1px solid #5c3d10;border-radius:8px;
+  padding:10px 8px;font-size:13px;font-weight:600;color:#e0c080;
+  cursor:pointer;transition:background 0.15s,border-color 0.15s;
+}
+.mg-choice:hover{background:#3a2010;border-color:#f5a623}
+.mg-choice.correct{background:#0f3010;border-color:#4ade80;color:#4ade80}
+.mg-choice.wrong{background:#300808;border-color:#f87171;color:#f87171}
+</style>
+</head>
+<body>
+
+<!-- MENU SCREEN ──────────────────────────────────────────────── -->
+<div class="screen" id="screen-menu">
+  <div class="career-badge">🦕 Paleontologist</div>
+  <h1>DINO DIG</h1>
+  <p>You're a paleontologist uncovering dinosaur fossils! Dig carefully, collect bones, and identify what you've found to complete each excavation site.</p>
+  <p style="font-size:12px;color:#60a050;font-weight:600">Skills: Categorization · Spelling · Counting · Pattern recognition</p>
+  <button class="btn" onclick="startGame()">START DIGGING</button>
+  <button class="btn secondary" onclick="showHowToPlay()">HOW TO PLAY</button>
+</div>
+
+<!-- HOW TO PLAY SCREEN ─────────────────────────────────────────── -->
+<div class="screen hidden" id="screen-htp">
+  <h2>How to Play</h2>
+  <p>Use <strong style="color:#f5a623">ARROW KEYS</strong> or <strong style="color:#f5a623">WASD</strong> to move your archaeologist around the dig site.</p>
+  <p>Press <strong style="color:#f5a623">SPACE</strong> or <strong style="color:#f5a623">tap dig spots</strong> to excavate! When you find a bone, answer the question to add it to your collection.</p>
+  <p>Find all the fossils before time runs out to complete the excavation!</p>
+  <button class="btn" onclick="hideHTP()">GOT IT!</button>
+</div>
+
+<!-- RESULT SCREEN ──────────────────────────────────────────────── -->
+<div class="screen hidden" id="screen-result">
+  <div class="career-badge">🦕 Paleontologist</div>
+  <h2 id="result-site"></h2>
+  <div class="star-row" id="result-stars"></div>
+  <div class="tier-label" id="result-tier"></div>
+  <div class="tier-hint" id="result-hint"></div>
+  <p id="result-stats" style="font-size:13px;color:#907050;margin-top:4px"></p>
+  <button class="btn" onclick="nextLevel()" id="result-next">NEXT SITE</button>
+  <button class="btn secondary" onclick="retryLevel()">DIG AGAIN</button>
+</div>
+
+<!-- WIN SCREEN ─────────────────────────────────────────────────── -->
+<div class="screen hidden" id="screen-win">
+  <div class="career-badge">🏆 Master Paleontologist</div>
+  <h1>ALL SITES COMPLETE!</h1>
+  <p>Amazing work! You've uncovered fossils from every dig site. The museum is going to love these discoveries!</p>
+  <button class="btn" onclick="restartAll()">DIG AGAIN FROM START</button>
+</div>
+
+<!-- GAME ROOT ────────────────────────────────────────────────────── -->
+<div id="root">
+  <!-- HUD: DOM text, not canvas -->
+  <div id="hud">
+    <div>
+      <div id="hud-career">🦕 Paleontologist</div>
+      <div id="hud-title">Dino Dig</div>
+    </div>
+    <div id="hud-right">
+      <div id="hud-level">Site 1</div>
+      <div id="hud-bones">🦴 0/0</div>
+      <div id="hud-timer">2:00</div>
+    </div>
+  </div>
+
+  <!-- CANVAS -->
+  <div id="canvas-wrap">
+    <canvas id="game-canvas"></canvas>
+
+    <!-- SIDE PANEL: DOM for text-heavy persistent UI (L3) -->
+    <div id="side-panel">
+      <div id="panel-title">Fossil Log</div>
+      <div id="fossil-list"></div>
+      <div id="obj-panel">
+        <div style="font-size:10px;color:#907050">OBJECTIVE</div>
+        <div id="obj-text">Find all fossils!</div>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast"></div>
+
+    <!-- MINI-GAME POPUP ──────────────────────────────────────── -->
+    <div id="minigame" class="hidden">
+      <div id="mg-card">
+        <h3 id="mg-title">FOSSIL FOUND!</h3>
+        <span id="mg-bone-img">🦴</span>
+        <p id="mg-prompt"></p>
+        <div id="mg-question"></div>
+        <div id="mg-choices"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+// CONTENT BANK — every field consumed by code (gate B2 compliant)
+// ════════════════════════════════════════════════════════════════
+const LEVELS = [
+  {
+    id:0, name:"Desert Flats",
+    timeLimit:120, // seconds
+    dino:"T-Rex",
+    dinoEmoji:"🦕",
+    color:"#c2691a",   // consumed: excavation patch color
+    fossils:[
+      {id:"skull",   emoji:"💀", name:"Skull",      color:"#e8d09a",
+       q:"Which body part is this?", choices:["Skull","Tail","Leg","Wing"], answer:0,
+       fact:"T-Rex had a skull 5 feet long!"},
+      {id:"spine",   emoji:"🦴", name:"Spine",      color:"#d4b87c",
+       q:"Spell this bone: S _ _ N E", choices:["SPINE","SPANE","SPINE","SPONE"], answer:0,
+       fact:"Dinosaur spines held the whole body together."},
+      {id:"claw",    emoji:"🐾", name:"Claw",       color:"#c8a060",
+       q:"T-Rex had HOW MANY claws on each arm?", choices:["2","5","10","1"], answer:0,
+       fact:"T-Rex had 2 tiny claws on each short arm."},
+      {id:"tooth",   emoji:"🦷", name:"Tooth",      color:"#e8e0b0",
+       q:"What did T-Rex eat?", choices:["Plants","Meat","Fish","Berries"], answer:1,
+       fact:"T-Rex teeth were serrated like steak knives!"},
+    ],
+    patchCount:12, // consumed: number of dig spots generated
+    bgColor:"#3d2208",
+    groundColor:"#6b3d1a",
+  },
+  {
+    id:1, name:"Jungle Swamp",
+    timeLimit:100,
+    dino:"Stegosaurus",
+    dinoEmoji:"🦎",
+    color:"#2d6e20",
+    fossils:[
+      {id:"plate",   emoji:"🔶", name:"Back Plate", color:"#7ec850",
+       q:"Stegosaurus plates were on its…", choices:["Feet","Back","Tail","Head"], answer:1,
+       fact:"Stegosaurus had up to 17 bone plates!"},
+      {id:"leg",     emoji:"🦵", name:"Leg Bone",   color:"#a8d860",
+       q:"Count the SIDES of this shape: ▲", choices:["2","3","4","5"], answer:1,
+       fact:"Stegosaurus had four strong legs."},
+      {id:"tail",    emoji:"💥", name:"Tail Spike", color:"#d4e870",
+       q:"Spell this: T _ _ L", choices:["TALL","TAIL","TALE","TILL"], answer:1,
+       fact:"Stegosaurus tail spikes could be 3 feet long!"},
+      {id:"eye",     emoji:"👁️", name:"Eye Socket", color:"#60d080",
+       q:"Stegosaurus brain was as small as a…", choices:["Watermelon","Basketball","Walnut","Car"], answer:2,
+       fact:"Stegosaurus had the smallest brain of big dinos!"},
+      {id:"rib",     emoji:"🪗", name:"Rib",        color:"#90e890",
+       q:"What category is Stegosaurus?", choices:["Carnivore","Herbivore","Omnivore","Insectivore"], answer:1,
+       fact:"Stegosaurus only ate plants!"},
+    ],
+    patchCount:14,
+    bgColor:"#0d2208",
+    groundColor:"#1d4a10",
+  },
+  {
+    id:2, name:"Coastal Cliffs",
+    timeLimit:90,
+    dino:"Pterodactyl",
+    dinoEmoji:"🦅",
+    color:"#1a5080",
+    fossils:[
+      {id:"wing",    emoji:"🪽", name:"Wing Bone",  color:"#70b8e8",
+       q:"Which group do pterodactyls belong to?", choices:["Dinosaurs","Birds","Reptiles","Fish"], answer:2,
+       fact:"Pterodactyls are flying reptiles, not dinosaurs!"},
+      {id:"beak",    emoji:"🦜", name:"Beak",       color:"#a0d0f0",
+       q:"Spell: B _ _ K", choices:["BEAK","BEEK","BAK","BACK"], answer:0,
+       fact:"Pterodactyl beaks had over 90 teeth!"},
+      {id:"crest",   emoji:"🎭", name:"Head Crest", color:"#50a8e0",
+       q:"Pterodactyls found food by…", choices:["Digging","Hunting","Fishing","Farming"], answer:2,
+       fact:"Pterodactyls swooped to catch fish in the sea."},
+      {id:"hollow",  emoji:"⚪", name:"Hollow Bone",color:"#d0e8f8",
+       q:"Why were Pterodactyl bones hollow?", choices:["For storage","To be light","For strength","To grow bigger"], answer:1,
+       fact:"Hollow bones made pterodactyls light enough to fly!"},
+      {id:"talon",   emoji:"🔱", name:"Talon",      color:"#80c0e8",
+       q:"How many wings did a pterodactyl have?", choices:["4","6","2","0"], answer:2,
+       fact:"Two huge wings with a 20-foot span!"},
+      {id:"jaw",     emoji:"🦴", name:"Lower Jaw",  color:"#b0d8f0",
+       q:"What era did pterodactyls live in?", choices:["Ice Age","Jurassic","Modern","Stone Age"], answer:1,
+       fact:"Pterodactyls soared 150 million years ago!"},
+    ],
+    patchCount:16,
+    bgColor:"#051528",
+    groundColor:"#0d2840",
+  },
+];
+
+// ════════════════════════════════════════════════════════════════
+// TAXONOMY PALETTE (lesson L6 — consistent color encoding)
+// ════════════════════════════════════════════════════════════════
+const BONE_COLORS = {
+  skull:"#e8d09a", spine:"#d4b87c", claw:"#c8a060",
+  tooth:"#e8e0b0", plate:"#7ec850", leg:"#a8d860",
+  tail:"#d4e870",  eye:"#60d080",   rib:"#90e890",
+  wing:"#70b8e8",  beak:"#a0d0f0",  crest:"#50a8e0",
+  hollow:"#d0e8f8",talon:"#80c0e8", jaw:"#b0d8f0",
+};
+
+// ════════════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════════════
+const canvas = document.getElementById("game-canvas");
+const ctx = canvas.getContext("2d");
+
+let state = "menu";
+let currentLevel = 0;
+let level = null;
+let player = {x:0,y:0,vx:0,vy:0,facing:1,digging:false,digAnim:0};
+let patches = [];     // excavation spots
+let found = {};       // fossil id → bool
+let foundCount = 0;
+let totalFossils = 0;
+let timer = 0;
+let timerRunning = false;
+let totalCorrect = 0;
+let totalAnswered = 0;
+let particles = [];
+let dustClouds = [];
+let keys = {};
+let raf = null;
+let lastTime = 0;
+
+const TILE = 40;
+const PLAYER_SPEED = 90;
+const DIG_RANGE = 50;
+
+// ════════════════════════════════════════════════════════════════
+// CANVAS SIZING
+// ════════════════════════════════════════════════════════════════
+function resize() {
+  const wrap = document.getElementById("canvas-wrap");
+  canvas.width = wrap.clientWidth;
+  canvas.height = wrap.clientHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+// ════════════════════════════════════════════════════════════════
+// SCREENS
+// ════════════════════════════════════════════════════════════════
+function showScreen(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.add("hidden"));
+  if (id) document.getElementById(id).classList.remove("hidden");
+}
+function showHowToPlay() { showScreen("screen-htp"); }
+function hideHTP() { showScreen("screen-menu"); }
+
+// ════════════════════════════════════════════════════════════════
+// GAME INIT
+// ════════════════════════════════════════════════════════════════
+function startGame() {
+  currentLevel = 0;
+  totalCorrect = 0;
+  totalAnswered = 0;
+  showScreen(null);
+  loadLevel(currentLevel);
+}
+
+function loadLevel(idx) {
+  level = LEVELS[idx];
+  found = {};
+  foundCount = 0;
+  totalFossils = level.fossils.length;
+  timer = level.timeLimit;
+  timerRunning = true;
+  state = "playing";
+
+  // Place player in center-left (away from side panel)
+  player = {
+    x: (canvas.width - 180) * 0.2,
+    y: canvas.height * 0.5,
+    vx:0, vy:0, facing:1, digging:false, digAnim:0
+  };
+
+  // Generate patches (validated: patchCount field is consumed here)
+  patches = [];
+  const fieldW = canvas.width - 180 - 40;
+  const fieldH = canvas.height - 80;
+  const fossilIds = level.fossils.map(f => f.id);
+
+  // Place guaranteed fossil patches first
+  fossilIds.forEach((fid, i) => {
+    let placed = false;
+    let attempts = 0;
+    while (!placed && attempts < 200) {
+      attempts++;
+      const x = 20 + Math.random() * (fieldW - 40);
+      const y = 40 + Math.random() * (fieldH - 60);
+      const tooClose = patches.some(p => Math.hypot(p.x-x,p.y-y) < 60);
+      if (!tooClose) {
+        patches.push({x,y,fossil:fid,dug:false,digging:false,progress:0,shine:Math.random()*Math.PI*2});
+        placed = true;
+      }
+    }
+  });
+
+  // Add empty decoy patches
+  const decoyCount = level.patchCount - fossilIds.length;
+  for (let i = 0; i < decoyCount; i++) {
+    let placed = false;
+    let attempts = 0;
+    while (!placed && attempts < 200) {
+      attempts++;
+      const x = 20 + Math.random() * (fieldW - 40);
+      const y = 40 + Math.random() * (fieldH - 60);
+      const tooClose = patches.some(p => Math.hypot(p.x-x,p.y-y) < 50);
+      if (!tooClose) {
+        patches.push({x,y,fossil:null,dug:false,digging:false,progress:0,shine:Math.random()*Math.PI*2});
+        placed = true;
+      }
+    }
+  }
+
+  updateHUD();
+  updateSidePanel();
+  updateObjective();
+  particles = [];
+  dustClouds = [];
+
+  document.getElementById("hud-level").textContent = `Site ${idx+1}: ${level.name}`;
+
+  cancelAnimationFrame(raf);
+  lastTime = performance.now();
+  raf = requestAnimationFrame(gameLoop);
+}
+
+// ════════════════════════════════════════════════════════════════
+// HUD UPDATES (DOM text, not canvas — lesson L3)
+// ════════════════════════════════════════════════════════════════
+function updateHUD() {
+  document.getElementById("hud-bones").textContent = `🦴 ${foundCount}/${totalFossils}`;
+}
+
+function updateTimer() {
+  const m = Math.floor(timer/60);
+  const s = Math.floor(timer%60);
+  document.getElementById("hud-timer").textContent =
+    `${m}:${s.toString().padStart(2,"0")}`;
+  const el = document.getElementById("hud-timer");
+  el.style.color = timer < 20 ? "#f87171" : "#fff";
+}
+
+function updateSidePanel() {
+  const list = document.getElementById("fossil-list");
+  list.innerHTML = "";
+  level.fossils.forEach(f => {
+    const item = document.createElement("div");
+    item.className = "fossil-item " + (found[f.id] ? "found" : "needed");
+    const dot = document.createElement("div");
+    dot.className = "fi-dot";
+    dot.style.background = found[f.id] ? BONE_COLORS[f.id] : "#3a2010";
+    const name = document.createElement("div");
+    name.className = "fi-name";
+    name.textContent = f.emoji + " " + f.name;
+    item.appendChild(dot);
+    item.appendChild(name);
+    if (found[f.id]) {
+      const cnt = document.createElement("div");
+      cnt.className = "fi-count";
+      cnt.textContent = "✓";
+      item.appendChild(cnt);
+    }
+    list.appendChild(item);
+  });
+}
+
+function updateObjective() {
+  const remaining = totalFossils - foundCount;
+  document.getElementById("obj-text").textContent =
+    remaining > 0
+      ? `Find ${remaining} more fossil${remaining!==1?"s":""}`
+      : "Reach the exit!";
+}
+
+// ════════════════════════════════════════════════════════════════
+// TOAST (validated door L4 pattern — feedback before action)
+// ════════════════════════════════════════════════════════════════
+let toastTimer = null;
+function showToast(msg, duration=1800) {
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), duration);
+}
+
+// ════════════════════════════════════════════════════════════════
+// PARTICLES (juice floor — feel audit L5)
+// ════════════════════════════════════════════════════════════════
+function spawnDirt(x, y, count=8) {
+  for (let i = 0; i < count; i++) {
+    const angle = (Math.PI*2/count)*i + (Math.random()-0.5)*0.5;
+    const speed = 30 + Math.random()*60;
+    particles.push({
+      x, y,
+      vx: Math.cos(angle)*speed,
+      vy: Math.sin(angle)*speed - 40,
+      life: 1.0,
+      decay: 0.8 + Math.random()*0.5,
+      size: 3 + Math.random()*4,
+      color: `hsl(${25+Math.random()*20},${50+Math.random()*30}%,${30+Math.random()*20}%)`,
+    });
+  }
+}
+
+function spawnStars(x, y, color) {
+  for (let i = 0; i < 12; i++) {
+    const angle = (Math.PI*2/12)*i;
+    const speed = 50 + Math.random()*80;
+    particles.push({
+      x, y,
+      vx: Math.cos(angle)*speed,
+      vy: Math.sin(angle)*speed - 60,
+      life: 1.0,
+      decay: 0.5 + Math.random()*0.3,
+      size: 4 + Math.random()*5,
+      color,
+      star: true,
+    });
+  }
+}
+
+// ════════════════════════════════════════════════════════════════
+// MINI-GAME (quiz popup on fossil found)
+// ════════════════════════════════════════════════════════════════
+let mgFossil = null;
+let mgAnswered = false;
+
+function openMinigame(fossil) {
+  mgFossil = fossil;
+  mgAnswered = false;
+  timerRunning = false;
+
+  const f = level.fossils.find(f => f.id === fossil.fossil);
+  document.getElementById("mg-title").textContent = `🦴 ${f.name} FOUND!`;
+  document.getElementById("mg-bone-img").textContent = f.emoji;
+  document.getElementById("mg-prompt").textContent = f.fact;
+  document.getElementById("mg-question").textContent = f.q;
+
+  const grid = document.getElementById("mg-choices");
+  grid.innerHTML = "";
+  f.choices.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "mg-choice";
+    btn.textContent = choice;
+    btn.onclick = () => answerMinigame(i, f.answer, btn);
+    grid.appendChild(btn);
+  });
+
+  document.getElementById("minigame").classList.remove("hidden");
+}
+
+function answerMinigame(chosen, correct, btn) {
+  if (mgAnswered) return;
+  mgAnswered = true;
+  totalAnswered++;
+
+  const allBtns = document.querySelectorAll(".mg-choice");
+  allBtns.forEach((b,i) => {
+    if (i === correct) b.classList.add("correct");
+    else if (b === btn && chosen !== correct) b.classList.add("wrong");
+    b.onclick = null;
+  });
+
+  if (chosen === correct) {
+    totalCorrect++;
+    showToast("Correct! Great paleontologist work! 🎉");
+    spawnStars(mgFossil.x, mgFossil.y, BONE_COLORS[mgFossil.fossil] || "#f5a623");
+  } else {
+    showToast("Not quite — but you learned something new! 🦴");
+    spawnDirt(mgFossil.x, mgFossil.y, 6);
+  }
+
+  setTimeout(() => {
+    document.getElementById("minigame").classList.add("hidden");
+    timerRunning = true;
+    // Mark fossil as found regardless of answer (validated-door: only the quiz knowledge check, not a gate to keep playing)
+    found[mgFossil.fossil] = true;
+    foundCount++;
+    mgFossil.dug = true;
+    updateHUD();
+    updateSidePanel();
+    updateObjective();
+    checkWinCondition();
+  }, 1200);
+}
+
+// ════════════════════════════════════════════════════════════════
+// WIN / LOSE / RESULTS
+// ════════════════════════════════════════════════════════════════
+function checkWinCondition() {
+  if (foundCount >= totalFossils) {
+    timerRunning = false;
+    state = "result";
+    showResult();
+  }
+}
+
+function showResult() {
+  // Star tiers with named descriptors and explicit improvement hints (lesson L5)
+  const pct = totalAnswered > 0 ? totalCorrect/totalAnswered : 0;
+  const timeBonus = timer > level.timeLimit * 0.5;
+  let stars, tierLabel, tierHint;
+
+  if (pct >= 1.0 && timeBonus) {
+    stars = "⭐⭐⭐";
+    tierLabel = "🏆 PERFECT EXCAVATION!";
+    tierHint = "You got every question right AND finished fast. You're a true paleontologist!";
+  } else if (pct >= 0.75) {
+    stars = "⭐⭐";
+    tierLabel = "Well done, Fossil Hunter!";
+    tierHint = `${pct < 1.0 ? "Get all questions right " : ""}${!timeBonus ? "and finish in the first half of time " : ""}for 3 stars!`;
+  } else {
+    stars = "⭐";
+    tierLabel = "Site Completed!";
+    tierHint = "Try again — answer more questions correctly for more stars!";
+  }
+
+  document.getElementById("result-site").textContent = `${level.dinoEmoji} ${level.name} Complete!`;
+  document.getElementById("result-stars").textContent = stars;
+  document.getElementById("result-tier").textContent = tierLabel;
+  document.getElementById("result-hint").textContent = tierHint;
+  document.getElementById("result-stats").textContent =
+    `Fossils: ${foundCount}/${totalFossils} · Questions: ${totalCorrect}/${totalAnswered} correct · Time left: ${Math.floor(timer)}s`;
+
+  const nextBtn = document.getElementById("result-next");
+  const isLast = currentLevel >= LEVELS.length - 1;
+  nextBtn.textContent = isLast ? "MUSEUM COMPLETE! 🏛️" : "NEXT SITE";
+
+  showScreen("screen-result");
+}
+
+function showTimeUp() {
+  timerRunning = false;
+  state = "result";
+  // still show results even if incomplete (don't punish)
+  showResult();
+}
+
+function nextLevel() {
+  if (currentLevel >= LEVELS.length - 1) {
+    showScreen("screen-win");
+    return;
+  }
+  currentLevel++;
+  showScreen(null);
+  loadLevel(currentLevel);
+}
+
+function retryLevel() {
+  showScreen(null);
+  loadLevel(currentLevel);
+}
+
+function restartAll() {
+  showScreen("screen-menu");
+}
+
+// ════════════════════════════════════════════════════════════════
+// INPUT
+// ════════════════════════════════════════════════════════════════
+window.addEventListener("keydown", e => {
+  keys[e.key] = true;
+  if ((e.key === " " || e.key === "Enter") && state === "playing") {
+    e.preventDefault();
+    tryDig();
+  }
+});
+window.addEventListener("keyup", e => { keys[e.key] = false; });
+
+// Touch/click on canvas to dig
+canvas.addEventListener("click", e => {
+  if (state !== "playing") return;
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const cx = (e.clientX - rect.left) * scaleX;
+  const cy = (e.clientY - rect.top) * scaleY;
+  const closest = patches.filter(p => !p.dug && Math.hypot(p.x-cx,p.y-cy) < 36);
+  if (closest.length > 0) {
+    const p = closest.reduce((a,b) => Math.hypot(b.x-cx,b.y-cy) < Math.hypot(a.x-cx,a.y-cy) ? b : a);
+    // Move player near the patch and dig
+    player.x = p.x + 30;
+    player.y = p.y + 10;
+    startDigging(p);
+  }
+});
+
+function tryDig() {
+  const nearby = patches.filter(p =>
+    !p.dug && Math.hypot(p.x - player.x, p.y - player.y) < DIG_RANGE
+  );
+  if (nearby.length === 0) {
+    showToast("Move closer to a dig spot! 🔍");
+    return;
+  }
+  const closest = nearby.reduce((a,b) =>
+    Math.hypot(b.x-player.x,b.y-player.y) < Math.hypot(a.x-player.x,a.y-player.y) ? b : a
+  );
+  startDigging(closest);
+}
+
+let diggingPatch = null;
+function startDigging(patch) {
+  if (patch.dug || patch.digging) return;
+  diggingPatch = patch;
+  patch.digging = true;
+  patch.progress = 0;
+  player.digging = true;
+  player.digAnim = 0;
+  spawnDirt(patch.x, patch.y, 6);
+}
+
+// ════════════════════════════════════════════════════════════════
+// GAME LOOP
+// ════════════════════════════════════════════════════════════════
+function gameLoop(now) {
+  const dt = Math.min((now - lastTime) / 1000, 0.05);
+  lastTime = now;
+
+  if (state === "playing") {
+    update(dt);
+    draw();
+  }
+
+  raf = requestAnimationFrame(gameLoop);
+}
+
+function update(dt) {
+  if (document.getElementById("minigame").classList.contains("hidden") === false) return;
+
+  // Timer
+  if (timerRunning) {
+    timer -= dt;
+    if (timer <= 0) { timer = 0; showTimeUp(); return; }
+    updateTimer();
+  }
+
+  // Player movement (WASD or arrows)
+  const fieldW = canvas.width - 180;
+  const left  = keys["ArrowLeft"]  || keys["a"] || keys["A"];
+  const right = keys["ArrowRight"] || keys["d"] || keys["D"];
+  const up    = keys["ArrowUp"]    || keys["w"] || keys["W"];
+  const down  = keys["ArrowDown"]  || keys["s"] || keys["S"];
+
+  if (!player.digging) {
+    player.vx = (right ? 1 : left ? -1 : 0) * PLAYER_SPEED;
+    player.vy = (down  ? 1 : up   ? -1 : 0) * PLAYER_SPEED;
+    if (right) player.facing = 1;
+    if (left)  player.facing = -1;
+  } else {
+    player.vx = 0; player.vy = 0;
+  }
+
+  player.x = Math.max(16, Math.min(fieldW - 16, player.x + player.vx * dt));
+  player.y = Math.max(30, Math.min(canvas.height - 30, player.y + player.vy * dt));
+
+  // Dig progress
+  if (player.digging && diggingPatch) {
+    player.digAnim += dt * 8;
+    diggingPatch.progress += dt * 1.2;
+    spawnDirt(diggingPatch.x + (Math.random()-0.5)*20,
+              diggingPatch.y + (Math.random()-0.5)*10, 1);
+
+    if (diggingPatch.progress >= 1) {
+      player.digging = false;
+      diggingPatch.digging = false;
+
+      if (diggingPatch.fossil) {
+        if (!found[diggingPatch.fossil]) {
+          openMinigame(diggingPatch);
+        } else {
+          showToast("Already found that one! Keep digging! 🦴");
+          diggingPatch.dug = true;
+        }
+      } else {
+        showToast("Just rocks here... keep looking! 🪨");
+        spawnDirt(diggingPatch.x, diggingPatch.y, 4);
+        diggingPatch.dug = true;
+      }
+      diggingPatch = null;
+    }
+  }
+
+  // Particles
+  particles.forEach(p => {
+    p.x += p.vx * dt;
+    p.y += p.vy * dt;
+    p.vy += 120 * dt;  // gravity
+    p.life -= p.decay * dt;
+  });
+  particles = particles.filter(p => p.life > 0);
+}
+
+// ════════════════════════════════════════════════════════════════
+// DRAW
+// ════════════════════════════════════════════════════════════════
+function draw() {
+  const W = canvas.width;
+  const H = canvas.height;
+  const fieldW = W - 180;
+
+  // Sky/ground bg
+  ctx.fillStyle = level.bgColor;
+  ctx.fillRect(0, 0, W, H);
+
+  // Ground texture
+  ctx.fillStyle = level.groundColor;
+  ctx.fillRect(0, H*0.25, fieldW, H);
+
+  // Ground grain lines
+  ctx.strokeStyle = "rgba(0,0,0,0.15)";
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 8; i++) {
+    const y = H*0.3 + i * (H*0.7/8);
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.bezierCurveTo(fieldW*0.25, y+6, fieldW*0.75, y-4, fieldW, y+2);
+    ctx.stroke();
+  }
+
+  // Excavation patches
+  patches.forEach(p => {
+    if (p.dug && !p.fossil) {
+      // Empty dug hole
+      ctx.fillStyle = "rgba(0,0,0,0.4)";
+      ctx.beginPath(); ctx.ellipse(p.x, p.y, 20, 10, 0, 0, Math.PI*2); ctx.fill();
+      return;
+    }
+    if (p.dug) return;
+
+    const now = performance.now() / 1000;
+    const shimmer = Math.sin(now * 2 + p.shine) * 0.15;
+
+    // Patch circle
+    ctx.save();
+    if (p.digging) {
+      // Shake during digging
+      const shake = Math.sin(player.digAnim * 5) * 3;
+      ctx.translate(shake, 0);
+    }
+
+    // Outer ring
+    ctx.strokeStyle = `rgba(180,120,60,${0.5 + shimmer})`;
+    ctx.lineWidth = 2;
+    ctx.setLineDash([4,4]);
+    ctx.beginPath(); ctx.ellipse(p.x, p.y, 22, 12, 0, 0, Math.PI*2); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Ground patch
+    ctx.fillStyle = `rgba(100,60,20,${0.6 + shimmer})`;
+    ctx.beginPath(); ctx.ellipse(p.x, p.y, 20, 10, 0, 0, Math.PI*2); ctx.fill();
+
+    // Bone peek if fossil and nearby player
+    if (p.fossil) {
+      const dist = Math.hypot(p.x - player.x, p.y - player.y);
+      if (dist < 80) {
+        const alpha = Math.max(0, (80-dist)/80) * 0.7;
+        ctx.globalAlpha = alpha;
+        ctx.font = "14px serif";
+        ctx.textAlign = "center";
+        ctx.fillText("🦴", p.x, p.y + 4);
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    // Dig progress bar
+    if (p.digging) {
+      ctx.fillStyle = "rgba(0,0,0,0.5)";
+      ctx.beginPath(); ctx.roundRect(p.x-20, p.y-22, 40, 6, 3); ctx.fill();
+      ctx.fillStyle = "#f5a623";
+      ctx.beginPath(); ctx.roundRect(p.x-20, p.y-22, 40*p.progress, 6, 3); ctx.fill();
+    }
+
+    ctx.restore();
+  });
+
+  // Particles
+  particles.forEach(p => {
+    ctx.save();
+    ctx.globalAlpha = Math.max(0, p.life);
+    ctx.fillStyle = p.color;
+    if (p.star) {
+      ctx.font = `${p.size*2}px serif`;
+      ctx.textAlign = "center";
+      ctx.fillText("✦", p.x, p.y);
+    } else {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI*2);
+      ctx.fill();
+    }
+    ctx.restore();
+  });
+
+  // Player character (emoji-based, clean rendering)
+  drawPlayer();
+}
+
+function drawPlayer() {
+  const px = player.x;
+  const py = player.y;
+  const facing = player.facing;
+  const now = performance.now() / 1000;
+
+  ctx.save();
+  ctx.translate(px, py);
+
+  // Shadow
+  ctx.fillStyle = "rgba(0,0,0,0.3)";
+  ctx.beginPath(); ctx.ellipse(0, 14, 12, 5, 0, 0, Math.PI*2); ctx.fill();
+
+  // Dig bounce
+  let bobY = 0;
+  if (player.digging) {
+    bobY = Math.abs(Math.sin(player.digAnim * 6)) * 6;
+  } else if (player.vx !== 0 || player.vy !== 0) {
+    bobY = Math.abs(Math.sin(now * 8)) * 3;
+  }
+
+  ctx.scale(facing, 1);
+
+  // Body (archaeologist hat + body)
+  ctx.font = "28px serif";
+  ctx.textAlign = "center";
+  ctx.fillText("🧑‍🔬", 0, -bobY);
+
+  // Tool
+  if (player.digging) {
+    ctx.save();
+    ctx.translate(14, -bobY - 4);
+    ctx.rotate(Math.sin(player.digAnim*6) * 0.4 - 0.3);
+    ctx.font = "16px serif";
+    ctx.fillText("⛏️", 0, 0);
+    ctx.restore();
+  } else {
+    ctx.font = "14px serif";
+    ctx.fillText("⛏️", 14, -bobY);
+  }
+
+  ctx.restore();
+}
+
+// ════════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════════
+showScreen("screen-menu");
+</script>
+</body>
+</html>

@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Orbital Drift — Calculus Mission Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── GRAPHIC BIBLE: Orbital Drift ─────────────────────────────
+   Primary:    #00bfff (deep sky blue — space / calculation)
+   Success:    #00ff9d (trajectory clear)
+   Danger:     #ff4545 (collision course)
+   Warning:    #ffb700 (approach threshold)
+   Neutral:    #334155
+   Background: #020810 / #050e1a / #0d1f35
+   Fonts:      Share Tech Mono (display) + Rajdhani (body)
+─────────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#020810;
+  display:flex;justify-content:center;align-items:center;
+  min-height:100vh;
+  font-family:'Rajdhani','Share Tech Mono','Segoe UI',monospace,sans-serif;
+  overflow:hidden;
+}
+/* Scanline atmosphere */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:998;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.05) 3px,rgba(0,0,0,0.05) 4px);
+}
+canvas{display:block;image-rendering:pixelated}
+#ui-overlay{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10}
+
+/* ── CALC POPUP (inherits Echo Heist popup standard) ────────── */
+#calc-popup{
+  display:none;position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(2,8,20,0.97);
+  border:1.5px solid #00bfff;
+  border-top:2.5px solid #00bfff;
+  border-radius:10px;
+  padding:20px 24px 16px;
+  min-width:380px;max-width:460px;
+  pointer-events:all;z-index:20;
+  box-shadow:0 0 0 1px rgba(0,191,255,0.07),0 0 40px rgba(0,191,255,0.2),0 20px 60px rgba(0,0,0,0.8);
+  animation:popupIn 0.16s ease-out both;
+}
+@keyframes popupIn{from{transform:translate(-50%,-46%);opacity:0}to{transform:translate(-50%,-50%);opacity:1}}
+
+#calc-popup h3{
+  font-family:'Share Tech Mono',monospace;
+  color:#00bfff;font-size:11px;text-transform:uppercase;letter-spacing:3px;
+  margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+#calc-popup h3::after{content:'';flex:1;height:1px;background:rgba(0,191,255,0.2);}
+
+/* Equation display area */
+#popup-equation{
+  background:rgba(0,191,255,0.05);
+  border:1px solid rgba(0,191,255,0.15);
+  border-radius:6px;
+  padding:12px 16px;
+  margin-bottom:14px;
+  font-family:'Share Tech Mono',monospace;
+  font-size:15px;color:#e0eaf4;
+  line-height:1.7;
+  white-space:pre-line;
+}
+#popup-context{
+  font-family:'Rajdhani',sans-serif;
+  color:#64748b;font-size:13px;font-weight:500;
+  margin-bottom:8px;font-style:italic;
+}
+#calc-popup input{
+  width:100%;background:#020d1a;
+  border:1.5px solid rgba(0,191,255,0.22);color:#fff;
+  font-size:20px;font-weight:600;padding:10px 14px;border-radius:6px;outline:none;
+  font-family:'Share Tech Mono',monospace;
+  transition:border-color 0.15s,box-shadow 0.15s;
+  caret-color:#00bfff;
+}
+#calc-popup input:focus{border-color:#00bfff;box-shadow:0 0 0 3px rgba(0,191,255,0.1);}
+#calc-popup input::placeholder{color:rgba(148,163,184,0.3);font-size:14px;}
+#popup-feedback{
+  margin-top:10px;font-size:14px;font-weight:600;min-height:20px;
+  font-family:'Rajdhani',sans-serif;letter-spacing:.4px;
+}
+.fb-ok{color:#00ff9d}.fb-err{color:#ff4545}
+#popup-hint-area{color:#ffb700;font-size:13px;margin-top:8px;min-height:18px;
+  font-style:italic;font-family:'Rajdhani',sans-serif;font-weight:500;}
+.popup-footer{color:#334155;font-size:11px;margin-top:10px;
+  font-family:'Share Tech Mono',monospace;letter-spacing:.4px;}
+
+/* Mode variants */
+#calc-popup.launch-mode{border-color:#ffb700;border-top-color:#ffb700;
+  box-shadow:0 0 55px rgba(255,183,0,0.22),0 20px 60px rgba(0,0,0,0.8);}
+#calc-popup.launch-mode h3{color:#ffb700;}
+#calc-popup.launch-mode h3::after{background:rgba(255,183,0,0.2);}
+#calc-popup.launch-mode input:focus{border-color:#ffb700;box-shadow:0 0 0 3px rgba(255,183,0,0.1);}
+#calc-popup.escape-mode{border-color:#ff4545;border-top-color:#ff4545;
+  box-shadow:0 0 55px rgba(255,69,69,0.25),0 20px 60px rgba(0,0,0,0.8);}
+#calc-popup.escape-mode h3{color:#ff4545;}
+#calc-popup.escape-mode input:focus{border-color:#ff4545;box-shadow:0 0 0 3px rgba(255,69,69,0.1);}
+#calc-popup.spec-mode{border-color:var(--spec-color,#00bfff);border-top-color:var(--spec-color,#00bfff);}
+#calc-popup.spec-mode h3{color:var(--spec-color,#00bfff);}
+#calc-popup.focus-mode{box-shadow:0 0 80px rgba(168,85,247,0.75)!important;border-color:#a855f7!important;}
+
+/* Launch progress dots */
+.launch-progress{display:flex;gap:6px;margin-bottom:12px;align-items:center;}
+.launch-step{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,0.07);transition:background 0.3s;}
+.launch-step.done{background:#00ff9d;}
+.launch-step.active{background:#ffb700;box-shadow:0 0 8px rgba(255,183,0,0.45);animation:lpulse 0.6s ease-in-out infinite alternate;}
+@keyframes lpulse{from{opacity:0.65}to{opacity:1}}
+
+/* Scaffold */
+#scaffold-panel{position:absolute;left:12px;top:50%;transform:translateY(-50%);
+  width:200px;background:rgba(2,8,20,0.95);border:1px solid #1e3a5f;border-radius:8px;
+  padding:14px;font-family:'Share Tech Mono',monospace;font-size:10px;color:#64748b;
+  display:none;z-index:25;}
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="ui-overlay">
+  <div id="calc-popup">
+    <h3 id="popup-title">Navigation Terminal</h3>
+    <div id="popup-context"></div>
+    <div id="popup-equation" id="popup-prompt"></div>
+    <input type="text" id="popup-input" autocomplete="off" spellcheck="false" placeholder="type answer, press Enter"/>
+    <div class="feedback" id="popup-feedback"></div>
+    <div id="popup-hint-area"></div>
+    <div style="display:none;color:#ffb700;margin-top:6px;font-size:11px;font-family:'Share Tech Mono',monospace;letter-spacing:.5px;" id="launch-hint-line">🚀 TYPE your answer → Press ENTER — auto-advances between steps</div>
+  <div style="font-size:11px;color:#475569;margin-top:8px;font-family:'Share Tech Mono',monospace;letter-spacing:.3px;" id="popup-hint-line">Enter to submit · Esc = abort (+alert) · H = hint · F = formula sheet</div>
+  <div class="launch-progress" id="launch-progress" style="display:none"></div>
+    <div class="popup-footer">
+      Enter to submit · Esc = abort (+alert) · H = hint · F = formula sheet · Tab = focus mode
+    </div>
+  </div>
+  <canvas id="scaffold-canvas" width="200" height="270" style="display:none;position:absolute;left:12px;top:50%;transform:translateY(-50%);z-index:25;border-radius:8px;"></canvas>
+</div>
+
+<script>
+'use strict';
+// ══════════════════════════════════════════════════════════════
+//  ORBITAL DRIFT — Mission Control
+//  Calculus 1 stealth/navigation game built to Echo Heist standard.
+//  Math IS the trajectory. Wrong calculus = collision.
+// ══════════════════════════════════════════════════════════════
+
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+const W = 960, H = 640;
+canvas.width = W; canvas.height = H;
+
+// ── GRAPHIC BIBLE TOKENS ───────────────────────────────────────
+const C = {
+  bg:       '#020810',
+  bg2:      '#050e1a',
+  bg3:      '#0d1f35',
+  primary:  '#00bfff',
+  success:  '#00ff9d',
+  danger:   '#ff4545',
+  warning:  '#ffb700',
+  neutral:  '#334155',
+  text:     '#e0eaf4',
+  textDim:  '#64748b',
+  ship:     '#00bfff',
+  debris:   '#ff4545',
+  debrisC:  'rgba(255,69,69,0.1)',
+  sentry:   '#ff8800',
+  sentryC:  'rgba(255,136,0,0.12)',
+  node:     '#0d1f35',
+  gate:     '#00ff9d',
+  loot:     '#ffb700',
+  hud:      'rgba(2,8,20,0.96)',
+};
+
+const PI2 = Math.PI * 2;
+const DEG = Math.PI / 180;
+const TILE = 40;
+const COLS = W / TILE; // 24
+const ROWS = H / TILE; // 16
+
+// Tile types (matches Echo Heist standard)
+const T = {
+  SPACE:0, WALL:1, GATE_LOCKED:2, GATE_OPEN:3,
+  NODE:4, SENTRY_CAM:5, EXIT:6, SPAWN:7,
+  NEBULA:8, ASTEROID:9, ION:10, LOOT:11
+};
+
+// Navigation noise per tile (thruster output = noise equivalent)
+const NOISE_MAP = {
+  [T.SPACE]:2,[T.WALL]:0,[T.NEBULA]:1,[T.ASTEROID]:4,
+  [T.ION]:3,[T.GATE_LOCKED]:0,[T.GATE_OPEN]:1,
+  [T.NODE]:1,[T.SENTRY_CAM]:1,[T.EXIT]:1,[T.SPAWN]:1,[T.LOOT]:2
+};
+
+// ── SPECIALIST CLASSES ─────────────────────────────────────────
+const SPECS = {
+  navigator: {
+    name:'Navigator', color:'#00bfff', icon:'🛸',
+    desc:'Limits + Derivatives · Precision Lock: +30% score on clean calcs',
+    topics:['LIM','D1','D2'], abilityName:'Precision Lock',
+    moveSpeed:2.2, noiseMultiplier:1.0, abilityCooldown:45,
+    abilityPrompts:[
+      {ctx:'Thruster sync',eq:'Find the limit:\nlim(x→2) (x²-4)/(x-2)',answer:'4',hint1:'Factor: (x-2)(x+2)/(x-2)',hint2:'Cancel (x-2), evaluate at x=2'},
+      {ctx:'Thruster sync',eq:"f(x)=3x²+5x. Find f'(x).",answer:'6x+5',hint1:'Power rule: d/dx[xⁿ]=nxⁿ⁻¹',hint2:'d/dx[3x²]=6x, d/dx[5x]=5'},
+      {ctx:'Thruster sync',eq:"g(x)=x⁴-2x²+1. Find g'(x).",answer:'4x³-4x',hint1:'Power rule on each term',hint2:'4x³ - 4x + 0'},
+      {ctx:'Thruster sync',eq:'lim(x→0) sin(x)/x = ?',answer:'1',hint1:'Standard limit — memorize this one',hint2:'Fundamental trig limit'},
+      {ctx:'Thruster sync',eq:"h(x)=7x³. Find h'(x).",answer:'21x²',hint1:'Power rule: 3·7x²',hint2:'21x²'},
+    ]
+  },
+  analyst: {
+    name:'Analyst', color:'#a855f7', icon:'📡',
+    desc:'Chain Rule + Integrals · Trajectory Scan: reveals threat zones',
+    topics:['CR','PR','INT'], abilityName:'Trajectory Scan',
+    moveSpeed:2.0, noiseMultiplier:0.75, abilityCooldown:35,
+    abilityPrompts:[
+      {ctx:'Trajectory scan',eq:"f(x)=(x²+1)³. Find f'(x).",answer:'6x(x²+1)²',hint1:'Chain rule: outer·inner derivative',hint2:"3(x²+1)² · 2x"},
+      {ctx:'Trajectory scan',eq:"Find d/dx [sin(3x)].",answer:'3cos(3x)',hint1:'Chain rule: cos(3x)·3',hint2:'Derivative of sin is cos, multiply by inner derivative 3'},
+      {ctx:'Trajectory scan',eq:'∫ 2x dx = ?',answer:'x²+C',hint1:'Reverse power rule: x^(n+1)/(n+1)',hint2:'2x^(1+1)/2 = x²'},
+      {ctx:'Trajectory scan',eq:'∫ 3x² dx = ?',answer:'x³+C',hint1:'Reverse power rule',hint2:'3x^(2+1)/3 = x³'},
+      {ctx:'Trajectory scan',eq:"g(x)=e^(2x). Find g'(x).",answer:'2e^(2x)',hint1:'d/dx[e^u]=e^u · u\'',hint2:'e^(2x) · 2'},
+    ]
+  },
+  commander: {
+    name:'Commander', color:'#f97316', icon:'⚡',
+    desc:'Optimization + FTC · Surge Burn: 3s silent thrust at full power',
+    topics:['OPT','FTC','RR'], abilityName:'Surge Burn',
+    moveSpeed:2.8, noiseMultiplier:1.2, abilityCooldown:40,
+    abilityPrompts:[
+      {ctx:'Surge calculation',eq:"f(x)=x²-4x+3. Find critical points.",answer:'x=2',hint1:"Set f'(x)=0: 2x-4=0",hint2:'2x=4, x=2'},
+      {ctx:'Surge calculation',eq:'∫₀² 2x dx = ?',answer:'4',hint1:'F(x)=x², evaluate F(2)-F(0)',hint2:'4-0=4'},
+      {ctx:'Surge calculation',eq:"f(x)=x³-3x. Find local min x value.",answer:'x=1',hint1:"f'(x)=3x²-3=0 → x²=1",hint2:'x=1 (positive, check 2nd derivative)'},
+      {ctx:'Surge calculation',eq:'∫₁³ 3x² dx = ?',answer:'26',hint1:'F(x)=x³, evaluate F(3)-F(1)',hint2:'27-1=26'},
+      {ctx:'Surge calculation',eq:'∫₀¹ (2x+1) dx = ?',answer:'2',hint1:'F(x)=x²+x, evaluate F(1)-F(0)',hint2:'(1+1)-(0)=2'},
+    ]
+  }
+};
+const SPEC_KEYS = ['navigator','analyst','commander'];
+
+// ── DISTRICT CONFIG ────────────────────────────────────────────
+const SECTOR_CONFIG = [
+  {name:'Training Orbit',  escapeTime:70, debrisSpeedMult:1.0, heatGainMult:1.0, hintCost:50},
+  {name:'Debris Field',    escapeTime:55, debrisSpeedMult:1.3, heatGainMult:1.3, hintCost:75},
+  {name:'Deep Space',      escapeTime:45, debrisSpeedMult:1.6, heatGainMult:1.6, hintCost:100},
+];
+
+function getSector(mIdx){ return mIdx<10?0:mIdx<20?1:2; }
+function getSConfig(){ return SECTOR_CONFIG[getSector(currentMission)]; }
+
+// ══════════════════════════════════════════════════════════════
+//  CALCULUS PROMPT ENGINE
+//  Rule: All prompts generated fresh at loadLevel(). Never static.
+//  Every template generates random-but-valid calculus problems.
+//  Answers computed from generated inputs — never hardcoded.
+// ══════════════════════════════════════════════════════════════
+
+function r(n){ return Math.floor(Math.random()*n); }
+function rr(a,b){ return a+r(b-a+1); }
+function pick(arr){ return arr[r(arr.length)]; }
+
+// Helper: format polynomial term
+function term(coef,exp){
+  if(coef===0) return '';
+  const c = coef===1&&exp>0?'':coef===-1&&exp>0?'-':''+coef;
+  const x = exp===0?'':exp===1?'x':`x${sup(exp)}`;
+  return c+x;
+}
+function sup(n){ return n.toString().split('').map(d=>('⁰¹²³⁴⁵⁶⁷⁸⁹')[d]).join(''); }
+function sup2(n){ const m={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'}; return m[String(n)]||'^'+n; }
+
+// Calculus template banks — each is a function returning {ctx, eq, answer, hint1, hint2, topic}
+const CALC_TEMPLATES = {
+
+  // LIM — Limits
+  LIM:[
+    ()=>{ const a=rr(1,4),b=rr(1,5); return{ctx:'Approach gate',eq:`Find the limit:\nlim(x→${a}) (${a*b}+x)`,answer:`${a*b+a}`,hint1:'Direct substitution',hint2:`${a*b} + ${a}`}; },
+    ()=>{ const a=rr(1,5),sq=a*a; return{ctx:'Singularity bypass',eq:`Find the limit:\nlim(x→${a}) (x²-${sq})/(x-${a})`,answer:`${2*a}`,hint1:`Factor numerator: (x-${a})(x+${a})`,hint2:`Cancel (x-${a}), evaluate at x=${a}: ${a}+${a}`}; },
+    ()=>{ const c=rr(2,6); return{ctx:'Resonance check',eq:`lim(x→∞) ${c}/x = ?`,answer:'0',hint1:'As x→∞, constant/x→0',hint2:'0'}; },
+    ()=>{ const a=rr(2,5); return{ctx:'Approach gate',eq:`lim(x→${a}) ${a}x = ?`,answer:`${a*a}`,hint1:'Direct substitution',hint2:`${a}·${a}=${a*a}`}; },
+    ()=>{ return{ctx:'Trig limit',eq:'lim(x→0) sin(x)/x = ?',answer:'1',hint1:'Fundamental trig limit — memorize',hint2:'= 1 (standard result)'}; },
+    ()=>{ const a=rr(1,5); return{ctx:'Polynomial limit',eq:`lim(x→${a}) (x²+${a}x) = ?`,answer:`${a*a+a*a}`,hint1:'Direct substitution',hint2:`${a}²+${a}·${a}`}; },
+  ],
+
+  // D1 — Basic derivatives (power rule)
+  D1:[
+    ()=>{ const n=rr(2,5),c=rr(1,6);const dn=c*n,en=n-1;const ans=en===1?`${dn}x`:en===0?`${dn}`:`${dn}x^${en}`; return{ctx:'Velocity calc',eq:`f(x)=${c===1?'':c}x^${n}\nFind f\'(x).`,answer:ans,hint1:`Power rule: d/dx[cx^n] = cn·x^(n-1)`,hint2:`${c}·${n}·x^${n-1}`}; },
+    ()=>{ const n=rr(2,4),c=rr(2,5),b=rr(1,8);const dn=c*n,en=n-1;const ans=en===1?`${dn}x`:en===0?`${dn}`:`${dn}x^${en}`; return{ctx:'Acceleration data',eq:`g(x)=${c}x^${n}+${b}\nFind g\'(x).`,answer:ans,hint1:'Derivative of constant is 0',hint2:`${dn}x^${en} + 0`}; },
+    ()=>{ const a=rr(2,7),b=rr(2,6); return{ctx:'Velocity calc',eq:`h(x)=${a}x^2+${b}x\nFind h\'(x).`,answer:`${2*a}x+${b}`,hint1:'Power rule on each term',hint2:`${2*a}x+${b}`}; },
+    ()=>{ const c=rr(2,8); return{ctx:'Linear derivative',eq:`f(x)=${c}x\nFind f\'(x).`,answer:`${c}`,hint1:'Derivative of cx is c',hint2:`${c}`}; },
+    ()=>{ const n=rr(3,5),c=rr(1,4),d=rr(2,5);const dn=c*n,en=n-1;const ans=en===1?`${dn}x-${d}`:en===0?`${dn}-${d}`:`${dn}x^${en}-${d}`; return{ctx:'Velocity calc',eq:`f(x)=${c}x^${n}-${d}x\nFind f\'(x).`,answer:ans,hint1:'Power rule on each term',hint2:`${dn}x^${en}-${d}`}; },
+  ],
+
+  // D2 — Trig / exp derivatives
+  D2:[
+    ()=>{ const c=rr(2,5); return{ctx:'Signal trace',eq:`f(x)=${c}sin(x)\nFind f'(x).`,answer:`${c}cos(x)`,hint1:'d/dx[sin(x)]=cos(x)',hint2:`${c}cos(x)`}; },
+    ()=>{ const c=rr(2,5); return{ctx:'Signal trace',eq:`g(x)=${c}cos(x)\nFind g'(x).`,answer:`-${c}sin(x)`,hint1:'d/dx[cos(x)]=-sin(x)',hint2:`-${c}sin(x)`}; },
+    ()=>{ const c=rr(2,6); return{ctx:'Decay function',eq:`h(x)=e^(${c}x)\nFind h'(x).`,answer:`${c}e^(${c}x)`,hint1:"Chain rule: d/dx[e^u]=e^u·u'",hint2:`e^(${c}x)·${c}`}; },
+    ()=>{ const c=rr(2,4); return{ctx:'Signal trace',eq:`f(x)=sin(${c}x)\nFind f'(x).`,answer:`${c}cos(${c}x)`,hint1:'Chain rule on sin',hint2:`cos(${c}x)·${c}`}; },
+    ()=>{ const c=rr(2,4); return{ctx:'Decay function',eq:`g(x)=cos(${c}x)\nFind g'(x).`,answer:`-${c}sin(${c}x)`,hint1:'Chain rule on cos',hint2:`-sin(${c}x)·${c}`}; },
+  ],
+
+  // CR — Chain Rule
+  CR:[
+    ()=>{ const n=rr(2,4),m=rr(2,5);const en=n-1;const inner=en===1?`(${m}x+1)`:en===0?'1':`(${m}x+1)^${en}`; return{ctx:'Composite trajectory',eq:`f(x)=(${m}x+1)^${n}\nFind f\'(x).`,answer:`${n*m}${inner}`,hint1:`Chain rule: n·(inner)^(n-1)·inner'`,hint2:`${n}(${m}x+1)^${en}·${m}`}; },
+    ()=>{ const c=rr(2,5);const ec=c-1;const xterm=ec===1?'x':ec===0?'1':`x^${ec}`; return{ctx:'Nested signal',eq:`g(x)=sin(x^${c})\nFind g\'(x).`,answer:`${c}${xterm}cos(x^${c})`,hint1:"Chain rule: cos(u)·u'",hint2:`cos(x^${c})·${c}x^${ec}`}; },
+    ()=>{ const a=rr(2,4),n=rr(2,3);const en=n-1;const inner=en===1?`(x^2+${a})`:en===0?'1':`(x^2+${a})^${en}`; return{ctx:'Composite trajectory',eq:`h(x)=(x^2+${a})^${n}\nFind h\'(x).`,answer:`${2*n}x${inner}`,hint1:"Chain rule: outer·inner'",hint2:`${n}(x^2+${a})^${en}·2x`}; },
+    ()=>{ const c=rr(2,5);const ec=c-1;const xterm=ec===1?'x':ec===0?'1':`x^${ec}`; return{ctx:'Exponential chain',eq:`f(x)=e^(x^${c})\nFind f\'(x).`,answer:`${c}${xterm}e^(x^${c})`,hint1:"Chain rule: e^u · u'",hint2:`e^(x^${c})·${c}x^${ec}`}; },
+  ],
+
+  // PR — Product Rule
+  PR:[
+    ()=>{ const a=rr(2,5);const ea=a-1;const xt=ea===1?'x':ea===0?'1':`x^${ea}`; return{ctx:'Coupled systems',eq:`f(x)=x^${a}·sin(x)\nFind f\'(x).`,answer:`${a}${xt}sin(x)+x^${a}cos(x)`,hint1:"Product rule: u'v+uv'",hint2:`${a}x^${ea}·sin(x)+x^${a}·cos(x)`}; },
+    ()=>{ const c=rr(2,5); return{ctx:'Coupled systems',eq:`g(x)=${c}x·e^x\nFind g'(x).`,answer:`${c}e^x+${c}xe^x`,hint1:"Product rule: (${c})e^x + ${c}x·e^x",hint2:`${c}e^x(1+x)`}; },
+    ()=>{ const a=rr(1,4),b=rr(1,4);const s=a+b,es=s-1;const ans=es===1?`${s}x`:es===0?`${s}`:`${s}x^${es}`; return{ctx:'Coupled systems',eq:`h(x)=x^${a}·x^${b}\nSimplify then differentiate.`,answer:ans,hint1:`Combine: x^(${a}+${b})=x^${s}`,hint2:`d/dx[x^${s}]=${s}x^${es}`}; },
+  ],
+
+  // OPT — Optimization / Critical Points
+  OPT:[
+    ()=>{ const a=rr(2,6),b=rr(2,8); return{ctx:'Optimal trajectory',eq:`f(x)=x²-${2*a}x+${b}\nFind x at minimum.`,answer:`x=${a}`,hint1:`f'(x)=2x-${2*a}=0`,hint2:`x=${a}`}; },
+    ()=>{ const a=rr(1,4),b=rr(1,4); return{ctx:'Critical point',eq:`g(x)=x³-${3*a}x\nFind critical x values.`,answer:`x=${a},x=-${a}`,hint1:`g'(x)=3x²-${3*a}=0`,hint2:`x²=${a}, x=±${a}`}; },
+    ()=>{ const a=rr(2,5); return{ctx:'Max analysis',eq:`f(x)=-x²+${2*a}x\nFind x at maximum.`,answer:`x=${a}`,hint1:`f'(x)=-2x+${2*a}=0`,hint2:`x=${a}`}; },
+    ()=>{ const a=rr(2,5),b=rr(1,4); return{ctx:'Inflection point',eq:`f(x)=x³-${3*a}x²+${b}\nFind inflection x.`,answer:`x=${a}`,hint1:`f''(x)=6x-${6*a}=0`,hint2:`x=${a}`}; },
+  ],
+
+  // INT — Basic Integrals (indefinite)
+  INT:[
+    ()=>{ const n=rr(2,4),c=rr(1,5); return{ctx:'Total distance',eq:`\u222b ${c}x^${n} dx = ?`,answer:`${c}/${n+1} x^${n+1}+C`,hint1:`Reverse power rule: x^(n+1)/(n+1)`,hint2:`${c}·x^${n+1}/${n+1}+C`}; },
+    ()=>{ const c=rr(1,6); return{ctx:'Accumulated signal',eq:`∫ ${c} dx = ?`,answer:`${c}x+C`,hint1:'Integral of constant c is cx',hint2:`${c}x+C`}; },
+    ()=>{ const a=rr(1,5),b=rr(1,6); return{ctx:'Total distance',eq:`∫ (${a}x+${b}) dx = ?`,answer:`${a}/2·x²+${b}x+C`,hint1:'Integrate term by term',hint2:`${a}x²/2 + ${b}x + C`}; },
+    ()=>{ const c=rr(2,5); return{ctx:'Signal integral',eq:`∫ cos(x) dx = ?`,answer:'sin(x)+C',hint1:'Standard integral',hint2:'sin(x)+C'}; },
+    ()=>{ return{ctx:'Exponential integral',eq:`∫ e^x dx = ?`,answer:'e^x+C',hint1:'Integral of e^x is e^x',hint2:'e^x+C'}; },
+  ],
+
+  // FTC — Definite Integrals (Fundamental Theorem)
+  FTC:[
+    ()=>{ const a=rr(1,4),b=a+rr(1,3); return{ctx:'Fuel calculation',eq:`∫₀${b} ${2} x dx = ?`,answer:`${b*b}`,hint1:'F(x)=x², evaluate F(b)-F(0)',hint2:`${b}²-0=${b*b}`}; },
+    ()=>{ const b=rr(2,4); return{ctx:'Total thrust',eq:`∫₁${b+1} 3x² dx = ?`,answer:`${(b+1)**3-1}`,hint1:'F(x)=x³, F(b)-F(1)',hint2:`${(b+1)**3}-1=${(b+1)**3-1}`}; },
+    ()=>{ const a=rr(0,2),b=a+rr(2,4); const ans=(b*b-a*a); return{ctx:'Fuel calculation',eq:`∫${a===0?'₀':'_'+a}${b===1?'₁':b===2?'₂':b===3?'₃':b} 2x dx = ?`,answer:`${ans}`,hint1:'F(x)=x², F(b)-F(a)',hint2:`${b}²-${a}²=${ans}`}; },
+    ()=>{ const b=rr(2,4); return{ctx:'Area under curve',eq:`∫₀${b} x dx = ?`,answer:`${b*b/2}`,hint1:'F(x)=x²/2, evaluate at bounds',hint2:`${b}²/2=${b*b/2}`}; },
+  ],
+
+  // RR — Related Rates
+  RR:[
+    ()=>{ const r=rr(2,5),dr=rr(1,3); return{ctx:'Expanding field',eq:`Circle: r=${r}m, dr/dt=${dr}m/s.\nFind dA/dt (A=πr²).`,answer:`${2*r*dr}π`,hint1:'A=πr², dA/dt=2πr·dr/dt',hint2:`2π·${r}·${dr}=${2*r*dr}π`}; },
+    ()=>{ const v=rr(2,5); return{ctx:'Approach rate',eq:`Object at distance d.\nd(t)=t²+${v}t. Find velocity at t=2.`,answer:`${2*2+v}`,hint1:"v=d'(t)=2t+${v}",hint2:`2(2)+${v}=${4+v}`}; },
+    ()=>{ const a=rr(2,5),b=rr(1,3); return{ctx:'Rate of change',eq:`P(t)=${a}t+${b}. Find rate of change.`,answer:`${a}`,hint1:"P'(t)=constant rate",hint2:`${a}`}; },
+  ],
+};
+
+// Sector → template type sequence
+const SECTOR_TOPICS = {
+  'Training Orbit': ['LIM','D1','D1','LIM','D1','D2','LIM','D1','D2','LIM'],
+  'Debris Field':   ['CR','PR','D2','CR','OPT','PR','D2','CR','OPT','PR'],
+  'Deep Space':     ['INT','FTC','OPT','RR','FTC','INT','RR','OPT','FTC','INT'],
+};
+const LAUNCH_TOPICS = {
+  'Training Orbit': ['D1','LIM','D2'],
+  'Debris Field':   ['CR','OPT','PR'],
+  'Deep Space':     ['FTC','INT','RR'],
+};
+
+function pickCalc(topic){
+  const bank=CALC_TEMPLATES[topic];
+  if(!bank) return {ctx:'Trajectory input',eq:'f(x)=x². f\'(0)=?',answer:'0',hint1:'Power rule',hint2:'2·0=0'};
+  return bank[r(bank.length)]();
+}
+
+// ── MISSION DATA ────────────────────────────────────────────────
+// Prompts populated at loadLevel() — never at parse time (randomization rule)
+const MISSIONS = [
+  // Sector 1: Training Orbit (M1–3 hand-crafted, rest generated)
+  {id:1,name:'First Approach',sector:'Training Orbit',objective:'Navigate to beacon. Keep heat < 30.',
+   objType:'heat',objTarget:30,
+   _topicSeq:{room:['LIM','D1','D1','LIM','D1','D2'],launch:['D1','LIM'],escape:['D1']},
+   prompts:[],launchPrompts:[],escapePrompts:[]},
+  {id:2,name:'Power Rule Run',sector:'Training Orbit',objective:'Disable 2 sensor arrays.',
+   objType:'sensors',objTarget:2,
+   _topicSeq:{room:['D1','D1','D2','LIM','D1','D2'],launch:['D2','D1'],escape:['LIM']},
+   prompts:[],launchPrompts:[],escapePrompts:[]},
+  {id:3,name:'Limit Approach',sector:'Training Orbit',objective:'Open 3 navigation gates.',
+   objType:'gates',objTarget:3,
+   _topicSeq:{room:['LIM','LIM','D1','D2','LIM','D1'],launch:['LIM','D2'],escape:['D1']},
+   prompts:[],launchPrompts:[],escapePrompts:[]},
+  // M4-10 Training Orbit generated
+  ...generateMissions(4,10,'Training Orbit',[
+    {name:'Orbital Sync',obj:'Reach loot within 5 min.'},
+    {name:'Debris Dodge',obj:'Complete with < 20 heat.'},
+    {name:'Signal Lock',obj:'Disable all sensor arrays.'},
+    {name:'Gradient Descent',obj:'Open 3 gates.'},
+    {name:'Chain Reaction',obj:'Crack launch window first try.'},
+    {name:'Resonance Pass',obj:'Score 500+.'},
+    {name:'Training Final',obj:'Crack vault and escape.'},
+  ]),
+  // M11-20 Debris Field
+  ...generateMissions(11,20,'Debris Field',[
+    {name:'Chain Entry',obj:'Keep heat < 40.'},
+    {name:'Product Launch',obj:'Disable 3 sensors.'},
+    {name:'Critical Mass',obj:'Find optimal path.'},
+    {name:'Deep Scan',obj:'Open 4 gates.'},
+    {name:'Velocity Cap',obj:'Complete sub 4 min.'},
+    {name:'Rule Composite',obj:'First-try crack bonus.'},
+    {name:'Minima Run',obj:'Score 800+.'},
+    {name:'Inflection Point',obj:'Stealth bonus < 25 heat.'},
+    {name:'Coupled Systems',obj:'Disable all sensors.'},
+    {name:'Field Final',obj:'Full vault + escape.'},
+  ]),
+  // M21-30 Deep Space
+  ...generateMissions(21,30,'Deep Space',[
+    {name:'Integral Launch',obj:'First-try launch window.'},
+    {name:'FTC Sprint',obj:'Escape < 30s remaining.'},
+    {name:'Optimization Run',obj:'Keep heat < 35.'},
+    {name:'Rate Cascade',obj:'Open all gates.'},
+    {name:'Accumulation',obj:'Score 1200+.'},
+    {name:'Theorem Gate',obj:'Disable all sensors.'},
+    {name:'Limit Horizon',obj:'Full stealth run.'},
+    {name:'Deep Integral',obj:'Sub-3 min clear.'},
+    {name:'Final Theorem',obj:'First-try everything.'},
+    {name:'Grand Trajectory',obj:'Maximum score run.'},
+  ]),
+];
+
+function generateMissions(start,end,sector,defs){
+  const list=[];
+  for(let i=0;i<defs.length;i++){
+    list.push({id:start+i,name:defs[i].name,sector,
+      objective:defs[i].obj,
+      prompts:[],launchPrompts:[],escapePrompts:[],
+    });
+  }
+  return list;
+}
+
+// ── LEVEL MAPS ─────────────────────────────────────────────────
+// M1: Training Orbit - simple open layout
+const M1_MAP = [
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,8,8,0,0,0,5,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,1],
+  [1,0,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,1],
+  [1,0,0,0,0,0,4,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,4,0,0,0,0,0,0,1],
+  [1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1],
+  [1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1],
+  [1,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,4,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,1],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+];
+const M2_MAP = [
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,0,0,5,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,11,0,0,1],
+  [1,0,0,9,0,0,4,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,1],
+  [1,1,1,1,0,0,0,0,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,6,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+];
+const M3_MAP = [
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,7,0,0,0,0,0,0,0,5,0,1,1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,9,9,9,0,0,1],
+  [1,0,0,9,9,9,9,0,0,0,0,0,1,1,0,4,0,0,9,9,9,11,0,1],
+  [1,0,0,9,9,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,4,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,2,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,8,8,8,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,8,8,8,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,4,0,0,6,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+];
+
+const HAND_MAPS = [M1_MAP, M2_MAP, M3_MAP];
+
+// Hand-crafted level interactables for M1-3
+const HAND_INTERACTABLES = [
+  [{x:6,y:4,type:'node',pi:0},{x:16,y:5,type:'node',pi:1},{x:4,y:10,type:'node',pi:2},
+   {x:5,y:3,type:'gate',pi:3},{x:19,y:3,type:'gate',pi:4},{x:17,y:11,type:'gate',pi:5}],
+  [{x:6,y:4,type:'node',pi:0},{x:12,y:4,type:'node',pi:1},{x:20,y:8,type:'node',pi:2},
+   {x:16,y:3,type:'gate',pi:3},{x:8,y:11,type:'gate',pi:4},{x:14,y:12,type:'node',pi:5}],
+  [{x:4,y:6,type:'node',pi:0},{x:15,y:4,type:'node',pi:1},{x:10,y:6,type:'gate',pi:2},
+   {x:8,y:10,type:'gate',pi:3},{x:20,y:6,type:'gate',pi:4},{x:18,y:12,type:'node',pi:5}],
+];
+
+const HAND_GUARDS = [
+  [{x:12,y:4,route:[[12,4],[16,4],[16,8],[12,8]],speed:1.2,coneAngle:70,coneRange:5},
+   {x:6,y:10,route:[[6,10],[6,6],[10,6],[10,10]],speed:1.0,coneAngle:60,coneRange:4}],
+  [{x:4,y:7,route:[[4,7],[4,3],[8,3],[8,7]],speed:1.1,coneAngle:65,coneRange:5},
+   {x:18,y:10,route:[[18,10],[18,5],[14,5],[14,10]],speed:1.3,coneAngle:75,coneRange:5}],
+  [{x:6,y:5,route:[[6,5],[6,10],[12,10],[12,5]],speed:1.0,coneAngle:60,coneRange:4},
+   {x:18,y:8,route:[[18,8],[18,4],[22,4],[22,8]],speed:1.4,coneAngle:70,coneRange:5}],
+];
+const HAND_CAMS = [
+  [{x:8,y:2,angle:180,sweep:90,range:5,speed:30},{x:18,y:6,angle:270,sweep:80,range:4,speed:25}],
+  [{x:6,y:1,angle:180,sweep:100,range:5,speed:35},{x:12,y:1,angle:180,sweep:90,range:6,speed:28},
+   {x:20,y:5,angle:270,sweep:70,range:5,speed:32},{x:10,y:10,angle:90,sweep:80,range:4,speed:30}],
+  [{x:10,y:3,angle:180,sweep:80,range:5,speed:28}],
+];
+const HAND_LOOT = [{x:20,y:3},{x:20,y:3},{x:21,y:4}];
+const HAND_ESCAPE = [[{x:19,y:12}],[{x:19,y:12}],[{x:19,y:12}]];
+
+// Procedural level generator (identical architecture to Echo Heist)
+function genLevel(mIdx){
+  const dist=getSector(mIdx), dc=SECTOR_CONFIG[dist];
+  const seed=mIdx*11+7;
+  function sr(i){return((seed*9301+i*49297)%233280)/233280;}
+  const map=[];
+  for(let y=0;y<ROWS;y++){const row=[];for(let x=0;x<COLS;x++){row.push((x===0||x===COLS-1||y===0||y===ROWS-1)?1:0);}map.push(row);}
+  const ws=2+Math.floor(sr(0)*3);
+  for(let w=0;w<ws;w++){
+    const h=sr(w*10+1)>0.5;
+    if(h){const wy=4+Math.floor(sr(w*10+2)*8),wx1=3+Math.floor(sr(w*10+3)*8),wx2=wx1+4+Math.floor(sr(w*10+4)*8);
+      for(let x=wx1;x<=Math.min(wx2,COLS-2);x++)map[wy][x]=1;
+      const gx=wx1+1+Math.floor(sr(w*10+5)*(wx2-wx1-1));if(gx<COLS-1)map[wy][gx]=0;
+    } else {const wx=5+Math.floor(sr(w*10+2)*14),wy1=2+Math.floor(sr(w*10+3)*4),wy2=wy1+3+Math.floor(sr(w*10+4)*5);
+      for(let y=wy1;y<=Math.min(wy2,ROWS-2);y++)map[y][wx]=1;
+      const gy=wy1+1+Math.floor(sr(w*10+5)*(wy2-wy1-1));if(gy<ROWS-1)map[gy][wx]=0;
+    }
+  }
+  for(let y=1;y<ROWS-1;y++)for(let x=1;x<COLS-1;x++){if(map[y][x]!==0)continue;const rv=sr(y*COLS+x);if(rv<0.06)map[y][x]=8;else if(rv<0.11)map[y][x]=9;}
+  map[ROWS-2][2]=7; map[ROWS-3][COLS-2]=6;
+  const lx=10+Math.floor(sr(99)*10),ly=3+Math.floor(sr(98)*6);
+  if(map[ly][lx]===0||map[ly][lx]===8||map[ly][lx]===9)map[ly][lx]=0;
+  const gc=2+dist;const guards=[];
+  for(let g=0;g<gc;g++){
+    const gx=4+Math.floor(sr(200+g*10)*16),gy=3+Math.floor(sr(201+g*10)*9);
+    const r2x=3+Math.floor(sr(202+g*10)*8),r2y=3+Math.floor(sr(203+g*10)*8);
+    guards.push({x:gx,y:gy,route:[[gx,gy],[Math.min(21,gx+r2x),gy],[Math.min(21,gx+r2x),Math.min(13,gy+r2y)],[gx,Math.min(13,gy+r2y)]].map(p=>[Math.max(2,Math.min(21,p[0])),Math.max(2,Math.min(13,p[1]))]),speed:0.8+sr(204+g*10)*0.6*dc.debrisSpeedMult,coneAngle:55+Math.floor(sr(205+g*10)*25),coneRange:4+Math.floor(sr(206+g*10)*2)});
+  }
+  const cc=1+dist+Math.floor(sr(300)*2);const cams=[];
+  for(let c=0;c<cc;c++)cams.push({x:3+Math.floor(sr(310+c*10)*18),y:1+Math.floor(sr(311+c*10)*4),angle:[90,180,270][Math.floor(sr(312+c*10)*3)],sweep:60+Math.floor(sr(313+c*10)*40),range:4+Math.floor(sr(314+c*10)*2),speed:25+Math.floor(sr(315+c*10)*15)});
+  const ic=5+(dist>0?1:0);const ias=[];const used=new Set();
+  for(let i=0;i<ic;i++){let ix,iy,tries=0;do{ix=3+Math.floor(sr(400+i*10+tries)*18);iy=2+Math.floor(sr(401+i*10+tries)*11);tries++;}while((map[iy][ix]!==0||used.has(`${ix},${iy}`))&&tries<20);used.add(`${ix},${iy}`);ias.push({x:ix,y:iy,type:i%2===0?'gate':'node',pi:i});if(i%2===0)map[iy][ix]=2;}
+  return{guards,cameras:cams,interactables:ias,loot:{x:lx,y:ly},escapeGates:[{x:COLS-3,y:ROWS-3}],map};
+}
+
+const LEVELS=[];
+for(let i=0;i<3;i++) LEVELS.push({guards:HAND_GUARDS[i],cameras:HAND_CAMS[i],interactables:HAND_INTERACTABLES[i],loot:HAND_LOOT[i],escapeGates:HAND_ESCAPE[i],map:HAND_MAPS[i].map(row=>[...row])});
+for(let i=3;i<MISSIONS.length;i++) LEVELS.push(genLevel(i));
+
+// ── GAME STATE ─────────────────────────────────────────────────
+const STATE={MENU:'menu',BRIEFING:'briefing',PLAYING:'playing',
+  CALC:'calc',LAUNCH:'launch',PAUSED:'paused',RESULTS:'results',
+  CAUGHT:'caught',MISSION_SELECT:'ms',HOW_TO_PLAY:'htp'};
+
+let echoHeistHasSeenIntro=false;
+try{echoHeistHasSeenIntro=localStorage.getItem('orbDriftIntroSeen')==='1';}catch(e){}
+let gameState=echoHeistHasSeenIntro?STATE.MENU:STATE.HOW_TO_PLAY;
+let selectedSpec=null, currentMission=0, level=null;
+
+// Player
+let player={x:0,y:0,vx:0,vy:0,crouching:false,hasLoot:false,facing:0};
+let guards=[], cameras=[], interactables=[], lootPos=null;
+
+// Metrics
+let heat=0, noise=0, score=0;
+let calcCorrect=0, calcTotal=0, calcTimes=[];
+let promptQueue=[], missionTimer=0;
+const missionTimeLimit=480;
+
+// Launch sequence (= vault equivalent)
+let launchActive=false, launchStep=0, launchPrompts=[], launchTimer=0;
+const LAUNCH_TIME=90;
+
+// Escape
+let escapeActive=false, escapeCountdown=60, escapeFlashTimer=0;
+let escapeGatesTotal=0, escapeGatesSolved=0;
+
+// Calc popup
+let calcActive=false, calcPrompt=null, calcInteractable=null, calcStartTime=0;
+let isLaunchAbility=false, launchAbilityActive=false;
+
+// Ability
+let abilityCooldown=0, abilityBuffType=null, abilityBuffTimer=0, abilityBuffData=0;
+
+// Focus mode
+let focusModeActive=false, focusDrainAccum=0;
+const FOCUS_TIME_SCALE=0.25;
+
+// Scaffold
+let scaffoldVisible=false;
+
+// Mastery / streaks
+let streaks={}, masteryTopics={}, topicResults={};
+let lastStreakTopic=null;
+
+// Hints
+let currentHints=0, totalHints=0, wrongCount=0;
+const MAX_HINTS=2;
+
+// Feedback overlays (world-space floating text)
+let feedbackOverlays=[];
+
+// Objectives
+let objCount=0, maxHeat=0, objCompleted=false, objBonusEarned=0;
+
+// Persistence
+let highScores={}, completedMissions=new Set(), missionSelectIdx=0;
+try{highScores=JSON.parse(localStorage.getItem('orbDriftHS')||'{}');}catch(e){}
+try{completedMissions=new Set(JSON.parse(localStorage.getItem('orbDriftCM')||'[]'));}catch(e){}
+
+// Particles + shake
+let particles=[], shakeX=0, shakeY=0, shakeDur=0, shakeAmp=0;
+let _levelStars=null; // starfield — reset on loadLevel
+
+// Echo
+let echoRecording=false, echoBuffer=[], echoGhosts=[], echoCharges=2;
+const ECHO_DURATION=15;
+
+// Gadget
+let gadgetAvailable=true, gadgetPos=null, gadgetTimer=0, gadgetEmitting=false;
+const GADGET_DELAY=2, GADGET_DURATION=4;
+
+// Audio
+let audioCtx=null, audioMuted=false;
+function initAudio(){if(!audioCtx)try{audioCtx=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}}
+function playTone(freq,dur,type,vol){
+  if(!audioCtx||audioMuted)return;
+  const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+  o.type=type||'sine';o.frequency.value=freq;g.gain.value=vol||0.1;
+  g.gain.linearRampToValueAtTime(0,audioCtx.currentTime+dur);
+  o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+dur);
+}
+function sfxCorrect(){playTone(440,.08,'sine');setTimeout(()=>playTone(660,.12,'sine'),90);}
+function sfxWrong(){playTone(150,.2,'sawtooth',0.08);}
+function sfxLaunch(){playTone(300,.12,'sine');setTimeout(()=>playTone(500,.12,'sine'),110);setTimeout(()=>playTone(800,.18,'sine'),220);}
+function sfxEscape(){playTone(400,.1,'sine');setTimeout(()=>playTone(550,.1,'sine'),100);setTimeout(()=>playTone(700,.15,'sine'),200);}
+function sfxAlert(){playTone(350,.15,'square',0.06);}
+
+// Alarm
+let escapeAlarmH=null;
+function startAlarm(){if(escapeAlarmH)return;function p(){if(!escapeActive){stopAlarm();return;}if(!audioMuted)playTone(escapeCountdown<=15?660:440,.1,'square',0.04);escapeAlarmH=setTimeout(p,escapeCountdown<=15?280:480);}escapeAlarmH=setTimeout(p,400);}
+function stopAlarm(){if(escapeAlarmH){clearTimeout(escapeAlarmH);escapeAlarmH=null;}}
+
+// Ambient drone
+let droneNode=null, droneGain=null;
+function startDrone(){if(droneNode||!audioCtx||audioMuted)return;try{droneNode=audioCtx.createOscillator();droneGain=audioCtx.createGain();droneNode.type='triangle';droneNode.frequency.value=60;droneGain.gain.setValueAtTime(0,audioCtx.currentTime);droneGain.gain.linearRampToValueAtTime(0.015,audioCtx.currentTime+1.5);droneNode.connect(droneGain);droneGain.connect(audioCtx.destination);droneNode.start();}catch(e){droneNode=null;}}
+function stopDrone(){if(droneGain)try{droneGain.gain.linearRampToValueAtTime(0,audioCtx.currentTime+.4);}catch(e){}setTimeout(()=>{try{droneNode&&droneNode.stop();}catch(e){}droneNode=null;droneGain=null;},500);}
+
+// ── PARTICLES + SHAKE ──────────────────────────────────────────
+function spawnP(cx,cy,color,count){for(let i=0;i<count;i++){const a=Math.random()*PI2,s=1.2+Math.random()*3;particles.push({x:cx,y:cy,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:0.6+Math.random()*.5,maxLife:1.1,color,r:1.5+Math.random()*2});}}
+function updateP(dt){for(let i=particles.length-1;i>=0;i--){const p=particles[i];p.x+=p.vx;p.y+=p.vy;p.vx*=0.92;p.vy*=0.92;p.life-=dt;if(p.life<=0)particles.splice(i,1);}}
+function drawP(){if(!particles.length)return;ctx.save();particles.forEach(p=>{ctx.globalAlpha=Math.max(0,p.life/p.maxLife)*.85;ctx.fillStyle=p.color;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,PI2);ctx.fill();});ctx.globalAlpha=1;ctx.restore();}
+function triggerShake(amp,dur){shakeAmp=amp;shakeDur=dur;}
+function updateShake(dt){if(shakeDur>0){shakeDur=Math.max(0,shakeDur-dt);shakeX=(Math.random()-.5)*shakeAmp*2;shakeY=(Math.random()-.5)*shakeAmp*2;if(shakeDur<=0){shakeX=0;shakeY=0;}}}
+
+// Keys
+const keys={};
+document.addEventListener('keydown',e=>{
+  if(e.key==='Tab')e.preventDefault();
+  keys[e.key.toLowerCase()]=true;
+  initAudio();
+  if(e.key==='m')audioMuted=!audioMuted;
+  if(gameState===STATE.LAUNCH) handleLaunchKey(e);
+  else if(gameState===STATE.CALC) handleCalcKey(e);
+  else if(gameState===STATE.MENU) handleMenuKey(e);
+  else if(gameState===STATE.BRIEFING) handleBriefingKey(e);
+  else if(gameState===STATE.RESULTS||gameState===STATE.CAUGHT) handleResultsKey(e);
+  else if(gameState===STATE.PLAYING) handlePlayingKey(e);
+  else if(gameState===STATE.PAUSED) handlePausedKey(e);
+  else if(gameState===STATE.MISSION_SELECT) handleMSKey(e);
+  else if(gameState===STATE.HOW_TO_PLAY) handleHTPKey(e);
+});
+document.addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false;});
+
+// ── ANSWER VALIDATION ──────────────────────────────────────────
+// Calculus answers can be expressions. We do:
+// 1. Exact string match (normalized)
+// 2. Numeric comparison with tolerance
+// 3. Simplified expression comparison (remove spaces, unify notation)
+function normalizeCalc(raw){
+  return raw.trim().toLowerCase()
+    .replace(/\s+/g,'')
+    .replace(/\^/g,'^')
+    .replace(/\*/g,'·')
+    .replace(/×/g,'·')
+    .replace(/÷/g,'/')
+    .replace(/−/g,'-')
+    .replace(/\+c$/,'')  // strip "+C" for indefinite integrals
+    .replace(/\+0$/,'')
+    .replace(/x\^1(?!\d)/g,'x');
+}
+function checkCalcAnswer(userRaw, correctRaw){
+  const u=normalizeCalc(userRaw), c=normalizeCalc(correctRaw);
+  if(u===c) return true;
+  // Strip +C variants
+  if(u===c.replace(/\+c/,'')) return true;
+  // Numeric check
+  const uv=parseFloat(u), cv=parseFloat(c);
+  if(!isNaN(uv)&&!isNaN(cv)&&Math.abs(uv-cv)<0.01) return true;
+  // Check without spaces and with x=1 substitution for polynomials
+  return false;
+}
+
+// ── TILE HELPERS ───────────────────────────────────────────────
+function tileAt(gx,gy){if(gx<0||gx>=COLS||gy<0||gy>=ROWS)return T.WALL;return level.map[gy][gx];}
+function isSolid(gx,gy){const t=tileAt(gx,gy);return t===T.WALL||t===T.GATE_LOCKED;}
+function p2g(px,py){return{gx:Math.floor(px/TILE),gy:Math.floor(py/TILE)};}
+
+// ── GUARD AI (identical to Echo Heist) ────────────────────────
+function moveToward(e,tx,ty,spd,dt){
+  const dx=tx-e.x,dy=ty-e.y,dist=Math.sqrt(dx*dx+dy*dy);
+  if(dist<2)return;
+  const gr=TILE*.4,mx=(dx/dist)*spd*TILE*dt,my=(dy/dist)*spd*TILE*dt;
+  const nx=e.x+mx,ny=e.y+my;
+  if(!isSolid(Math.floor((nx-gr)/TILE),Math.floor((e.y-gr)/TILE))&&!isSolid(Math.floor((nx+gr)/TILE),Math.floor((e.y-gr)/TILE))&&!isSolid(Math.floor((nx-gr)/TILE),Math.floor((e.y+gr)/TILE))&&!isSolid(Math.floor((nx+gr)/TILE),Math.floor((e.y+gr)/TILE)))e.x=nx;
+  if(!isSolid(Math.floor((e.x-gr)/TILE),Math.floor((ny-gr)/TILE))&&!isSolid(Math.floor((e.x+gr)/TILE),Math.floor((ny-gr)/TILE))&&!isSolid(Math.floor((e.x-gr)/TILE),Math.floor((ny+gr)/TILE))&&!isSolid(Math.floor((e.x+gr)/TILE),Math.floor((ny+gr)/TILE)))e.y=ny;
+}
+
+function createGuard(def){
+  return{x:def.x*TILE+TILE/2,y:def.y*TILE+TILE/2,route:def.route.map(p=>({x:p[0]*TILE+TILE/2,y:p[1]*TILE+TILE/2})),routeIdx:0,speed:def.speed,coneAngle:def.coneAngle*DEG,coneRange:def.coneRange*TILE,facing:0,state:'patrol',investigateTarget:null,alertTimer:0};
+}
+
+function updateGuard(g,dt){
+  if(g.state==='patrol'){
+    const wp=g.route[g.routeIdx];
+    moveToward(g,wp.x,wp.y,g.speed,dt);
+    g.facing=Math.atan2(wp.y-g.y,wp.x-g.x);
+    if(Math.sqrt((g.x-wp.x)**2+(g.y-wp.y)**2)<4){g.routeIdx=(g.routeIdx+1)%g.route.length;}
+  } else if(g.state==='investigate'&&g.investigateTarget){
+    moveToward(g,g.investigateTarget.x,g.investigateTarget.y,g.speed*1.3,dt);
+    g.facing=Math.atan2(g.investigateTarget.y-g.y,g.investigateTarget.x-g.x);
+    g.alertTimer-=dt;
+    if(g.alertTimer<=0){g.state='patrol';g.investigateTarget=null;}
+  } else if(g.state==='chase'){
+    moveToward(g,player.x,player.y,g.speed*1.8,dt);
+    g.facing=Math.atan2(player.y-g.y,player.x-g.x);
+  }
+  if(noise>40&&gameState===STATE.PLAYING&&!calcActive){
+    const dx=player.x-g.x,dy=player.y-g.y;
+    if(Math.sqrt(dx*dx+dy*dy)<6*TILE&&g.state==='patrol'){
+      g.state='investigate';g.investigateTarget={x:player.x,y:player.y};g.alertTimer=4;sfxAlert();
+    }
+  }
+  if(gameState===STATE.PLAYING&&!calcActive){
+    const dx=player.x-g.x,dy=player.y-g.y,dist=Math.sqrt(dx*dx+dy*dy);
+    const ang=Math.atan2(dy,dx);let diff=ang-g.facing;
+    while(diff>Math.PI)diff-=PI2;while(diff<-Math.PI)diff+=PI2;
+    const detRange=player.crouching?g.coneRange*.6:g.coneRange;
+    if(dist<detRange&&Math.abs(diff)<g.coneAngle/2&&hasLOS(g.x,g.y,player.x,player.y)){
+      if(g.state!=='chase'){g.state='chase';}
+      heat=Math.min(100,heat+30*dt*getSConfig().heatGainMult);
+      if(heat>=100)gameState=STATE.CAUGHT;
+    } else if(g.state==='chase'&&dist>detRange*1.5){g.state='investigate';g.investigateTarget={x:player.x,y:player.y};g.alertTimer=5;}
+  }
+}
+
+function hasLOS(x1,y1,x2,y2){
+  const steps=20,dx=(x2-x1)/steps,dy=(y2-y1)/steps;
+  for(let i=1;i<steps;i++){if(isSolid(Math.floor((x1+dx*i)/TILE),Math.floor((y1+dy*i)/TILE)))return false;}
+  return true;
+}
+
+function createCamera(def){return{x:def.x*TILE+TILE/2,y:def.y*TILE+TILE/2,baseAngle:def.angle*DEG,currentAngle:def.angle*DEG,sweep:def.sweep*DEG,range:def.range*TILE,speed:def.speed*DEG,direction:1,disabled:false};}
+function updateCamera(cam,dt){
+  if(cam.disabled)return;
+  cam.currentAngle+=cam.speed*cam.direction*dt;
+  const hs=cam.sweep/2;
+  if(cam.currentAngle>cam.baseAngle+hs)cam.direction=-1;
+  else if(cam.currentAngle<cam.baseAngle-hs)cam.direction=1;
+  if(gameState===STATE.PLAYING&&!calcActive){
+    const dx=player.x-cam.x,dy=player.y-cam.y,dist=Math.sqrt(dx*dx+dy*dy);
+    const ang=Math.atan2(dy,dx);let diff=ang-cam.currentAngle;
+    while(diff>Math.PI)diff-=PI2;while(diff<-Math.PI)diff+=PI2;
+    if(dist<cam.range&&Math.abs(diff)<35*DEG&&hasLOS(cam.x,cam.y,player.x,player.y)){
+      heat=Math.min(100,heat+20*dt*getSConfig().heatGainMult);
+      if(heat>=100)gameState=STATE.CAUGHT;
+    }
+  }
+}
+
+// ── PROMPT GENERATION AT LOAD TIME ────────────────────────────
+function generatePrompts(mIdx){
+  const m=MISSIONS[mIdx], sector=m.sector||'Training Orbit';
+  const topics=SECTOR_TOPICS[sector]||SECTOR_TOPICS['Training Orbit'];
+  const ltopics=LAUNCH_TOPICS[sector]||LAUNCH_TOPICS['Training Orbit'];
+  const vaultCount=mIdx<10?2:3;
+  let rPrompts, lPrompts, ePrompts;
+  if(m._topicSeq){
+    rPrompts=m._topicSeq.room.map(t=>pickCalc(t));
+    lPrompts=m._topicSeq.launch.map(t=>pickCalc(t));
+    ePrompts=m._topicSeq.escape.map(t=>pickCalc(t));
+  } else {
+    rPrompts=Array.from({length:6},(_,i)=>pickCalc(topics[i%topics.length]));
+    lPrompts=Array.from({length:vaultCount},(_,i)=>pickCalc(ltopics[i%ltopics.length]));
+    ePrompts=[pickCalc(ltopics[Math.floor(Math.random()*ltopics.length)])];
+  }
+  return{rPrompts,lPrompts,ePrompts};
+}
+
+// ── LEVEL INITIALIZATION ───────────────────────────────────────
+function loadLevel(mIdx){
+  // RANDOMIZE PROMPTS FRESH — never reuse same numbers
+  const fresh=generatePrompts(mIdx);
+  const m=MISSIONS[mIdx];
+  m.prompts=fresh.rPrompts;
+  m.launchPrompts=fresh.lPrompts;
+  m.escapePrompts=fresh.ePrompts;
+
+  const src=LEVELS[mIdx];
+  level={guards:src.guards,cameras:src.cameras,interactables:src.interactables,loot:src.loot,map:src.map.map(row=>[...row])};
+
+  // Find spawn
+  for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++)if(level.map[y][x]===T.SPAWN){player.x=x*TILE+TILE/2;player.y=y*TILE+TILE/2;}
+  player.vx=0;player.vy=0;player.crouching=false;player.hasLoot=false;player.facing=0;
+
+  guards=level.guards.map(createGuard);
+  cameras=level.cameras.map(createCamera);
+  interactables=level.interactables.map(ia=>({
+    x:ia.x*TILE+TILE/2,y:ia.y*TILE+TILE/2,
+    type:ia.type,prompt:m.prompts[ia.pi]||m.prompts[0],
+    solved:false,gx:ia.x,gy:ia.y
+  }));
+  lootPos=level.loot?{x:level.loot.x*TILE+TILE/2,y:level.loot.y*TILE+TILE/2}:null;
+
+  heat=0;noise=0;score=0;calcCorrect=0;calcTotal=0;calcTimes=[];
+  missionTimer=0;
+  launchActive=false;launchStep=0;launchTimer=0;
+  const dc=getSConfig();
+  escapeActive=false;escapeCountdown=dc.escapeTime;escapeFlashTimer=0;
+  escapeGatesTotal=0;escapeGatesSolved=0;
+  calcActive=false;
+  abilityCooldown=0;abilityBuffType=null;abilityBuffTimer=0;abilityBuffData=0;
+  launchAbilityActive=false;isLaunchAbility=false;
+  gadgetAvailable=true;gadgetPos=null;gadgetTimer=0;gadgetEmitting=false;
+  currentHints=0;totalHints=0;
+  streaks={};masteryTopics={};topicResults={};lastStreakTopic=null;
+  focusModeActive=false;focusDrainAccum=0;
+  particles=[];shakeX=0;shakeY=0;shakeDur=0;shakeAmp=0;
+  stopAlarm();
+  scaffoldVisible=false;wrongCount=0;
+  objCount=0;maxHeat=0;objCompleted=false;objBonusEarned=0;
+  echoRecording=false;echoBuffer=[];echoGhosts=[];echoCharges=2;
+  feedbackOverlays=[];_levelStars=null;
+  safeEl('calc-popup').style.display='none';
+  safeEl('launch-progress').style.display='none';
+  safeEl('scaffold-canvas').style.display='none';
+}
+
+// ── PLAYER UPDATE ──────────────────────────────────────────────
+function updatePlayer(dt){
+  if(calcActive)return;
+  const sp=SPECS[selectedSpec];
+  let speed=sp.moveSpeed*TILE;
+  if(player.crouching)speed*=0.5;
+  let burstActive=false;
+  if(abilityBuffType==='surge'&&abilityBuffTimer>0){speed*=2;burstActive=true;}
+  player.vx=0;player.vy=0;
+  if(keys['w']||keys['arrowup'])player.vy=-speed;
+  if(keys['s']||keys['arrowdown'])player.vy=speed;
+  if(keys['a']||keys['arrowleft'])player.vx=-speed;
+  if(keys['d']||keys['arrowright'])player.vx=speed;
+  if(player.vx&&player.vy){player.vx*=0.707;player.vy*=0.707;}
+  if(player.vx||player.vy)player.facing=Math.atan2(player.vy,player.vx);
+  const nx=player.x+player.vx*dt,ny=player.y+player.vy*dt,r=TILE*.3;
+  if(!isSolid(Math.floor((nx-r)/TILE),Math.floor((player.y-r)/TILE))&&!isSolid(Math.floor((nx+r)/TILE),Math.floor((player.y-r)/TILE))&&!isSolid(Math.floor((nx-r)/TILE),Math.floor((player.y+r)/TILE))&&!isSolid(Math.floor((nx+r)/TILE),Math.floor((player.y+r)/TILE)))player.x=nx;
+  if(!isSolid(Math.floor((player.x-r)/TILE),Math.floor((ny-r)/TILE))&&!isSolid(Math.floor((player.x+r)/TILE),Math.floor((ny-r)/TILE))&&!isSolid(Math.floor((player.x-r)/TILE),Math.floor((ny+r)/TILE))&&!isSolid(Math.floor((player.x+r)/TILE),Math.floor((ny+r)/TILE)))player.y=ny;
+  const{gx,gy}=p2g(player.x,player.y);
+  const tileN=NOISE_MAP[tileAt(gx,gy)]||2;
+  const moving=player.vx||player.vy;
+  const ng=moving?tileN*sp.noiseMultiplier*(player.crouching ? 0.3 : 1)*(burstActive?0:1):0;
+  noise=Math.max(0,Math.min(100,noise+ng*dt-8*dt));
+  if(abilityCooldown>0)abilityCooldown=Math.max(0,abilityCooldown-dt);
+  if(abilityBuffTimer>0){abilityBuffTimer-=dt;if(abilityBuffTimer<=0){abilityBuffType=null;}}
+  if(gadgetPos&&!gadgetEmitting){gadgetTimer+=dt;if(gadgetTimer>=GADGET_DELAY){gadgetEmitting=true;gadgetTimer=0;}}
+  if(gadgetEmitting){gadgetTimer+=dt;if(gadgetTimer>=GADGET_DURATION){gadgetEmitting=false;gadgetPos=null;}}
+  player.crouching=keys['shift'];
+  if(heat>maxHeat)maxHeat=heat;
+  if(burstActive)spawnP(player.x,player.y,C.warning,2);
+  if(lootPos&&!player.hasLoot&&!launchActive&&!escapeActive){
+    const dx=player.x-lootPos.x,dy=player.y-lootPos.y;
+    if(Math.sqrt(dx*dx+dy*dy)<TILE*.8)startLaunch();
+  }
+  // Exit check — GATED (bug fix pattern from Echo Heist)
+  if(escapeActive){
+    if(tileAt(gx,gy)===T.EXIT){
+      if(escapeGatesTotal===0||escapeGatesSolved>=escapeGatesTotal){
+        finishMission();
+      } else {
+        const gl=escapeGatesTotal-escapeGatesSolved;
+        feedbackOverlays.push({text:`⛔ ${gl} GATE${gl>1?'S':''} — SOLVE FIRST!`,x:player.x,y:player.y-TILE,timer:1.8,color:C.danger});
+        player.x-=Math.cos(player.facing)*TILE*.8;
+        player.y-=Math.sin(player.facing)*TILE*.8;
+      }
+    }
+  }
+  // Echo
+  if(echoRecording){const el=(Date.now()-echoStartTime)/1000;echoBuffer.push({x:player.x,y:player.y,facing:player.facing,crouching:player.crouching,t:el});if(el>=ECHO_DURATION)stopEchoRec();}
+}
+let echoStartTime=0;
+function startEchoRec(){if(echoCharges<=0||echoRecording)return;echoRecording=true;echoBuffer=[];echoStartTime=Date.now();}
+function stopEchoRec(){echoRecording=false;echoCharges=Math.max(0,echoCharges-1);echoGhosts.push({frames:[...echoBuffer],playIdx:0,active:true,startTime:Date.now()});if(echoGhosts.length>2)echoGhosts.shift();}
+function updateEcho(dt){for(const g of echoGhosts){if(!g.active)continue;const el=(Date.now()-g.startTime)/1000;while(g.playIdx<g.frames.length-1&&g.frames[g.playIdx+1].t<=el)g.playIdx++;if(g.playIdx>=g.frames.length-1)g.active=false;}}
+function updateEscape(dt){if(!escapeActive)return;escapeCountdown-=dt;escapeFlashTimer+=dt;if(escapeCountdown<=0){escapeCountdown=0;stopAlarm();gameState=STATE.CAUGHT;}}
+
+// ── LAUNCH SEQUENCE (= vault equivalent) ──────────────────────
+function startLaunch(){
+  const m=MISSIONS[currentMission];
+  launchActive=true;launchStep=0;launchPrompts=m.launchPrompts;
+  launchTimer=0;launchStartTime=Date.now();gameState=STATE.LAUNCH;
+  showLaunchPrompt();
+}
+function showLaunchPrompt(){
+  const p=launchPrompts[launchStep];
+  calcActive=true;calcPrompt=p;calcStartTime=Date.now();wrongCount=0;scaffoldVisible=false;
+  currentHints=0;
+  const pop=safeEl('calc-popup');
+  pop.className='launch-mode';pop.style.display='block';
+  safeEl('popup-title').textContent=`🚀 LAUNCH WINDOW · STEP ${launchStep+1}/${launchPrompts.length}`;
+  safeEl('popup-context').textContent=p.ctx||'';
+  safeEl('popup-equation').textContent=p.eq||p.text||'';
+  const inp=safeEl('popup-input');inp.value='';
+  safeEl('popup-feedback').textContent=`Solve to proceed — ${launchPrompts.length-launchStep} calc${launchPrompts.length-launchStep>1?'s':''} remaining`;
+  safeEl('popup-feedback').className='feedback';
+  safeEl('popup-hint-area').textContent='';
+  safeEl('scaffold-canvas').style.display='none';
+  safeEl('launch-hint-line').style.display='block';
+  safeEl('popup-hint-line').style.display='none';
+  ['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','e',' ','shift','enter'].forEach(k=>keys[k]=false);
+  inp.focus();
+  const prog=safeEl('launch-progress');
+  prog.style.display='flex';
+  prog.innerHTML=launchPrompts.map((_,i)=>`<div class="launch-step ${i<launchStep?'done':''} ${i===launchStep?'active':''}"></div>`).join('');
+}
+function advanceLaunch(){launchStep++;if(launchStep>=launchPrompts.length)finishLaunch();else showLaunchPrompt();}
+function finishLaunch(){
+  launchActive=false;calcActive=false;focusModeActive=false;scaffoldVisible=false;
+  const pop=safeEl('calc-popup');pop.style.display='none';pop.className='';
+  safeEl('launch-progress').style.display='none';
+  safeEl('launch-hint-line').style.display='none';
+  safeEl('popup-hint-line').style.display='';
+  ['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','e',' ','shift','enter'].forEach(k=>keys[k]=false);
+  player.hasLoot=true;score+=300;startEscape();
+}
+function handleLaunchKey(e){
+  const inp=safeEl('popup-input');
+  const fb=safeEl('popup-feedback');
+  if(e.key==='Escape'){fb.textContent='⚠ Launch window is live — trajectory must be solved!';fb.className='feedback fb-err';return;}
+  if(e.key==='Tab'){focusModeActive=!focusModeActive;const pop=safeEl('calc-popup');focusModeActive?pop.classList.add('focus-mode'):pop.classList.remove('focus-mode');return;}
+  if(e.key==='f'||e.key==='F'){scaffoldVisible=!scaffoldVisible;drawScaffold();return;}
+  if(e.key==='h'||e.key==='H'&&!inp.value){showHint();return;}
+  if(e.key==='Enter'){
+    e.preventDefault();
+    // Lock out re-submission while waiting for advanceLaunch
+    if(inp.disabled)return;
+    const ua=inp.value;if(!ua.trim())return;
+    calcTotal++;const st=(Date.now()-calcStartTime)/1000;
+    if(!topicResults['launch'])topicResults['launch']={correct:0,total:0};
+    topicResults['launch'].total++;
+    if(checkCalcAnswer(ua,calcPrompt.answer)){
+      wrongCount=0;calcCorrect++;calcTimes.push(st);
+      fb.textContent='✓ TRAJECTORY CONFIRMED — advancing…';fb.className='feedback fb-ok';
+      sfxLaunch();topicResults['launch'].correct++;
+      streaks['launch']=(streaks['launch']||0)+1;lastStreakTopic='launch';
+      score+=Math.max(20,Math.floor(150-st*3));
+      spawnP(lootPos?lootPos.x:W/2,lootPos?lootPos.y:H/2,C.warning,22);
+      // Lock input to prevent double-submit, auto-advance after 600ms
+      inp.disabled=true;
+      setTimeout(()=>{inp.disabled=false;advanceLaunch();},350);
+    } else {
+      wrongCount++;streaks['launch']=0;
+      fb.textContent=`✗ TRAJECTORY ERROR — correct: ${calcPrompt.answer} · Alert +8`;
+      fb.className='feedback fb-err';sfxWrong();triggerShake(4,.35);
+      spawnP(W/2,H/2,C.danger,10);heat=Math.min(100,heat+8);
+      inp.value='';inp.focus();
+      if(wrongCount>=2&&currentHints<MAX_HINTS)showHint(true);
+    }
+  }
+}
+
+// ── ESCAPE ────────────────────────────────────────────────────
+function startEscape(){
+  escapeActive=true;escapeCountdown=getSConfig().escapeTime;escapeFlashTimer=0;
+  gameState=STATE.PLAYING;
+  for(const g of guards){g.speed*=1.6;g.coneRange*=1.3;g.coneAngle*=1.2;g.state='investigate';g.investigateTarget={x:player.x+(Math.random()-.5)*TILE*4,y:player.y+(Math.random()-.5)*TILE*4};g.alertTimer=5;}
+  const m=MISSIONS[currentMission];
+  const src=LEVELS[currentMission];
+  if(src.escapeGates){
+    escapeGatesTotal=src.escapeGates.length;escapeGatesSolved=0;
+    src.escapeGates.forEach((gate,i)=>{
+      level.map[gate.y][gate.x]=T.GATE_LOCKED;
+      const ep=m.escapePrompts[i]||m.escapePrompts[0];
+      interactables.push({x:gate.x*TILE+TILE/2,y:gate.y*TILE+TILE/2,type:'escape_gate',prompt:ep,solved:false,gx:gate.x,gy:gate.y});
+    });
+  } else {escapeGatesTotal=0;escapeGatesSolved=0;}
+  startAlarm();stopDrone();
+}
+
+// ── INTERACTION ───────────────────────────────────────────────
+function safeEl(id){return document.getElementById(id)||{style:{},className:'',textContent:'',innerHTML:''};}
+function tryInteract(){
+  for(const ia of interactables){
+    if(ia.solved)continue;
+    const dx=player.x-ia.x,dy=player.y-ia.y;
+    if(Math.sqrt(dx*dx+dy*dy)<TILE*1.2){openCalcPopup(ia);return;}
+  }
+}
+
+function openCalcPopup(ia){
+  if(!ia.prompt){ia.solved=true;if(ia.type==='gate'||ia.type==='escape_gate')level.map[ia.gy][ia.gx]=T.GATE_OPEN;return;}
+  // Clear movement keys so typing in popup doesn't contaminate player movement
+  ['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','e',' ','shift'].forEach(k=>keys[k]=false);
+  calcActive=true;calcPrompt=ia.prompt;calcInteractable=ia;calcStartTime=Date.now();currentHints=0;wrongCount=0;scaffoldVisible=false;
+  gameState=STATE.CALC;
+  const pop=safeEl('calc-popup');
+  pop.className='';pop.style.display='block';
+  const typeLabel=ia.type==='escape_gate'?'🚨 ESCAPE GATE — SOLVE TO EXIT':ia.type==='gate'?'🔐 GATE':'📡 NODE';
+  safeEl('popup-title').textContent=typeLabel;
+  if(ia.type==='escape_gate'){
+    safeEl('popup-context').textContent='Solve to unlock the extraction corridor — cannot skip';
+    safeEl('popup-equation').textContent=ia.prompt.eq||ia.prompt.text||'';
+    safeEl('popup-feedback').textContent='';
+    safeEl('popup-feedback').className='feedback';
+  } else {
+    safeEl('popup-context').textContent=ia.prompt.ctx||'';
+    safeEl('popup-equation').textContent=ia.prompt.eq||ia.prompt.text||'';
+  }
+  safeEl('popup-input').value='';
+  safeEl('popup-input').focus();
+  safeEl('popup-feedback').textContent='';
+  safeEl('popup-hint-area').textContent='';
+  safeEl('launch-progress').style.display='none';
+  if(ia.type==='escape_gate')pop.className='escape-mode';
+}
+
+function closeCalcPopup(solved){
+  if(isLaunchAbility){resolveAbility(solved);return;}
+  // Don't restore PLAYING if we've been caught
+  if(gameState===STATE.CAUGHT||gameState===STATE.RESULTS)return;
+  calcActive=false;focusModeActive=false;scaffoldVisible=false;
+  const pop=safeEl('calc-popup');pop.style.display='none';pop.className='';
+  safeEl('scaffold-canvas').style.display='none';
+  safeEl('launch-hint-line').style.display='none';
+  safeEl('popup-hint-line').style.display='';
+  // Clear keys so no movement bleed-in from typing
+  ['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','e',' ','shift','enter'].forEach(k=>keys[k]=false);
+  gameState=STATE.PLAYING;
+  if(solved&&calcInteractable){
+    calcInteractable.solved=true;
+    if(calcInteractable.type==='gate'||calcInteractable.type==='escape_gate'){
+      level.map[calcInteractable.gy][calcInteractable.gx]=T.GATE_OPEN;
+      if(calcInteractable.type==='escape_gate')escapeGatesSolved++;
+      objCount++;
+    }
+    if(calcInteractable.type==='node'){
+      let closest=null,cd=Infinity;
+      for(const cam of cameras){const dx=cam.x-calcInteractable.x,dy=cam.y-calcInteractable.y,d=Math.sqrt(dx*dx+dy*dy);if(d<cd&&!cam.disabled){closest=cam;cd=d;}}
+      if(closest&&cd<8*TILE){closest.disabled=true;objCount++;}
+    }
+    score+=calcInteractable.type==='escape_gate'?100:50;
+    const lbl={gate:'🔓 CORRIDOR OPEN',node:'📡 SENSOR DISABLED',escape_gate:'🚪 EXTRACTION CORRIDOR OPEN'};
+    const t=lbl[calcInteractable.type];
+    if(t)feedbackOverlays.push({text:t,x:calcInteractable.x,y:calcInteractable.y,timer:2.2,color:C.success});
+  }
+  calcPrompt=null;calcInteractable=null;
+}
+
+function showHint(free=false){
+  if(!calcPrompt)return;
+  const dc=getSConfig();const ha=safeEl('popup-hint-area');
+  if(currentHints>=MAX_HINTS){ha.textContent='No more formula hints available.';return;}
+  currentHints++;totalHints++;
+  let cost=0;
+  if(!free){const tM=masteryTopics[calcPrompt.topic||'general'] ? 0.75 : 1;cost=Math.floor(dc.hintCost*tM);score=Math.max(0,score-cost);}
+  const prefix=free?'💡 Auto: ':`💡 (−${cost} pts) `;
+  ha.textContent=currentHints===1?`${prefix}${calcPrompt.hint1||'Think step by step'}`:`${prefix}${calcPrompt.hint2||'Try a different approach'}`;
+}
+
+function handleCalcKey(e){
+  const inp=safeEl('popup-input');
+  const fb=safeEl('popup-feedback');
+  if(e.key==='Tab'){focusModeActive=!focusModeActive;const pop=safeEl('calc-popup');focusModeActive?pop.classList.add('focus-mode'):pop.classList.remove('focus-mode');return;}
+  if(e.key==='f'||e.key==='F'){scaffoldVisible=!scaffoldVisible;drawScaffold();return;}
+  if(e.key==='h'||e.key==='H'){if(!inp.value)showHint();return;}
+  if(e.key==='Escape'){
+    // Escape gates cannot be skipped — must solve to exit
+    if(calcInteractable&&calcInteractable.type==='escape_gate'){
+      safeEl('popup-feedback').textContent='⚠ Escape gate must be solved to exit!';
+      safeEl('popup-feedback').className='feedback fb-err';
+      return;
+    }
+    heat=Math.min(100,heat+20);closeCalcPopup(false);return;
+  }
+  if(e.key==='Enter'){
+    e.preventDefault();const ua=inp.value;if(!ua.trim())return;
+    calcTotal++;const st=(Date.now()-calcStartTime)/1000;
+    const topic=calcPrompt.topic||'general';
+    if(!topicResults[topic])topicResults[topic]={correct:0,total:0};
+    topicResults[topic].total++;
+    if(checkCalcAnswer(ua,calcPrompt.answer)){
+      wrongCount=0;calcCorrect++;calcTimes.push(st);fb.textContent='✓ Calculation confirmed — resuming…';fb.className='feedback fb-ok';
+      sfxCorrect();topicResults[topic].correct++;
+      streaks[topic]=(streaks[topic]||0)+1;lastStreakTopic=topic;
+      if(streaks[topic]>=3&&!masteryTopics[topic]){masteryTopics[topic]=true;spawnP(W/2,H/2-60,C.warning,25);}
+      const mm=masteryTopics[topic]?1.1:1;
+      const bb=abilityBuffType==='precision'&&abilityBuffData>0?Math.max(20,Math.floor(130-st*3)):Math.max(10,Math.floor(100-st*3));
+      if(abilityBuffType==='precision'&&abilityBuffData>0)abilityBuffData--;
+      score+=Math.floor(bb*mm);
+      spawnP(W/2,H/2,C.success,18);
+      setTimeout(()=>closeCalcPopup(true),350);
+    } else {
+      wrongCount++;streaks[topic]=0;
+      fb.textContent=`✗ Miscalculation — correct: ${calcPrompt.answer} · Alert +5`;
+      fb.className='feedback fb-err';sfxWrong();triggerShake(3,.3);
+      spawnP(W/2,H/2,C.danger,12);heat=Math.min(100,heat+5);
+      inp.value='';inp.focus();
+      if(wrongCount>=2&&currentHints<MAX_HINTS)showHint(true);
+    }
+  }
+}
+
+// ── ABILITY ───────────────────────────────────────────────────
+function activateAbility(){
+  if(abilityCooldown>0||isLaunchAbility||calcActive)return;
+  const sp=SPECS[selectedSpec];
+  const p=sp.abilityPrompts[Math.floor(Math.random()*sp.abilityPrompts.length)];
+  isLaunchAbility=true;calcActive=true;calcPrompt=p;calcStartTime=Date.now();currentHints=0;
+  gameState=STATE.CALC;
+  const pop=safeEl('calc-popup');
+  pop.className='spec-mode';pop.style.setProperty('--spec-color',sp.color);pop.style.display='block';
+  safeEl('popup-title').textContent=`⚡ ${sp.abilityName}`;
+  safeEl('popup-context').textContent=p.ctx||'';
+  safeEl('popup-equation').textContent=p.eq||'';
+  safeEl('popup-input').value='';safeEl('popup-input').focus();
+  safeEl('popup-feedback').textContent='';safeEl('popup-hint-area').textContent='';
+  safeEl('launch-progress').style.display='none';
+}
+function resolveAbility(correct){
+  if(gameState===STATE.CAUGHT||gameState===STATE.RESULTS){isLaunchAbility=false;calcActive=false;return;}
+  isLaunchAbility=false;calcActive=false;focusModeActive=false;scaffoldVisible=false;
+  safeEl('calc-popup').style.display='none';
+  safeEl('calc-popup').className='';
+  safeEl('scaffold-canvas').style.display='none';
+  ['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','e',' ','shift','enter'].forEach(k=>keys[k]=false);
+  gameState=STATE.PLAYING;
+  const sp=SPECS[selectedSpec];abilityCooldown=sp.abilityCooldown;
+  if(!correct)return;
+  if(selectedSpec==='navigator'){abilityBuffType='precision';abilityBuffTimer=30;abilityBuffData=2;}
+  else if(selectedSpec==='analyst'){abilityBuffType='scan';abilityBuffTimer=15;}
+  else if(selectedSpec==='commander'){abilityBuffType='surge';abilityBuffTimer=3;}
+}
+
+function placeGadget(){if(!gadgetAvailable||calcActive)return;gadgetAvailable=false;gadgetPos={x:player.x,y:player.y};gadgetTimer=0;gadgetEmitting=false;}
+
+// ── FINISH MISSION ────────────────────────────────────────────
+function finishMission(){
+  stopAlarm();stopDrone();particles=[];
+  const tb=Math.max(0,Math.floor((missionTimeLimit-missionTimer)/10));
+  const sb=Math.max(0,Math.floor((100-heat)*3));
+  const ab=calcTotal>0?Math.floor((calcCorrect/calcTotal)*200):0;
+  const eb=escapeActive?Math.floor(escapeCountdown*5):0;
+  score+=tb+sb+ab+eb;
+  const m=MISSIONS[currentMission];
+  if(m.objType){
+    let met=false;
+    if(m.objType==='heat')met=maxHeat<=m.objTarget;
+    else if(m.objType==='sensors')met=objCount>=m.objTarget;
+    else if(m.objType==='gates')met=objCount>=m.objTarget;
+    if(met){objCompleted=true;objBonusEarned=200;score+=200;}
+  }
+  escapeActive=false;sfxEscape();
+  const mId=m.id;
+  if(!highScores[mId]||score>highScores[mId]){highScores[mId]=score;try{localStorage.setItem('orbDriftHS',JSON.stringify(highScores));}catch(e){}}
+  completedMissions.add(mId);try{localStorage.setItem('orbDriftCM',JSON.stringify([...completedMissions]));}catch(e){}
+  gameState=STATE.RESULTS;
+}
+
+// ── INPUT HANDLERS ────────────────────────────────────────────
+let menuSel=0;
+function isSpecUnlocked(k){if(k==='navigator')return true;if(k==='analyst')return completedMissions.size>=5;return completedMissions.size>=10;}
+
+function handleMenuKey(e){
+  if(e.key==='ArrowLeft'||e.key==='a')menuSel=(menuSel+2)%3;
+  if(e.key==='ArrowRight'||e.key==='d')menuSel=(menuSel+1)%3;
+  if(e.key==='Enter'||e.key===' '){if(!isSpecUnlocked(SPEC_KEYS[menuSel]))return;selectedSpec=SPEC_KEYS[menuSel];gameState=STATE.BRIEFING;}
+  if(e.key==='s'||e.key==='S')gameState=STATE.MISSION_SELECT;
+  if(e.key==='h'||e.key==='H')gameState=STATE.HOW_TO_PLAY;
+}
+function handleHTPKey(e){if(e.key==='Enter'||e.key==='Escape'||e.key===' '){gameState=STATE.MENU;try{localStorage.setItem('orbDriftIntroSeen','1');}catch(e){}}}
+function handleBriefingKey(e){if(e.key==='Enter'||e.key===' '){loadLevel(currentMission);gameState=STATE.PLAYING;startDrone();}}
+function handlePlayingKey(e){
+  if(e.key==='e')tryInteract();
+  if(e.key==='r'){if(!echoRecording&&echoCharges>0)startEchoRec();else if(echoRecording)stopEchoRec();}
+  if(e.key===' '){e.preventDefault();activateAbility();}
+  if(e.key==='q')placeGadget();
+  if(e.key==='p'||e.key==='P')gameState=STATE.PAUSED;
+}
+function handlePausedKey(e){if(e.key==='p'||e.key==='P'||e.key==='Escape')gameState=STATE.PLAYING;}
+function handleResultsKey(e){
+  if(e.key==='Enter'||e.key===' '){
+    if(gameState===STATE.CAUGHT){loadLevel(currentMission);gameState=STATE.PLAYING;}
+    else{currentMission++;if(currentMission>=MISSIONS.length){currentMission=0;gameState=STATE.MENU;}else gameState=STATE.BRIEFING;}
+  }
+}
+function handleMSKey(e){
+  if(e.key==='ArrowRight')missionSelectIdx=Math.min(29,missionSelectIdx+1);
+  if(e.key==='ArrowLeft')missionSelectIdx=Math.max(0,missionSelectIdx-1);
+  if(e.key==='ArrowDown')missionSelectIdx=Math.min(29,missionSelectIdx+5);
+  if(e.key==='ArrowUp')missionSelectIdx=Math.max(0,missionSelectIdx-5);
+  if(e.key==='Enter'||e.key===' '){currentMission=missionSelectIdx;gameState=STATE.BRIEFING;}
+  if(e.key==='Escape')gameState=STATE.MENU;
+}
+
+// ── DRAW TILES — deep-space rendering ────────────────────────
+const TILE_COLORS={[T.SPACE]:C.bg2,[T.WALL]:C.bg3,[T.GATE_LOCKED]:'#1a0800',[T.GATE_OPEN]:'#001a10',[T.NODE]:'#030d1f',[T.SENTRY_CAM]:C.bg2,[T.EXIT]:'#001a08',[T.SPAWN]:C.bg2,[T.NEBULA]:'#0a0818',[T.ASTEROID]:'#161820',[T.ION]:'#050a18',[T.LOOT]:'#0a0800'};
+
+// Static starfield — module level so loadLevel can reset it
+function getLevelStars(){
+  if(!_levelStars||_levelStars.length===0){
+    _levelStars=[];
+    for(let i=0;i<180;i++){
+      _levelStars.push({
+        x:Math.random()*W,y:Math.random()*H,
+        r:Math.random()<.85 ? .6+Math.random()*.8 : 1.2+Math.random()*1.4,
+        ph:Math.random()*PI2,sp:.2+Math.random()*.5,
+        col:Math.random()<.7?'255,255,255':Math.random()<.5?'180,220,255':'255,210,180'
+      });
+    }
+  }
+  return _levelStars;
+}
+
+function drawSpaceBackground(){
+  const now=Date.now();
+  // Deep space gradient
+  const bg=ctx.createRadialGradient(W*.5,H*.4,0,W*.5,H*.5,W*.7);
+  bg.addColorStop(0,'#050e1f');bg.addColorStop(.6,'#020810');bg.addColorStop(1,'#010508');
+  ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+  // Stars
+  for(const s of getLevelStars()){
+    const a=.3+.4*Math.sin(now*.001*s.sp+s.ph);
+    ctx.globalAlpha=a;ctx.fillStyle=`rgb(${s.col})`;
+    ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,PI2);ctx.fill();
+  }
+  ctx.globalAlpha=1;
+  // Subtle nebula wisps (sector-tinted)
+  const sector=getSector(currentMission);
+  const nebulaColors=['rgba(0,80,180,.04)','rgba(180,40,0,.04)','rgba(80,0,180,.04)'];
+  for(let i=0;i<3;i++){
+    const ng=ctx.createRadialGradient(W*(.2+i*.3),H*(.3+i*.2),0,W*(.2+i*.3),H*(.3+i*.2),200+i*80);
+    ng.addColorStop(0,nebulaColors[sector]);ng.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=ng;ctx.fillRect(0,0,W,H);
+  }
+}
+
+function drawTiles(){
+  const now=Date.now();
+  drawSpaceBackground();
+
+  for(let y=0;y<ROWS;y++){for(let x=0;x<COLS;x++){
+    const t=level.map[y][x];
+    const tx=x*TILE,ty=y*TILE;
+
+    // Base tile
+    if(t===T.WALL){
+      // Asteroid barrier — 3D rock look
+      ctx.fillStyle='#0e1018';ctx.fillRect(tx,ty,TILE,TILE);
+      // Top face highlight (faux 3D)
+      ctx.fillStyle='rgba(80,90,120,.3)';ctx.fillRect(tx,ty,TILE,3);
+      ctx.fillStyle='rgba(40,50,80,.2)';ctx.fillRect(tx,ty,3,TILE);
+      // Rock texture dots
+      ctx.fillStyle='rgba(60,70,100,.4)';
+      for(let d=0;d<3;d++){
+        const dx=4+((x*7+d*13)%28),dy=6+((y*11+d*9)%22);
+        ctx.beginPath();ctx.arc(tx+dx,ty+dy,1.5,0,PI2);ctx.fill();
+      }
+    } else if(t===T.NEBULA){
+      // Purple nebula zone
+      ctx.fillStyle='#0a0818';ctx.fillRect(tx,ty,TILE,TILE);
+      const pulse=.06+.03*Math.sin(now/1200+x*.4+y*.3);
+      ctx.fillStyle=`rgba(80,20,180,${pulse})`;ctx.fillRect(tx,ty,TILE,TILE);
+      // Wispy particles
+      ctx.fillStyle=`rgba(160,80,255,${.04+.02*Math.sin(now/800+x)})`;
+      ctx.beginPath();ctx.arc(tx+TILE/2,ty+TILE/2,TILE*.35,0,PI2);ctx.fill();
+    } else if(t===T.ASTEROID){
+      // Dense asteroid field tile
+      ctx.fillStyle='#111318';ctx.fillRect(tx,ty,TILE,TILE);
+      const seed=(x*31+y*17)%100;
+      ctx.fillStyle=`rgba(90,80,100,${.15+seed*.002})`;
+      ctx.beginPath();
+      const ax=tx+4+seed*.25,ay=ty+4+(seed%20)*.15;
+      ctx.arc(ax+14,ay+14,8+seed*.05,0,PI2);ctx.fill();
+      // Rock highlight
+      ctx.fillStyle='rgba(160,150,180,.1)';ctx.beginPath();ctx.arc(ax+11,ay+11,4,0,PI2);ctx.fill();
+    } else if(t===T.GATE_LOCKED){
+      // Force-field gate — glowing barrier
+      ctx.fillStyle='#1a0500';ctx.fillRect(tx,ty,TILE,TILE);
+      const gp=.6+.4*Math.sin(now/300);
+      // Horizontal energy bar
+      const grad=ctx.createLinearGradient(tx,0,tx+TILE,0);
+      grad.addColorStop(0,'rgba(255,100,0,0)');grad.addColorStop(.5,`rgba(255,120,0,${gp*.9})`);grad.addColorStop(1,'rgba(255,100,0,0)');
+      ctx.fillStyle=grad;ctx.fillRect(tx,ty+TILE/2-3,TILE,6);
+      // Gate struts
+      ctx.fillStyle=`rgba(255,150,0,${gp*.6})`;
+      ctx.fillRect(tx+TILE/2-2,ty,4,TILE);
+      // Lock pip
+      ctx.fillStyle=`rgba(255,200,0,${gp})`;ctx.beginPath();ctx.arc(tx+TILE/2,ty+TILE/2,4,0,PI2);ctx.fill();
+    } else if(t===T.GATE_OPEN){
+      ctx.fillStyle='rgba(0,40,20,.3)';ctx.fillRect(tx,ty,TILE,TILE);
+      // Faint green trail showing path is clear
+      ctx.strokeStyle=`rgba(0,255,100,.08)`;ctx.lineWidth=1;ctx.setLineDash([4,8]);
+      ctx.beginPath();ctx.moveTo(tx,ty+TILE/2);ctx.lineTo(tx+TILE,ty+TILE/2);ctx.stroke();
+      ctx.setLineDash([]);
+    } else if(t===T.EXIT){
+      // Extraction portal
+      ctx.fillStyle='#001a08';ctx.fillRect(tx,ty,TILE,TILE);
+      const ep=.5+.5*Math.sin(now/500);
+      const pg=ctx.createRadialGradient(tx+TILE/2,ty+TILE/2,2,tx+TILE/2,ty+TILE/2,TILE*.6);
+      pg.addColorStop(0,`rgba(0,255,100,${ep*.4})`);pg.addColorStop(1,'rgba(0,255,100,0)');
+      ctx.fillStyle=pg;ctx.fillRect(tx,ty,TILE,TILE);
+      // Rotating portal ring
+      ctx.save();ctx.translate(tx+TILE/2,ty+TILE/2);ctx.rotate(now/2000);
+      ctx.strokeStyle=`rgba(0,255,100,${ep*.7})`;ctx.lineWidth=1.5;ctx.setLineDash([3,6]);
+      ctx.beginPath();ctx.arc(0,0,TILE*.38,0,PI2);ctx.stroke();ctx.setLineDash([]);ctx.restore();
+      ctx.fillStyle=`rgba(0,255,120,${ep*.9})`;ctx.font='bold 8px monospace';ctx.textAlign='center';
+      ctx.fillText('EXTRACT',tx+TILE/2,ty+TILE/2+3);
+      // Large world-label — visible from across the map
+      ctx.save();ctx.shadowColor='#00ff64';ctx.shadowBlur=14*ep;
+      ctx.fillStyle=`rgba(0,255,100,${ep*.85})`;ctx.font='bold 10px monospace';
+      ctx.fillText('◈ EXTRACTION',tx+TILE/2,ty-10);ctx.restore();
+    } else if(t===T.NODE){
+      // Navigation node — dark terminal
+      ctx.fillStyle='#020d1f';ctx.fillRect(tx,ty,TILE,TILE);
+    } else {
+      // Standard space floor
+      ctx.fillStyle=TILE_COLORS[t]||C.bg2;ctx.fillRect(tx,ty,TILE,TILE);
+    }
+
+    // Ion stream tile
+    if(t===T.ION){
+      ctx.fillStyle='#040a16';ctx.fillRect(tx,ty,TILE,TILE);
+      const ip=Math.sin(now/600+x*.5)*.5+.5;
+      ctx.fillStyle=`rgba(0,100,255,${ip*.12})`;ctx.fillRect(tx,ty,TILE,TILE);
+    }
+  }}
+}
+
+function drawLoot(){
+  if(!lootPos||player.hasLoot)return;
+  const now=Date.now(),cx=lootPos.x,cy=lootPos.y;
+  const pulse=.7+.3*Math.sin(now/400);
+  // Outer glow ring
+  const og=ctx.createRadialGradient(cx,cy,0,cx,cy,44);
+  og.addColorStop(0,'rgba(255,183,0,.18)');og.addColorStop(.7,'rgba(255,183,0,.06)');og.addColorStop(1,'rgba(255,183,0,0)');
+  ctx.fillStyle=og;ctx.beginPath();ctx.arc(cx,cy,44,0,PI2);ctx.fill();
+  // Rotating orbit ring
+  ctx.save();ctx.translate(cx,cy);ctx.rotate(now/1800);
+  ctx.strokeStyle=`rgba(255,183,0,${pulse*.5})`;ctx.lineWidth=1;ctx.setLineDash([4,8]);
+  ctx.beginPath();ctx.arc(0,0,22,0,PI2);ctx.stroke();ctx.setLineDash([]);ctx.restore();
+  ctx.save();ctx.translate(cx,cy);ctx.rotate(-now/2400);
+  ctx.strokeStyle=`rgba(255,220,80,${pulse*.3})`;ctx.lineWidth=1;ctx.setLineDash([2,12]);
+  ctx.beginPath();ctx.arc(0,0,30,0,PI2);ctx.stroke();ctx.setLineDash([]);ctx.restore();
+  // Beacon dish — 3 radiating arcs
+  ctx.save();ctx.translate(cx,cy);
+  for(let i=0;i<3;i++){
+    const a=(now/800+i*PI2/3);
+    const ax=Math.cos(a)*14,ay=Math.sin(a)*14;
+    ctx.strokeStyle=`rgba(255,200,0,${pulse*.6})`;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.arc(0,0,14,-PI2/6+i*PI2/3,PI2/6+i*PI2/3);ctx.stroke();
+    ctx.fillStyle=`rgba(255,230,100,${pulse*.8})`;ctx.beginPath();ctx.arc(ax,ay,2,0,PI2);ctx.fill();
+  }
+  ctx.restore();
+  // Central body
+  ctx.save();ctx.shadowColor='#ffb700';ctx.shadowBlur=16*pulse;
+  ctx.fillStyle=`rgba(255,190,0,${pulse})`;ctx.beginPath();ctx.arc(cx,cy,7,0,PI2);ctx.fill();
+  ctx.fillStyle='rgba(255,240,180,.9)';ctx.beginPath();ctx.arc(cx-2,cy-2,3,0,PI2);ctx.fill();
+  ctx.restore();
+  // Label with telemetry feel
+  ctx.fillStyle=`rgba(255,183,0,${pulse*.8})`;ctx.font='bold 9px monospace';ctx.textAlign='center';
+  ctx.fillText('◉ BEACON',cx,cy+36);
+  ctx.fillStyle=`rgba(255,183,0,${pulse*.4})`;ctx.font='8px monospace';
+  ctx.fillText('CALC TRAJECTORY',cx,cy+46);
+}
+
+function drawInteractables(){
+  const now=Date.now();
+  for(const ia of interactables){
+    if(ia.solved)continue;
+    const pulse=.7+.3*Math.sin(now/500);
+    if(ia.type==='node'){
+      // Navigation node — holographic terminal
+      ctx.save();ctx.translate(ia.x,ia.y);
+      // Base station
+      ctx.fillStyle='rgba(0,30,60,.8)';ctx.strokeStyle=`rgba(0,191,255,${pulse*.6})`;ctx.lineWidth=1.5;
+      ctx.beginPath();ctx.roundRect(-10,-12,20,16,3);ctx.fill();ctx.stroke();
+      // Screen glow
+      ctx.fillStyle=`rgba(0,100,200,${pulse*.3})`;ctx.fillRect(-8,-10,16,10);
+      // Data lines
+      if(Math.floor(now/500)%2){ctx.fillStyle=`rgba(0,191,255,${pulse*.9})`;ctx.fillRect(-5,-7,10,2);}
+      ctx.fillStyle=`rgba(0,191,255,${pulse*.4})`;ctx.fillRect(-5,-3,6,1);ctx.fillRect(-5,0,8,1);
+      // Top indicator pip
+      ctx.fillStyle=`rgba(0,220,255,${pulse})`;ctx.beginPath();ctx.arc(0,-14,2.5,0,PI2);ctx.fill();
+      // Station legs
+      ctx.strokeStyle='rgba(0,80,140,.4)';ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(-6,4);ctx.lineTo(-8,8);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(6,4);ctx.lineTo(8,8);ctx.stroke();
+      ctx.restore();
+    } else if(ia.type==='gate'){
+      // Navigation gate — arch structure
+      ctx.save();ctx.translate(ia.x,ia.y);
+      ctx.strokeStyle=`rgba(0,255,100,${pulse*.7})`;ctx.lineWidth=2;
+      ctx.beginPath();ctx.arc(0,0,10,-Math.PI*.7,Math.PI*.7);ctx.stroke();
+      ctx.fillStyle=`rgba(0,255,100,${pulse*.4})`;ctx.beginPath();ctx.arc(0,0,5,0,PI2);ctx.fill();
+      // Gate struts
+      ctx.strokeStyle=`rgba(0,200,80,${pulse*.4})`;ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(-10,-6);ctx.lineTo(-8,-12);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(10,-6);ctx.lineTo(8,-12);ctx.stroke();
+      ctx.restore();
+    } else if(ia.type==='escape_gate'){
+      // Locked escape gate — red force field
+      const ep=.6+.4*Math.sin(now/180);
+      ctx.save();ctx.translate(ia.x,ia.y);
+      // Force field ring
+      ctx.strokeStyle=`rgba(255,60,60,${ep*.8})`;ctx.lineWidth=2;ctx.setLineDash([3,4]);
+      ctx.beginPath();ctx.arc(0,0,12,0,PI2);ctx.stroke();ctx.setLineDash([]);
+      // Inner glow
+      const rig=ctx.createRadialGradient(0,0,0,0,0,10);
+      rig.addColorStop(0,`rgba(255,60,60,${ep*.3})`);rig.addColorStop(1,'rgba(255,0,0,0)');
+      ctx.fillStyle=rig;ctx.beginPath();ctx.arc(0,0,12,0,PI2);ctx.fill();
+      // Lock symbol
+      ctx.fillStyle=`rgba(255,80,80,${ep*.9})`;ctx.font='bold 11px monospace';ctx.textAlign='center';
+      ctx.fillText('🔒',0,4);ctx.restore();
+      ctx.fillStyle=`rgba(255,80,80,${ep*.7})`;ctx.font='bold 8px monospace';ctx.textAlign='center';
+      ctx.fillText('LOCKED',ia.x,ia.y+22);
+    }
+    // Proximity interact prompt
+    const dx=player.x-ia.x,dy=player.y-ia.y;
+    if(Math.sqrt(dx*dx+dy*dy)<TILE*1.5){
+      ctx.save();ctx.shadowColor='#00bfff';ctx.shadowBlur=12;
+      ctx.strokeStyle='rgba(0,191,255,.4)';ctx.lineWidth=1;ctx.setLineDash([4,6]);
+      ctx.beginPath();ctx.arc(ia.x,ia.y,TILE*.75,0,PI2);ctx.stroke();ctx.setLineDash([]);ctx.restore();
+      // Floating [E] prompt
+      const fy=ia.y-22+Math.sin(now/600)*3;
+      ctx.save();ctx.shadowColor='#00bfff';ctx.shadowBlur=8;
+      ctx.fillStyle='rgba(0,191,255,.95)';ctx.font='bold 11px monospace';ctx.textAlign='center';
+      const _iaLabel=ia.type==='gate'?'[E] OPEN CORRIDOR':ia.type==='node'?'[E] DISABLE SENSOR':ia.type==='escape_gate'?'[E] UNLOCK EXTRACTION':'[E] COMPUTE';
+      ctx.fillText(_iaLabel,ia.x,fy);ctx.restore();
+    }
+  }
+}
+
+function drawDebrisField(g){
+  // Detection cone — sensor sweep
+  const coneColor=g.state==='patrol'?'rgba(255,60,60,.07)':g.state==='investigate'?'rgba(255,140,0,.13)':'rgba(255,0,0,.22)';
+  ctx.save();ctx.translate(g.x,g.y);ctx.rotate(g.facing);
+  ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,g.coneRange,-g.coneAngle/2,g.coneAngle/2);ctx.closePath();
+  ctx.fillStyle=coneColor;ctx.fill();
+  // Cone edge lines
+  ctx.strokeStyle=g.state==='patrol'?'rgba(255,60,60,.15)':'rgba(255,100,0,.25)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(-g.coneAngle/2)*g.coneRange,Math.sin(-g.coneAngle/2)*g.coneRange);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(g.coneAngle/2)*g.coneRange,Math.sin(g.coneAngle/2)*g.coneRange);ctx.stroke();
+  ctx.restore();
+  // Debris cluster body
+  const seed=(g.x+g.y)%7;const sz=TILE*.32;
+  const col=g.state==='patrol'?'#c02020':g.state==='investigate'?'#cc6600':'#ff1111';
+  // Multiple irregular rocks
+  for(let i=0;i<4;i++){
+    const ox=Math.cos(i*PI2/4+seed)*sz*.4,oy=Math.sin(i*PI2/4+seed)*sz*.4;
+    const rs=sz*.35+i*.06*sz;
+    ctx.fillStyle=i===0?col:'rgba(120,40,40,.7)';
+    ctx.save();ctx.translate(g.x+ox,g.y+oy);ctx.rotate(seed+i);
+    ctx.beginPath();
+    for(let v=0;v<6;v++){const va=v/6*PI2,vr=rs*(.8+.2*Math.sin(v*3+seed));ctx.lineTo(Math.cos(va)*vr,Math.sin(va)*vr);}
+    ctx.closePath();ctx.fill();
+    // Rock highlight
+    ctx.fillStyle='rgba(200,100,100,.2)';ctx.beginPath();ctx.arc(-rs*.2,-rs*.2,rs*.25,0,PI2);ctx.fill();
+    ctx.restore();
+  }
+  // Alert state indicator
+  if(g.state!=='patrol'){
+    const ap=.6+.4*Math.sin(Date.now()/200);
+    ctx.save();ctx.shadowColor=g.state==='chase'?'#ff0000':'#ff8800';ctx.shadowBlur=15*ap;
+    ctx.fillStyle=g.state==='chase'?`rgba(255,0,0,${ap})`:`rgba(255,136,0,${ap})`;
+    ctx.font=`bold ${g.state==='chase'?16:13}px monospace`;ctx.textAlign='center';
+    ctx.fillText(g.state==='chase'?'⚠':'?',g.x,g.y-sz-4);ctx.restore();
+  }
+}
+function drawGuards(){for(const g of guards)drawDebrisField(g);}
+function drawSentryDrone(cam){
+  if(cam.disabled){
+    // Destroyed drone
+    ctx.fillStyle='rgba(80,80,100,.25)';ctx.beginPath();ctx.arc(cam.x,cam.y,7,0,PI2);ctx.fill();
+    ctx.strokeStyle='rgba(100,100,120,.2)';ctx.lineWidth=1;ctx.setLineDash([2,4]);
+    ctx.beginPath();ctx.arc(cam.x,cam.y,10,0,PI2);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle='rgba(100,100,120,.4)';ctx.font='9px monospace';ctx.textAlign='center';
+    ctx.fillText('OFFLINE',cam.x,cam.y+20);
+    return;
+  }
+  // Sensor sweep cone
+  ctx.save();ctx.translate(cam.x,cam.y);ctx.rotate(cam.currentAngle);
+  const sg=ctx.createConicalGradient?undefined:undefined;
+  ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,cam.range,-35*DEG,35*DEG);ctx.closePath();
+  ctx.fillStyle='rgba(255,200,0,0.08)';ctx.fill();
+  // Scan edge lines
+  ctx.strokeStyle='rgba(255,200,0,0.2)';ctx.lineWidth=.5;ctx.setLineDash([3,6]);
+  ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(-35*DEG)*cam.range,Math.sin(-35*DEG)*cam.range);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(35*DEG)*cam.range,Math.sin(35*DEG)*cam.range);ctx.stroke();
+  ctx.setLineDash([]);ctx.restore();
+  // Drone body
+  const now=Date.now(),dp=.6+.4*Math.sin(now/400+cam.baseAngle);
+  ctx.save();ctx.translate(cam.x,cam.y);ctx.rotate(now/2000);
+  ctx.strokeStyle=`rgba(255,200,0,${dp*.4})`;ctx.lineWidth=1;ctx.setLineDash([2,6]);
+  ctx.beginPath();ctx.arc(0,0,10,0,PI2);ctx.stroke();ctx.setLineDash([]);ctx.restore();
+  // Core
+  ctx.save();ctx.shadowColor='#ffcc00';ctx.shadowBlur=8*dp;
+  ctx.fillStyle='#332200';ctx.beginPath();ctx.arc(cam.x,cam.y,5,0,PI2);ctx.fill();
+  ctx.fillStyle=`rgba(255,200,0,${dp})`;ctx.beginPath();ctx.arc(cam.x,cam.y,3,0,PI2);ctx.fill();
+  ctx.restore();
+  // Directional beam tip
+  const bx=cam.x+Math.cos(cam.currentAngle)*13,by=cam.y+Math.sin(cam.currentAngle)*13;
+  ctx.fillStyle=`rgba(255,220,50,${dp*.6})`;ctx.beginPath();ctx.arc(bx,by,2,0,PI2);ctx.fill();
+}
+function drawCameras(){for(const cam of cameras)drawSentryDrone(cam);}
+function drawShip(x,y,facing,color,sz,thruster,hasBeacon){
+  ctx.save();ctx.translate(x,y);ctx.rotate(facing+Math.PI/2);
+  const s=sz||10;
+  // Thruster exhaust
+  if(thruster>0){
+    const eg=ctx.createLinearGradient(0,s,0,s+14*thruster);
+    eg.addColorStop(0,`rgba(0,180,255,${thruster*.7})`);eg.addColorStop(.5,`rgba(0,100,255,${thruster*.3})`);eg.addColorStop(1,'rgba(0,50,200,0)');
+    ctx.fillStyle=eg;
+    ctx.beginPath();ctx.moveTo(-3,s);ctx.lineTo(3,s);ctx.lineTo(1.5,s+12*thruster);ctx.lineTo(-1.5,s+12*thruster);ctx.closePath();ctx.fill();
+    // Side thrusters
+    ctx.fillStyle=`rgba(0,150,255,${thruster*.4})`;
+    ctx.beginPath();ctx.moveTo(-s*.6,s*.2);ctx.lineTo(-s*.9,s*.2);ctx.lineTo(-s*.75,s*.6);ctx.closePath();ctx.fill();
+    ctx.beginPath();ctx.moveTo(s*.6,s*.2);ctx.lineTo(s*.9,s*.2);ctx.lineTo(s*.75,s*.6);ctx.closePath();ctx.fill();
+  }
+  // Hull — sleek delta wing
+  ctx.fillStyle='rgba(20,30,50,.9)';
+  ctx.beginPath();ctx.moveTo(0,-s);ctx.lineTo(s*.7,s*.6);ctx.lineTo(s*.3,s*.3);ctx.lineTo(0,s*.5);ctx.lineTo(-s*.3,s*.3);ctx.lineTo(-s*.7,s*.6);ctx.closePath();ctx.fill();
+  // Hull accent — class color stripe
+  ctx.save();ctx.shadowColor=color;ctx.shadowBlur=8;
+  ctx.fillStyle=color;
+  ctx.beginPath();ctx.moveTo(0,-s*.8);ctx.lineTo(s*.35,s*.2);ctx.lineTo(0,s*.1);ctx.lineTo(-s*.35,s*.2);ctx.closePath();ctx.fill();
+  ctx.restore();
+  // Cockpit highlight
+  ctx.fillStyle='rgba(180,230,255,.7)';ctx.beginPath();ctx.arc(0,-s*.4,s*.18,0,PI2);ctx.fill();
+  // Navigation light
+  const nlp=.5+.5*Math.sin(Date.now()/300);
+  ctx.fillStyle=`rgba(0,255,160,${nlp*.8})`;ctx.beginPath();ctx.arc(0,-s*.9,2,0,PI2);ctx.fill();
+  ctx.restore();
+  // Beacon indicator above ship
+  if(hasBeacon){
+    ctx.save();ctx.shadowColor='#ffb700';ctx.shadowBlur=10;
+    ctx.fillStyle='#ffb700';ctx.font='13px monospace';ctx.textAlign='center';
+    ctx.fillText('◉',x,y-sz-14);ctx.restore();
+    ctx.fillStyle='rgba(255,183,0,.5)';ctx.font='8px monospace';ctx.textAlign='center';
+    ctx.fillText('BEACON',x,y-sz-4);
+  }
+}
+function drawPlayer(){
+  const sp=SPECS[selectedSpec];
+  const moving=player.vx!==0||player.vy!==0;
+  const thruster=moving?(.6+.4*Math.sin(Date.now()/80)):0;
+  const sz=player.crouching?8:11;
+  // Engine glow
+  if(moving){
+    const eg=ctx.createRadialGradient(player.x,player.y,0,player.x,player.y,18);
+    eg.addColorStop(0,`rgba(0,150,255,.18)`);eg.addColorStop(1,'rgba(0,100,255,0)');
+    ctx.fillStyle=eg;ctx.beginPath();ctx.arc(player.x,player.y,18,0,PI2);ctx.fill();
+  }
+  drawShip(player.x,player.y,player.facing,sp.color,sz,thruster,player.hasLoot);
+  // Trajectory ghost when crouching (minimal thrust)
+  if(player.crouching){
+    for(let i=1;i<=3;i++){
+      const gx=player.x+Math.cos(player.facing)*i*12;
+      const gy=player.y+Math.sin(player.facing)*i*12;
+      ctx.fillStyle=`rgba(0,191,255,${.15-i*.04})`;ctx.beginPath();ctx.arc(gx,gy,2,0,PI2);ctx.fill();
+    }
+  }
+  // Scan ability visual
+  if(abilityBuffType==='scan'&&abilityBuffTimer>0){
+    const rad=(1-(abilityBuffTimer/15))*TILE*5;
+    ctx.strokeStyle=`rgba(168,85,247,${abilityBuffTimer/15*.4})`;ctx.lineWidth=1.5;ctx.setLineDash([3,9]);
+    ctx.beginPath();ctx.arc(player.x,player.y,Math.max(4,rad),0,PI2);ctx.stroke();ctx.setLineDash([]);
+  }
+}
+function drawGadget(){
+  if(!gadgetPos)return;
+  const{x:gx,y:gy}=gadgetPos;
+  if(gadgetEmitting){const t=gadgetTimer/GADGET_DURATION;for(let r=1;r<=3;r++){const radius=(t*r*30+r*10)%80;ctx.strokeStyle=`rgba(255,183,0,${.4-t*.3})`;ctx.lineWidth=2;ctx.beginPath();ctx.arc(gx,gy,radius,0,PI2);ctx.stroke();}ctx.fillStyle=C.warning;}
+  else{const p=Math.sin(Date.now()/300)*.3+.7;ctx.fillStyle=`rgba(255,183,0,${p})`;}
+  ctx.beginPath();ctx.arc(gx,gy,5,0,PI2);ctx.fill();
+  ctx.fillStyle=C.warning;ctx.font='9px monospace';ctx.textAlign='center';ctx.fillText(gadgetEmitting?'NOISE':'GADGET',gx,gy-10);
+}
+function drawEchoGhost(){
+  for(const g of echoGhosts){if(!g.active)continue;const f=g.frames[g.playIdx];if(!f)continue;ctx.save();ctx.globalAlpha=.4;ctx.fillStyle='rgba(0,191,255,.35)';ctx.beginPath();ctx.arc(f.x,f.y,TILE*.28,0,PI2);ctx.fill();const ts=Math.max(0,g.playIdx-10);ctx.globalAlpha=.1;for(let i=ts;i<g.playIdx;i++){const fi=g.frames[i];ctx.beginPath();ctx.arc(fi.x,fi.y,3,0,PI2);ctx.fill();}ctx.restore();}
+}
+function drawFeedbackOverlays(){
+  for(const fb of feedbackOverlays){ctx.fillStyle=fb.color;ctx.font='bold 13px monospace';ctx.textAlign='center';ctx.globalAlpha=Math.min(1,fb.timer*1.5);ctx.fillText(fb.text,fb.x,fb.y);ctx.globalAlpha=1;}
+}
+
+// ── HUD (inherits Echo Heist HUD standard) ────────────────────
+function drawHUD(){
+  const sp=SPECS[selectedSpec],m=MISSIONS[currentMission];
+  // Top bar
+  ctx.fillStyle='rgba(2,8,20,0.96)';ctx.fillRect(0,0,W,38);
+  const hg=ctx.createLinearGradient(0,37,W,37);
+  hg.addColorStop(0,'rgba(0,191,255,0)');hg.addColorStop(.2,'rgba(0,191,255,.28)');hg.addColorStop(.8,'rgba(0,191,255,.28)');hg.addColorStop(1,'rgba(0,191,255,0)');
+  ctx.fillStyle=hg;ctx.fillRect(0,37,W,1);
+  // Spec chip
+  ctx.fillStyle=`${sp.color}22`;ctx.beginPath();ctx.roundRect(8,8,110,22,4);ctx.fill();
+  ctx.fillStyle=sp.color;ctx.font='bold 12px monospace';ctx.textAlign='left';
+  ctx.fillText(`${sp.icon} ${sp.name}`,14,24);
+  // Mission
+  ctx.fillStyle=C.textDim;ctx.font='11px monospace';ctx.fillText(`M${m.id}: ${m.name}`,126,24);
+  // Streak
+  if(lastStreakTopic&&(streaks[lastStreakTopic]||0)>=2){
+    const st=streaks[lastStreakTopic];ctx.fillStyle=masteryTopics[lastStreakTopic]?C.warning:'#f59e0b';
+    ctx.font='bold 12px monospace';ctx.textAlign='center';ctx.fillText(`🔥 ×${st}${masteryTopics[lastStreakTopic]?' MASTERY':''}`,400,24);
+  }
+  if(focusModeActive){ctx.fillStyle='#a855f7';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText('⏸ FOCUS',520,24);}
+  // Timer
+  const tl=Math.max(0,missionTimeLimit-missionTimer);
+  ctx.fillStyle=tl<60?C.danger:C.primary;ctx.font='bold 14px monospace';ctx.textAlign='right';
+  ctx.fillText(`${Math.floor(tl/60)}:${Math.floor(tl%60).toString().padStart(2,'0')}`,W-12,24);
+  ctx.fillStyle=C.success;ctx.font='bold 13px monospace';ctx.fillText(`CR ${score}`,W-78,24);
+  // Objective
+  if(m.objType){
+    const done=m.objType==='heat'?maxHeat<=m.objTarget:objCount>=m.objTarget;
+    const lbl=m.objType==='heat'?`STEALTH ${done?'✓':'!'}`:m.objType==='sensors'?`📡 ${objCount}/${m.objTarget}`:`🔓 ${objCount}/${m.objTarget}`;
+    ctx.fillStyle=done?C.success:C.warning;ctx.font='bold 11px monospace';ctx.textAlign='left';ctx.fillText(lbl,300,24);
+  }
+  // Bottom bar
+  const barY=H-30;
+  ctx.fillStyle='rgba(2,8,20,.97)';ctx.fillRect(0,barY-10,W,40);
+  const bg=ctx.createLinearGradient(0,barY-10,W,barY-10);
+  bg.addColorStop(0,'rgba(0,191,255,0)');bg.addColorStop(.15,'rgba(0,191,255,.15)');bg.addColorStop(.85,'rgba(0,191,255,.15)');bg.addColorStop(1,'rgba(0,191,255,0)');
+  ctx.fillStyle=bg;ctx.fillRect(0,barY-10,W,1);
+  function _m(lbl,val,max,x,y,w,fg,wfg){
+    const pct=Math.min(val/max,1),warn=pct>.7&&wfg;
+    ctx.fillStyle=C.textDim;ctx.font='9px monospace';ctx.textAlign='left';ctx.fillText(lbl,x,y-2);
+    ctx.fillStyle='rgba(255,255,255,.05)';ctx.beginPath();ctx.roundRect(x,y+1,w,8,3);ctx.fill();
+    if(pct>0){ctx.fillStyle=warn?wfg:fg;ctx.beginPath();ctx.roundRect(x,y+1,pct*w,8,3);ctx.fill();}
+    ctx.fillStyle=warn?wfg:C.textDim;ctx.textAlign='right';ctx.font='9px monospace';ctx.fillText(Math.round(val),x+w,y-2);
+  }
+  _m('ALERT',heat,100,10,barY+8,110,C.danger,'#ff1111');
+  _m('SIGNAL',noise,100,140,barY+8,110,C.warning,'#ff8c00');
+  const sl=interactables.filter(ia=>ia.solved).length;
+  ctx.fillStyle=C.textDim;ctx.font='9px monospace';ctx.textAlign='left';
+  ctx.fillText('CALC',270,barY+8);ctx.fillStyle=calcTotal>0&&(calcCorrect/calcTotal)>=.8?C.success:'#94a3b8';ctx.font='bold 12px monospace';ctx.fillText(`${calcCorrect}/${calcTotal}`,270,barY+20);
+  ctx.fillStyle=C.textDim;ctx.font='9px monospace';ctx.fillText('HACKED',320,barY+8);ctx.fillStyle=C.primary;ctx.font='bold 12px monospace';ctx.fillText(`${sl}/${interactables.length}`,320,barY+20);
+  const sp2=SPECS[selectedSpec];
+  ctx.fillStyle=C.textDim;ctx.font='9px monospace';ctx.fillText('ABILITY',380,barY+8);
+  if(abilityCooldown>0){const cdp=1-(abilityCooldown/sp2.abilityCooldown);ctx.fillStyle='rgba(255,255,255,.05)';ctx.fillRect(380,barY+12,80,5);ctx.fillStyle=sp2.color;ctx.fillRect(380,barY+12,cdp*80,5);ctx.fillStyle=C.textDim;ctx.font='bold 11px monospace';ctx.fillText(`${Math.ceil(abilityCooldown)}s`,468,barY+20);}
+  else if(abilityBuffType){ctx.fillStyle=sp2.color;ctx.font='bold 11px monospace';ctx.fillText(`✓ ACTIVE`,380,barY+20);}
+  else{ctx.fillStyle=sp2.color;ctx.font='bold 11px monospace';ctx.fillText(`[SPC] READY`,380,barY+20);}
+  ctx.fillStyle=C.textDim;ctx.font='9px monospace';ctx.fillText('GHOST',490,barY+8);
+  ctx.fillStyle=echoRecording?C.danger:echoCharges>0?C.primary:C.neutral;ctx.font='bold 11px monospace';
+  ctx.fillText(echoRecording?'● RECORD':echoCharges>0?`[R] ×${echoCharges}`:'DONE',490,barY+20);
+  ctx.fillStyle=C.textDim;ctx.font='9px monospace';ctx.fillText('DECOY',580,barY+8);
+  ctx.fillStyle=gadgetAvailable?C.warning:gadgetEmitting?'#ff8c00':C.neutral;ctx.font='bold 11px monospace';
+  ctx.fillText(gadgetAvailable?'[Q] READY':gadgetEmitting?'JAMMING':'USED',580,barY+20);
+  if(escapeActive){
+    const es=Math.ceil(escapeCountdown),urg=es<=15;
+    ctx.fillStyle=urg?'#ff1111':C.danger;ctx.font=`bold ${urg?14:12}px monospace`;ctx.textAlign='left';ctx.fillText(`🚨 ESCAPE ${es}s`,680,barY+10);
+    const gl=escapeGatesTotal-escapeGatesSolved;
+    if(gl>0){ctx.fillStyle=C.warning;ctx.font='bold 10px monospace';ctx.fillText(`⛔ ${gl} GATE${gl>1?'S':''} — press E`,680,barY+22);}
+    else if(escapeGatesTotal>0&&escapeGatesSolved<escapeGatesTotal){
+      const _gf=0.55+0.45*Math.sin(Date.now()/200);
+      ctx.fillStyle=`rgba(239,68,68,${_gf})`;ctx.font='bold 10px monospace';
+      ctx.fillText('⛔ PRESS E ON GATE TO EXIT',680,barY+22);
+    } else{ctx.fillStyle=C.success;ctx.font='bold 10px monospace';ctx.fillText('✓ CORRIDOR CLEAR → EXTRACT',680,barY+22);}
+  } else {
+    ctx.fillStyle=player.hasLoot?C.loot:C.neutral;ctx.font='bold 11px monospace';ctx.textAlign='right';
+    ctx.fillText(player.hasLoot?'◉ BEACON LOCKED':'◉ FIND BEACON',W-10,barY+20);
+    // Show directional hint toward key destination
+    if(!player.hasLoot&&lootPos){
+      const _lax=lootPos.x,_lay=lootPos.y;
+      const _lang=Math.atan2(_lay-player.y,_lax-player.x);
+      const _larr=['→','↘','↓','↙','←','↖','↑','↗'][Math.round(((_lang+Math.PI)/(Math.PI/4)))%8];
+      ctx.fillStyle=`rgba(255,183,0,${0.6+0.4*Math.sin(Date.now()/400)})`;ctx.font='bold 14px monospace';
+      ctx.fillText(_larr+' BEACON',W-10,barY+8);
+    } else if(player.hasLoot&&escapeActive&&escapeGatesSolved>=escapeGatesTotal){
+      // Find exit
+      let _ex=-1,_ey=-1;
+      for(let _ey2=0;_ey2<ROWS;_ey2++) for(let _ex2=0;_ex2<COLS;_ex2++){if(level.map[_ey2][_ex2]===T.EXIT){_ex=_ex2*TILE+TILE/2;_ey=_ey2*TILE+TILE/2;}}
+      if(_ex>0){const _eang=Math.atan2(_ey-player.y,_ex-player.x);const _earr=['→','↘','↓','↙','←','↖','↑','↗'][Math.round(((_eang+Math.PI)/(Math.PI/4)))%8];
+      ctx.fillStyle=`rgba(0,255,100,${0.7+0.3*Math.sin(Date.now()/300)})`;ctx.font='bold 14px monospace';
+      ctx.fillText(_earr+' EXTRACT',W-10,barY+8);}
+    }
+  }
+  ctx.fillStyle='rgba(71,85,105,.35)';ctx.font='9px monospace';ctx.textAlign='center';
+  ctx.fillText('WASD thrust · Shift stealth · E compute · F formulae · Tab focus · H hint · R ghost · Spc ability · Q decoy · Esc abort · P pause · M mute',W/2,H-2);
+}
+
+// ── SCAFFOLD (formula reference panel) ────────────────────────
+function drawScaffold(){
+  const sc=safeEl('scaffold-canvas');
+  if(!scaffoldVisible||!calcActive||!calcPrompt){sc.style.display='none';return;}
+  sc.style.display='block';
+  const sctx=sc.getContext('2d');
+  sctx.fillStyle='rgba(2,8,20,0.95)';sctx.fillRect(0,0,200,270);
+  sctx.strokeStyle='#1e3a5f';sctx.lineWidth=1;sctx.strokeRect(1,1,198,268);
+  sctx.fillStyle=C.textDim;sctx.font='bold 10px monospace';sctx.textAlign='center';sctx.fillText('📐 FORMULA SHEET [F]',100,16);
+  sctx.fillStyle='#1e3a5f';sctx.fillRect(8,22,184,1);
+  const topic=calcPrompt.topic||'LIM';
+  const cx=100;
+  sctx.fillStyle='#e0eaf4';sctx.font='bold 11px monospace';sctx.textAlign='center';
+  if(['LIM','D1','D2'].includes(topic)){
+    sctx.fillText('Power Rule',cx,42);
+    sctx.fillStyle=C.primary;sctx.font='12px monospace';sctx.fillText("d/dx[xⁿ] = nxⁿ⁻¹",cx,60);
+    sctx.fillStyle='#64748b';sctx.font='10px monospace';sctx.fillText('d/dx[c] = 0',cx,78);sctx.fillText('d/dx[sin x] = cos x',cx,94);sctx.fillText('d/dx[cos x] = -sin x',cx,110);sctx.fillText('d/dx[eˣ] = eˣ',cx,126);
+    sctx.fillStyle='#e0eaf4';sctx.font='bold 11px monospace';sctx.fillText('Limits',cx,148);
+    sctx.fillStyle=C.primary;sctx.font='11px monospace';sctx.fillText('lim sin(x)/x = 1',cx,166);sctx.fillText('(as x→0)',cx,180);sctx.fillText('lim c/x = 0',cx,196);sctx.fillText('(as x→∞)',cx,210);
+  } else if(['CR','PR'].includes(topic)){
+    sctx.fillText('Chain Rule',cx,42);
+    sctx.fillStyle=C.primary;sctx.font='11px monospace';sctx.fillText("d/dx[f(g(x))]",cx,60);sctx.fillText("= f'(g(x))·g'(x)",cx,76);
+    sctx.fillStyle='#e0eaf4';sctx.font='bold 11px monospace';sctx.fillText('Product Rule',cx,100);
+    sctx.fillStyle=C.primary;sctx.font='11px monospace';sctx.fillText("d/dx[u·v]",cx,118);sctx.fillText("= u'v + uv'",cx,134);
+    sctx.fillStyle='#64748b';sctx.font='10px monospace';sctx.fillText('d/dx[eᵘ] = eᵘ·u\'',cx,156);sctx.fillText('d/dx[sin u] = cos(u)·u\'',cx,172);
+  } else if(['OPT'].includes(topic)){
+    sctx.fillText('Optimization',cx,42);
+    sctx.fillStyle=C.primary;sctx.font='11px monospace';sctx.fillText("1. Find f'(x)",cx,60);sctx.fillText("2. Set f'(x) = 0",cx,76);sctx.fillText("3. Solve for x",cx,92);sctx.fillText("4. Use f''(x) to classify:",cx,110);
+    sctx.fillStyle=C.success;sctx.fillText("f'' > 0: minimum",cx,128);
+    sctx.fillStyle=C.danger;sctx.fillText("f'' < 0: maximum",cx,144);
+    sctx.fillStyle='#64748b';sctx.fillText("f'' = 0: inflection?",cx,160);
+  } else if(['INT','FTC'].includes(topic)){
+    sctx.fillText('Integration',cx,42);
+    sctx.fillStyle=C.primary;sctx.font='11px monospace';sctx.fillText("∫ xⁿ dx = xⁿ⁺¹/(n+1)+C",cx,60);sctx.fillText("∫ c dx = cx+C",cx,76);sctx.fillText("∫ eˣ dx = eˣ+C",cx,92);sctx.fillText("∫ cos x dx = sin x+C",cx,108);
+    sctx.fillStyle='#e0eaf4';sctx.font='bold 11px monospace';sctx.fillText('FTC: Definite Integral',cx,130);
+    sctx.fillStyle=C.primary;sctx.font='11px monospace';sctx.fillText("∫ₐᵇ f(x)dx = F(b)-F(a)",cx,148);sctx.fillText("where F'(x)=f(x)",cx,164);
+  } else {
+    sctx.fillText('Related Rates',cx,42);
+    sctx.fillStyle=C.primary;sctx.font='11px monospace';sctx.fillText('1. Identify equation',cx,60);sctx.fillText('2. Differentiate',cx,76);sctx.fillText('   both sides w.r.t. t',cx,90);sctx.fillText('3. Substitute values',cx,106);sctx.fillText('Circle: A=πr²',cx,130);sctx.fillText('dA/dt = 2πr·dr/dt',cx,146);
+  }
+  sctx.fillStyle=C.textDim;sctx.font='9px monospace';sctx.fillText('Press F to hide',cx,258);
+}
+
+// ── SCREENS ────────────────────────────────────────────────────
+function drawStars(){
+  if(!drawStars._stars){
+    drawStars._stars=Array.from({length:200},()=>({x:Math.random(),y:Math.random(),r:.4+Math.random()*1.4,ph:Math.random()*Math.PI*2,sp:.3+Math.random()*.8}));
+  }
+  const now=Date.now();
+  for(const s of drawStars._stars){
+    ctx.globalAlpha=.4+.4*Math.sin(now*.001*s.sp+s.ph);
+    ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,PI2);ctx.fill();
+  }
+  ctx.globalAlpha=1;
+}
+
+function drawMenu(){
+  ctx.fillStyle=C.bg;ctx.fillRect(0,0,W,H);
+  // Grid
+  ctx.strokeStyle='rgba(0,191,255,.03)';ctx.lineWidth=1;
+  for(let x2=0;x2<W;x2+=48){ctx.beginPath();ctx.moveTo(x2,0);ctx.lineTo(x2,H);ctx.stroke();}
+  for(let y2=0;y2<H;y2+=48){ctx.beginPath();ctx.moveTo(0,y2);ctx.lineTo(W,y2);ctx.stroke();}
+  drawStars();
+  const now=Date.now();
+  // Animated orbital ring around center title area
+  ctx.save();ctx.translate(W/2,160);
+  ctx.strokeStyle='rgba(0,191,255,.06)';ctx.lineWidth=1;ctx.setLineDash([4,12]);
+  ctx.beginPath();ctx.arc(0,0,220,0,PI2);ctx.stroke();ctx.setLineDash([]);
+  // Orbiting micro-ship
+  const orbitA=now/3000;
+  const ox=Math.cos(orbitA)*220,oy=Math.sin(orbitA)*220;
+  drawShip(W/2+ox,160+oy,orbitA+Math.PI/2,'#00bfff',5,0.3,false);
+  ctx.restore();
+  // Title with strong glow
+  const tp=.82+.18*Math.sin(now/1100);
+  ctx.save();ctx.shadowColor='#00bfff';ctx.shadowBlur=32*tp;
+  ctx.fillStyle=C.primary;ctx.font='bold 52px "Share Tech Mono",monospace';ctx.textAlign='center';
+  ctx.fillText('ORBITAL DRIFT',W/2,88);ctx.restore();
+  // Subtitle glow line
+  const tlg=ctx.createLinearGradient(W/2-220,0,W/2+220,0);
+  tlg.addColorStop(0,'rgba(0,191,255,0)');tlg.addColorStop(.5,'rgba(0,191,255,.35)');tlg.addColorStop(1,'rgba(0,191,255,0)');
+  ctx.fillStyle=tlg;ctx.fillRect(W/2-220,100,440,1);
+  ctx.fillStyle='#475569';ctx.font='13px monospace';ctx.textAlign='center';
+  ctx.fillText('Calculus Mission Control  ·  30 Missions  ·  3 Sectors',W/2,122);
+  ctx.fillStyle='#334155';ctx.font='12px monospace';
+  const sn=['Training Orbit','Debris Field','Deep Space'];
+  ctx.fillText(`Sector: ${sn[getSector(currentMission)]}  ·  M${currentMission+1}/30  ·  ${completedMissions.size} cleared`,W/2,146);
+  ctx.fillStyle='#64748b';ctx.font='bold 11px monospace';ctx.fillText('SELECT SPECIALIST',W/2,182);
+  const specs=Object.entries(SPECS),cW=230,cH=185,gap=26;
+  const sx=(W-(specs.length*cW+(specs.length-1)*gap))/2;
+  specs.forEach(([key,sp],i)=>{
+    const x=sx+i*(cW+gap),y=218,sel=i===menuSel,locked=!isSpecUnlocked(key);
+    if(sel&&!locked){ctx.save();ctx.shadowColor=sp.color;ctx.shadowBlur=20;ctx.fillStyle='transparent';ctx.beginPath();ctx.roundRect(x,y,cW,cH,12);ctx.fill();ctx.restore();}
+    ctx.fillStyle=sel?`${sp.color}18`:'rgba(12,18,30,.88)';
+    ctx.strokeStyle=sel?sp.color:locked?'rgba(71,85,105,.28)':'rgba(71,85,105,.42)';
+    ctx.lineWidth=sel?2:1;ctx.beginPath();ctx.roundRect(x,y,cW,cH,12);ctx.fill();ctx.stroke();
+    if(sel&&!locked){ctx.fillStyle=sp.color;ctx.beginPath();ctx.roundRect(x,y,cW,3,[12,12,0,0]);ctx.fill();}
+    ctx.globalAlpha=locked ? 0.38 : 1;
+    ctx.font='34px sans-serif';ctx.textAlign='center';ctx.fillText(sp.icon,x+cW/2,y+50);
+    ctx.fillStyle=sel?sp.color:'#d1d5db';ctx.font='bold 15px monospace';ctx.fillText(sp.name,x+cW/2,y+76);
+    ctx.fillStyle='#64748b';ctx.font='10px monospace';
+    const dp=sp.desc.split('·');if(dp.length>=2){ctx.fillText(dp[0].trim(),x+cW/2,y+96);ctx.fillText('· '+dp[1].trim(),x+cW/2,y+110);}
+    ctx.fillStyle='rgba(0,191,255,.38)';ctx.font='10px monospace';ctx.fillText(`${sp.topics.join(' · ')}`,x+cW/2,y+132);
+    ctx.fillStyle=sel&&!locked?sp.color:'#374151';ctx.font='bold 10px monospace';ctx.fillText(`[SPC] ${sp.abilityName}`,x+cW/2,y+152);
+    if(locked){ctx.globalAlpha=1;ctx.fillStyle='rgba(0,0,0,.42)';ctx.beginPath();ctx.roundRect(x,y,cW,cH,12);ctx.fill();ctx.fillStyle='#475569';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText('🔒 LOCKED',x+cW/2,y+cH/2-8);ctx.fillStyle='#334155';ctx.font='10px monospace';ctx.fillText(`${key==='analyst'?'5':'10'} sectors cleared to unlock`,x+cW/2,y+cH/2+9);}
+    else if(sel){ctx.globalAlpha=1;ctx.fillStyle=sp.color;ctx.font='bold 10px monospace';ctx.fillText('▸ SELECTED ◂',x+cW/2,y+cH-10);}
+    ctx.globalAlpha=1;
+  });
+  if(isSpecUnlocked(SPEC_KEYS[menuSel])){ctx.fillStyle=SPECS[SPEC_KEYS[menuSel]].color;ctx.font='bold 15px monospace';ctx.textAlign='center';ctx.fillText('▶  PRESS ENTER TO BEGIN MISSION',W/2,218+185+24);}
+  ctx.fillStyle='#2d3748';ctx.font='11px monospace';ctx.textAlign='center';ctx.fillText('← → select  ·  S: mission select  ·  H: how to play',W/2,H-18);
+}
+
+function drawHowToPlay(){
+  ctx.fillStyle=C.bg;ctx.fillRect(0,0,W,H);drawStars();
+  const cx=W/2,c1=cx-270,c2=cx+20,pW=250;
+  ctx.fillStyle=C.primary;ctx.font='bold 28px monospace';ctx.textAlign='center';ctx.fillText('HOW TO PLAY',cx,50);
+  ctx.fillStyle=C.textDim;ctx.font='13px monospace';ctx.fillText('Orbital Drift Mission Control  ·  Ages 15+',cx,72);
+  const panels=[
+    {x:c1,color:'rgba(0,191,255,.06)',stroke:'rgba(0,191,255,.2)',title:'MISSION',tc:C.primary,lines:['You are a Mission Controller.','','1. Move to the BEACON (◉)','2. LAUNCH WINDOW opens — solve','   the trajectory calc in the box','3. Press ENTER to submit answer','4. Solve escape gate calcs','5. EXTRACT at the ◈ portal','','Wrong calc = Alert goes up.',]},
+    {x:c2,color:'rgba(139,92,246,.06)',stroke:'rgba(139,92,246,.2)',title:'CONTROLS',tc:'#a78bfa',lines:['WASD  ·  Thrust','Shift  ·  Stealth mode','E  ·  Calculate / interface','Enter  ·  Submit answer','Tab  ·  Focus mode','Space  ·  Specialist ability','Q  ·  Deploy decoy signal','R  ·  Ghost trail (×2)','F  ·  Formula sheet','H  ·  Hint',]},
+  ];
+  let py=100;
+  panels.forEach(p=>{
+    ctx.fillStyle=p.color;ctx.strokeStyle=p.stroke;ctx.lineWidth=1;
+    ctx.beginPath();ctx.roundRect(p.x,py,pW,155,8);ctx.fill();ctx.stroke();
+    ctx.fillStyle=p.tc;ctx.font='bold 13px monospace';ctx.textAlign='left';ctx.fillText(p.title,p.x+12,py+22);
+    ctx.font='11px monospace';
+    p.lines.forEach((l,i)=>{if(!l){return;}ctx.fillStyle=i>=8?C.primary:C.text;ctx.fillText(l,p.x+12,py+40+i*13);});
+  });
+  py=270;
+  const panels2=[
+    {x:c1,color:'rgba(34,197,94,.06)',stroke:'rgba(34,197,94,.2)',title:'CALCULUS TOPICS',tc:'#4ade80',lines:['Sector 1: Limits, Basic Derivatives','  lim f(x), power rule, trig/exp','Sector 2: Chain/Product Rule','  critical points, concavity','Sector 3: Integrals, FTC','  optimization, related rates','','Typed answers accepted:','  6x+5  ·  x³+C  ·  2e^(2x)',]},
+    {x:c2,color:'rgba(251,191,36,.06)',stroke:'rgba(251,191,36,.2)',title:'SPECIALISTS',tc:'#fbbf24',lines:['🛸 Navigator — Limits + Derivatives','  Precision Lock: +30% on 2 calcs','','📡 Analyst — Chain + Integrals','  Trajectory Scan: reveals threats','','⚡ Commander — Optim + FTC','  Surge Burn: 3s silent thrust',]},
+  ];
+  panels2.forEach(p=>{
+    ctx.fillStyle=p.color;ctx.strokeStyle=p.stroke;ctx.lineWidth=1;
+    ctx.beginPath();ctx.roundRect(p.x,py,pW,125,8);ctx.fill();ctx.stroke();
+    ctx.fillStyle=p.tc;ctx.font='bold 13px monospace';ctx.textAlign='left';ctx.fillText(p.title,p.x+12,py+22);
+    ctx.font='11px monospace';p.lines.forEach((l,i)=>{ctx.fillStyle=l.startsWith(' ')?'#4ade80':C.text;ctx.fillText(l,p.x+12,py+40+i*13);});
+  });
+  ctx.fillStyle='#475569';ctx.font='13px monospace';ctx.textAlign='center';ctx.fillText('Press Enter or Esc to continue',cx,H-28);
+}
+
+function drawBriefing(){
+  const m=MISSIONS[currentMission],sp=SPECS[selectedSpec],dc=getSConfig(),sn=getSector(currentMission)+1;
+  const nG=LEVELS[currentMission].guards.length,nC=LEVELS[currentMission].cameras.length;
+  ctx.fillStyle=C.bg;ctx.fillRect(0,0,W,H);drawStars();
+  // Grid
+  ctx.strokeStyle='rgba(0,191,255,.04)';ctx.lineWidth=1;
+  for(let bx=0;bx<W;bx+=48){ctx.beginPath();ctx.moveTo(bx,0);ctx.lineTo(bx,H);ctx.stroke();}
+  ctx.fillStyle=C.primary;ctx.font='bold 10px monospace';ctx.textAlign='left';ctx.fillText('MISSION',W/2-280,22);
+  ctx.fillStyle='#334155';ctx.fillRect(W/2-280,25,560,1);
+  ctx.fillStyle='#e0eaf4';ctx.font='bold 24px monospace';ctx.textAlign='center';ctx.fillText(`M${m.id}: ${m.name}`,W/2,52);
+  ctx.fillStyle='#64748b';ctx.font='11px monospace';ctx.fillText(`SECTOR ${sn} · ${m.sector.toUpperCase()}`,W/2,70);
+  ctx.fillStyle=C.warning;ctx.font='13px monospace';ctx.fillText(`Objective: ${m.objective}`,W/2,90);
+  ctx.fillStyle='rgba(100,180,255,0.7)';ctx.font='11px monospace';
+  ctx.fillText('Move → Beacon(◉) → Type calc answer → Enter → Solve gates → Extract(◈)',W/2,108);
+  ctx.fillStyle=sp.color;ctx.font='bold 10px monospace';ctx.textAlign='left';ctx.fillText('SPECIALIST',W/2-280,112);
+  ctx.fillStyle='#334155';ctx.fillRect(W/2-280,115,560,1);
+  ctx.fillStyle='#e0eaf4';ctx.font='bold 14px monospace';ctx.textAlign='center';
+  ctx.fillText(`${sp.icon} ${sp.name}  ·  ${sp.abilityName} [SPC]  ·  Cooldown ${sp.abilityCooldown}s`,W/2,136);
+  ctx.fillStyle='#64748b';ctx.font='11px monospace';ctx.fillText(sp.desc,W/2,154);
+  const lx=W/2-280,rx=W/2+20;
+  ctx.fillStyle=C.success;ctx.font='bold 10px monospace';ctx.textAlign='left';ctx.fillText('CONTROLS',lx,176);
+  ctx.fillStyle='#334155';ctx.fillRect(lx,179,258,1);
+  ctx.fillStyle=C.warning;ctx.font='bold 10px monospace';ctx.fillText('SECTOR INTEL',rx,176);
+  ctx.fillStyle='#334155';ctx.fillRect(rx,179,258,1);
+  const ctrls=['WASD — Thrust','Shift — Stealth mode','E — Calculate / interface','F — Formula sheet','Tab — Focus mode','R — Ghost trail (×2)','H — Hint  ·  P — Pause mission','Esc — Abort calc (+alert)','M — Mute audio'];
+  ctx.fillStyle='#64748b';ctx.font='11px monospace';ctx.textAlign='left';ctrls.forEach((c,i)=>ctx.fillText(c,lx,194+i*18));
+  const topics=m._topicSeq?m._topicSeq.room:['Random from sector'];
+  const intel=[`${m.prompts.length||6} calc challenges`,`${nG} debris · ${nC} sensor cams`,`Escape timer: ${dc.escapeTime}s`,`Heat gain: ${dc.heatGainMult}×`,`Topics: ${m._topicSeq?m._topicSeq.room.slice(0,3).join(', ')+'...':'Random'}`,``,`💡 Reach beacon for launch window`,`💡 Solve window → escape phase`,`💡 F key = formula reference sheet`,];
+  intel.forEach((l,i)=>{ctx.fillStyle=l.startsWith('💡')?C.success:'#64748b';ctx.fillText(l,rx,194+i*18);});
+  ctx.fillStyle=C.primary;ctx.font='bold 16px monospace';ctx.textAlign='center';ctx.fillText('Press ENTER to initiate mission',W/2,H-24);
+}
+
+function drawResults(){
+  const m=MISSIONS[currentMission],sp=SPECS[selectedSpec];
+  const acc=calcTotal>0?calcCorrect/calcTotal:0;
+  const grade=acc>=.9?'S':acc>=.7?'A':acc>=.5?'B':'C';
+  const gc={S:C.warning,A:C.success,B:C.primary,C:'#94a3b8'}[grade];
+  ctx.fillStyle=C.bg;ctx.fillRect(0,0,W,H);drawStars();
+  ctx.strokeStyle='rgba(0,255,157,.1)';ctx.lineWidth=1;
+  for(let x2=0;x2<W;x2+=48){ctx.beginPath();ctx.moveTo(x2,0);ctx.lineTo(x2,H);ctx.stroke();}
+  ctx.save();ctx.shadowColor=C.success;ctx.shadowBlur=20;
+  ctx.fillStyle=C.success;ctx.font='bold 30px monospace';ctx.textAlign='center';ctx.fillText('MISSION COMPLETE',W/2,52);ctx.restore();
+  ctx.fillStyle='#64748b';ctx.font='13px monospace';ctx.fillText(`${m.name}  ·  ${sp.name}`,W/2,76);
+  ctx.fillStyle=C.success;ctx.font='bold 24px monospace';ctx.textAlign='left';ctx.fillText(`CR ${score}`,W/2-260,118);
+  ctx.fillStyle=gc;ctx.font='bold 48px monospace';ctx.textAlign='right';ctx.fillText(grade,W/2+260,128);
+  const col1=[{l:'Accuracy',v:calcTotal>0?`${calcCorrect}/${calcTotal} (${Math.round(acc*100)}%)`:'N/A',c:C.primary},{l:'Avg Solve',v:calcTimes.length>0?`${(calcTimes.reduce((a,b)=>a+b,0)/calcTimes.length).toFixed(1)}s`:'N/A',c:C.warning},{l:'Final Heat',v:`${Math.round(heat)}%`,c:heat>50?C.danger:C.success}];
+  const col2=[{l:'Time',v:`${Math.floor(missionTimer/60)}:${Math.floor(missionTimer%60).toString().padStart(2,'0')}`,c:C.textDim},{l:'Beacon',v:player.hasLoot?'Secured ✓':'Missed ✗',c:player.hasLoot?C.loot:C.danger},{l:'Hints',v:`${totalHints}`,c:totalHints>0?C.warning:C.success}];
+  const sy=155,rh=38;
+  col1.forEach((s,i)=>{const y=sy+i*rh;ctx.fillStyle='#64748b';ctx.font='12px monospace';ctx.textAlign='left';ctx.fillText(s.l,W/2-270,y);ctx.fillStyle=s.c;ctx.font='bold 14px monospace';ctx.textAlign='right';ctx.fillText(s.v,W/2-20,y);});
+  col2.forEach((s,i)=>{const y=sy+i*rh;ctx.fillStyle='#64748b';ctx.font='12px monospace';ctx.textAlign='left';ctx.fillText(s.l,W/2+20,y);ctx.fillStyle=s.c;ctx.font='bold 14px monospace';ctx.textAlign='right';ctx.fillText(s.v,W/2+270,y);});
+  // Topic breakdown
+  const entries=Object.entries(topicResults);
+  if(entries.length>0){
+    const secY=sy+3*rh+14;
+    ctx.fillStyle='rgba(0,191,255,.18)';ctx.fillRect(W/2-270,secY-12,540,1);
+    ctx.fillStyle='#64748b';ctx.font='11px monospace';ctx.textAlign='left';ctx.fillText('TRAJECTORY CALCULATION BREAKDOWN',W/2-270,secY);
+    const tnames={LIM:'Limits',D1:'Power Rule',D2:'Trig/Exp Deriv',CR:'Chain Rule',PR:'Product Rule',OPT:'Optimization',INT:'Integrals',FTC:'FTC / Definite',RR:'Related Rates',launch:'Launch Window',general:'Mixed'};
+    entries.slice(0,7).forEach(([tp,res],idx)=>{
+      const ry=secY+18+idx*26,pct=res.total>0?res.correct/res.total:0;
+      const bc=pct>=.8?C.success:pct>=.5?C.warning:C.danger;
+      ctx.fillStyle='#475569';ctx.font='11px monospace';ctx.textAlign='left';ctx.fillText(`${tnames[tp]||tp}${masteryTopics[tp]?' 🔥':''}`,W/2-270,ry);
+      ctx.fillStyle='rgba(255,255,255,.06)';ctx.fillRect(W/2-20,ry-9,180,12);
+      ctx.fillStyle=bc;if(pct>0)ctx.fillRect(W/2-20,ry-9,pct*180,12);
+      ctx.fillStyle=bc;ctx.font='bold 11px monospace';ctx.textAlign='right';ctx.fillText(`${res.correct}/${res.total}`,W/2+175,ry);
+    });
+  }
+  const mId=m.id,prev=highScores[mId];
+  if(m.objType&&objCompleted){ctx.fillStyle=C.success;ctx.font='bold 12px monospace';ctx.textAlign='center';ctx.fillText(`✔ Objective bonus +$${objBonusEarned}`,W/2,574);}
+  if(prev){ctx.fillStyle=score>=prev?C.warning:'#64748b';ctx.font=score>=prev?'bold 13px monospace':'12px monospace';ctx.textAlign='center';ctx.fillText(score>=prev?'★ NEW BEST!':'Best: '+prev+' CR',W/2,594);}
+  ctx.fillStyle='#64748b';ctx.font='13px monospace';ctx.textAlign='center';ctx.fillText(currentMission<MISSIONS.length-1?'Press ENTER for next mission':'Press ENTER to return to menu',W/2,622);
+}
+
+function drawCaught(){
+  const now=Date.now(),cp=.6+.4*Math.sin(now/350);
+  const isTimeout=escapeCountdown<=0;
+  // Deep red space
+  ctx.fillStyle='rgba(6,1,1,.95)';ctx.fillRect(0,0,W,H);
+  ctx.fillStyle=`rgba(200,0,0,${cp*.08})`;ctx.fillRect(0,0,W,H);
+  // Explosion particle background
+  for(let i=0;i<12;i++){
+    const a=(i/12)*PI2+now/3000;const rd=80+i*20;
+    const ex=W/2+Math.cos(a)*rd,ey=H/2+Math.sin(a)*rd;
+    const ep=.1+.2*Math.sin(now/200+i);
+    ctx.fillStyle=`rgba(255,${80+i*8},0,${ep})`;
+    ctx.beginPath();ctx.arc(ex,ey,2+i*.3,0,PI2);ctx.fill();
+  }
+  // Shattered ship wreckage
+  ctx.save();ctx.translate(W/2,H/2-20);ctx.rotate(now/4000);
+  // Scattered hull fragments
+  [[-20,-15,15],[10,-10,8],[-5,18,12],[22,5,6],[-18,12,9]].forEach(([ox,oy,sz])=>{
+    if(typeof ox!=='number')return;
+    ctx.fillStyle=`rgba(80,100,140,${cp*.4})`;ctx.save();ctx.translate(ox,oy);ctx.rotate(ox*.1);
+    ctx.beginPath();ctx.moveTo(0,-sz/2);ctx.lineTo(sz/2,sz/2);ctx.lineTo(-sz/2,sz/2);ctx.closePath();ctx.fill();ctx.restore();
+  });
+  ctx.restore();
+  // Central glow
+  const cg=ctx.createRadialGradient(W/2,H/2-20,0,W/2,H/2-20,60);
+  cg.addColorStop(0,`rgba(255,100,0,${cp*.3})`);cg.addColorStop(1,'rgba(255,0,0,0)');
+  ctx.fillStyle=cg;ctx.beginPath();ctx.arc(W/2,H/2-20,60,0,PI2);ctx.fill();
+  // Warning text
+  ctx.save();ctx.shadowColor='#ff2000';ctx.shadowBlur=30*cp;
+  ctx.fillStyle=C.danger;ctx.font='bold 44px "Share Tech Mono",monospace';ctx.textAlign='center';
+  ctx.fillText(isTimeout?'WINDOW EXPIRED':'TRAJECTORY BREACH',W/2,H/2-72);ctx.restore();
+  // Divider
+  const dg=ctx.createLinearGradient(W/2-140,0,W/2+140,0);
+  dg.addColorStop(0,'rgba(200,0,0,0)');dg.addColorStop(.5,'rgba(200,0,0,.6)');dg.addColorStop(1,'rgba(200,0,0,0)');
+  ctx.fillStyle=dg;ctx.fillRect(W/2-140,H/2-52,280,2);
+  ctx.fillStyle='#94a3b8';ctx.font='14px monospace';ctx.textAlign='center';
+  ctx.fillText(isTimeout?'Launch window closed. Ship failed to escape.':'Debris field sensor grid detected your trajectory.',W/2,H/2-24);
+  ctx.fillStyle='#64748b';ctx.font='11px monospace';
+  ctx.fillText('TRAJECTORY FAILED — recalculate and retry',W/2,H/2);
+  ctx.fillStyle='rgba(100,116,139,.6)';
+  ctx.fillText(`Trajectory accuracy: ${calcCorrect}/${calcTotal}  ·  Score: ${score} CR`,W/2,H/2+24);
+  ctx.save();ctx.shadowColor=C.primary;ctx.shadowBlur=12;
+  ctx.fillStyle=C.primary;ctx.font='bold 14px monospace';ctx.textAlign='center';
+  ctx.fillText('▶  PRESS ENTER TO RETRY MISSION',W/2,H/2+70);ctx.restore();
+}
+function drawPaused(){ctx.fillStyle='rgba(0,0,0,.65)';ctx.fillRect(0,0,W,H);ctx.fillStyle='#e0eaf4';ctx.font='bold 36px monospace';ctx.textAlign='center';ctx.fillText('⏸ MISSION PAUSED',W/2,H/2-18);ctx.fillStyle='#64748b';ctx.font='14px monospace';ctx.fillText('P or Esc to resume',W/2,H/2+20);}
+function drawLaunchOverlay(){
+  const now=Date.now(),el=(now-launchStartTime)/1000;
+  const rem=Math.max(0,LAUNCH_TIME-el),urg=rem<=15;
+  const pulse=.6+.4*Math.sin(now/400);
+  // Dimmed world behind
+  ctx.fillStyle=`rgba(0,4,12,.7)`;ctx.fillRect(0,0,W,H);
+  // Urgent red flash
+  if(urg&&rem>0){const fa=Math.sin(now/220)*.5+.5;ctx.fillStyle=`rgba(200,20,0,${fa*.1})`;ctx.fillRect(0,0,W,H);}
+  // Amber border — pulsing
+  const borderColor=urg?`rgba(255,60,0,${pulse*.8})`:`rgba(255,183,0,${pulse*.5})`;
+  ctx.strokeStyle=borderColor;ctx.lineWidth=3;ctx.strokeRect(4,4,W-8,H-8);
+  // Inner corner brackets
+  const bl=24;const bc=urg?'rgba(255,80,0,.6)':'rgba(255,200,0,.4)';ctx.strokeStyle=bc;ctx.lineWidth=2;
+  [[4,4,1,1],[W-4,4,-1,1],[4,H-4,1,-1],[W-4,H-4,-1,-1]].forEach(([cx2,cy2,sx,sy])=>{
+    ctx.beginPath();ctx.moveTo(cx2+sx*bl,cy2);ctx.lineTo(cx2,cy2);ctx.lineTo(cx2,cy2+sy*bl);ctx.stroke();
+  });
+  // Title
+  const titleY=46;
+  ctx.save();if(urg){ctx.shadowColor='#ff2000';ctx.shadowBlur=20*pulse;}
+  ctx.fillStyle=urg?`rgba(255,${80+pulse*80},0,1)`:`rgba(255,183,0,${.9+pulse*.1})`;
+  ctx.font=`bold ${urg?28:20}px "Share Tech Mono",monospace`;ctx.textAlign='center';
+  ctx.fillText(`◈ LAUNCH WINDOW · T-${Math.ceil(rem)}s ◈`,W/2,titleY);ctx.restore();
+  if(urg&&rem>0){
+    const wp=.5+.5*Math.sin(now/180);
+    ctx.fillStyle=`rgba(255,200,0,${wp*.85})`;ctx.font='bold 12px monospace';ctx.textAlign='center';
+    ctx.fillText('⚠  TRAJECTORY WINDOW CLOSING — SOLVE NOW',W/2,72);
+  }
+  // Central spacecraft visualization — ship at beacon
+  const shipX=W/2,shipY=H/2-60;
+  // Beacon target glow
+  const bg=ctx.createRadialGradient(shipX,shipY+50,0,shipX,shipY+50,60);
+  bg.addColorStop(0,`rgba(255,183,0,${pulse*.25})`);bg.addColorStop(1,'rgba(255,183,0,0)');
+  ctx.fillStyle=bg;ctx.beginPath();ctx.arc(shipX,shipY+50,60,0,PI2);ctx.fill();
+  // Trajectory arc — dashed line to exit
+  ctx.strokeStyle=`rgba(0,191,255,${pulse*.4})`;ctx.lineWidth=1.5;ctx.setLineDash([6,8]);
+  ctx.beginPath();ctx.moveTo(shipX,shipY);
+  ctx.bezierCurveTo(shipX+100,shipY-30,shipX+150,shipY+40,shipX+200,shipY+80);ctx.stroke();ctx.setLineDash([]);
+  // Draw ship in launch pose
+  drawShip(shipX,shipY,SPECS[selectedSpec]?-Math.PI/4:-Math.PI/2,SPECS[selectedSpec]?.color||'#00bfff',13,.8+.2*Math.sin(now/60),false);
+  // Window countdown ring
+  const ringR=38,ringPct=rem/LAUNCH_TIME;
+  ctx.strokeStyle='rgba(30,50,80,.5)';ctx.lineWidth=4;ctx.beginPath();ctx.arc(shipX,shipY,ringR,0,PI2);ctx.stroke();
+  ctx.strokeStyle=urg?`rgba(255,60,0,${pulse})`:C.warning;ctx.lineWidth=4;
+  ctx.beginPath();ctx.arc(shipX,shipY,-Math.PI/2,-Math.PI/2+ringPct*PI2,false);ctx.stroke();
+  // Timer inside ring
+  ctx.fillStyle=urg?'#ff4040':C.warning;ctx.font=`bold 14px monospace`;ctx.textAlign='center';
+  ctx.fillText(Math.ceil(rem),shipX,shipY+5);
+  // Status text
+  ctx.fillStyle=`rgba(100,180,255,${pulse*.6})`;ctx.font='10px monospace';ctx.textAlign='center';
+  ctx.fillText(`SOLVE TRAJECTORY CALC TO LAUNCH`,W/2,H/2+40);
+  ctx.save();ctx.shadowColor=C.warning;ctx.shadowBlur=8*pulse;
+  ctx.fillStyle=`rgba(255,183,0,${pulse*.9})`;ctx.font='bold 12px monospace';
+  ctx.fillText('TYPE ANSWER IN BOX  →  PRESS ENTER',W/2,H/2+58);ctx.restore();
+  // Progress dots for launch steps
+  if(launchPrompts&&launchPrompts.length>0){
+    const dotSpacing=24,dotStartX=W/2-(launchPrompts.length-1)*dotSpacing/2;
+    for(let i=0;i<launchPrompts.length;i++){
+      const dx=dotStartX+i*dotSpacing,dy=H/2+60;
+      const done=i<launchStep,active=i===launchStep;
+      ctx.fillStyle=done?C.success:active?C.warning:'rgba(40,60,100,.5)';
+      ctx.beginPath();ctx.arc(dx,dy,done?5:active?6:4,0,PI2);ctx.fill();
+      if(active){ctx.strokeStyle=C.warning;ctx.lineWidth=1;ctx.beginPath();ctx.arc(dx,dy,9,0,PI2);ctx.stroke();}
+    }
+    ctx.fillStyle='rgba(100,140,200,.5)';ctx.font='9px monospace';ctx.textAlign='center';
+    ctx.fillText(`STEP ${launchStep+1} / ${launchPrompts.length}`,W/2,H/2+78);
+  }
+  if(rem<=0&&launchActive){launchActive=false;calcActive=false;safeEl('calc-popup').style.display='none';gameState=STATE.CAUGHT;}
+}
+let launchStartTime=0;
+const _origStartLaunch=startLaunch;
+function startLaunchPatched(){launchStartTime=Date.now();_origStartLaunch();}
+
+function drawEscapeOverlay(){
+  if(!escapeActive)return;
+  const now=Date.now();
+  const flash=Math.sin(escapeFlashTimer*6)*.4+.4;
+  const urg=escapeCountdown<=15;
+  // Border alarm
+  ctx.strokeStyle=urg?`rgba(255,20,0,${flash})`:(`rgba(255,69,69,${flash*.6})`);
+  ctx.lineWidth=urg?5:3;ctx.strokeRect(3,3,W-6,H-6);
+  // Corner warning chevrons
+  if(urg){
+    const cp=.5+.5*Math.sin(now/180);
+    [[0,0,1,1],[W,0,-1,1],[0,H,1,-1],[W,H,-1,-1]].forEach(([cx2,cy2,sx,sy])=>{
+      ctx.strokeStyle=`rgba(255,40,0,${cp*.6})`;ctx.lineWidth=2;
+      ctx.beginPath();ctx.moveTo(cx2+sx*20,cy2);ctx.lineTo(cx2,cy2);ctx.lineTo(cx2,cy2+sy*20);ctx.stroke();
+    });
+  }
+}
+function drawMissionSelect(){
+  ctx.fillStyle=C.bg;ctx.fillRect(0,0,W,H);drawStars();
+  ctx.fillStyle=C.primary;ctx.font='bold 20px monospace';ctx.textAlign='center';ctx.fillText('SELECT MISSION',W/2,40);
+  ctx.fillStyle='#64748b';ctx.font='12px monospace';ctx.fillText(`${completedMissions.size}/30 sectors cleared  ·  Esc: back`,W/2,62);
+  const cw=176,ch=72,cg=8,rg=8,startX=(W-5*cw-4*cg)/2,startY=78;
+  const sc=['rgba(0,191,255,1)','rgba(168,85,247,1)','rgba(249,115,22,1)'];
+  for(let i=0;i<30;i++){
+    const col=i%5,row=Math.floor(i/5),x=startX+col*(cw+cg),y=startY+row*(ch+rg);
+    const m=MISSIONS[i],done=completedMissions.has(m.id),sel=i===missionSelectIdx,dist=getSector(i);
+    ctx.fillStyle=sel?'rgba(255,255,255,.08)':'rgba(12,18,30,.9)';
+    ctx.strokeStyle=sel?sc[dist]:done?'rgba(0,255,157,.5)':'#1e293b';ctx.lineWidth=sel?2:1;
+    ctx.beginPath();ctx.roundRect(x,y,cw,ch,6);ctx.fill();ctx.stroke();
+    ctx.fillStyle=sc[dist];ctx.font='bold 10px monospace';ctx.textAlign='left';ctx.fillText(`M${m.id}`,x+8,y+14);
+    if(done){ctx.fillStyle=C.success;ctx.fillText('✓',x+cw-16,y+14);}
+    ctx.fillStyle=sel?'#fff':'#94a3b8';ctx.font='11px monospace';ctx.fillText(m.name.length>16?m.name.slice(0,15)+'…':m.name,x+8,y+30);
+    const best=highScores[m.id];
+    if(best){ctx.fillStyle=C.warning;ctx.font='10px monospace';ctx.fillText(best+' CR',x+8,y+46);}
+    if(sel){ctx.fillStyle=sc[dist];ctx.font='bold 10px monospace';ctx.textAlign='center';ctx.fillText('[ENTER]',x+cw/2,y+ch-6);}
+  }
+  ctx.fillStyle='#475569';ctx.font='11px monospace';ctx.textAlign='center';ctx.fillText('←→↑↓ navigate  ·  Enter: start  ·  Esc: menu',W/2,H-16);
+}
+
+// ── MAIN GAME LOOP ─────────────────────────────────────────────
+let lastTime=0,effDt=0;
+function gameLoop(ts){
+  const dt=Math.min((ts-lastTime)/1000,.05);lastTime=ts;
+  updateP(dt);updateShake(dt);
+  feedbackOverlays=feedbackOverlays.filter(fb=>{fb.timer-=dt;return fb.timer>0;});
+  switch(gameState){
+    case STATE.MENU: drawMenu(); break;
+    case STATE.HOW_TO_PLAY: drawHowToPlay(); break;
+    case STATE.BRIEFING: drawBriefing(); break;
+    case STATE.LAUNCH:
+      missionTimer+=dt;
+      effDt=focusModeActive?dt*FOCUS_TIME_SCALE:dt;
+      if(focusModeActive){focusDrainAccum+=2*dt;if(focusDrainAccum>=1){const d=Math.floor(focusDrainAccum);score=Math.max(0,score-d);focusDrainAccum-=d;}}
+      guards.forEach(g=>updateGuard(g,effDt));cameras.forEach(c=>updateCamera(c,effDt));
+      ctx.save();ctx.translate(shakeX,shakeY);
+      drawTiles();drawLoot();drawInteractables();drawFeedbackOverlays();drawCameras();drawGuards();drawPlayer();drawP();
+      ctx.restore();
+      drawHUD();drawLaunchOverlay();drawScaffold();
+      if(focusModeActive&&calcActive){const grad=ctx.createRadialGradient(W/2,H/2,W*.2,W/2,H/2,W*.72);grad.addColorStop(0,'rgba(0,0,0,0)');grad.addColorStop(1,'rgba(50,0,80,.62)');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);}
+      break;
+    case STATE.PLAYING: case STATE.CALC:
+      if(gameState===STATE.PLAYING){missionTimer+=dt;if(missionTimer>=missionTimeLimit)gameState=STATE.CAUGHT;updatePlayer(dt);updateEscape(dt);heat=Math.max(0,heat-.5*dt);}
+      // Heat-caught check runs in BOTH states — guards can overwhelm you during a calc
+      if(heat>=100&&(gameState===STATE.PLAYING||gameState===STATE.CALC)){
+        calcActive=false;safeEl('calc-popup').style.display='none';
+        safeEl('calc-popup').className='';
+        safeEl('launch-hint-line').style.display='none';
+        safeEl('popup-hint-line').style.display='';
+        gameState=STATE.CAUGHT;
+      }
+      effDt=(focusModeActive&&calcActive)?dt*FOCUS_TIME_SCALE:dt;
+      if(focusModeActive&&calcActive){focusDrainAccum+=2*dt;if(focusDrainAccum>=1){const d=Math.floor(focusDrainAccum);score=Math.max(0,score-d);focusDrainAccum-=d;}}
+      guards.forEach(g=>updateGuard(g,effDt));cameras.forEach(c=>updateCamera(c,effDt));updateEcho(dt);
+      ctx.save();ctx.translate(shakeX,shakeY);
+      drawTiles();drawLoot();drawInteractables();drawFeedbackOverlays();drawCameras();drawGadget();drawEchoGhost();drawGuards();drawPlayer();drawP();
+      ctx.restore();
+      drawHUD();drawEscapeOverlay();drawScaffold();
+      if(focusModeActive&&calcActive){const g2=ctx.createRadialGradient(W/2,H/2,W*.2,W/2,H/2,W*.72);g2.addColorStop(0,'rgba(0,0,0,0)');g2.addColorStop(1,'rgba(50,0,80,.62)');ctx.fillStyle=g2;ctx.fillRect(0,0,W,H);ctx.fillStyle='rgba(168,85,247,.85)';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText('⏸ FOCUS MODE  ·  TIME DILATION ACTIVE  ·  −2 PTS/SEC',W/2,H-46);}
+      break;
+    case STATE.RESULTS: drawResults(); break;
+    case STATE.CAUGHT:
+      ctx.save();ctx.translate(shakeX,shakeY);drawTiles();drawLoot();drawInteractables();drawCameras();drawGuards();drawPlayer();ctx.restore();
+      drawHUD();drawCaught(); break;
+    case STATE.PAUSED:
+      ctx.save();ctx.translate(shakeX,shakeY);drawTiles();drawLoot();drawInteractables();drawCameras();drawGadget();drawEchoGhost();drawGuards();drawPlayer();ctx.restore();
+      drawHUD();drawPaused(); break;
+    case STATE.MISSION_SELECT: drawMissionSelect(); break;
+  }
+  requestAnimationFrame(gameLoop);
+}
+
+// startLaunch records launchStartTime inline (see function body)
+
+requestAnimationFrame(gameLoop);
+</script>
+</body>
+</html>

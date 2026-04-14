@@ -1,0 +1,186 @@
+<style>
+.wrap { padding: 1rem 0; font-family: var(--font-mono); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 16px 18px; }
+.card h3 { font-family: var(--font-sans); font-size: 14px; font-weight: 500; margin: 0 0 12px 0; color: var(--color-text-primary); display: flex; align-items: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.new-tag { font-family: var(--font-sans); font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 4px; background: #E1F5EE; color: #085041; margin-left: 4px; }
+@media (prefers-color-scheme: dark) { .new-tag { background: #085041; color: #E1F5EE; } }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 3px 0; font-size: 12px; }
+.cmd { color: var(--color-text-info); flex-shrink: 0; }
+.desc { color: var(--color-text-secondary); text-align: right; font-family: var(--font-sans); font-size: 12px; }
+.d0 { background: #888780; } .d1 { background: #7F77DD; } .d2 { background: #E24B4A; }
+.d3 { background: #D85A30; } .d4 { background: #378ADD; } .d5 { background: #1D9E75; }
+.d6 { background: #EF9F27; } .d7 { background: #D4537E; } .d8 { background: #97C459; }
+.d9 { background: #5DCAA5; } .d10 { background: #5F5E5A; } .d11 { background: #AFA9EC; }
+.d12 { background: #F09595; }
+</style>
+<div class="wrap">
+<div class="grid">
+
+<div class="card">
+<h3><span class="dot d0"></span>Intake and setup</h3>
+<div class="row"><span class="cmd">/start</span><span class="desc">Initialize project in repo</span></div>
+<div class="row"><span class="cmd">/adopt</span><span class="desc">Migrate existing concept</span></div>
+<div class="row"><span class="cmd">/project-stage-detect</span><span class="desc">Detect current pipeline stage</span></div>
+<div class="row"><span class="cmd">/setup-engine</span><span class="desc">Configure gate engine rules</span></div>
+<div class="row"><span class="cmd">/lessons-import</span><span class="desc">Pull lessons from prior builds</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d1"></span>Stage 1 — Learner fit</h3>
+<div class="row"><span class="cmd">/brainstorm</span><span class="desc">Generate concept variants</span></div>
+<div class="row"><span class="cmd">/design-system</span><span class="desc">Define learning objectives</span></div>
+<div class="row"><span class="cmd">/balance-check</span><span class="desc">Check learner alignment</span></div>
+<div class="row"><span class="cmd">/map-systems</span><span class="desc">Map game to curriculum</span></div>
+<div class="row"><span class="cmd">/bartle-tag</span><span class="desc">Declare player type</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d2"></span>Stage 2 — Kill test<span class="new-tag">NEW</span></h3>
+<div class="row"><span class="cmd">/kill-test</span><span class="desc">Run the 5 kill questions</span></div>
+<div class="row"><span class="cmd">/guessability-probe</span><span class="desc">Can a child guess through it</span></div>
+<div class="row"><span class="cmd">/worksheet-compare</span><span class="desc">Is this better than paper</span></div>
+<div class="row"><span class="cmd">/kill-log</span><span class="desc">Archive rejected concepts</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d3"></span>Stage 3 — Fantasy integrity<span class="new-tag">NEW</span></h3>
+<div class="row"><span class="cmd">/fantasy-test</span><span class="desc">Run the 5-question fantasy check</span></div>
+<div class="row"><span class="cmd">/role-justify</span><span class="desc">Prove role requires the math</span></div>
+<div class="row"><span class="cmd">/consequence-map</span><span class="desc">Author the world-break on failure</span></div>
+<div class="row"><span class="cmd">/signature-draft</span><span class="desc">Name the memorable moment</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d4"></span>Stage 4 — Interaction mapper</h3>
+<div class="row"><span class="cmd">/ux-design</span><span class="desc">Design core interaction flows</span></div>
+<div class="row"><span class="cmd">/feedback-states</span><span class="desc">Lock every feedback state</span></div>
+<div class="row"><span class="cmd">/a11y-lock</span><span class="desc">Accessibility constraints first</span></div>
+<div class="row"><span class="cmd">/art-bible</span><span class="desc">Define visual language</span></div>
+<div class="row"><span class="cmd">/asset-spec</span><span class="desc">Spec required assets</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d5"></span>Stage 5 — Core loop designer</h3>
+<div class="row"><span class="cmd">/loop-sentence</span><span class="desc">Write the one-line loop</span></div>
+<div class="row"><span class="cmd">/signature-moment</span><span class="desc">Lock the signature beat</span></div>
+<div class="row"><span class="cmd">/luck-vs-skill</span><span class="desc">Tune the skill ratio</span></div>
+<div class="row"><span class="cmd">/session-shape</span><span class="desc">Shape pacing and payoff</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d6"></span>Stage 6 — Brilliant standard<span class="new-tag">NEW</span></h3>
+<div class="row"><span class="cmd">/brilliant-audit</span><span class="desc">Run the interaction rule check</span></div>
+<div class="row"><span class="cmd">/pretest-rule</span><span class="desc">Problem appears before instruction</span></div>
+<div class="row"><span class="cmd">/concrete-first</span><span class="desc">Concrete precedes symbolic</span></div>
+<div class="row"><span class="cmd">/ui-justify</span><span class="desc">Every UI element earns its place</span></div>
+<div class="row"><span class="cmd">/feedback-per-state</span><span class="desc">No generic wrong message</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d7"></span>Stage 7 — Multisensory spec<span class="new-tag">NEW</span></h3>
+<div class="row"><span class="cmd">/juice-spec</span><span class="desc">Author particles, shake, easing</span></div>
+<div class="row"><span class="cmd">/audio-spec</span><span class="desc">Layer frequencies and pitch drift</span></div>
+<div class="row"><span class="cmd">/haptic-spec</span><span class="desc">Define tactile channel</span></div>
+<div class="row"><span class="cmd">/signature-beat</span><span class="desc">Author the full signature spec</span></div>
+<div class="row"><span class="cmd">/typography-lock</span><span class="desc">Pick fonts, weights, scale</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d8"></span>Stage 8 — Prototype spec</h3>
+<div class="row"><span class="cmd">/prototype</span><span class="desc">Generate prototype spec</span></div>
+<div class="row"><span class="cmd">/create-architecture</span><span class="desc">Define tech architecture</span></div>
+<div class="row"><span class="cmd">/content-audit</span><span class="desc">Run the 14-round audit</span></div>
+<div class="row"><span class="cmd">/prompt-bank</span><span class="desc">Build the full prompt bank</span></div>
+<div class="row"><span class="cmd">/quick-design</span><span class="desc">Rapid design pass</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d9"></span>Stage 9 — UX contract<span class="new-tag">NEW</span></h3>
+<div class="row"><span class="cmd">/ux-contract-lock</span><span class="desc">Write and sign the contract</span></div>
+<div class="row"><span class="cmd">/regression-forbid</span><span class="desc">Ban patterns that broke prior builds</span></div>
+<div class="row"><span class="cmd">/hidden-active-check</span><span class="desc">No display-none on live elements</span></div>
+<div class="row"><span class="cmd">/k2-reading-check</span><span class="desc">Zero reading in core loop</span></div>
+<div class="row"><span class="cmd">/contract-diff</span><span class="desc">Compare against last build</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d10"></span>Stage 10 — Build</h3>
+<div class="row"><span class="cmd">/create-epics</span><span class="desc">Break concept into epics</span></div>
+<div class="row"><span class="cmd">/create-stories</span><span class="desc">Write dev stories</span></div>
+<div class="row"><span class="cmd">/dev-story</span><span class="desc">Refine a single story</span></div>
+<div class="row"><span class="cmd">/sprint-plan</span><span class="desc">Plan the sprint</span></div>
+<div class="row"><span class="cmd">/architecture-decision</span><span class="desc">Log a design decision</span></div>
+<div class="row"><span class="cmd">/code-review</span><span class="desc">Review implementation</span></div>
+<div class="row"><span class="cmd">/perf-profile</span><span class="desc">Profile performance</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d11"></span>Stage 11 — Feel audit<span class="new-tag">NEW</span></h3>
+<div class="row"><span class="cmd">/feel-audit</span><span class="desc">Run the 20-point checklist</span></div>
+<div class="row"><span class="cmd">/juice-check</span><span class="desc">Verify particles and easing</span></div>
+<div class="row"><span class="cmd">/audio-check</span><span class="desc">Verify sound layering</span></div>
+<div class="row"><span class="cmd">/signature-verify</span><span class="desc">Confirm signature beat lands</span></div>
+<div class="row"><span class="cmd">/ship-gate</span><span class="desc">Block ship below 16 of 20</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d12"></span>Stage 12 — Misconception architect</h3>
+<div class="row"><span class="cmd">/misconception-map</span><span class="desc">Predict the top 3 errors</span></div>
+<div class="row"><span class="cmd">/telemetry-bind</span><span class="desc">Wire errors to telemetry</span></div>
+<div class="row"><span class="cmd">/teacher-language</span><span class="desc">Draft end-screen copy</span></div>
+<div class="row"><span class="cmd">/error-replay</span><span class="desc">Replay sessions by misconception</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d0"></span>QA and testing</h3>
+<div class="row"><span class="cmd">/qa-plan</span><span class="desc">Write QA plan</span></div>
+<div class="row"><span class="cmd">/smoke-check</span><span class="desc">Fast sanity check</span></div>
+<div class="row"><span class="cmd">/soak-test</span><span class="desc">Extended stability test</span></div>
+<div class="row"><span class="cmd">/regression-suite</span><span class="desc">Full regression run</span></div>
+<div class="row"><span class="cmd">/playtest-k2</span><span class="desc">Silent K–2 playtest protocol</span></div>
+<div class="row"><span class="cmd">/test-flakiness</span><span class="desc">Diagnose flaky tests</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d0"></span>Review and analysis</h3>
+<div class="row"><span class="cmd">/design-review</span><span class="desc">Full design review</span></div>
+<div class="row"><span class="cmd">/content-audit</span><span class="desc">Audit game content</span></div>
+<div class="row"><span class="cmd">/consistency-check</span><span class="desc">Cross-doc consistency</span></div>
+<div class="row"><span class="cmd">/playtest-report</span><span class="desc">Document playtest findings</span></div>
+<div class="row"><span class="cmd">/lesson-extract</span><span class="desc">Pull lessons into library</span></div>
+<div class="row"><span class="cmd">/bug-triage</span><span class="desc">Prioritize bugs</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d0"></span>Release and live ops</h3>
+<div class="row"><span class="cmd">/milestone-review</span><span class="desc">Review milestone</span></div>
+<div class="row"><span class="cmd">/release-checklist</span><span class="desc">Pre-release gate</span></div>
+<div class="row"><span class="cmd">/launch-checklist</span><span class="desc">Launch day checklist</span></div>
+<div class="row"><span class="cmd">/changelog</span><span class="desc">Generate changelog</span></div>
+<div class="row"><span class="cmd">/hotfix</span><span class="desc">Emergency fix process</span></div>
+<div class="row"><span class="cmd">/retrospective</span><span class="desc">Post-launch retro</span></div>
+<div class="row"><span class="cmd">/telemetry-review</span><span class="desc">Read live misconception data</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d0"></span>Team orchestration</h3>
+<div class="row"><span class="cmd">/team-concept</span><span class="desc">Coordinate stages 0–3</span></div>
+<div class="row"><span class="cmd">/team-design</span><span class="desc">Coordinate stages 4–7</span></div>
+<div class="row"><span class="cmd">/team-contract</span><span class="desc">Coordinate stages 8–9</span></div>
+<div class="row"><span class="cmd">/team-build</span><span class="desc">Coordinate stage 10</span></div>
+<div class="row"><span class="cmd">/team-audit</span><span class="desc">Coordinate stages 11–12</span></div>
+<div class="row"><span class="cmd">/team-liveops</span><span class="desc">Coordinate post-ship</span></div>
+</div>
+
+<div class="card">
+<h3><span class="dot d0"></span>Creative and localization</h3>
+<div class="row"><span class="cmd">/onboard</span><span class="desc">Onboard new team member</span></div>
+<div class="row"><span class="cmd">/localize</span><span class="desc">Localize content</span></div>
+<div class="row"><span class="cmd">/voice-guide</span><span class="desc">Lock narrator voice</span></div>
+<div class="row"><span class="cmd">/color-accessible</span><span class="desc">Colorblind-safe audit</span></div>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Bug Counter — Train Your Brain Games</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  height:100%;overflow:hidden;
+  background:#0d1f0a;
+  font-family:'Segoe UI',system-ui,sans-serif;
+  touch-action:none;user-select:none;
+}
+
+/* ── ROOT ────────────────────────────────────── */
+#root{
+  width:100%;height:100%;
+  max-width:540px;margin:0 auto;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+}
+
+/* ── HUD — DOM text, not canvas ─────────────── */
+#hud{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 14px;
+  background:rgba(5,15,3,0.96);
+  border-bottom:2px solid #2d6a1a;
+  flex-shrink:0;gap:8px;
+}
+#hud-badge{font-size:10px;color:#6ee060;text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+#hud-level{font-size:12px;color:#a0e090;font-weight:600}
+#hud-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+#hud-score{font-size:22px;font-weight:800;color:#6ee060;min-width:32px;text-align:right}
+#hud-stars-row{font-size:14px;letter-spacing:2px}
+
+/* ── MATH DISPLAY — the problem, shown as pictures ─── */
+/* This IS the UI — big, central, always visible during play.
+   Not a popup. Not an interruption. It's the scoreboard
+   of the game world itself. */
+#math-bar{
+  background:rgba(5,20,3,0.92);
+  border-bottom:1px solid #1a4a10;
+  padding:10px 16px 10px;
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;
+  flex-shrink:0;
+  flex-wrap:wrap;
+}
+/* The two groups shown as dot grids — concrete before symbolic */
+.dot-group{
+  display:flex;flex-wrap:wrap;
+  gap:5px;align-items:center;justify-content:center;
+  max-width:100px;
+}
+.dot{
+  width:18px;height:18px;border-radius:50%;
+  background:#6ee060;
+  box-shadow:0 0 6px rgba(110,224,96,0.6);
+  flex-shrink:0;
+}
+.dot.caught{background:#22c55e;box-shadow:0 0 10px rgba(34,197,94,0.8)}
+.dot.empty{background:transparent;border:2px dashed #1a4a10}
+
+#math-plus{font-size:28px;font-weight:800;color:#6ee060;padding:0 2px}
+#math-eq{font-size:28px;font-weight:800;color:#6ee060;padding:0 2px}
+/* The answer box — child fills it by catching bugs */
+#math-answer{
+  min-width:52px;height:52px;
+  border-radius:10px;
+  background:#0a2808;
+  border:3px solid #2d6a1a;
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;font-weight:800;color:#6ee060;
+  transition:border-color 0.15s,background 0.15s,transform 0.1s;
+  position:relative;
+}
+#math-answer.correct{
+  border-color:#22c55e;background:#0f3010;
+  animation:answerPop 0.3s ease-out;
+}
+#math-answer.over{border-color:#ef4444;background:#300808}
+@keyframes answerPop{0%{transform:scale(1.15)}100%{transform:scale(1)}}
+
+/* caught counter under the answer */
+#caught-label{
+  position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);
+  font-size:10px;color:#4a7a40;white-space:nowrap;font-weight:600;
+}
+
+/* ── POND — the game world ───────────────────── */
+#pond{
+  flex:1;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 60%, #0a3018 0%, #051a08 60%, #020d04 100%);
+}
+
+/* Lily pads */
+.lily{
+  position:absolute;
+  border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#2d7a1a,#1a4a10);
+  border:2px solid #1a5a10;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Frog — the protagonist */
+#frog{
+  position:absolute;
+  font-size:44px;
+  line-height:1;
+  transition:transform 0.08s;
+  cursor:default;
+  z-index:5;
+  /* positioned by JS */
+}
+#frog.happy{animation:frogBounce 0.4s ease-out}
+#frog.puffed{font-size:52px;transition:font-size 0.1s}
+@keyframes frogBounce{0%{transform:scale(1.3) translateY(-8px)}100%{transform:scale(1) translateY(0)}}
+
+/* Frog belly — catch count shown on frog itself */
+#frog-count{
+  position:absolute;
+  background:rgba(0,0,0,0.75);
+  color:#6ee060;font-size:14px;font-weight:800;
+  border-radius:20px;padding:2px 8px;
+  pointer-events:none;z-index:6;
+  transition:opacity 0.2s;
+  /* positioned by JS relative to frog */
+}
+
+/* ── BUGS — what the child taps ──────────────── */
+.bug{
+  position:absolute;
+  font-size:28px;
+  cursor:pointer;
+  z-index:10;
+  transition:transform 0.06s;
+  -webkit-tap-highlight-color:transparent;
+  /* large tap target */
+  padding:10px;
+  margin:-10px;
+}
+.bug:active{transform:scale(0.8)}
+.bug.caught{
+  pointer-events:none;
+  animation:bugCaught 0.3s ease-out forwards;
+}
+@keyframes bugCaught{
+  0%{transform:scale(1.4);opacity:1}
+  100%{transform:scale(0) translateY(-20px);opacity:0}
+}
+.bug.missed{
+  pointer-events:none;
+  animation:bugMissed 0.4s ease-out forwards;
+  opacity:0;
+}
+@keyframes bugMissed{from{opacity:0.6}to{opacity:0}}
+
+/* ── PROBLEM INTRO OVERLAY ──────────────────── */
+/* Shows the addition problem as pictures for 2 seconds 
+   before bugs appear. Concrete → symbolic. */
+#intro-overlay{
+  position:absolute;inset:0;
+  background:rgba(2,12,2,0.92);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  z-index:30;gap:16px;
+  pointer-events:none;
+}
+#intro-overlay.hidden{display:none}
+#intro-problem{
+  display:flex;align-items:center;gap:10px;
+  font-size:48px;font-weight:800;color:#6ee060;
+}
+#intro-sub{font-size:14px;color:#4a8a40;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+/* dot grid in intro — bigger */
+.intro-dots{
+  display:flex;flex-wrap:wrap;gap:6px;
+  max-width:120px;justify-content:center;
+}
+.intro-dot{
+  width:20px;height:20px;border-radius:50%;
+  background:#6ee060;
+  box-shadow:0 0 8px rgba(110,224,96,0.5);
+}
+
+/* ── RESULT FLASH ────────────────────────────── */
+#result-flash{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  z-index:25;pointer-events:none;
+  opacity:0;gap:10px;
+}
+#result-flash.show{animation:flashIn 0.6s ease-out both}
+@keyframes flashIn{0%{opacity:0;transform:scale(0.8)}40%{opacity:1;transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
+#result-flash.hide{animation:flashOut 0.4s ease-in both}
+@keyframes flashOut{to{opacity:0}}
+#rf-emoji{font-size:64px}
+#rf-text{font-size:22px;font-weight:800;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.8)}
+#rf-pts{font-size:16px;color:#6ee060;font-weight:700}
+
+/* ── PARTICLE CANVAS ─────────────────────────── */
+#pcanvas{position:absolute;inset:0;pointer-events:none;z-index:20}
+
+/* ── SCREENS ─────────────────────────────────── */
+.screen{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:rgba(3,12,2,0.97);
+  z-index:100;gap:14px;padding:28px 24px;text-align:center;
+}
+.screen.hidden{display:none}
+.screen h1{font-size:28px;font-weight:800;color:#6ee060;line-height:1.2}
+.screen h2{font-size:20px;font-weight:700;color:#a0e090}
+.screen p{font-size:14px;color:#5a8a50;max-width:340px;line-height:1.7}
+.badge{
+  background:rgba(110,224,96,0.12);border:1.5px solid #6ee060;
+  border-radius:20px;padding:5px 16px;
+  font-size:10px;font-weight:700;color:#6ee060;
+  text-transform:uppercase;letter-spacing:1.5px;
+}
+.btn{
+  background:#6ee060;color:#0a1f08;border:none;border-radius:10px;
+  padding:13px 30px;font-size:16px;font-weight:800;cursor:pointer;
+  transition:transform 0.1s,background 0.1s;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:hover{background:#90f080;transform:scale(1.03)}
+.btn:active{transform:scale(0.96)}
+.btn.ghost{background:transparent;color:#6ee060;border:2px solid #6ee060}
+.btn.ghost:hover{background:rgba(110,224,96,0.1)}
+.star-row{font-size:36px;letter-spacing:6px}
+.tier-name{font-size:14px;font-weight:700;color:#6ee060}
+.tier-tip{font-size:12px;color:#4a7a40;max-width:300px}
+
+/* progress dots */
+#prog-dots{display:flex;gap:6px;margin-top:4px}
+.prog-dot{width:10px;height:10px;border-radius:50%;background:#1a4a10;border:1.5px solid #2d6a1a;transition:background 0.2s}
+.prog-dot.won{background:#6ee060;border-color:#a0f090}
+.prog-dot.lost{background:#4a1010;border-color:#7a2020}
+.prog-dot.active{background:#fff;border-color:#fff;box-shadow:0 0 6px #fff}
+</style>
+</head>
+<body>
+
+<!-- MENU -->
+<div class="screen" id="screen-menu">
+  <div class="badge">🔬 Wildlife Biologist</div>
+  <h1>BUG COUNTER</h1>
+  <p>You're a wildlife biologist counting insects! Add the two bug groups together, then catch exactly that many bugs before they fly away!</p>
+  <p style="font-size:12px;color:#3a6a30;font-weight:600;margin-top:2px">Math: addition · counting · number sense · K–2</p>
+  <button class="btn" onclick="startGame()" style="margin-top:6px">START COUNTING! 🐛</button>
+</div>
+
+<!-- RESULTS -->
+<div class="screen hidden" id="screen-result">
+  <div class="badge">🔬 Wildlife Biologist</div>
+  <h2 id="res-title">Round Done!</h2>
+  <div class="star-row" id="res-stars"></div>
+  <div class="tier-name" id="res-tier"></div>
+  <div class="tier-tip" id="res-tip"></div>
+  <div id="prog-dots"></div>
+  <p id="res-stats" style="font-size:12px;color:#3a6a30;margin-top:4px"></p>
+  <button class="btn" onclick="nextLevel()" id="res-next" style="margin-top:8px">NEXT LEVEL →</button>
+  <button class="btn ghost" onclick="retryLevel()">TRY AGAIN</button>
+</div>
+
+<!-- WIN -->
+<div class="screen hidden" id="screen-win">
+  <div class="badge">🏆 Master Biologist</div>
+  <h1>RESEARCH COMPLETE!</h1>
+  <p>Amazing field work! You counted every bug population perfectly. The science lab is going to love your data!</p>
+  <div class="star-row" style="margin-top:4px">⭐⭐⭐</div>
+  <button class="btn" onclick="restartAll()">COUNT AGAIN!</button>
+</div>
+
+<!-- GAME -->
+<div id="root">
+  <!-- HUD: DOM only -->
+  <div id="hud">
+    <div>
+      <div id="hud-badge">🔬 Wildlife Biologist</div>
+      <div id="hud-level">Level 1</div>
+    </div>
+    <div id="hud-right">
+      <div id="hud-stars-row">☆☆☆</div>
+      <div id="hud-score">0</div>
+    </div>
+  </div>
+
+  <!-- MATH BAR — always visible, not a popup.
+       Shows the addition problem as dot grids (concrete)
+       AND as numerals (symbolic) side by side.
+       The answer box fills as bugs are caught. -->
+  <div id="math-bar">
+    <div id="dots-a" class="dot-group"></div>
+    <div id="math-plus">+</div>
+    <div id="dots-b" class="dot-group"></div>
+    <div id="math-eq">=</div>
+    <div id="math-answer">
+      <span id="answer-num">0</span>
+      <div id="caught-label">CAUGHT</div>
+    </div>
+  </div>
+
+  <!-- POND -->
+  <div id="pond">
+    <canvas id="pcanvas"></canvas>
+
+    <!-- Intro overlay shows the problem as pictures before play -->
+    <div id="intro-overlay">
+      <div id="intro-problem"></div>
+      <div id="intro-sub">CATCH THIS MANY BUGS!</div>
+    </div>
+
+    <!-- Result flash -->
+    <div id="result-flash">
+      <div id="rf-emoji">🐸</div>
+      <div id="rf-text">YES!</div>
+      <div id="rf-pts">+10</div>
+    </div>
+
+    <!-- Frog count bubble -->
+    <div id="frog-count">0</div>
+
+    <!-- Frog (positioned by JS) -->
+    <div id="frog">🐸</div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+//
+// BUG COUNTER — design rationale
+//
+// Math skill: single-digit addition, sums 2–10
+// Number moment: child sees A + B shown as dots AND numerals.
+//   They must catch exactly A+B bugs. The catch counter IS the
+//   running total. They decide when to stop based on math, not
+//   on a visual line or a timer.
+//
+// Motor test (FAIL = good): can a child win by tapping randomly?
+//   NO — tapping too many fails the round. Tapping too few when
+//   bugs stop spawning fails the round. The correct number must
+//   be known and held in working memory while catching.
+//
+// Worksheet test (PASS): a worksheet can show 3+4=___.
+//   It cannot show 7 bugs buzzing at different speeds requiring
+//   the child to track "I've caught 5, I need 2 more, stop now."
+//   Active counting under pressure, with a live total, is
+//   strictly interactive.
+//
+// Signature moment: catching the LAST bug exactly — the answer
+//   box flashes gold, the frog burps a rainbow, bugs explode
+//   into stars. The child pumps their fist.
+//
+// ════════════════════════════════════════════════════════════════
+
+// ── LEVELS — math from easy to challenging ────────────────────
+// a + b = target. Bugs spawned = target + extras (distractors).
+// Child must catch exactly target and then STOP.
+// extras = decoy bugs that keep flying. Catching too many = fail.
+
+const LEVELS = [
+  // Level 1-3: tiny numbers, slow bugs, few distractors
+  {a:1, b:2, bugSpeed:55, extras:2, introTime:2500, bugLife:5.0},
+  {a:2, b:2, bugSpeed:58, extras:2, introTime:2200, bugLife:4.8},
+  {a:1, b:3, bugSpeed:60, extras:3, introTime:2200, bugLife:4.5},
+  // Level 4-6: medium numbers
+  {a:2, b:3, bugSpeed:65, extras:3, introTime:2000, bugLife:4.2},
+  {a:3, b:3, bugSpeed:68, extras:3, introTime:2000, bugLife:4.0},
+  {a:2, b:4, bugSpeed:70, extras:4, introTime:1800, bugLife:3.8},
+  // Level 7-9: bigger sums
+  {a:3, b:4, bugSpeed:75, extras:4, introTime:1800, bugLife:3.5},
+  {a:4, b:4, bugSpeed:78, extras:4, introTime:1600, bugLife:3.3},
+  {a:3, b:5, bugSpeed:80, extras:5, introTime:1600, bugLife:3.2},
+  // Level 10: hardest
+  {a:4, b:5, bugSpeed:85, extras:5, introTime:1500, bugLife:3.0},
+];
+
+// Bug types — visual variety, no semantic difference (L6 taxonomy palette not needed here — all bugs equal)
+const BUGS = ["🦟","🐝","🦋","🐛","🪲","🪳","🐞","🦗","🪰","🐜"];
+
+// ── STATE ──────────────────────────────────────────────────────
+let levelIdx = 0;
+let lv = null;
+let target = 0;
+let caught = 0;
+let roundState = "intro"; // intro | playing | judging | done
+let score = 0;
+let levelResults = []; // "win"|"lose" per level
+
+let bugs = [];       // active bug elements + data
+let bugIdCounter = 0;
+let spawnTimer = 0;
+let spawnedCount = 0; // total bugs spawned this round (target + extras)
+let raf = null;
+let lastTime = 0;
+
+// Particle system
+const pCanvas = document.getElementById("pcanvas");
+const pCtx = pCanvas.getContext("2d");
+let particles = [];
+
+// Frog position
+let frogX = 0, frogY = 0;
+
+// ── INIT ──────────────────────────────────────────────────────
+function showScreen(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.add("hidden"));
+  if (id) document.getElementById(id).classList.remove("hidden");
+}
+
+function startGame() {
+  levelIdx = 0;
+  score = 0;
+  levelResults = [];
+  showScreen(null);
+  loadLevel();
+}
+
+function loadLevel() {
+  lv = LEVELS[levelIdx];
+  target = lv.a + lv.b;
+  caught = 0;
+  roundState = "intro";
+  bugs = [];
+  spawnedCount = 0;
+  spawnTimer = 0;
+  bugIdCounter = 0;
+  particles = [];
+
+  // Clear old bug elements
+  document.querySelectorAll(".bug").forEach(b => b.remove());
+
+  // Resize canvas
+  pCanvas.width = pCanvas.offsetWidth;
+  pCanvas.height = pCanvas.offsetHeight;
+
+  // Position frog at bottom center of pond
+  const pond = document.getElementById("pond");
+  frogX = pond.offsetWidth * 0.5;
+  frogY = pond.offsetHeight * 0.78;
+  positionFrog();
+
+  // Update HUD
+  document.getElementById("hud-level").textContent = `Level ${levelIdx + 1} of ${LEVELS.length}`;
+  document.getElementById("hud-score").textContent = score;
+  document.getElementById("hud-stars-row").textContent = "☆☆☆";
+
+  // Build math bar dot grids
+  buildDotGrid("dots-a", lv.a, false);
+  buildDotGrid("dots-b", lv.b, false);
+  document.getElementById("answer-num").textContent = "0";
+  document.getElementById("math-answer").className = "";
+
+  // Show intro overlay with the problem as big pictures
+  showIntro();
+
+  // Start loop
+  cancelAnimationFrame(raf);
+  lastTime = performance.now();
+  raf = requestAnimationFrame(gameLoop);
+}
+
+function positionFrog() {
+  const frog = document.getElementById("frog");
+  frog.style.left = (frogX - 22) + "px";
+  frog.style.top  = (frogY - 22) + "px";
+  const fc = document.getElementById("frog-count");
+  fc.style.left = (frogX - 16) + "px";
+  fc.style.top  = (frogY + 28) + "px";
+}
+
+// ── DOT GRIDS — concrete representation before symbolic ───────
+// The dots in the math bar show the numbers visually.
+// As bugs are caught, dots light up to track the running total.
+function buildDotGrid(id, count, caught_count) {
+  const el = document.getElementById(id);
+  el.innerHTML = "";
+  for (let i = 0; i < count; i++) {
+    const dot = document.createElement("div");
+    dot.className = "dot" + (i < caught_count ? " caught" : "");
+    el.appendChild(dot);
+  }
+}
+
+function updateDotGrids() {
+  // Light up dots in group A first, then group B
+  const a = lv.a, b = lv.b;
+  const dotsA = document.querySelectorAll("#dots-a .dot");
+  const dotsB = document.querySelectorAll("#dots-b .dot");
+  dotsA.forEach((d,i) => d.classList.toggle("caught", i < Math.min(caught, a)));
+  dotsB.forEach((d,i) => d.classList.toggle("caught", i < Math.max(0, caught - a)));
+}
+
+// ── INTRO OVERLAY ─────────────────────────────────────────────
+// Shows A (dots) + B (dots) = ? for introTime ms before bugs appear.
+// Concrete picture of the problem before any action is required.
+function showIntro() {
+  const overlay = document.getElementById("intro-overlay");
+  overlay.classList.remove("hidden");
+  const prob = document.getElementById("intro-problem");
+  prob.innerHTML = "";
+
+  // Group A dots
+  const da = document.createElement("div");
+  da.className = "intro-dots";
+  for (let i = 0; i < lv.a; i++) {
+    const d = document.createElement("div"); d.className = "intro-dot"; da.appendChild(d);
+  }
+  prob.appendChild(da);
+
+  // Plus
+  const pl = document.createElement("span");
+  pl.textContent = "+"; pl.style.cssText = "font-size:36px;font-weight:800;color:#6ee060;padding:0 6px";
+  prob.appendChild(pl);
+
+  // Group B dots
+  const db = document.createElement("div");
+  db.className = "intro-dots";
+  for (let i = 0; i < lv.b; i++) {
+    const d = document.createElement("div"); d.className = "intro-dot"; db.appendChild(d);
+  }
+  prob.appendChild(db);
+
+  // Equals + target number (symbolic alongside concrete)
+  const eq = document.createElement("span");
+  eq.textContent = "= ?"; eq.style.cssText = "font-size:36px;font-weight:800;color:#6ee060;padding:0 6px";
+  prob.appendChild(eq);
+
+  // Hide after introTime → start spawning
+  setTimeout(() => {
+    overlay.classList.add("hidden");
+    roundState = "playing";
+  }, lv.introTime);
+}
+
+// ── BUG SPAWNING ───────────────────────────────────────────────
+const SPAWN_INTERVAL = 0.7; // seconds between bugs
+const TOTAL_BUGS = () => target + lv.extras; // enough bugs to succeed + some distractors
+
+function spawnBug() {
+  if (spawnedCount >= TOTAL_BUGS()) return;
+  spawnedCount++;
+
+  const pond = document.getElementById("pond");
+  const pw = pond.offsetWidth;
+  const ph = pond.offsetHeight;
+
+  // Random position in upper 70% of pond
+  const x = 30 + Math.random() * (pw - 80);
+  const y = 20 + Math.random() * (ph * 0.65);
+
+  // Random movement vector
+  const angle = Math.random() * Math.PI * 2;
+  const speed = lv.bugSpeed * (0.7 + Math.random() * 0.6);
+  const vx = Math.cos(angle) * speed;
+  const vy = Math.sin(angle) * speed;
+
+  // Pick bug emoji
+  const emoji = BUGS[Math.floor(Math.random() * BUGS.length)];
+  const id = "bug-" + (bugIdCounter++);
+
+  const el = document.createElement("div");
+  el.className = "bug";
+  el.id = id;
+  el.textContent = emoji;
+  el.style.left = x + "px";
+  el.style.top  = y + "px";
+  el.addEventListener("pointerdown", (e) => { e.preventDefault(); catchBug(id); });
+  pond.appendChild(el);
+
+  bugs.push({ id, el, x, y, vx, vy, life: lv.bugLife, alive: true });
+}
+
+// ── CATCH — this IS the math action ──────────────────────────
+// The child taps a bug. caught++ happens.
+// They know the target (shown in the math bar).
+// They must stop tapping when caught === target.
+// If they catch one too many → over → round fails → retry.
+function catchBug(id) {
+  if (roundState !== "playing") return;
+  const bug = bugs.find(b => b.id === id);
+  if (!bug || !bug.alive) return;
+
+  bug.alive = false;
+  bug.el.classList.add("caught");
+
+  caught++;
+
+  // Spawn catch particles at bug position
+  spawnCatchParticles(bug.x + 14, bug.y + 14);
+
+  // Frog reacts
+  const frogEl = document.getElementById("frog");
+  frogEl.classList.remove("happy","puffed");
+  void frogEl.offsetWidth; // reflow
+  frogEl.classList.add("happy");
+
+  // Update counter display
+  document.getElementById("frog-count").textContent = caught;
+  document.getElementById("answer-num").textContent = caught;
+  updateDotGrids();
+
+  const answerEl = document.getElementById("math-answer");
+
+  if (caught === target) {
+    // PERFECT — exactly right
+    answerEl.classList.add("correct");
+    roundState = "judging";
+    spawnSuccessParticles(frogX, frogY);
+    showResultFlash(true, "+20");
+    score += 20;
+    document.getElementById("hud-score").textContent = score;
+    levelResults.push("win");
+    setTimeout(() => {
+      hideResultFlash();
+      setTimeout(goToResult, 400);
+    }, 1200);
+
+  } else if (caught > target) {
+    // TOO MANY — fail
+    answerEl.classList.add("over");
+    roundState = "judging";
+    showResultFlash(false, "Too many!");
+    levelResults.push("lose");
+    setTimeout(() => {
+      hideResultFlash();
+      setTimeout(goToResult, 400);
+    }, 1200);
+  }
+  // else: keep catching
+}
+
+// ── GAME LOOP ──────────────────────────────────────────────────
+function gameLoop(now) {
+  const dt = Math.min((now - lastTime) / 1000, 0.05);
+  lastTime = now;
+
+  if (roundState === "playing") {
+    // Spawn bugs
+    spawnTimer += dt;
+    if (spawnTimer >= SPAWN_INTERVAL && spawnedCount < TOTAL_BUGS()) {
+      spawnTimer = 0;
+      spawnBug();
+    }
+
+    // Move bugs
+    const pond = document.getElementById("pond");
+    const pw = pond.offsetWidth;
+    const ph = pond.offsetHeight;
+
+    bugs.forEach(bug => {
+      if (!bug.alive) return;
+      bug.life -= dt;
+      if (bug.life <= 0) {
+        // Bug flew away
+        bug.alive = false;
+        bug.el.classList.add("missed");
+        setTimeout(() => bug.el.remove(), 400);
+        return;
+      }
+      // Bounce off walls
+      bug.x += bug.vx * dt;
+      bug.y += bug.vy * dt;
+      if (bug.x < 10 || bug.x > pw - 50) { bug.vx *= -1; bug.x = Math.max(10, Math.min(pw-50, bug.x)); }
+      if (bug.y < 10 || bug.y > ph * 0.75) { bug.vy *= -1; bug.y = Math.max(10, Math.min(ph*0.75, bug.y)); }
+      bug.el.style.left = bug.x + "px";
+      bug.el.style.top  = bug.y + "px";
+      // Fade when about to leave
+      const fadeT = Math.min(1, bug.life / 1.0);
+      bug.el.style.opacity = fadeT;
+    });
+
+    // Check: all bugs gone and not enough caught
+    const aliveBugs = bugs.filter(b => b.alive).length;
+    const remainingSpawn = TOTAL_BUGS() - spawnedCount;
+    if (aliveBugs === 0 && remainingSpawn === 0 && caught < target) {
+      // Ran out of catchable bugs — not enough caught
+      roundState = "judging";
+      showResultFlash(false, "Need " + (target - caught) + " more!");
+      levelResults.push("lose");
+      setTimeout(() => { hideResultFlash(); setTimeout(goToResult, 400); }, 1400);
+    }
+  }
+
+  // Particles
+  particles.forEach(p => {
+    p.x += p.vx * dt;
+    p.y += p.vy * dt;
+    p.vy += 180 * dt;
+    p.life -= p.decay * dt;
+  });
+  particles = particles.filter(p => p.life > 0);
+  drawParticles();
+
+  raf = requestAnimationFrame(gameLoop);
+}
+
+// ── PARTICLES ──────────────────────────────────────────────────
+function spawnCatchParticles(x, y) {
+  for (let i = 0; i < 6; i++) {
+    const a = Math.random() * Math.PI * 2;
+    const s = 40 + Math.random() * 60;
+    particles.push({
+      x, y, vx: Math.cos(a)*s, vy: Math.sin(a)*s - 30,
+      life:1, decay:1.2+Math.random()*0.6,
+      size:3+Math.random()*3, color:"#6ee060",
+    });
+  }
+}
+
+function spawnSuccessParticles(x, y) {
+  for (let i = 0; i < 24; i++) {
+    const a = (Math.PI*2/24)*i;
+    const s = 60 + Math.random()*100;
+    const colors = ["#6ee060","#f5a623","#22c55e","#ffd700","#a0f080"];
+    particles.push({
+      x, y, vx: Math.cos(a)*s, vy: Math.sin(a)*s - 80,
+      life:1, decay:0.5+Math.random()*0.4,
+      size:5+Math.random()*6, color: colors[i%colors.length],
+    });
+  }
+}
+
+function drawParticles() {
+  pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+  particles.forEach(p => {
+    pCtx.save();
+    pCtx.globalAlpha = Math.max(0, p.life);
+    pCtx.fillStyle = p.color;
+    pCtx.beginPath();
+    pCtx.arc(p.x, p.y, p.size * p.life, 0, Math.PI*2);
+    pCtx.fill();
+    pCtx.restore();
+  });
+}
+
+// ── RESULT FLASH ───────────────────────────────────────────────
+function showResultFlash(win, label) {
+  const el = document.getElementById("result-flash");
+  document.getElementById("rf-emoji").textContent = win ? "🐸" : "😵";
+  document.getElementById("rf-text").textContent  = win ? "PERFECT COUNT!" : "Oops!";
+  document.getElementById("rf-pts").textContent   = label;
+  document.getElementById("rf-pts").style.color   = win ? "#6ee060" : "#ef4444";
+  el.className = "show";
+}
+function hideResultFlash() {
+  document.getElementById("result-flash").className = "hide";
+}
+
+// ── GO TO RESULT SCREEN ────────────────────────────────────────
+function goToResult() {
+  cancelAnimationFrame(raf);
+  document.querySelectorAll(".bug").forEach(b => b.remove());
+
+  const won = levelResults[levelResults.length-1] === "win";
+
+  // Stars: 3=perfect first try, 2=won, 1=attempted
+  const stars    = won ? (levelResults.filter(r=>r==="win").length === levelIdx+1 ? "⭐⭐⭐" : "⭐⭐") : "⭐";
+  const tierName = won ? (stars==="⭐⭐⭐" ? "🌟 PERFECT COUNT!" : "Great counting!") : "Good try!";
+  const tierTip  = won
+    ? (stars!=="⭐⭐⭐" ? "Try without any mistakes for 3 stars!" : "You counted perfectly!")
+    : `You needed ${target} bugs — that's ${lv.a} + ${lv.b}. Try again!`;
+
+  document.getElementById("res-title").textContent = `Level ${levelIdx+1}: ${lv.a} + ${lv.b} = ${target}`;
+  document.getElementById("res-stars").textContent = stars;
+  document.getElementById("res-tier").textContent  = tierName;
+  document.getElementById("res-tip").textContent   = tierTip;
+  document.getElementById("res-stats").textContent =
+    `Caught: ${caught} / needed: ${target} · Score: ${score}`;
+
+  // Progress dots
+  const dotsEl = document.getElementById("prog-dots");
+  dotsEl.innerHTML = "";
+  LEVELS.forEach((_, i) => {
+    const d = document.createElement("div");
+    const res = levelResults[i];
+    d.className = "prog-dot" + (res==="win"?" won":res==="lose"?" lost":i===levelIdx?" active":"");
+    dotsEl.appendChild(d);
+  });
+
+  const isLast = levelIdx >= LEVELS.length - 1;
+  document.getElementById("res-next").textContent = won && isLast ? "FINISH! 🎉" : won ? "NEXT LEVEL →" : "NEXT LEVEL →";
+
+  showScreen("screen-result");
+}
+
+function nextLevel() {
+  if (levelIdx >= LEVELS.length - 1) {
+    showScreen("screen-win");
+    return;
+  }
+  levelIdx++;
+  showScreen(null);
+  loadLevel();
+}
+
+function retryLevel() {
+  levelResults.pop(); // remove the loss
+  showScreen(null);
+  loadLevel();
+}
+
+function restartAll() {
+  showScreen("screen-menu");
+}
+
+// ── BOOT ──────────────────────────────────────────────────────
+window.addEventListener("resize", () => {
+  pCanvas.width = pCanvas.offsetWidth;
+  pCanvas.height = pCanvas.offsetHeight;
+  positionFrog();
+});
+
+showScreen("screen-menu");
+</script>
+</body>
+</html>

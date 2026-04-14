@@ -1,0 +1,129 @@
+<style>
+.wrap { padding: 1rem 0; font-family: var(--font-mono); font-size: 13px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 22px 26px; }
+.line { display: flex; align-items: baseline; gap: 12px; white-space: pre; line-height: 1.75; }
+.tree { color: var(--color-text-primary); }
+.comment { color: var(--color-text-tertiary); font-family: var(--font-sans); font-size: 12px; }
+.folder-agents { color: #534AB7; }
+.folder-concepts { color: #0F6E56; }
+.folder-workflows { color: #993C1D; }
+.folder-contracts { color: #185FA5; }
+.folder-games { color: #378ADD; }
+.folder-reviews { color: #993C1D; }
+.folder-lessons { color: #BA7517; }
+.folder-governance { color: #A32D2D; }
+.folder-skills { color: #5F5E5A; }
+.new { background: #E1F5EE; color: #085041; font-family: var(--font-sans); font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 4px; margin-left: 6px; }
+@media (prefers-color-scheme: dark) {
+  .folder-agents { color: #AFA9EC; }
+  .folder-concepts { color: #5DCAA5; }
+  .folder-workflows { color: #F0997B; }
+  .folder-contracts { color: #85B7EB; }
+  .folder-games { color: #85B7EB; }
+  .folder-reviews { color: #F0997B; }
+  .folder-lessons { color: #EF9F27; }
+  .folder-governance { color: #F09595; }
+  .folder-skills { color: #B4B2A9; }
+  .new { background: #085041; color: #E1F5EE; }
+}
+</style>
+<div class="wrap">
+<div class="line"><span class="tree">edu-game-os/</span></div>
+<div class="line"><span class="comment">  # Agent definitions — one per pipeline stage</span></div>
+<div class="line"><span class="tree">  </span><span class="folder-agents">.agents/</span></div>
+<div class="line"><span class="tree">    concept-intake.md     </span><span class="comment">— stage 0 agent prompt + lens</span></div>
+<div class="line"><span class="tree">    learner-fit.md        </span><span class="comment">— stage 1 agent prompt + lens</span></div>
+<div class="line"><span class="tree">    kill-test.md          </span><span class="comment">— stage 2 agent</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    fantasy-integrity.md  </span><span class="comment">— stage 3 agent</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    interaction-mapper.md </span><span class="comment">— stage 4 agent prompt + lens</span></div>
+<div class="line"><span class="tree">    core-loop.md          </span><span class="comment">— stage 5 agent prompt + lens</span></div>
+<div class="line"><span class="tree">    brilliant-standard.md </span><span class="comment">— stage 6 agent</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    multisensory-spec.md  </span><span class="comment">— stage 7 agent</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    prototype-spec.md     </span><span class="comment">— stage 8 agent prompt + lens</span></div>
+<div class="line"><span class="tree">    ux-continuity.md      </span><span class="comment">— stage 9 agent</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    build.md              </span><span class="comment">— stage 10 agent prompt + lens</span></div>
+<div class="line"><span class="tree">    feel-audit.md         </span><span class="comment">— stage 11 agent</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    misconception.md      </span><span class="comment">— stage 12 agent</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    gate-engine.md        </span><span class="comment">— pass / revise / reject logic</span></div>
+
+<div class="line"><span class="comment">  # Concept library — one folder per game, full gate history</span></div>
+<div class="line"><span class="tree">  </span><span class="folder-concepts">.concepts/</span></div>
+<div class="line"><span class="tree">    _template/            </span><span class="comment">— raw intake template, all artifact stubs</span></div>
+<div class="line"><span class="tree">    [game-slug]/</span></div>
+<div class="line"><span class="tree">      concept-brief.json     </span><span class="comment">— stage 0 output</span></div>
+<div class="line"><span class="tree">      learner-fit.json       </span><span class="comment">— stage 1 output</span></div>
+<div class="line"><span class="tree">      kill-verdict.json      </span><span class="comment">— stage 2</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">      fantasy-integrity.json </span><span class="comment">— stage 3</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">      interaction-spec.json  </span><span class="comment">— stage 4</span></div>
+<div class="line"><span class="tree">      core-loop.json         </span><span class="comment">— stage 5</span></div>
+<div class="line"><span class="tree">      brilliant-audit.json   </span><span class="comment">— stage 6</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">      multisensory-spec.json </span><span class="comment">— stage 7</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">      round-content.json     </span><span class="comment">— stage 8 content bank</span></div>
+<div class="line"><span class="tree">      ux-contract.json       </span><span class="comment">— stage 9</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">      feel-audit.json        </span><span class="comment">— stage 11</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">      misconception-map.json </span><span class="comment">— stage 12</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">      gate-log.md            </span><span class="comment">— every pass / revise / reject verdict</span></div>
+
+<div class="line"><span class="comment">  # Workflow logic — how agents talk to each other</span></div>
+<div class="line"><span class="tree">  </span><span class="folder-workflows">.workflows/</span></div>
+<div class="line"><span class="tree">    pipeline.yml          </span><span class="comment">— full 13-stage sequence</span></div>
+<div class="line"><span class="tree">    gate.yml              </span><span class="comment">— gate engine rules, hard rejects</span></div>
+<div class="line"><span class="tree">    team-concept.yml      </span><span class="comment">— stages 0–3 team config</span></div>
+<div class="line"><span class="tree">    team-design.yml       </span><span class="comment">— stages 4–7 team config</span></div>
+<div class="line"><span class="tree">    team-contract.yml     </span><span class="comment">— stages 8–9 team config</span></div>
+<div class="line"><span class="tree">    team-build.yml        </span><span class="comment">— stage 10 team config</span></div>
+<div class="line"><span class="tree">    team-audit.yml        </span><span class="comment">— stages 11–12 team config</span></div>
+
+<div class="line"><span class="comment">  # Contracts — locked specs that forbid regression</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">  </span><span class="folder-contracts">.contracts/</span></div>
+<div class="line"><span class="tree">    global-ux.md          </span><span class="comment">— rules every game must honour</span></div>
+<div class="line"><span class="tree">    juice-floor.md        </span><span class="comment">— the 20-point feel audit rubric</span></div>
+<div class="line"><span class="tree">    brilliant-rules.md    </span><span class="comment">— interaction quality standard</span></div>
+<div class="line"><span class="tree">    a11y-floor.md         </span><span class="comment">— K–2 reading, touch, colorblind</span></div>
+<div class="line"><span class="tree">    [game-slug].md        </span><span class="comment">— per-game signed contract</span></div>
+
+<div class="line"><span class="comment">  # Game source</span></div>
+<div class="line"><span class="tree">  </span><span class="folder-games">.games/</span></div>
+<div class="line"><span class="tree">    [game-slug]/</span></div>
+<div class="line"><span class="tree">      src/                </span><span class="comment">— implementation</span></div>
+<div class="line"><span class="tree">      prototype/          </span><span class="comment">— prototype builds</span></div>
+<div class="line"><span class="tree">      release/            </span><span class="comment">— release candidates</span></div>
+
+<div class="line"><span class="comment">  # Review artifacts — per game</span></div>
+<div class="line"><span class="tree">  </span><span class="folder-reviews">.reviews/</span></div>
+<div class="line"><span class="tree">    [game-slug]/</span></div>
+<div class="line"><span class="tree">      design-review.md</span></div>
+<div class="line"><span class="tree">      feel-audit-report.md   </span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">      playtest-report.md</span></div>
+<div class="line"><span class="tree">      qa-report.md</span></div>
+<div class="line"><span class="tree">      telemetry-review.md    </span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">      retrospective.md</span></div>
+
+<div class="line"><span class="comment">  # Lessons library — cross-game memory</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">  </span><span class="folder-lessons">.lessons/</span></div>
+<div class="line"><span class="tree">    index.md              </span><span class="comment">— searchable catalogue of every lesson</span></div>
+<div class="line"><span class="tree">    patterns-that-break.md </span><span class="comment">— failure archive, fed into ux-contract</span></div>
+<div class="line"><span class="tree">    patterns-that-work.md  </span><span class="comment">— techniques to reuse</span></div>
+<div class="line"><span class="tree">    echo-heist/           </span><span class="comment">— scoped lessons per title</span></div>
+<div class="line"><span class="tree">    orbital-drift/</span></div>
+<div class="line"><span class="tree">    star-courier/</span></div>
+
+<div class="line"><span class="comment">  # Governance</span></div>
+<div class="line"><span class="tree">  </span><span class="folder-governance">.governance/</span></div>
+<div class="line"><span class="tree">    decisions.md          </span><span class="comment">— architecture decision log</span></div>
+<div class="line"><span class="tree">    iteration-log.md      </span><span class="comment">— wins, gaps, learnings</span></div>
+<div class="line"><span class="tree">    kill-log.md           </span><span class="comment">— archive of rejected concepts</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    CHANGELOG.md</span></div>
+
+<div class="line"><span class="comment">  # Skills — reusable capabilities across all games</span></div>
+<div class="line"><span class="tree">  </span><span class="folder-skills">.skills/</span></div>
+<div class="line"><span class="tree">    commands/             </span><span class="comment">— slash command definitions</span></div>
+<div class="line"><span class="tree">    prompts/              </span><span class="comment">— reusable agent prompts</span></div>
+<div class="line"><span class="tree">    juice/                </span><span class="comment">— particles, easing, shake</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    brilliant/            </span><span class="comment">— interaction quality helpers</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    typography/           </span><span class="comment">— font and scale library</span><span class="new">NEW</span></div>
+<div class="line"><span class="tree">    audio/                </span><span class="comment">— layered sound patterns</span><span class="new">NEW</span></div>
+
+<div class="line"><span class="tree">  README.md</span></div>
+<div class="line"><span class="tree">  CONTRIBUTING.md</span></div>
+<div class="line"><span class="tree">  PIPELINE_OS.md          </span><span class="comment">— the 13-stage master spec</span><span class="new">NEW</span></div>
+</div>
